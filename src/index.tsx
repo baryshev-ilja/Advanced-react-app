@@ -2,12 +2,15 @@ import someFn from './test'
 import {render} from "react-dom";
 import {BrowserRouter} from "react-router-dom";
 import App from "./App";
+import ThemeProvider from "./theme/ThemeProvider";
 
 someFn(123);
 
 render(
     <BrowserRouter>
-        <App/>
+        <ThemeProvider>
+            <App/>
+        </ThemeProvider>
     </BrowserRouter>,
     document.getElementById('root')
 )
