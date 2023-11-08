@@ -2,5 +2,6 @@
   "key": "Translate",
   "test": "Welcome to React",
   "home": "Home",
-  "language": "English"
+  "language": "English",
+    "Страница не найдена": "Page not found"
 }
