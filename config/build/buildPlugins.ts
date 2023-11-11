@@ -18,6 +18,6 @@ export function buildPlugins({ paths, isDev }: BuildOptions): webpack.WebpackPlu
             __IS_DEV__: JSON.stringify(isDev),
         }),
         new webpack.HotModuleReplacementPlugin(),
-        isDev && new ReactRefreshPlugin(),
+        isDev && new ReactRefreshPlugin({ overlay: false }),
     ].filter(Boolean);
 }
