@@ -3,5 +3,6 @@
   "test": "Welcome to React",
   "home": "Home",
   "language": "English",
-    "Страница не найдена": "Page not found"
+    "Страница не найдена": "Page not found",
+    "Throw error": "Throw error"
 }
