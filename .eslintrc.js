@@ -43,7 +43,7 @@ module.exports = {
             'error',
             { markupOnly: true, onlyAttribute: [''] },
         ],
-        'max-len': ['warn', { ignoreComments: true }],
+        'max-len': ['warn', { ignoreComments: true, code: 100 }],
     },
     globals: {
         __IS_DEV__: true,
