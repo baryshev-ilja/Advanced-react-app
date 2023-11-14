@@ -41,7 +41,10 @@ module.exports = {
         'no-underscore-dangle': 'off',
         'i18next/no-literal-string': [
             'error',
-            { markupOnly: true, onlyAttribute: [''] },
+            {
+                markupOnly: true,
+                onlyAttribute: [''],
+            },
         ],
         'max-len': ['warn', { ignoreComments: true, code: 100 }],
     },
@@ -49,4 +52,12 @@ module.exports = {
         __IS_DEV__: true,
     },
     root: true,
+    overrides: [
+        {
+            files: ['**/src/**/*.test.{ts,tsx}'],
+            rules: {
+                'i18next/no-literal-string': 'off',
+            },
+        },
+    ],
 };
