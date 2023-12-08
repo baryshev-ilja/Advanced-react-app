@@ -4,8 +4,8 @@ import { FC } from 'react';
 import cls from './AppLink.module.scss';
 
 export enum Color {
-    'PRIMARY' = 'primary',
-    'SECONDARY' = 'secondary',
+    PRIMARY = 'primary',
+    SECONDARY = 'secondary',
 }
 
 interface AppLinkProps extends LinkProps{
