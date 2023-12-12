@@ -9,6 +9,7 @@ import cls from './Modal.module.scss';
 interface ModalProps {
     className?: string;
     children?: ReactNode;
+    container?: HTMLElement;
     isOpen?: boolean;
     onClose?: () => void;
 }
@@ -17,6 +18,7 @@ export const Modal = (props: ModalProps) => {
     const {
         className,
         children,
+        container,
         isOpen,
         onClose,
     } = props;
@@ -63,7 +65,7 @@ export const Modal = (props: ModalProps) => {
     };
 
     return (
-        <Portal>
+        <Portal container={container}>
             <div className={classNames(cls.modal, mods, [className])}>
                 <div
                     className={cls.overlay}
