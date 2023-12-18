@@ -7,7 +7,6 @@ const AboutPage = () => {
     return (
         <div>
             {t('about')}
-            <Counter />
         </div>
     );
 };

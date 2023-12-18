@@ -9,7 +9,6 @@ const MainPage = () => {
         <div>
             <BugButton />
             {t('home')}
-            <Counter />
         </div>
     );
 };
