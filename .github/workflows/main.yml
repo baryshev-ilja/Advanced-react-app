@@ -35,6 +35,8 @@ jobs:
             - name: Storybook build
               run: npm run build-storybook
               if: always()
-            - name: Screenshots testing
-              run: npm run chromatic
+            - name: Screenshots testing Chromatic
+              uses: chromaui/action@latest
+              with:
+                projectToken: chpt_025e1e413343d56
               if: always()
