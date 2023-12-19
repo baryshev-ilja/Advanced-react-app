@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
 import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
-import { AppLink, Color } from 'shared/ui/AppLink/AppLink';
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { useTranslation } from 'react-i18next';
 import { RoutePaths } from 'shared/config/routeConfig/routeConfig';
 import AboutIcon from 'shared/assets/icons/about.svg';
@@ -40,7 +40,7 @@ export function Sidebar({ className }: SidebarProps) {
             <div className={cls.items}>
                 <AppLink
                     className={cls.item}
-                    color={Color.SECONDARY}
+                    theme={AppLinkTheme.SECONDARY}
                     to={RoutePaths.main}
                 >
                     <MainIcon className={cls.icon} />
@@ -48,7 +48,7 @@ export function Sidebar({ className }: SidebarProps) {
                 </AppLink>
                 <AppLink
                     className={cls.item}
-                    color={Color.SECONDARY}
+                    theme={AppLinkTheme.SECONDARY}
                     to={RoutePaths.about}
                 >
                     <AboutIcon

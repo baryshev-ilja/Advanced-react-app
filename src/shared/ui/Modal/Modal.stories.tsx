@@ -22,9 +22,11 @@ Light.args = {
 };
 
 export const Dark = Template.bind({});
+
 Dark.args = {
     container: document.getElementById('root'),
     isOpen: true,
     children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, expedita ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, expedita.',
 };
+
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
