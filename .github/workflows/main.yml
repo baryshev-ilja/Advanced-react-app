@@ -39,4 +39,5 @@ jobs:
               uses: chromaui/action@latest
               with:
                 projectToken: chpt_025e1e413343d56
+              run: npm run chromatic
               if: always()
