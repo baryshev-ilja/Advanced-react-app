@@ -36,5 +36,5 @@ jobs:
               run: npm run build-storybook
               if: always()
             - name: Screenshots testing
-              run: npm run test:ui:ci
+              run: npm run chromatic
               if: always()
