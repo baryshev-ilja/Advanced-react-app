@@ -12,11 +12,12 @@ jobs:
             matrix:
                 node-version: [ 17.x ]
         steps:
-            - uses: actions/checkout@v3
+            - uses: actions/checkout@v4
             - name: Use Node.js ${{ matrix.node-version }}
               uses: actions/setup-node@v3
               with:
                 node-version: ${{ matrix.node-version }}
+                fetch-depth: 0
 
             - name: Install modules
               run: npm ci
@@ -35,10 +36,9 @@ jobs:
             - name: Storybook build
               run: npm run build-storybook
               if: always()
-#            - name: Screenshots testing Chromatic
-#              uses: chromaui/action@latest
-#              with:
-#                projectToken: chpt_025e1e413343d56
-#              run: npm run chromatic
-#              if: always()
+            - name: Screenshots testing Chromatic
+              uses: chromaui/action@latest
+              with:
+                projectToken: chpt_025e1e413343d56
+              if: always()
 
