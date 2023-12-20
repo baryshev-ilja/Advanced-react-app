@@ -6,7 +6,7 @@ on:
     pull_request:
         branches: [ master ]
 jobs:
-    pipeline:
+    lint:
         runs-on: ubuntu-latest
         strategy:
             matrix:
@@ -17,7 +17,6 @@ jobs:
               uses: actions/setup-node@v3
               with:
                 node-version: ${{ matrix.node-version }}
-                fetch-depth: 0
 
             - name: Install modules
               run: npm ci
@@ -36,9 +35,20 @@ jobs:
             - name: Storybook build
               run: npm run build-storybook
               if: always()
-            - name: Screenshots testing Chromatic
-              uses: chromaui/action@latest
-              with:
-                projectToken: chpt_025e1e413343d56
-              if: always()
+
+    UI:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v4
+          with:
+            fetch-depth: 0
+        - name: Install modules
+          run: npm ci
+        - name: Storybook build
+          run: npm run build-storybook
+        - name: Screenshots testing Chromatic
+          uses: chromaui/action@latest
+          with:
+            projectToken: chpt_025e1e413343d56
 
