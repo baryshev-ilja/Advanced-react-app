@@ -1,8 +1,7 @@
 name: Linting, testing, building
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on:
-    push:
-        branches: [ master ]
+on: push
+
 jobs:
     Lint:
         runs-on: ubuntu-latest
