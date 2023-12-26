@@ -2,6 +2,8 @@ name: CI_Pipeline
 run-name: ${{ github.actor }} launched the CI pipeline! 🚀
 on:
   push:
+      branches:
+          - '**'
   pull_request:
         branches: [ master ]
 
