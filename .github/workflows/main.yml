@@ -18,49 +18,22 @@ jobs:
               with:
                 node-version: ${{ matrix.node-version }}
 
-            - name: Cache node modules
-              uses: actions/cache@v3
-              id: cache-dependencies
-              env:
-                cache-name: cache-node-modules
-              with:
-                path: node_modules
-                key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-                restore-keys: |
-                    ${{ runner.os }}-build-${{ env.cache-name }}-
-                    ${{ runner.os }}-build-
-                    ${{ runner.os }}-
+#            - name: Cache node modules
+#              uses: actions/cache@v3
+#              id: cache-dependencies
+#              env:
+#                cache-name: cache-node-modules
+#              with:
+#                path: node_modules
+#                key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+#                restore-keys: |
+#                    ${{ runner.os }}-build-${{ env.cache-name }}-
+#                    ${{ runner.os }}-build-
+#                    ${{ runner.os }}-
 
             - name: Install dependencies
-              if: ${{ steps.cache-dependencies.outputs.cache-hit != 'true' }}
+#              if: ${{ steps.cache-dependencies.outputs.cache-hit != 'true' }}
               run: npm ci
-
-    lint-format:
-        runs-on: ubuntu-latest
-        strategy:
-            matrix:
-                node-version: [ 17.x ]
-        needs: install-cache
-        steps:
-            - name: Checkout Commit
-              uses: actions/checkout@v4
-            - name: Use Node.js ${{ matrix.node-version }}
-              uses: actions/setup-node@v3
-              with:
-                node-version: ${{ matrix.node-version }}
-
-            - name: Restore node modules
-              uses: actions/cache@v3
-              id: cache-dependencies
-              env:
-                  cache-name: cache-node-modules
-              with:
-                  path: node_modules
-                  key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-                  restore-keys: |
-                      ${{ runner.os }}-build-${{ env.cache-name }}-
-                      ${{ runner.os }}-build-
-                      ${{ runner.os }}-
 
             - name: Run lint scss
               run: npm run lint:scss
@@ -68,65 +41,110 @@ jobs:
             - name: Run lint typescript
               run: npm run lint:ts
 
-    unit-test:
-        runs-on: ubuntu-latest
-        strategy:
-            matrix:
-                node-version: [ 17.x ]
-        needs: install-cache
-        steps:
-            - name: Checkout Commit
-              uses: actions/checkout@v4
-            - name: Use Node.js ${{ matrix.node-version }}
-              uses: actions/setup-node@v3
-              with:
-                node-version: ${{ matrix.node-version }}
-
-            - name: Restore node modules
-              uses: actions/cache@v3
-              id: cache-dependencies
-              env:
-                cache-name: cache-node-modules
-              with:
-                path: node_modules
-                key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-                restore-keys: |
-                    ${{ runner.os }}-build-${{ env.cache-name }}-
-                    ${{ runner.os }}-build-
-                    ${{ runner.os }}-
-
             - name: Unit testing
               run: npm run test:unit
 
-    build:
-        runs-on: ubuntu-latest
-        strategy:
-            matrix:
-                node-version: [ 17.x ]
-        needs: [lint-format, unit-test]
-        steps:
-            - name: Checkout Commit
-              uses: actions/checkout@v4
-            - name: Use Node.js ${{ matrix.node-version }}
-              uses: actions/setup-node@v3
-              with:
-                node-version: ${{ matrix.node-version }}
-
-            - name: Restore node modules
-              uses: actions/cache@v3
-              id: cache-dependencies
-              env:
-                cache-name: cache-node-modules
-              with:
-                path: node_modules
-                key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-                restore-keys: |
-                    ${{ runner.os }}-build-${{ env.cache-name }}-
-                    ${{ runner.os }}-build-
-                    ${{ runner.os }}-
-
             - name: Run build production project
               run: npm run build:prod
+
+#    lint-format:
+#        runs-on: ubuntu-latest
+#        strategy:
+#            matrix:
+#                node-version: [ 17.x ]
+#        needs: install-cache
+#        steps:
+#            - name: Checkout Commit
+#              uses: actions/checkout@v4
+#            - name: Use Node.js ${{ matrix.node-version }}
+#              uses: actions/setup-node@v3
+#              with:
+#                node-version: ${{ matrix.node-version }}
+
+#            - name: Restore node modules
+#              uses: actions/cache@v3
+#              id: cache-dependencies
+#              env:
+#                  cache-name: cache-node-modules
+#              with:
+#                  path: node_modules
+#                  key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+#                  restore-keys: |
+#                      ${{ runner.os }}-build-${{ env.cache-name }}-
+#                      ${{ runner.os }}-build-
+#                      ${{ runner.os }}-
+
+#            - name: Run lint scss
+#              run: npm run lint:scss
+#
+#            - name: Run lint typescript
+#              run: npm run lint:ts
+
+#            - name: Unit testing
+#              run: npm run test:unit
+#
+#            - name: Run build production project
+#              run: npm run build:prod
+
+#    unit-test:
+#        runs-on: ubuntu-latest
+#        strategy:
+#            matrix:
+#                node-version: [ 17.x ]
+#        needs: install-cache
+#        steps:
+#            - name: Checkout Commit
+#              uses: actions/checkout@v4
+#            - name: Use Node.js ${{ matrix.node-version }}
+#              uses: actions/setup-node@v3
+#              with:
+#                node-version: ${{ matrix.node-version }}
+#
+#            - name: Restore node modules
+#              uses: actions/cache@v3
+#              id: cache-dependencies
+#              env:
+#                cache-name: cache-node-modules
+#              with:
+#                path: node_modules
+#                key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+#                restore-keys: |
+#                    ${{ runner.os }}-build-${{ env.cache-name }}-
+#                    ${{ runner.os }}-build-
+#                    ${{ runner.os }}-
+#
+#            - name: Unit testing
+#              run: npm run test:unit
+#
+#    build:
+#        runs-on: ubuntu-latest
+#        strategy:
+#            matrix:
+#                node-version: [ 17.x ]
+#        needs: [lint-format, unit-test]
+#        steps:
+#            - name: Checkout Commit
+#              uses: actions/checkout@v4
+#            - name: Use Node.js ${{ matrix.node-version }}
+#              uses: actions/setup-node@v3
+#              with:
+#                node-version: ${{ matrix.node-version }}
+#
+#            - name: Restore node modules
+#              uses: actions/cache@v3
+#              id: cache-dependencies
+#              env:
+#                cache-name: cache-node-modules
+#              with:
+#                path: node_modules
+#                key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+#                restore-keys: |
+#                    ${{ runner.os }}-build-${{ env.cache-name }}-
+#                    ${{ runner.os }}-build-
+#                    ${{ runner.os }}-
+#
+#            - name: Run build production project
+#              run: npm run build:prod
 
 #    ui-test:
 #        runs-on: ubuntu-latest
