@@ -40,7 +40,6 @@ export function Sidebar({ className }: SidebarProps) {
             <div className={cls.items}>
                 <AppLink
                     className={cls.item}
-                    theme={AppLinkTheme.SECONDARY}
                     to={RoutePaths.main}
                 >
                     <MainIcon className={cls.icon} />
@@ -48,7 +47,6 @@ export function Sidebar({ className }: SidebarProps) {
                 </AppLink>
                 <AppLink
                     className={cls.item}
-                    theme={AppLinkTheme.SECONDARY}
                     to={RoutePaths.about}
                 >
                     <AboutIcon

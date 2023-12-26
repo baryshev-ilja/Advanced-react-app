@@ -1,6 +1,10 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import React, {
-    ReactNode, useCallback, useEffect, useRef, useState,
+    ReactNode,
+    useCallback,
+    useEffect,
+    useRef,
+    useState,
 } from 'react';
 import { Portal } from 'shared/ui/Portal/Portal';
 import { useTheme } from 'app/providers/ThemeProvider';
@@ -12,6 +16,7 @@ interface ModalProps {
     container?: HTMLElement;
     isOpen?: boolean;
     onClose?: () => void;
+    lazy?: boolean;
 }
 
 export const Modal = (props: ModalProps) => {
@@ -21,19 +26,38 @@ export const Modal = (props: ModalProps) => {
         container,
         isOpen,
         onClose,
+        lazy,
     } = props;
 
     const [isClosing, setIsClosing] = useState(false);
-    const timerRef = useRef<ReturnType<typeof setTimeout>>();
+    const [isMounted, setIsMounted] = useState(false);
+    const [isOpenModal, setIsOpenModal] = useState(false);
+
+    const timerCloseRef = useRef<ReturnType<typeof setTimeout>>();
+    const timerOpenRef = useRef<ReturnType<typeof setTimeout>>();
+
     const { theme } = useTheme();
+
+    useEffect(() => {
+        if (isOpen) {
+            setIsMounted(true);
+            timerOpenRef.current = setTimeout(() => {
+                setIsOpenModal(true);
+            }, 20);
+        }
+        return () => {
+            setIsMounted(false);
+            setIsOpenModal(false);
+        };
+    }, [isOpen]);
 
     const closeHandler = useCallback(() => {
         if (onClose) {
             setIsClosing(true);
-            timerRef.current = setTimeout(() => {
+            timerCloseRef.current = setTimeout(() => {
                 onClose();
                 setIsClosing(false);
-            }, 300);
+            }, 600);
         }
     }, [onClose]);
 
@@ -53,15 +77,20 @@ export const Modal = (props: ModalProps) => {
         }
 
         return () => {
-            clearTimeout(timerRef.current);
+            clearTimeout(timerCloseRef.current);
+            clearTimeout(timerOpenRef.current);
             window.removeEventListener('keydown', onKeyDown);
         };
     }, [isOpen, onKeyDown]);
 
     const mods: Record<string, boolean> = {
-        [cls.opened]: isOpen,
+        [cls.opened]: isOpenModal,
         [cls.isClosing]: isClosing,
     };
+
+    if (lazy && !isMounted) {
+        return null;
+    }
 
     return (
         <Portal container={container}>
