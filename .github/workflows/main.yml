@@ -86,10 +86,7 @@ jobs:
               if: ${{ steps.cache-dependencies.outputs.cache-hit != 'true' }}
               run: npm ci
 
-            - name: Run build storybook
-              run: npm run build-storybook
-
-            - name: Run screenshots testing Chromatic
+            - name: Run screenshots testing chromatic
               uses: chromaui/action@latest
               with:
                 projectToken: chpt_025e1e413343d56
