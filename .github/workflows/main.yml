@@ -54,9 +54,6 @@ jobs:
             - name: Run build production project
               run: npm run build:prod
 
-            - name: Run build storybook
-              run: npm run build-storybook
-
     ui_test:
         if: ${{ github.event_name == 'pull_request' }}
         runs-on: ubuntu-latest
@@ -86,6 +83,9 @@ jobs:
                     ${{ runner.os }}-build-${{ env.cache-name }}-
                     ${{ runner.os }}-build-
                     ${{ runner.os }}-
+
+            - name: Run build storybook
+              run: npm run build-storybook
 
             - name: Run screenshots testing Chromatic
               uses: chromaui/action@latest
