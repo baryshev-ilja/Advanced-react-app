@@ -53,13 +53,14 @@ jobs:
               run: npm run build:prod
 
     ui_test:
-        if: ${{ github.event_name == 'pull_request' && github.event.pull_request.action == 'synchronize' }}
         runs-on: ubuntu-latest
         strategy:
             matrix:
                 node-version: [ 17.x ]
         needs: lint_unit_build
+
         steps:
+            - if: ${{ github.event_name == 'pull_request' && github.event.pull_request.action == 'synchronize' }}
             - name: Checkout Commit
               uses: actions/checkout@v4
               with:
