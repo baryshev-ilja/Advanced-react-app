@@ -58,7 +58,6 @@ jobs:
         strategy:
             matrix:
                 node-version: [ 17.x ]
-        needs: lint_unit_build
         steps:
             - name: Checkout Commit
               uses: actions/checkout@v4
