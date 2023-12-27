@@ -2,10 +2,12 @@ name: CI_Pipeline
 run-name: ${{ github.actor }} launched the CI pipeline! 🚀
 on:
   push:
+    branches-ignore:
+        - 'master'
   pull_request:
 
 jobs:
-    install-cache:
+    lint_unit_build:
         runs-on: ubuntu-latest
         strategy:
             matrix:
@@ -41,11 +43,48 @@ jobs:
             - name: Run lint typescript
               run: npm run lint:ts
 
-            - name: Unit testing
+            - name: Run unit testing
               run: npm run test:unit
 
             - name: Run build production project
               run: npm run build:prod
+
+#    ui_test:
+#        runs-on: ubuntu-latest
+#        strategy:
+#            matrix:
+#                node-version: [ 17.x ]
+#        needs: lint_unit_build
+#        steps:
+#            - name: Checkout Commit
+#              uses: actions/checkout@v4
+#              with:
+#                fetch-depth: 0
+#            - name: Use Node.js ${{ matrix.node-version }}
+#              uses: actions/setup-node@v3
+#              with:
+#                node-version: ${{ matrix.node-version }}
+#
+#            - name: Restore node modules
+#              uses: actions/cache@v3
+#              id: cache-dependencies
+#              env:
+#                cache-name: cache-node-modules
+#              with:
+#                path: node_modules
+#                key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+#                restore-keys: |
+#                    ${{ runner.os }}-build-${{ env.cache-name }}-
+#                    ${{ runner.os }}-build-
+#                    ${{ runner.os }}-
+#
+#            - name: Run build storybook
+#              run: npm run build-storybook
+#
+#            - name: Run screenshots testing Chromatic
+#              uses: chromaui/action@latest
+#              with:
+#                projectToken: chpt_025e1e413343d56
 
 #    lint-format:
 #        runs-on: ubuntu-latest
@@ -59,8 +98,8 @@ jobs:
 #            - name: Use Node.js ${{ matrix.node-version }}
 #              uses: actions/setup-node@v3
 #              with:
-#                node-version: ${{ matrix.node-version }}
 
+#                node-version: ${{ matrix.node-version }}
 #            - name: Restore node modules
 #              uses: actions/cache@v3
 #              id: cache-dependencies
@@ -72,20 +111,20 @@ jobs:
 #                  restore-keys: |
 #                      ${{ runner.os }}-build-${{ env.cache-name }}-
 #                      ${{ runner.os }}-build-
-#                      ${{ runner.os }}-
 
+#                      ${{ runner.os }}-
 #            - name: Run lint scss
 #              run: npm run lint:scss
 #
 #            - name: Run lint typescript
-#              run: npm run lint:ts
 
+#              run: npm run lint:ts
 #            - name: Unit testing
 #              run: npm run test:unit
 #
 #            - name: Run build production project
-#              run: npm run build:prod
 
+#              run: npm run build:prod
 #    unit-test:
 #        runs-on: ubuntu-latest
 #        strategy:
@@ -144,43 +183,8 @@ jobs:
 #                    ${{ runner.os }}-
 #
 #            - name: Run build production project
-#              run: npm run build:prod
 
-#    ui-test:
-#        runs-on: ubuntu-latest
-#        strategy:
-#            matrix:
-#                node-version: [ 17.x ]
-#        needs: install-cache
-#        steps:
-#            - name: Checkout Commit
-#              uses: actions/checkout@v4
-#              with:
-#                fetch-depth: 0
-#            - name: Use Node.js ${{ matrix.node-version }}
-#              uses: actions/setup-node@v3
-#              with:
-#                node-version: ${{ matrix.node-version }}
-#
-#            - name: Restore node modules
-#              uses: actions/cache@v3
-#              id: cache-dependencies
-#              env:
-#                cache-name: cache-node-modules
-#              with:
-#                path: node_modules
-#                key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-#                restore-keys: |
-#                    ${{ runner.os }}-build-${{ env.cache-name }}-
-#                    ${{ runner.os }}-build-
-#                    ${{ runner.os }}-
-#
-#            - name: Run build storybook
-#              run: npm run build-storybook
-#            - name: Run screenshots testing Chromatic
-#              uses: chromaui/action@latest
-#              with:
-#                projectToken: chpt_025e1e413343d56
+#              run: npm run build:prod
 
 
 
