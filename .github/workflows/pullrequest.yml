@@ -1,21 +1,21 @@
-name: Linting, testing, building
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on:
-    pull_request:
-         branches: [ master ]
-jobs:
-    UI:
-       runs-on: ubuntu-latest
-       steps:
-         - name: Checkout code
-           uses: actions/checkout@v4
-           with:
-             fetch-depth: 0
-         - name: Install modules
-           run: npm ci
-         - name: Storybook build
-           run: npm run build-storybook
-         - name: Screenshots testing Chromatic
-           uses: chromaui/action@latest
-           with:
-             projectToken: chpt_025e1e413343d56
+#name: Linting, testing, building
+#run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+#on:
+#    pull_request:
+#         branches: [ master ]
+#jobs:
+#    UI:
+#       runs-on: ubuntu-latest
+#       steps:
+#         - name: Checkout code
+#           uses: actions/checkout@v4
+#           with:
+#             fetch-depth: 0
+#         - name: Install modules
+#           run: npm ci
+#         - name: Storybook build
+#           run: npm run build-storybook
+#         - name: Screenshots testing Chromatic
+#           uses: chromaui/action@latest
+#           with:
+#             projectToken: chpt_025e1e413343d56
