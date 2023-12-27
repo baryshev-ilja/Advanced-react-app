@@ -10,6 +10,7 @@ on:
 
 jobs:
     lint_unit_build:
+        if: ${{ github.event_name == 'push' }}
         runs-on: ubuntu-latest
         strategy:
             matrix:
@@ -42,23 +43,18 @@ jobs:
               run: npm ci
 
             - name: Run lint scss
-              if: ${{ github.event_name == 'push' }}
               run: npm run lint:scss
 
             - name: Run lint typescript
-              if: ${{ github.event_name == 'push' }}
               run: npm run lint:ts
 
             - name: Run unit testing
-              if: ${{ github.event_name == 'push' }}
               run: npm run test:unit
 
             - name: Run build production project
-              if: ${{ github.event_name == 'push' }}
               run: npm run build:prod
 
             - name: Run build storybook
-              if: ${{ github.event_name == 'push' }}
               run: npm run build-storybook
 
     ui_test:
@@ -67,7 +63,6 @@ jobs:
         strategy:
             matrix:
                 node-version: [ 17.x ]
-        needs: lint_unit_build
 
         steps:
             - name: Checkout Commit
