@@ -47,7 +47,7 @@ jobs:
 
             - name: Run build production project
               run: npm run build:prod
-
+#
 #    ui_test:
 #        runs-on: ubuntu-latest
 #        strategy:
