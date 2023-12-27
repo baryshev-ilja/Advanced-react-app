@@ -8,6 +8,7 @@
     opacity: 0;
     pointer-events: none;
     color: var(--primary-color);
+    transition: 0.3s;
 }
 
 .overlay {
@@ -16,7 +17,9 @@
     justify-content: center;
     height: 100vh;
     width: 100vw;
+    opacity: 0;
     background: var(--overlay-modal-color);
+    transition: 0.3s;
 }
 
 .content {
@@ -25,6 +28,7 @@
     background: var(--bg-color);
     transition: transform 0.3s;
     transform: scale(0.2);
+    border-radius: 15px;
 }
 
 .opened {
@@ -32,12 +36,20 @@
     opacity: 1;
     z-index: var(--modal-z-index);
 
+    .overlay {
+        opacity: 1;
+    }
+
     .content {
         transform: scale(1);
     }
 }
 
 .is-closing {
+    .overlay {
+        opacity: 0;
+    }
+
     .content {
         transform: scale(0.2);
     }

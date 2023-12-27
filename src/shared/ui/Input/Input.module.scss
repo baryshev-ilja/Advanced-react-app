@@ -1,0 +1,21 @@
+.input-wrapper {
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+
+.label {
+    margin-right: 10px;
+    align-self: center;
+}
+
+.input-element {
+    width: 100%;
+    outline: none;
+    border: none;
+    color: var(--primary-color);
+    background: transparent;
+
+    &:focus {
+        outline: none;
+    }
+}
