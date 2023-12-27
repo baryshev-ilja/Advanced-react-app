@@ -1,16 +1,16 @@
 name: CI_Pipeline
 run-name: ${{ github.actor }} launched the CI pipeline! 🚀
 on:
+  push:
+      branches-ignore:
+          - 'master'
   pull_request:
-      types:
-          - opened
-          - synchronize
-          - edited
       branches:
           - 'master'
 
 jobs:
     lint_unit_build:
+        if: ${{ github.event_name == 'push' }}
         runs-on: ubuntu-latest
         strategy:
             matrix:
@@ -53,11 +53,12 @@ jobs:
               run: npm run build:prod
 
     ui_test:
+        if: ${{ github.event_name == 'pull_request' }}
         runs-on: ubuntu-latest
         strategy:
             matrix:
                 node-version: [ 17.x ]
-        needs: lint_unit_build
+
         steps:
             - name: Checkout Commit
               uses: actions/checkout@v4
@@ -81,10 +82,11 @@ jobs:
                     ${{ runner.os }}-build-
                     ${{ runner.os }}-
 
-            - name: Run build storybook
-              run: npm run build-storybook
+            - name: Install dependencies
+              if: ${{ steps.cache-dependencies.outputs.cache-hit != 'true' }}
+              run: npm ci
 
-            - name: Run screenshots testing Chromatic
+            - name: Run screenshots testing chromatic
               uses: chromaui/action@latest
               with:
                 projectToken: chpt_025e1e413343d56
