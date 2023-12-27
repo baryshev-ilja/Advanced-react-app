@@ -10,7 +10,6 @@ on:
 
 jobs:
     lint_unit_build:
-        if: ${{ github.event_name == 'push' }}
         runs-on: ubuntu-latest
         strategy:
             matrix:
@@ -41,55 +40,69 @@ jobs:
               run: npm ci
 
             - name: Run lint scss
+              if: ${{ github.event_name == 'push' }}
               run: npm run lint:scss
 
             - name: Run lint typescript
+              if: ${{ github.event_name == 'push' }}
               run: npm run lint:ts
 
             - name: Run unit testing
+              if: ${{ github.event_name == 'push' }}
               run: npm run test:unit
 
             - name: Run build production project
+              if: ${{ github.event_name == 'push' }}
               run: npm run build:prod
 
-    ui_test:
-        if: ${{ github.event_name == 'pull_request' }}
-        runs-on: ubuntu-latest
-        strategy:
-            matrix:
-                node-version: [ 17.x ]
-        needs: lint_unit_build
-
-        steps:
-            - name: Checkout Commit
-              uses: actions/checkout@v4
-              with:
-                fetch-depth: 0
-            - name: Use Node.js ${{ matrix.node-version }}
-              uses: actions/setup-node@v3
-              with:
-                node-version: ${{ matrix.node-version }}
-
-            - name: Restore node modules
-              uses: actions/cache@v3
-              id: cache-dependencies
-              env:
-                cache-name: cache-node-modules
-              with:
-                path: node_modules
-                key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-                restore-keys: |
-                    ${{ runner.os }}-build-${{ env.cache-name }}-
-                    ${{ runner.os }}-build-
-                    ${{ runner.os }}-
-
             - name: Run build storybook
+              if: ${{ github.event_name == 'pull_request' }}
               run: npm run build-storybook
 
             - name: Run screenshots testing Chromatic
+              if: ${{ github.event_name == 'pull_request' }}
               uses: chromaui/action@latest
               with:
                 projectToken: chpt_025e1e413343d56
+
+#    ui_test:
+#        if: ${{ github.event_name == 'pull_request' }}
+#        runs-on: ubuntu-latest
+#        strategy:
+#            matrix:
+#                node-version: [ 17.x ]
+#        needs: lint_unit_build
+#
+#        steps:
+#            - name: Checkout Commit
+#              uses: actions/checkout@v4
+#              with:
+#                fetch-depth: 0
+#            - name: Use Node.js ${{ matrix.node-version }}
+#              uses: actions/setup-node@v3
+#              with:
+#                node-version: ${{ matrix.node-version }}
+#
+#            - name: Restore node modules
+#              uses: actions/cache@v3
+#              id: cache-dependencies
+#              env:
+#                cache-name: cache-node-modules
+#              with:
+#                path: node_modules
+#                key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+#                restore-keys: |
+#                    ${{ runner.os }}-build-${{ env.cache-name }}-
+#                    ${{ runner.os }}-build-
+#                    ${{ runner.os }}-
+#
+#            - name: Run build storybook
+#              run: npm run build-storybook
+#
+#            - name: Run screenshots testing Chromatic
+#              uses: chromaui/action@latest
+#              with:
+#                projectToken: chpt_025e1e413343d56
 
 #    lint-format:
 #        runs-on: ubuntu-latest
