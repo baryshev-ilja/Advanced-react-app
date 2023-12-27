@@ -1,19 +1,16 @@
 name: CI_Pipeline
 run-name: ${{ github.actor }} launched the CI pipeline! 🚀
 on:
-  push:
-    branches-ignore:
-        - 'master'
   pull_request:
       types:
           - opened
+          - synchronize
           - edited
       branches:
           - 'master'
 
 jobs:
     lint_unit_build:
-        if: ${{ github.event_name == 'push' }}
         runs-on: ubuntu-latest
         strategy:
             matrix:
@@ -56,7 +53,6 @@ jobs:
               run: npm run build:prod
 
     ui_test:
-        if: ${{ github.event_name == 'pull_request' }}
         runs-on: ubuntu-latest
         strategy:
             matrix:
