@@ -42,7 +42,7 @@ jobs:
               run: npm list
 
             - name: Install dependencies
-#              if: ${{ steps.cache-dependencies.outputs.cache-hit != 'true' }}
+              if: ${{ steps.cache-dependencies.outputs.cache-hit != 'true' }}
               run: npm ci
 
             - name: Run lint scss
@@ -93,7 +93,7 @@ jobs:
               run: npm list
 
             - name: Install dependencies
-#              if: ${{ steps.cache-dependencies.outputs.cache-hit != 'true' }}
+              if: ${{ steps.cache-dependencies.outputs.cache-hit != 'true' }}
               run: npm ci
 
 #            - name: Run screenshots testing chromatic
