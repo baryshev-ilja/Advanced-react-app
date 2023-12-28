@@ -29,17 +29,12 @@ jobs:
               env:
                 cache-name: cache-node-modules
               with:
-                path: ~/.npm
+                path: node_modules
                 key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
                 restore-keys: |
                     ${{ runner.os }}-build-${{ env.cache-name }}-
                     ${{ runner.os }}-build-
                     ${{ runner.os }}-
-
-            - if: ${{ steps.cache-dependencies.outputs.cache-hit != 'true' }}
-              name: List the state of node modules
-              continue-on-error: true
-              run: npm list
 
             - name: Install dependencies
               if: ${{ steps.cache-dependencies.outputs.cache-hit != 'true' }}
@@ -80,26 +75,19 @@ jobs:
               env:
                 cache-name: cache-node-modules
               with:
-                path: ~/.npm
+                path: node_modules
                 key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
                 restore-keys: |
                     ${{ runner.os }}-build-${{ env.cache-name }}-
                     ${{ runner.os }}-build-
                     ${{ runner.os }}-
 
-            - if: ${{ steps.cache-dependencies.outputs.cache-hit != 'true' }}
-              name: List the state of node modules
-              continue-on-error: true
-              run: npm list
-
             - name: Install dependencies
               if: ${{ steps.cache-dependencies.outputs.cache-hit != 'true' }}
               run: npm ci
 
-#            - name: Run screenshots testing chromatic
-#              uses: chromaui/action@latest
-#              with:
-#                projectToken: chpt_025e1e413343d56
+            - name: Run screenshots testing chromatic
+              uses: chromaui/action@latest
+              with:
+                projectToken: chpt_025e1e413343d56
 
-#
-#
