@@ -25,7 +25,8 @@
     "analyze:prod": "webpack --env analyze=true --env mode=production",
     "storybook": "start-storybook -p 6006 -c ./config/storybook",
     "build-storybook": "build-storybook -c ./config/storybook",
-    "chromatic": "npx chromatic --project-token=chpt_025e1e413343d56"
+    "chromatic": "npx chromatic --project-token=chpt_025e1e413343d56",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
@@ -69,6 +70,7 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
+    "husky": "^7.0.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.5.1",
     "json-server": "^0.17.0",

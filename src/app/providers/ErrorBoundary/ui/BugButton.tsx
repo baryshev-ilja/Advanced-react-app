@@ -1,4 +1,4 @@
-import { Button } from 'shared/ui/Button/Button';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -17,6 +17,7 @@ export const BugButton = () => {
     return (
         <Button
             onClick={onThrow}
+            theme={ButtonTheme.OUTLINE}
         >
             {t('Throw error')}
         </Button>
