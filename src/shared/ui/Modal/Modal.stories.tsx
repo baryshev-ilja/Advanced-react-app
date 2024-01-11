@@ -2,6 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import { Modal } from './Modal';
 
 export default {
@@ -20,13 +21,23 @@ Light.args = {
     isOpen: true,
     children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, expedita ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, expedita.',
 };
+Light.decorators = [StoreDecorator({
+    loginForm: {
+        username: 'admin',
+        password: '123',
+    },
+})];
 
 export const Dark = Template.bind({});
-
 Dark.args = {
     container: document.getElementById('root'),
     isOpen: true,
     children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, expedita ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, expedita.',
 };
 
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
+    loginForm: {
+        username: 'admin',
+        password: '123',
+    },
+})];
