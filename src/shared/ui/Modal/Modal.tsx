@@ -8,6 +8,8 @@ import React, {
 } from 'react';
 import { Portal } from 'shared/ui/Portal/Portal';
 import { useTheme } from 'app/providers/ThemeProvider';
+import { useSelector } from 'react-redux';
+import { getUserAuthData } from 'entities/User';
 import cls from './Modal.module.scss';
 
 interface ModalProps {
@@ -38,6 +40,8 @@ export const Modal = (props: ModalProps) => {
 
     const { theme } = useTheme();
 
+    const isUserSuccessAuth = useSelector(getUserAuthData);
+
     useEffect(() => {
         if (isOpen) {
             setIsMounted(true);
@@ -50,6 +54,16 @@ export const Modal = (props: ModalProps) => {
             setIsOpenModal(false);
         };
     }, [isOpen]);
+
+    useEffect(() => {
+        if (isUserSuccessAuth) {
+            setIsClosing(true);
+            timerCloseRef.current = setTimeout(() => {
+                onClose();
+                setIsClosing(false);
+            }, 600);
+        }
+    }, [isUserSuccessAuth, onClose]);
 
     const closeHandler = useCallback(() => {
         if (onClose) {
