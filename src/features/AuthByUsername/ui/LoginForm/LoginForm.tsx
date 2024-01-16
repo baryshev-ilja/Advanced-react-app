@@ -5,24 +5,40 @@ import { Input } from 'shared/ui/Input/Input';
 import { memo, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Text, ThemeText } from 'shared/ui/Text/Text';
+import { ReducersList, useDynamicModuleLoad } from 'shared/lib/hooks/useDynamicModuleLoad';
+import {
+    getLoginUsername,
+} from '../../model/selectors/getLoginStateUsername/getLoginUsername';
+import {
+    getLoginPassword,
+} from '../../model/selectors/getLoginStatePassword/getLoginPassword';
+import { getLoginLoading } from '../../model/selectors/getLoginStateLoading/getLoginLoading';
+import { getLoginError } from '../../model/selectors/getLoginStateError/getLoginError';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
-import { getLoginState } from '../../model/selectors/getLoginState/getLoginState';
-import { loginActions } from '../../model/slice/loginSlice';
+import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import cls from './LoginForm.module.scss';
 
-interface LoginFormProps {
+export interface LoginFormProps {
     className?: string;
 }
 
-export const LoginForm = memo(({ className }: LoginFormProps) => {
+const initialReducers: ReducersList = {
+    loginForm: loginReducer,
+};
+
+const LoginForm = memo(({ className }: LoginFormProps) => {
     const { t } = useTranslation();
     const dispatch = useDispatch();
-    const {
-        username,
-        password,
-        isLoading,
-        error,
-    } = useSelector(getLoginState);
+
+    const username = useSelector(getLoginUsername);
+    const password = useSelector(getLoginPassword);
+    const isLoading = useSelector(getLoginLoading);
+    const error = useSelector(getLoginError);
+
+    useDynamicModuleLoad({
+        reducers: initialReducers,
+        removeAfterUnmount: true,
+    });
 
     const onChangeUsername = useCallback((value: string) => {
         dispatch(loginActions.setUsername(value));
@@ -71,3 +87,5 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
         </div>
     );
 });
+
+export default LoginForm;
