@@ -8,12 +8,12 @@ import { Text, ThemeText } from 'shared/ui/Text/Text';
 import { ReducersList, useDynamicModuleLoad } from 'shared/lib/hooks/useDynamicModuleLoad';
 import {
     getLoginUsername,
-} from '../../model/selectors/getLoginStateUsername/getLoginUsername';
+} from '../../model/selectors/getLoginUsername/getLoginUsername';
 import {
     getLoginPassword,
-} from '../../model/selectors/getLoginStatePassword/getLoginPassword';
-import { getLoginLoading } from '../../model/selectors/getLoginStateLoading/getLoginLoading';
-import { getLoginError } from '../../model/selectors/getLoginStateError/getLoginError';
+} from '../../model/selectors/getLoginPassword/getLoginPassword';
+import { getLoginLoading } from '../../model/selectors/getLoginLoading/getLoginLoading';
+import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import cls from './LoginForm.module.scss';
