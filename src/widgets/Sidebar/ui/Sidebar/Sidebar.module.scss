@@ -23,22 +23,6 @@
     flex-direction: column;
 }
 
-.item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.icon {
-    margin-right: 8px;
-    fill: var(--inverted-primary-color);
-}
-
-.link {
-    opacity: 1;
-    transition: opacity 0.3s;
-}
-
 .sidebar-collapsed {
     width: var(--sidebar-width-collapsed);
 
