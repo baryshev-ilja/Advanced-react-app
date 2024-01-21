@@ -8,8 +8,6 @@ import React, {
 } from 'react';
 import { Portal } from 'shared/ui/Portal/Portal';
 import { useTheme } from 'app/providers/ThemeProvider';
-import { useSelector } from 'react-redux';
-import { getUserAuthData } from 'entities/User';
 import cls from './Modal.module.scss';
 
 interface ModalProps {
@@ -19,6 +17,7 @@ interface ModalProps {
     isOpen?: boolean;
     onClose?: () => void;
     lazy?: boolean;
+    isUserSuccessAuth?: boolean;
 }
 
 export const Modal = (props: ModalProps) => {
@@ -29,6 +28,7 @@ export const Modal = (props: ModalProps) => {
         isOpen,
         onClose,
         lazy,
+        isUserSuccessAuth,
     } = props;
 
     const [isClosing, setIsClosing] = useState(false);
@@ -39,8 +39,6 @@ export const Modal = (props: ModalProps) => {
     const timerOpenRef = useRef<ReturnType<typeof setTimeout>>();
 
     const { theme } = useTheme();
-
-    const isUserSuccessAuth = useSelector(getUserAuthData);
 
     useEffect(() => {
         if (isOpen) {

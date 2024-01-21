@@ -8,6 +8,7 @@ interface LoginModalProps {
     className?: string;
     isOpen: boolean;
     onClose: () => void;
+    isSuccessAuth?: boolean;
 
 }
 
@@ -16,12 +17,14 @@ export const LoginModal = (props: LoginModalProps) => {
         className,
         isOpen,
         onClose,
+        isSuccessAuth,
     } = props;
     return (
         <Modal
             className={classNames('', {}, [className])}
             isOpen={isOpen}
             onClose={onClose}
+            isUserSuccessAuth={isSuccessAuth}
             lazy
         >
             <Suspense fallback={<Loader />}>
