@@ -3,9 +3,10 @@ import { useTranslation } from 'react-i18next';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Input } from 'shared/ui/Input/Input';
 import { memo, useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Text, ThemeText } from 'shared/ui/Text/Text';
 import { ReducersList, useDynamicModuleLoad } from 'shared/lib/hooks/useDynamicModuleLoad';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import {
     getLoginUsername,
 } from '../../model/selectors/getLoginUsername/getLoginUsername';
@@ -28,7 +29,7 @@ const initialReducers: ReducersList = {
 
 const LoginForm = memo(({ className }: LoginFormProps) => {
     const { t } = useTranslation();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     const username = useSelector(getLoginUsername);
     const password = useSelector(getLoginPassword);
