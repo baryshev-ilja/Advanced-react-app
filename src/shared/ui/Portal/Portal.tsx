@@ -9,7 +9,7 @@ interface PortalProps {
 export const Portal = (props : PortalProps) => {
     const {
         children,
-        container = document.getElementById('root'),
+        container = document.getElementById('root') as HTMLElement,
     } = props;
 
     return createPortal(children, container);

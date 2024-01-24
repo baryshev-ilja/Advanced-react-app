@@ -1,5 +1,6 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import React, {
+    MutableRefObject,
     ReactNode,
     useCallback,
     useEffect,
@@ -24,7 +25,7 @@ export const Modal = (props: ModalProps) => {
     const {
         className,
         children,
-        container,
+        container = document.getElementById('root') as HTMLElement,
         isOpen,
         onClose,
         lazy,
@@ -35,8 +36,8 @@ export const Modal = (props: ModalProps) => {
     const [isMounted, setIsMounted] = useState(false);
     const [isOpenModal, setIsOpenModal] = useState(false);
 
-    const timerCloseRef = useRef<ReturnType<typeof setTimeout>>();
-    const timerOpenRef = useRef<ReturnType<typeof setTimeout>>();
+    const timerCloseRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
+    const timerOpenRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
 
     const { theme } = useTheme();
 
@@ -57,7 +58,7 @@ export const Modal = (props: ModalProps) => {
         if (isUserSuccessAuth) {
             setIsClosing(true);
             timerCloseRef.current = setTimeout(() => {
-                onClose();
+                onClose?.();
                 setIsClosing(false);
             }, 600);
         }

@@ -17,7 +17,7 @@ const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />;
 
 export const Light = Template.bind({});
 Light.args = {
-    container: document.getElementById('root'),
+    container: document.getElementById('root') as HTMLElement,
     isOpen: true,
     children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, expedita ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, expedita.',
 };
@@ -30,7 +30,7 @@ Light.decorators = [StoreDecorator({
 
 export const Dark = Template.bind({});
 Dark.args = {
-    container: document.getElementById('root'),
+    container: document.getElementById('root') as HTMLElement,
     isOpen: true,
     children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, expedita ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, expedita.',
 };

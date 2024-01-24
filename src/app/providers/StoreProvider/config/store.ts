@@ -5,7 +5,7 @@ import { $api } from 'shared/api/api';
 import { To } from '@remix-run/router';
 import { NavigateOptions } from 'react-router/dist/lib/context';
 import { createReducerManager } from './reducerManager';
-import { StateSchema } from './StateSchema';
+import { StateSchema, ThunkExtraArg } from './StateSchema';
 
 export function createReduxStore(
     initialState?: StateSchema,
@@ -20,16 +20,19 @@ export function createReduxStore(
 
     const reducerManager = createReducerManager(rootReducers);
 
+    const extraArg: ThunkExtraArg = {
+        api: $api,
+        navigate,
+    };
+
     const store = configureStore({
-        reducer: reducerManager.reduce,
+        // @ts-ignore
+        reducer: reducerManager.reduce as ReducersMapObject<StateSchema>,
         devTools: __IS_DEV__,
         preloadedState: initialState,
         middleware: (getDefaultMiddleware) => getDefaultMiddleware({
             thunk: {
-                extraArgument: {
-                    api: $api,
-                    navigate,
-                },
+                extraArgument: extraArg,
             },
         }),
     });

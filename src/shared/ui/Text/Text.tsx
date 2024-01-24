@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { AdditionalCls, classNames } from 'shared/lib/classNames/classNames';
 import { memo } from 'react';
 import cls from './Text.module.scss';
 
@@ -22,7 +22,7 @@ export const Text = memo((props: TextProps) => {
         theme = ThemeText.PRIMARY,
     } = props;
 
-    const additionalCls: string[] = [
+    const additionalCls: AdditionalCls = [
         className,
         cls[theme],
     ];
