@@ -1,17 +1,18 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import React, {
     InputHTMLAttributes, memo,
 } from 'react';
 import cls from './Input.module.scss';
 
-type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>;
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readonly'>;
 
 interface InputProps extends HTMLInputProps {
     className?: string;
-    value?: string;
+    value?: string | number;
     onChange?: (value: string) => void;
     labelElement?: string;
     autofocus?: boolean;
+    readonly?: boolean;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -23,6 +24,7 @@ export const Input = memo((props: InputProps) => {
         id,
         labelElement,
         autofocus,
+        readonly,
         ...otherProps
     } = props;
 
@@ -38,14 +40,18 @@ export const Input = memo((props: InputProps) => {
         onChange?.(evt.target.value);
     };
 
+    const mods: Mods = {
+        [cls.readonly]: readonly,
+    };
+
     return (
-        <div className={classNames(cls.inputWrapper, {}, [className])}>
+        <div className={classNames(cls.inputWrapper, mods, [className])}>
             {labelElement && (
                 <label
                     htmlFor={id}
                     className={cls.label}
                 >
-                    {labelElement}
+                    {`${labelElement}>`}
                 </label>
             )}
             <input
@@ -57,6 +63,7 @@ export const Input = memo((props: InputProps) => {
                 onChange={onChangeHandler}
                 /* eslint-disable-next-line jsx-a11y/no-autofocus */
                 autoFocus={autofocus}
+                readOnly={readonly}
             />
         </div>
     );

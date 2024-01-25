@@ -1,0 +1,25 @@
+.select-wrapper {
+    display: flex;
+}
+
+.label {
+    margin-right: 10px;
+}
+
+.select {
+    background: none;
+    border: 1px solid var(--inverted-bg-color);
+    color: var(--inverted-bg-color);
+    padding: 5px 10px 5px 5px;
+    outline: none;
+}
+
+.option {
+    color: var(--inverted-primary-color);
+    background: var(--inverted-bg-color);
+    padding: 10px;
+}
+
+.readonly {
+    opacity: 0.7;
+}

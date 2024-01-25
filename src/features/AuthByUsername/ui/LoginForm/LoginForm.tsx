@@ -53,8 +53,8 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
         dispatch(loginByUsername({ username, password }));
     }, [dispatch, password, username]);
 
-    const labelUsername = t('Введите логин >');
-    const labelPassword = t('Введите пароль >');
+    const labelUsername = t('Введите логин');
+    const labelPassword = t('Введите пароль');
 
     return (
         <div className={classNames(cls.loginForm, {}, [className])}>

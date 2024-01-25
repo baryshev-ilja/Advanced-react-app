@@ -54,6 +54,12 @@ OutlineDark.args = {
 };
 OutlineDark.decorators = [ThemeDecorator(Theme.DARK)];
 
+export const OutlineError = Template.bind({});
+OutlineError.args = {
+    children: 'Text',
+    theme: ButtonTheme.OUTLINE_ERROR,
+};
+
 export const BackgroundTheme = Template.bind({});
 BackgroundTheme.args = {
     children: 'Text',

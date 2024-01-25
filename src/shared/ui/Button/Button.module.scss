@@ -30,6 +30,12 @@
     color: var(--inverted-primary-color);
 }
 
+.outline-error {
+    background: none;
+    border: 1px solid var(--error-primary);
+    color: var(--error-primary);
+}
+
 .background {
     background: var(--bg-color);
     color: var(--primary-color);

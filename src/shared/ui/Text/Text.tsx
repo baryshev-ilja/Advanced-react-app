@@ -7,11 +7,18 @@ export enum ThemeText {
     ERROR = 'error',
 }
 
+export enum TextAlign {
+    LEFT = 'left',
+    CENTER = 'center',
+    RIGHT = 'right',
+}
+
 interface TextProps {
     className?: string;
     title?: string;
     description?: string;
     theme?: ThemeText;
+    align?: string;
 }
 
 export const Text = memo((props: TextProps) => {
@@ -20,11 +27,13 @@ export const Text = memo((props: TextProps) => {
         title,
         description,
         theme = ThemeText.PRIMARY,
+        align = TextAlign.LEFT,
     } = props;
 
     const additionalCls: AdditionalCls = [
         className,
         cls[theme],
+        cls[align],
     ];
 
     return (

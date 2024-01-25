@@ -2,10 +2,10 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useEffect } from 'react';
 import { ReducersList, useDynamicModuleLoad } from 'shared/lib/hooks/useDynamicModuleLoad';
-import { profileReducer } from 'entities/Profile/model/slice/profileSlice';
+import { profileReducer } from 'features/EditProfileCard/model/slice/profileSlice';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { fetchProfileData } from 'entities/Profile';
-import { ProfileCard } from 'entities/Profile/ui/ProfileCard/ProfileCard';
+import { EditableProfileCard, fetchProfileData } from 'features/EditProfileCard';
+import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 interface ProfilePageProps {
     className?: string;
@@ -19,18 +19,19 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
 
-    useEffect(() => {
-        dispatch(fetchProfileData());
-    }, [dispatch]);
-
     useDynamicModuleLoad({
         reducers,
         removeAfterUnmount: true,
     });
 
+    useEffect(() => {
+        dispatch(fetchProfileData());
+    }, [dispatch]);
+
     return (
         <div className={classNames('', {}, [className])}>
-            <ProfileCard />
+            <ProfilePageHeader />
+            <EditableProfileCard />
         </div>
     );
 });

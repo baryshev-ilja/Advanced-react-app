@@ -26,13 +26,13 @@
     }
   ],
   "profile": {
-      "first": "Илья",
-      "lastname": "Барышев",
-      "age": 27,
-      "currency": "RUB",
-      "country": "Russia",
-      "city": "Naberezhnye Chelny",
-      "username": "admin",
-      "avatar": "https://pic.rutubelist.ru/user/3b/27/3b2758ad5492a76b578f7ee072e4e894.jpg"
+    "first": "Илья",
+    "lastname": "Барышев",
+    "age": 27,
+    "currency": "RUB",
+    "country": "Ukraina",
+    "city": "Naberezhnye Chelny",
+    "username": "admin",
+    "avatar": "https://www.pavilionweb.com/wp-content/uploads/2017/03/man.png"
   }
 }
