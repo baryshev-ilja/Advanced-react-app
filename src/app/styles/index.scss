@@ -13,6 +13,8 @@
 .app {
     background: var(--bg-color);
     min-height: 100vh;
+    display: grid;
+    grid-template-rows: var(--navbar-height) 1fr;
 }
 
 .content-page {
@@ -21,5 +23,7 @@
 
 .page-wrapper {
     flex-grow: 1;
-    padding: 20px;
+    padding: 20px 45px;
+    height: calc(100vh - var(--navbar-height));
+    overflow-y: auto;
 }
