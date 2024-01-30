@@ -1,0 +1,30 @@
+.skeleton {
+    width: 100%;
+    height: 50px;
+    position: relative;
+    background-color: var(--skeleton-bg);
+    background: linear-gradient(
+            90deg,
+            var(--skeleton-glare) 25%,
+            var(--skeleton-glare-light) 50%,
+            var(--skeleton-glare) 85%
+    ) var(--skeleton-bg);
+    background-size: 200% 100%;
+    background-position-x: 165%;
+    animation: 1s load cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    overflow: hidden;
+}
+
+.skeleton.delay {
+    animation-delay: 0.04s;
+}
+
+.skeleton.delay-slow {
+    animation-delay: 0.08s;
+}
+
+@keyframes load {
+    to {
+        background-position-x: -35%;
+    }
+}
