@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useEffect } from 'react';
-import { ReducersList, useDynamicModuleLoad } from 'shared/lib/hooks/useDynamicModuleLoad';
+import { ReducersList, useDynamicReducerLoad } from 'shared/lib/hooks/useDynamicReducerLoad';
 import { profileReducer } from 'features/EditProfileCard/model/slice/profileSlice';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { EditableProfileCard, fetchProfileData } from 'features/EditProfileCard';
@@ -19,7 +19,7 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
 
-    useDynamicModuleLoad({
+    useDynamicReducerLoad({
         reducers,
         removeAfterUnmount: true,
     });

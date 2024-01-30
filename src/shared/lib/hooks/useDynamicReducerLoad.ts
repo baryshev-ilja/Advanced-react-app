@@ -7,12 +7,12 @@ export type ReducersList = {
     [nameKey in StateSchemaKey]?: Reducer
 }
 
-interface useDynamicModuleLoadProps {
+interface useDynamicReducerLoadProps {
     reducers: ReducersList;
     removeAfterUnmount: boolean;
 }
 
-export function useDynamicModuleLoad(props: useDynamicModuleLoadProps) {
+export function useDynamicReducerLoad(props: useDynamicReducerLoadProps) {
     const {
         reducers,
         removeAfterUnmount,

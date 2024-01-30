@@ -5,7 +5,7 @@ import { Input } from 'shared/ui/Input/Input';
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { Text, ThemeText } from 'shared/ui/Text/Text';
-import { ReducersList, useDynamicModuleLoad } from 'shared/lib/hooks/useDynamicModuleLoad';
+import { ReducersList, useDynamicReducerLoad } from 'shared/lib/hooks/useDynamicReducerLoad';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import {
     getLoginUsername,
@@ -36,7 +36,7 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
     const isLoading = useSelector(getLoginLoading);
     const error = useSelector(getLoginError);
 
-    useDynamicModuleLoad({
+    useDynamicReducerLoad({
         reducers: initialReducers,
         removeAfterUnmount: true,
     });
