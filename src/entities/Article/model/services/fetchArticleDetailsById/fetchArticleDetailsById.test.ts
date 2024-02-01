@@ -1,21 +1,7 @@
-import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
+import { TestAsyncThunk } from 'shared/lib/tests/testAsyncThunk/TestAsyncThunk';
 import { Article } from 'entities/Article';
 import { ArticleBlockType, ArticleTypes } from 'entities/Article/model/types/article';
-import { ArticleDetails } from './ArticleDetails';
-
-export default {
-    title: 'entities/ArticleDetails',
-    component: ArticleDetails,
-    argTypes: {
-        backgroundColor: { control: 'color' },
-    },
-} as ComponentMeta<typeof ArticleDetails>;
-
-const Template: ComponentStory<typeof ArticleDetails> = (args) => <ArticleDetails {...args} />;
+import { fetchArticleDetailsById } from './fetchArticleDetailsById';
 
 const articleData: Article = {
     id: '1',
@@ -87,27 +73,27 @@ const articleData: Article = {
     ],
 };
 
-export const Normal = Template.bind({});
-Normal.args = {
-};
-Normal.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
-    articleDetails: {
-        data: articleData,
-    },
-})];
+describe('fetchArticleDetailsById.test', () => {
+    test('success fetching', async () => {
+        const thunk = new TestAsyncThunk(fetchArticleDetailsById);
 
-export const Error = Template.bind({});
-Error.args = {};
-Error.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
-    articleDetails: {
-        error: 'error',
-    },
-})];
+        thunk.api.get.mockReturnValue(Promise.resolve({ data: articleData }));
 
-export const isLoading = Template.bind({});
-isLoading.args = {};
-isLoading.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
-    articleDetails: {
-        isLoading: true,
-    },
-})];
+        const action = await thunk.callThunk('1');
+
+        expect(thunk.api.get).toHaveBeenCalled();
+        expect(action.meta.requestStatus).toBe('fulfilled');
+        expect(action.payload).toEqual(articleData);
+    });
+
+    test('error fetching', async () => {
+        const thunk = new TestAsyncThunk(fetchArticleDetailsById);
+
+        thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
+
+        const action = await thunk.callThunk('1');
+
+        expect(thunk.api.get).toHaveBeenCalled();
+        expect(action.meta.requestStatus).toBe('rejected');
+    });
+});

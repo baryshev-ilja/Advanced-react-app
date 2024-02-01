@@ -6,7 +6,8 @@
     --inverted-primary-color: #f4f7fb;
     --inverted-secondary-color: #d4e1ee;
     --theme-icon-color: #f4f7fb;
-    --skeleton-glare: rgba(255, 255, 255, 0%);
-    --skeleton-glare-light: rgba(255, 255, 255, 50%);
+    --skeleton-glare: rgb(255 255 255 / 0%);
+    --skeleton-glare-light: rgb(255 255 255 / 50%);
     --skeleton-bg: #d8ddea;
+    --code-bg: #d8ddea;
 }

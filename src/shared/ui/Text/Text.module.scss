@@ -1,10 +1,11 @@
 .title {
-    font-size: var(--font-size-l);
+    padding: 0;
     color: var(--primary-color);
 }
 
 .description {
-    font-size: var(--font-size-m);
+    padding: 0;
+    margin-top: 5px;
     color: var(--secondary-color);
 }
 
@@ -15,6 +16,28 @@
 
     .description {
         color: var(--error-secondary);
+    }
+}
+
+.size-m {
+    .title {
+        font-size: var(--font-size-l);
+    }
+
+    .description {
+        margin-top: 7px;
+        font-size: var(--font-size-m);
+    }
+}
+
+.size-l {
+    .title {
+        font-size: var(--font-size-xl);
+    }
+
+    .description {
+        margin-top: 10px;
+        font-size: var(--font-size-l);
     }
 }
 

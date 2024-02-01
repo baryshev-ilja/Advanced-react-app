@@ -1,0 +1,16 @@
+.code {
+    border: 1px solid var(--inverted-bg-color);
+    padding: 20px;
+    background-color: var(--code-bg);
+    position: relative;
+}
+
+.copy-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.copy-icon {
+    fill: transparent;
+}

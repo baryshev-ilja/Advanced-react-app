@@ -1,5 +1,7 @@
 .article-details {
     min-height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .avatar {
@@ -16,4 +18,21 @@
 
 .skeleton {
     margin-top: 30px;
+}
+
+.meta-wrapper {
+    margin-top: 10px;
+}
+
+.meta-inner {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    margin-right: 6px;
+}
+
+.block {
+    margin-top: 25px;
 }

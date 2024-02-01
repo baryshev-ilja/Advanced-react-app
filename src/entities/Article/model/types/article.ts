@@ -17,13 +17,13 @@ export interface ArticleTextBlock extends ArticleBlockBase {
 
 export interface ArticleImageBlock extends ArticleBlockBase {
     type: ArticleBlockType.IMAGE;
-    code: string;
+    src: string;
+    title?: string;
 }
 
 export interface ArticleCodeBlock extends ArticleBlockBase {
     type: ArticleBlockType.CODE;
-    src: string;
-    title?: string;
+    code: string;
 }
 
 export type ArticleBlocks = ArticleTextBlock | ArticleImageBlock | ArticleCodeBlock;

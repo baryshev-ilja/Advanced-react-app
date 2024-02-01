@@ -3,11 +3,11 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 25px;
-    width: var(--sidebar-width);
+    min-width: var(--sidebar-width);
     height: calc(100vh - var(--navbar-height));
     background-color: var(--inverted-bg-color);
     position: relative;
-    transition: width 0.3s;
+    transition: min-width 0.3s;
 }
 
 .switchers {
@@ -24,7 +24,7 @@
 }
 
 .sidebar-collapsed {
-    width: var(--sidebar-width-collapsed);
+    min-width: var(--sidebar-width-collapsed);
 
     .switchers {
         flex-direction: column;
