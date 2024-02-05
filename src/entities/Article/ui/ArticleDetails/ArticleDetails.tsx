@@ -9,6 +9,7 @@ import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import CalendarIcon from 'shared/assets/icons/calendar_icon.svg';
 import EyeIcon from 'shared/assets/icons/eye_icon.svg';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
@@ -75,11 +76,9 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         removeAfterUnmount: true,
     });
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchArticleDetailsById(id));
-        }
-    }, [dispatch, id]);
+    useInitialEffect(() => {
+        dispatch(fetchArticleDetailsById(id));
+    });
 
     let content;
     if (isLoading) {
