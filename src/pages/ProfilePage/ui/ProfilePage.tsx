@@ -5,6 +5,8 @@ import { ReducersList, useDynamicReducerLoad } from 'shared/lib/hooks/useDynamic
 import { profileReducer } from 'features/EditProfileCard/model/slice/profileSlice';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { EditableProfileCard, fetchProfileData } from 'features/EditProfileCard';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
+import { useParams } from 'react-router-dom';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 interface ProfilePageProps {
@@ -18,17 +20,18 @@ const reducers: ReducersList = {
 const ProfilePage = memo(({ className }: ProfilePageProps) => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
+    const { id } = useParams<{id: string}>();
 
     useDynamicReducerLoad({
         reducers,
         removeAfterUnmount: true,
     });
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchProfileData());
+    useInitialEffect(() => {
+        if (id) {
+            dispatch(fetchProfileData(id));
         }
-    }, [dispatch]);
+    });
 
     return (
         <div className={classNames('', {}, [className])}>
