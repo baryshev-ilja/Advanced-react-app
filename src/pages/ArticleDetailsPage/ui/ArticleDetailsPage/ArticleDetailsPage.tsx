@@ -15,6 +15,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import {
     fetchCommentsByArticleId,
 } from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { AddNewCommentForm } from 'features/AddNewComment';
 import { getArticleCommentsIsLoading } from '../../model/selectors/getArticleCommentsData';
 import cls from './ArticleDetailsPage.module.scss';
 
@@ -56,6 +57,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
         <div className={classNames(cls.articleDetailsPage, {}, [className])}>
             <ArticleDetails id={id} />
             <Text className={cls.comments} title={t('Комментарии')} size={TextSize.L} />
+            <AddNewCommentForm />
             <CommentList loading={isLoading} comments={comments} />
         </div>
     );
