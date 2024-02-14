@@ -9,10 +9,16 @@ interface CommentFormProps {
     className?: string;
     text?: string;
     onChangeComment?: (value: string) => void;
+    onSendComment?: () => void;
 }
 
 export const CommentForm = memo((props: CommentFormProps) => {
-    const { className, text, onChangeComment } = props;
+    const {
+        className,
+        text,
+        onChangeComment,
+        onSendComment,
+    } = props;
     const { t } = useTranslation();
 
     return (
@@ -22,7 +28,11 @@ export const CommentForm = memo((props: CommentFormProps) => {
                 value={text}
                 onChange={onChangeComment}
             />
-            <Button>{t('Отправить')}</Button>
+            <Button
+                onClick={onSendComment}
+            >
+                {t('Отправить')}
+            </Button>
         </div>
     );
 });

@@ -2,7 +2,7 @@ import { ArticleDetails, getArticleDetailsData, getArticleDetailsIsLoading } fro
 import { useSelector } from 'react-redux';
 import { Text, TextSize } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
-import AddCommentForm from 'features/AddComments/ui/AddCommentForm/AddCommentForm';
+import AddCommentsForArticle from 'features/AddComments/ui/AddCommentsForArticle/AddCommentsForArticle';
 import cls from './ArticleWithComments.module.scss';
 
 interface ArticleWithCommentsProps {
@@ -20,7 +20,7 @@ export const ArticleWithComments = (props: ArticleWithCommentsProps) => {
         <>
             <ArticleDetails id={id} isLoading={isLoading} data={article} />
             {article && <Text className={cls.comments} title={t('Комментарии')} size={TextSize.L} />}
-            {article && <AddCommentForm id={id} />}
+            {article && <AddCommentsForArticle id={id} />}
         </>
     );
 };

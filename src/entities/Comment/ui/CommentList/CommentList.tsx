@@ -23,7 +23,6 @@ export const CommentList = memo((props: CommentListProps) => {
                     <CommentCard
                         key={comment.id}
                         isLoading={loading}
-                        className={cls.comment}
                         comment={comment}
                     />
                 ))

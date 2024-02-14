@@ -2,17 +2,17 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import AddCommentForm from './AddCommentForm';
+import AddCommentsForArticle from './AddCommentsForArticle';
 
 export default {
-    title: 'shared/AddCommentForm',
-    component: AddCommentForm,
+    title: 'shared/AddCommentsForArticle',
+    component: AddCommentsForArticle,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof AddCommentForm>;
+} as ComponentMeta<typeof AddCommentsForArticle>;
 
-const Template: ComponentStory<typeof AddCommentForm> = (args) => <AddCommentForm {...args} />;
+const Template: ComponentStory<typeof AddCommentsForArticle> = (args) => <AddCommentsForArticle {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {};
