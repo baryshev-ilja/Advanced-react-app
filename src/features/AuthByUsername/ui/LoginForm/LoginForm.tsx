@@ -5,7 +5,7 @@ import { Input } from 'shared/ui/Input/Input';
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { Text, ThemeText } from 'shared/ui/Text/Text';
-import { ReducersList, useDynamicReducerLoad } from 'shared/lib/hooks/useDynamicReducerLoad';
+import { ReducersList, DynamicReducerLoad } from 'shared/lib/hooks/DynamicReducerLoad';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import {
     getLoginUsername,
@@ -23,7 +23,7 @@ export interface LoginFormProps {
     className?: string;
 }
 
-const initialReducers: ReducersList = {
+const reducers: ReducersList = {
     loginForm: loginReducer,
 };
 
@@ -35,11 +35,6 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
     const password = useSelector(getLoginPassword);
     const isLoading = useSelector(getLoginLoading);
     const error = useSelector(getLoginError);
-
-    useDynamicReducerLoad({
-        reducers: initialReducers,
-        removeAfterUnmount: true,
-    });
 
     const onChangeUsername = useCallback((value: string) => {
         dispatch(loginActions.setUsername(value));
@@ -57,35 +52,37 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
     const labelPassword = t('Введите пароль');
 
     return (
-        <div className={classNames(cls.loginForm, {}, [className])}>
-            <Text title={t('Форма авторизации')} />
-            {error && <Text description={t('Вы неправильно ввели логин или пароль')} theme={ThemeText.ERROR} />}
-            <Input
-                type="text"
-                className={cls.input}
-                value={username}
-                onChange={onChangeUsername}
-                labelElement={labelUsername}
-                autofocus
-                id="username"
-            />
-            <Input
-                type="text"
-                className={cls.input}
-                value={password}
-                onChange={onChangePassword}
-                labelElement={labelPassword}
-                id="password"
-            />
-            <Button
-                className={cls.btn}
-                theme={ButtonTheme.OUTLINE}
-                onClick={onLoginClick}
-                disabled={isLoading}
-            >
-                {t('Войти')}
-            </Button>
-        </div>
+        <DynamicReducerLoad reducers={reducers}>
+            <div className={classNames(cls.loginForm, {}, [className])}>
+                <Text title={t('Форма авторизации')} />
+                {error && <Text description={t('Вы неправильно ввели логин или пароль')} theme={ThemeText.ERROR} />}
+                <Input
+                    type="text"
+                    className={cls.input}
+                    value={username}
+                    onChange={onChangeUsername}
+                    labelElement={labelUsername}
+                    autofocus
+                    id="username"
+                />
+                <Input
+                    type="text"
+                    className={cls.input}
+                    value={password}
+                    onChange={onChangePassword}
+                    labelElement={labelPassword}
+                    id="password"
+                />
+                <Button
+                    className={cls.btn}
+                    theme={ButtonTheme.OUTLINE}
+                    onClick={onLoginClick}
+                    disabled={isLoading}
+                >
+                    {t('Войти')}
+                </Button>
+            </div>
+        </DynamicReducerLoad>
     );
 });
 

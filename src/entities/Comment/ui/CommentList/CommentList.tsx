@@ -15,6 +15,7 @@ interface CommentListProps {
 export const CommentList = memo((props: CommentListProps) => {
     const { className, comments, loading } = props;
     const { t } = useTranslation();
+
     return (
         <div className={classNames(cls.commentList, {}, [className])}>
             {comments?.length

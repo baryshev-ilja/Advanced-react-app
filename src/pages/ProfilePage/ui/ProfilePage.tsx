@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useEffect } from 'react';
-import { ReducersList, useDynamicReducerLoad } from 'shared/lib/hooks/useDynamicReducerLoad';
+import { ReducersList, DynamicReducerLoad } from 'shared/lib/hooks/DynamicReducerLoad';
 import { profileReducer } from 'features/EditProfileCard/model/slice/profileSlice';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { EditableProfileCard, fetchProfileData } from 'features/EditProfileCard';
@@ -22,11 +22,6 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
     const dispatch = useAppDispatch();
     const { id } = useParams<{id: string}>();
 
-    useDynamicReducerLoad({
-        reducers,
-        removeAfterUnmount: true,
-    });
-
     useInitialEffect(() => {
         if (id) {
             dispatch(fetchProfileData(id));
@@ -34,10 +29,12 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
     });
 
     return (
-        <div className={classNames('', {}, [className])}>
-            <ProfilePageHeader />
-            <EditableProfileCard />
-        </div>
+        <DynamicReducerLoad reducers={reducers}>
+            <div className={classNames('', {}, [className])}>
+                <ProfilePageHeader />
+                <EditableProfileCard />
+            </div>
+        </DynamicReducerLoad>
     );
 });
 

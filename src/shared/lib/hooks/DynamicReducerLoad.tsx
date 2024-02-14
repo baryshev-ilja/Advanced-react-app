@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { FC, useEffect } from 'react';
 import { ReduxStoreWithManager, StateSchemaKey } from 'app/providers/StoreProvider/config/StateSchema';
 import { Reducer } from '@reduxjs/toolkit';
 import { useDispatch, useStore } from 'react-redux';
@@ -7,15 +7,16 @@ export type ReducersList = {
     [nameKey in StateSchemaKey]?: Reducer
 }
 
-interface useDynamicReducerLoadProps {
+interface DynamicReducerLoadProps {
     reducers: ReducersList;
-    removeAfterUnmount: boolean;
+    removeAfterUnmount?: boolean;
 }
 
-export function useDynamicReducerLoad(props: useDynamicReducerLoadProps) {
+export const DynamicReducerLoad: FC<DynamicReducerLoadProps> = (props) => {
     const {
+        children,
         reducers,
-        removeAfterUnmount,
+        removeAfterUnmount = true,
     } = props;
 
     const store = useStore() as ReduxStoreWithManager;
@@ -37,4 +38,11 @@ export function useDynamicReducerLoad(props: useDynamicReducerLoadProps) {
         };
         //    eslint-disable-next-line
     }, []);
-}
+
+    return (
+        // eslint-disable-next-line react/jsx-no-useless-fragment
+        <>
+            {children}
+        </>
+    );
+};

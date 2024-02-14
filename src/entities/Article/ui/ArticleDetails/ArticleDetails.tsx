@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { ReducersList, useDynamicReducerLoad } from 'shared/lib/hooks/useDynamicReducerLoad';
-import { memo, useEffect } from 'react';
+import { DynamicReducerLoad, ReducersList } from 'shared/lib/hooks/DynamicReducerLoad';
+import { memo } from 'react';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { Text, TextAlign, TextSize } from 'shared/ui/Text/Text';
@@ -13,7 +13,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
-import { ArticleBlocks, ArticleBlockType } from '../../model/types/article';
+import { Article, ArticleBlocks, ArticleBlockType } from '../../model/types/article';
 import { fetchArticleDetailsById } from '../../model/services/fetchArticleDetailsById/fetchArticleDetailsById';
 import cls from './ArticleDetails.module.scss';
 import {
@@ -26,6 +26,8 @@ import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 interface ArticleDetailsProps {
     className?: string;
     id: string;
+    isLoading?: boolean;
+    data?: Article;
 }
 
 const reducers: ReducersList = {
@@ -64,17 +66,15 @@ const renderBlock = (block: ArticleBlocks) => {
 };
 
 export const ArticleDetails = memo((props: ArticleDetailsProps) => {
-    const { className, id } = props;
+    const {
+        className,
+        id,
+        isLoading,
+        data,
+    } = props;
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
-    const isLoading = useSelector(getArticleDetailsIsLoading);
-    const article = useSelector(getArticleDetailsData);
     const error = useSelector(getArticleDetailsError);
-
-    useDynamicReducerLoad({
-        reducers,
-        removeAfterUnmount: true,
-    });
 
     useInitialEffect(() => {
         dispatch(fetchArticleDetailsById(id));
@@ -94,14 +94,16 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                     className={cls.title}
                     width={700}
                     height={30}
+                    borderRadius="8px"
                 />
                 <Skeleton
                     className={cls.meta}
                     width={400}
                     height={30}
+                    borderRadius="8px"
                 />
-                <Skeleton className={cls.title} height={200} />
-                <Skeleton className={cls.title} height={200} />
+                <Skeleton className={cls.title} height={200} borderRadius="15px" />
+                <Skeleton className={cls.title} height={200} borderRadius="15px" />
             </>
 
         );
@@ -112,45 +114,47 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                 title={t('Произошла ошибка')}
             />
         );
-    } else if (article) {
+    } else if (data) {
         content = (
             <>
                 <Avatar
                     className={cls.avatar}
-                    src={article?.img}
+                    src={data?.img}
                     size={200}
-                    alt={article?.title}
+                    alt={data?.title}
                 />
 
                 <div className={cls.title}>
                     <Text
                         size={TextSize.L}
-                        title={article?.title}
-                        description={article?.subtitle}
+                        title={data?.title}
+                        description={data?.subtitle}
                     />
                 </div>
 
                 <div className={cls.metaWrapper}>
                     <div className={cls.metaInner}>
                         <EyeIcon className={cls.icon} />
-                        <span>{article?.views}</span>
+                        <span>{data?.views}</span>
                     </div>
                     <div className={cls.metaInner}>
                         <CalendarIcon className={cls.icon} />
-                        <span>{article?.createdAt}</span>
+                        <span>{data?.createdAt}</span>
                     </div>
                 </div>
 
                 <div className={cls.blocks}>
-                    {article?.blocks.map(renderBlock)}
+                    {data?.blocks.map(renderBlock)}
                 </div>
             </>
         );
     }
 
     return (
-        <div className={classNames(cls.articleDetails, {}, [className])}>
-            {content}
-        </div>
+        <DynamicReducerLoad reducers={reducers}>
+            <div className={classNames(cls.articleDetails, {}, [className])}>
+                {content}
+            </div>
+        </DynamicReducerLoad>
     );
 });
