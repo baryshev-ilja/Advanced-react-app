@@ -1,8 +1,8 @@
-export enum ArticleBlockType {
-    CODE = 'CODE',
-    TEXT = 'TEXT',
-    IMAGE = 'IMAGE',
-}
+import { User } from 'entities/User';
+
+export type ArticleBlockType = 'CODE' | 'TEXT' | 'IMAGE';
+
+export type ArticleView = 'LIST' | 'GRID';
 
 export interface ArticleBlockBase {
     id: string;
@@ -10,19 +10,19 @@ export interface ArticleBlockBase {
 }
 
 export interface ArticleTextBlock extends ArticleBlockBase {
-    type: ArticleBlockType.TEXT;
+    type: 'TEXT';
     title?: string;
     paragraphs: string[];
 }
 
 export interface ArticleImageBlock extends ArticleBlockBase {
-    type: ArticleBlockType.IMAGE;
+    type: 'IMAGE';
     src: string;
     title?: string;
 }
 
 export interface ArticleCodeBlock extends ArticleBlockBase {
-    type: ArticleBlockType.CODE;
+    type: 'CODE';
     code: string;
 }
 
@@ -38,6 +38,7 @@ export interface Article {
     id: string;
     title: string;
     subtitle: string;
+    user: User;
     img: string;
     views: 1022,
     createdAt: string;

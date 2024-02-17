@@ -4,19 +4,15 @@ import cls from './Button.module.scss';
 
 export enum ButtonTheme {
     CLEAR = 'clear',
-    CLEAR_INVERTED = 'clear-inverted',
+    CLEAR_INVERTED = 'clearInverted',
     OUTLINE = 'outline',
-    OUTLINE_INVERTED = 'outline-inverted',
-    OUTLINE_ERROR = 'outline-error',
+    OUTLINE_INVERTED = 'outlineInverted',
+    OUTLINE_ERROR = 'outlineError',
     BACKGROUND = 'background',
-    BACKGROUND_INVERTED = 'background-inverted'
+    BACKGROUND_INVERTED = 'backgroundInverted'
 }
 
-export enum ButtonSize {
-    M = 'size-m',
-    L = 'size-l',
-    XL = 'size-xl',
-}
+export type ButtonSize = 'sizeM' | 'sizeL' | 'sizeXL';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
     className?: string;
@@ -34,7 +30,7 @@ export const Button = memo((props: ButtonProps) => {
         theme = ButtonTheme.OUTLINE,
         square,
         disabled,
-        size = ButtonSize.M,
+        size = 'sizeM',
         ...otherProps
     } = props;
 

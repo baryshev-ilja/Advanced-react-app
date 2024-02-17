@@ -13,14 +13,10 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
-import { Article, ArticleBlocks, ArticleBlockType } from '../../model/types/article';
+import { Article, ArticleBlocks } from '../../model/types/article';
 import { fetchArticleDetailsById } from '../../model/services/fetchArticleDetailsById/fetchArticleDetailsById';
 import cls from './ArticleDetails.module.scss';
-import {
-    getArticleDetailsData,
-    getArticleDetailsError,
-    getArticleDetailsIsLoading,
-} from '../../model/selectors/getArticleDetails';
+import { getArticleDetailsError } from '../../model/selectors/getArticleDetails';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 
 interface ArticleDetailsProps {
@@ -36,7 +32,7 @@ const reducers: ReducersList = {
 
 const renderBlock = (block: ArticleBlocks) => {
     switch (block.type) {
-    case ArticleBlockType.TEXT:
+    case 'TEXT':
         return (
             <ArticleTextBlockComponent
                 key={block.id}
@@ -44,7 +40,7 @@ const renderBlock = (block: ArticleBlocks) => {
                 className={cls.block}
             />
         );
-    case ArticleBlockType.IMAGE:
+    case 'IMAGE':
         return (
             <ArticleImageBlockComponent
                 key={block.id}
@@ -52,7 +48,7 @@ const renderBlock = (block: ArticleBlocks) => {
                 className={cls.block}
             />
         );
-    case ArticleBlockType.CODE:
+    case 'CODE':
         return (
             <ArticleCodeBlockComponent
                 key={block.id}
