@@ -9,12 +9,16 @@ const data: Article = {
     subtitle: 'Что нового в JS за 2022 год?',
     img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
     views: 1022,
+    user: {
+        id: '1',
+        username: 'user',
+    },
     createdAt: '26.02.2022',
     type: [ArticleTypes.IT],
     blocks: [
         {
             id: '1',
-            type: ArticleBlockType.TEXT,
+            type: 'TEXT',
             title: 'Заголовок этого блока',
             paragraphs: [
                 'Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.',
