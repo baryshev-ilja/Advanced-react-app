@@ -5,7 +5,7 @@ import { Theme } from 'app/providers/ThemeProvider';
 import { CommentForm } from './CommentForm';
 
 export default {
-    title: 'shared/CommentForm',
+    title: 'entities/Comment/CommentForm',
     component: CommentForm,
     argTypes: {
         backgroundColor: { control: 'color' },

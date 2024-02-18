@@ -6,9 +6,10 @@ import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import { Article } from 'entities/Article';
 import { ArticleTypes } from 'entities/Article/model/types/article';
 import { ArticleDetails } from './ArticleDetails';
+import './ArticleDetails.module.scss';
 
 export default {
-    title: 'entities/ArticleDetails',
+    title: 'entities/Article/ArticleDetails',
     component: ArticleDetails,
     argTypes: {
         backgroundColor: { control: 'color' },
@@ -93,6 +94,7 @@ const articleData: Article = {
 
 export const Normal = Template.bind({});
 Normal.args = {
+    data: articleData,
 };
 Normal.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
     articleDetails: {
@@ -109,9 +111,7 @@ Error.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
 })];
 
 export const isLoading = Template.bind({});
-isLoading.args = {};
-isLoading.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
-    articleDetails: {
-        isLoading: true,
-    },
-})];
+isLoading.args = {
+    isLoading: true,
+};
+isLoading.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];

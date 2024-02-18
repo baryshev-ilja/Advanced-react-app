@@ -1,11 +1,10 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
 import AddCommentsForArticle from './AddCommentsForArticle';
 
 export default {
-    title: 'shared/AddCommentsForArticle',
+    title: 'features/AddCommentsForArticle',
     component: AddCommentsForArticle,
     argTypes: {
         backgroundColor: { control: 'color' },
@@ -15,8 +14,19 @@ export default {
 const Template: ComponentStory<typeof AddCommentsForArticle> = (args) => <AddCommentsForArticle {...args} />;
 
 export const Normal = Template.bind({});
-Normal.args = {};
-
-export const Dark = Template.bind({});
-Dark.args = {};
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+Normal.args = {
+    id: '1',
+};
+Normal.decorators = [StoreDecorator({
+    articleComments: {
+        isLoading: false,
+        ids: ['1'],
+        entities: {
+            1: {
+                id: '1',
+                text: 'hello world',
+                user: { id: '1', username: 'Vasya' },
+            },
+        },
+    },
+})];
