@@ -5,8 +5,15 @@ import { DynamicReducerLoad, ReducersList } from 'shared/lib/hooks/DynamicReduce
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { fetchArticleList } from 'pages/ArticlesPage/model/services/fetchArticleList/fetchArticleList';
-import { articlesPageReducer, getArticleComments } from '../../model/slice/articlesPageSlice';
+import { ToggleViewArticleList } from 'features/ToggleViewArticleList';
+import { useCallback } from 'react';
+import { ArticleView } from 'entities/Article';
+import { fetchArticleList } from '../../model/services/fetchArticleList/fetchArticleList';
+import {
+    articlesPageActions,
+    articlesPageReducer,
+    getArticleComments,
+} from '../../model/slice/articlesPageSlice';
 import {
     getArticlesPageError,
     getArticlesPageIsLoading,
@@ -31,13 +38,19 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const error = useSelector(getArticlesPageError);
     const view = useSelector(getArticlesPageView);
 
+    const onClickViewHandler = useCallback((newView: ArticleView) => {
+        dispatch(articlesPageActions.setView(newView));
+    }, [dispatch]);
+
     useInitialEffect(() => {
         dispatch(fetchArticleList());
+        dispatch(articlesPageActions.initState());
     });
 
     return (
         <DynamicReducerLoad reducers={reducers}>
             <div className={classNames(cls.articlesPage, {}, [className])}>
+                <ToggleViewArticleList view={view} onClickView={onClickViewHandler} />
                 <ArticleList
                     articles={articles}
                     view={view}
