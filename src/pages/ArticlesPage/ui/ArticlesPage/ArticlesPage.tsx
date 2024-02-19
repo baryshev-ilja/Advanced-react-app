@@ -1,13 +1,14 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
 import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList';
-import { DynamicReducerLoad, ReducersList } from 'shared/lib/hooks/DynamicReducerLoad';
+import { DynamicReducerLoad, ReducersList } from 'shared/lib/HOC/DynamicReducerLoad';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { ToggleViewArticleList } from 'features/ToggleViewArticleList';
 import { useCallback } from 'react';
 import { ArticleView } from 'entities/Article';
+import { Page } from 'shared/ui/Page/Page';
+import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { fetchArticleList } from '../../model/services/fetchArticleList/fetchArticleList';
 import {
     articlesPageActions,
@@ -31,7 +32,6 @@ const reducers: ReducersList = {
 
 const ArticlesPage = (props: ArticlesPageProps) => {
     const { className } = props;
-    const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const articles = useSelector(getArticleComments.selectAll);
     const isLoading = useSelector(getArticlesPageIsLoading);
@@ -42,21 +42,30 @@ const ArticlesPage = (props: ArticlesPageProps) => {
         dispatch(articlesPageActions.setView(newView));
     }, [dispatch]);
 
+    const onLoadNextPart = useCallback(() => {
+        dispatch(fetchNextArticlesPage());
+    }, [dispatch]);
+
     useInitialEffect(() => {
-        dispatch(fetchArticleList());
         dispatch(articlesPageActions.initState());
+        dispatch(fetchArticleList({
+            page: 1,
+        }));
     });
 
     return (
         <DynamicReducerLoad reducers={reducers}>
-            <div className={classNames(cls.articlesPage, {}, [className])}>
+            <Page
+                className={classNames(cls.articlesPage, {}, [className])}
+                onEndScroll={onLoadNextPart}
+            >
                 <ToggleViewArticleList view={view} onClickView={onClickViewHandler} />
                 <ArticleList
                     articles={articles}
                     view={view}
                     isLoading={isLoading}
                 />
-            </div>
+            </Page>
         </DynamicReducerLoad>
     );
 };

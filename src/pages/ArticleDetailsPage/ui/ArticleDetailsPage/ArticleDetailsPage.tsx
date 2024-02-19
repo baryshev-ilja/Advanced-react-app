@@ -5,6 +5,7 @@ import { ArticleWithComments } from 'widgets/ArticleWithComments';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useCallback } from 'react';
 import { RoutePaths } from 'shared/config/routeConfig/routeConfig';
+import { Page } from 'shared/ui/Page/Page';
 import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
@@ -23,14 +24,14 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
     if (!id) {
         return (
-            <div className={classNames(cls.articleDetailsPage, {}, [className])}>
+            <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
                 {t('Страница не найдена(')}
-            </div>
+            </Page>
         );
     }
 
     return (
-        <div className={classNames(cls.articleDetailsPage, {}, [className])}>
+        <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
             <Button
                 className={cls.toBackArticles}
                 onClick={onButtonBackHandler}
@@ -39,7 +40,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
                 {t('Вернуться к списку статей')}
             </Button>
             <ArticleWithComments id={id} />
-        </div>
+        </Page>
     );
 };
 
