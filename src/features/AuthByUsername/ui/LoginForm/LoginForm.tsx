@@ -5,8 +5,8 @@ import { Input } from 'shared/ui/Input/Input';
 import { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { Text, ThemeText } from 'shared/ui/Text/Text';
-import { ReducersList, DynamicReducerLoad } from 'shared/lib/hooks/DynamicReducerLoad';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { ReducersList, DynamicReducerLoad } from 'shared/lib/HOC/DynamicReducerLoad';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
     getLoginUsername,
 } from '../../model/selectors/getLoginUsername/getLoginUsername';

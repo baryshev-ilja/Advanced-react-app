@@ -1,9 +1,9 @@
 import { memo, useCallback } from 'react';
-import { DynamicReducerLoad, ReducersList } from 'shared/lib/hooks/DynamicReducerLoad';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { DynamicReducerLoad, ReducersList } from 'shared/lib/HOC/DynamicReducerLoad';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { CommentForm, CommentList } from 'entities/Comment';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { getArticleCommentsIsLoading } from 'features/AddComments/model/selectors/getArticleCommentsData';
 import { CommentListSkeletons } from 'entities/Comment/ui/CommentList/CommentListSkeletons';
 import { Text, ThemeText } from 'shared/ui/Text/Text';
