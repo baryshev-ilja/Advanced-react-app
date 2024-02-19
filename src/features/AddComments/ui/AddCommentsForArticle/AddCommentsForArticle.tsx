@@ -6,6 +6,8 @@ import { CommentForm, CommentList } from 'entities/Comment';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { getArticleCommentsIsLoading } from 'features/AddComments/model/selectors/getArticleCommentsData';
 import { CommentListSkeletons } from 'entities/Comment/ui/CommentList/CommentListSkeletons';
+import { Text, ThemeText } from 'shared/ui/Text/Text';
+import { useTranslation } from 'react-i18next';
 import {
     articleCommentsReducer,
     getArticleComments,
@@ -31,6 +33,7 @@ const reducers: ReducersList = {
 const AddCommentsForArticle = memo((props: AddCommentsForArticleProps) => {
     const { className, id } = props;
     const dispatch = useAppDispatch();
+    const { t } = useTranslation();
 
     const text = useSelector(getAddCommentFormText);
     const comments = useSelector(getArticleComments.selectAll);
@@ -49,6 +52,20 @@ const AddCommentsForArticle = memo((props: AddCommentsForArticleProps) => {
         changeCommentTextHandler('');
     }, [dispatch, text, changeCommentTextHandler]);
 
+    let contentComments;
+
+    if (comments?.length === 0) {
+        contentComments = <Text description={t('Комментарии не найдены')} />;
+    }
+
+    if (isLoading) {
+        contentComments = <CommentListSkeletons />;
+    }
+
+    if (comments?.length > 0) {
+        contentComments = <CommentList loading={isLoading} comments={comments} />;
+    }
+
     return (
         <DynamicReducerLoad reducers={reducers}>
             <CommentForm
@@ -56,9 +73,7 @@ const AddCommentsForArticle = memo((props: AddCommentsForArticleProps) => {
                 onChangeComment={changeCommentTextHandler}
                 onSendComment={sendCommentFormHandler}
             />
-            { comments?.length === 0
-                ? <CommentListSkeletons />
-                : <CommentList loading={isLoading} comments={comments} />}
+            {contentComments}
         </DynamicReducerLoad>
     );
 });
