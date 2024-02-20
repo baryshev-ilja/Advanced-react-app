@@ -14,7 +14,7 @@ export const getArticleComments = articlesAdapter.getSelectors<StateSchema>(
 );
 
 const articleCommentsSlice = createSlice({
-    name: 'articlesPageSlice',
+    name: 'articlesPage',
     initialState: articlesAdapter.getInitialState<ArticlesPageSchema>({
         isLoading: false,
         error: undefined,
@@ -23,6 +23,7 @@ const articleCommentsSlice = createSlice({
         entities: {},
         page: 1,
         hasMore: true,
+        _inited: false,
     }),
     reducers: {
         setView: (state, action: PayloadAction<ArticleView>) => {
@@ -36,6 +37,7 @@ const articleCommentsSlice = createSlice({
             const view = localStorage.getItem(LIST_VIEW_ARTICLES_LOCALSTORAGE_KEY) as ArticleView;
             state.view = view;
             state.limit = (view === 'GRID') ? 9 : 4;
+            state._inited = true;
         },
     },
     extraReducers(builder) {

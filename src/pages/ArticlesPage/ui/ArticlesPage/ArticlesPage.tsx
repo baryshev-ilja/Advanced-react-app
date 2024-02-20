@@ -8,8 +8,8 @@ import { ToggleViewArticleList } from 'features/ToggleViewArticleList';
 import { useCallback } from 'react';
 import { ArticleView } from 'entities/Article';
 import { Page } from 'shared/ui/Page/Page';
+import { initArticlesList } from '../../model/services/initArticlesList/initArticlesList';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
-import { fetchArticleList } from '../../model/services/fetchArticleList/fetchArticleList';
 import {
     articlesPageActions,
     articlesPageReducer,
@@ -47,14 +47,11 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     }, [dispatch]);
 
     useInitialEffect(() => {
-        dispatch(articlesPageActions.initState());
-        dispatch(fetchArticleList({
-            page: 1,
-        }));
+        dispatch(initArticlesList());
     });
 
     return (
-        <DynamicReducerLoad reducers={reducers}>
+        <DynamicReducerLoad reducers={reducers} removeAfterUnmount={false}>
             <Page
                 className={classNames(cls.articlesPage, {}, [className])}
                 onEndScroll={onLoadNextPart}
