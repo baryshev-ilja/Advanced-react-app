@@ -14,10 +14,12 @@ import { ArticleDetailsSchema } from 'entities/Article/model/types/ArticleDetail
 
 import { AddCommentFormSchema, ArticleCommentsSchema } from 'features/AddComments';
 import { ArticlesPageSchema } from 'pages/ArticlesPage/model/types/ArticlesPageSchema';
+import { ScrollSaveSchema } from 'widgets/Page';
 
 export interface StateSchema {
     counter: CounterSchema;
     user: UserSchema;
+    scrollSave: ScrollSaveSchema;
 
     // Асинхронные редюсеры
     loginForm?: LoginSchema;
