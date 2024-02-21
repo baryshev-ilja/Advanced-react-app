@@ -7,7 +7,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { ToggleViewArticleList } from 'features/ToggleViewArticleList';
 import { useCallback } from 'react';
 import { ArticleView } from 'entities/Article';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page/ui/Page';
 import { initArticlesList } from '../../model/services/initArticlesList/initArticlesList';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import {

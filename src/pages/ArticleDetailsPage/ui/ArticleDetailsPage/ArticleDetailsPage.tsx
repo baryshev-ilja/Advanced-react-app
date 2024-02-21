@@ -5,7 +5,7 @@ import { ArticleWithComments } from 'widgets/ArticleWithComments';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useCallback } from 'react';
 import { RoutePaths } from 'shared/config/routeConfig/routeConfig';
-import { Page } from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page/ui/Page';
 import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
