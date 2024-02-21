@@ -1,17 +1,25 @@
-import { MutableRefObject, useEffect } from 'react';
+import { MutableRefObject, useLayoutEffect } from 'react';
 
 interface useInfiniteScrollOptions {
     wrapperRef: MutableRefObject<HTMLElement>;
     triggerRef: MutableRefObject<HTMLElement>;
     callback?: () => void;
+    scrollPositionForWrapper?: number;
 }
 
 export function useInfiniteScroll(props: useInfiniteScrollOptions) {
-    const { triggerRef, wrapperRef, callback } = props;
+    const {
+        triggerRef,
+        wrapperRef,
+        callback,
+        scrollPositionForWrapper = 0,
+    } = props;
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         const wrapperElement = wrapperRef.current;
         const triggerElement = triggerRef.current;
+        wrapperElement.scrollTop = scrollPositionForWrapper;
+
         let observer: IntersectionObserver | null = null;
 
         if (callback) {
@@ -34,5 +42,5 @@ export function useInfiniteScroll(props: useInfiniteScrollOptions) {
                 observer.unobserve(triggerElement);
             }
         };
-    }, [callback, triggerRef, wrapperRef]);
+    }, [callback, scrollPositionForWrapper, triggerRef, wrapperRef]);
 }
