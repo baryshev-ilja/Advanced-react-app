@@ -8,6 +8,7 @@ import { ToggleViewArticleList } from 'features/ToggleViewArticleList';
 import { useCallback } from 'react';
 import { ArticleView } from 'entities/Article';
 import { Page } from 'widgets/Page/ui/Page';
+import { ArticlesPageFilters } from 'pages/ArticlesPage/ui/ArticlesPageFilters/ArticlesPageFilters';
 import { initArticlesList } from '../../model/services/initArticlesList/initArticlesList';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import {
@@ -38,10 +39,6 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const error = useSelector(getArticlesPageError);
     const view = useSelector(getArticlesPageView);
 
-    const onClickViewHandler = useCallback((newView: ArticleView) => {
-        dispatch(articlesPageActions.setView(newView));
-    }, [dispatch]);
-
     const onLoadNextPart = useCallback(() => {
         dispatch(fetchNextArticlesPage());
     }, [dispatch]);
@@ -56,7 +53,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
                 className={classNames(cls.articlesPage, {}, [className])}
                 onEndScroll={onLoadNextPart}
             >
-                <ToggleViewArticleList view={view} onClickView={onClickViewHandler} />
+                <ArticlesPageFilters />
                 <ArticleList
                     articles={articles}
                     view={view}

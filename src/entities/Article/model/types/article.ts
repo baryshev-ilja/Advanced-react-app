@@ -1,5 +1,11 @@
 import { User } from 'entities/User';
 
+export enum ArticleSortTypes {
+    VIEWS = 'views',
+    TITLE = 'title',
+    CREATED = 'createdAt',
+}
+
 export type ArticleBlockType = 'CODE' | 'TEXT' | 'IMAGE';
 
 export type ArticleView = 'LIST' | 'GRID';

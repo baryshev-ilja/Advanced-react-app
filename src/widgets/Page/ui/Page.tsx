@@ -52,7 +52,7 @@ export const Page = (props: PageProps) => {
             onScroll={onScrollHandler}
         >
             {children}
-            <div ref={triggerRef} />
+            {onEndScroll ? <div className={cls.trigger} ref={triggerRef} /> : null}
         </section>
     );
 };
