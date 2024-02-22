@@ -12,9 +12,7 @@ export const initArticlesList = createAsyncThunk<void, void, ThunkConfigApi<stri
 
         if (!inited) {
             dispatch(articlesPageActions.initState());
-            dispatch(fetchArticleList({
-                page: 1,
-            }));
+            dispatch(fetchArticleList({}));
         }
     },
 );

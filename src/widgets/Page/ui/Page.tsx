@@ -1,18 +1,13 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import {
-    MutableRefObject,
-    ReactNode,
-    UIEvent,
-    useRef,
-} from 'react';
+import { MutableRefObject, ReactNode, useRef } from 'react';
 import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInffinteScroll';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { getScrollPositionByPath } from 'widgets/Page/model/selectors/getScrollSavePosition';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { scrollSaveActions } from 'widgets/Page/model/slice/scrollSaveSlice';
-import { useThrottle } from 'shared/lib/hooks/useTrottle/useTrottle';
+import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
+import { scrollSaveActions } from '../model/slice/scrollSaveSlice';
+import { getScrollPositionByPath } from '../model/selectors/getScrollSavePosition';
 import cls from './Page.module.scss';
 
 interface PageProps {
@@ -31,12 +26,12 @@ export const Page = (props: PageProps) => {
         (state: StateSchema) => getScrollPositionByPath(state, pathname),
     );
 
-    const onScrollHandler = useThrottle((evt: UIEvent<HTMLDivElement>) => {
+    const onScrollHandler = useDebounce((value: number) => {
         dispatch(scrollSaveActions.setScrollPosition({
             path: pathname,
-            position: evt.currentTarget.scrollTop,
+            position: value,
         }));
-    }, 500);
+    }, 300, true);
 
     useInfiniteScroll({
         wrapperRef,
