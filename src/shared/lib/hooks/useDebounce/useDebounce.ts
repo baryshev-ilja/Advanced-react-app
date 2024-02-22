@@ -3,26 +3,44 @@ import {
     useCallback,
     useEffect,
     useRef,
+    UIEvent,
 } from 'react';
 
-type AnyFunction = (...arg: any[]) => any;
-
-export function useDebounce<Fn extends AnyFunction>(callback: ReturnType<Fn>, delay: number) {
+export function useDebounce(
+    callback: (...arg: any[]) => void,
+    delay: number,
+    eventUI?: boolean,
+) {
     const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
+    let callbackFn: (...arg: any[]) => void;
 
-    const debouncedCallback = useCallback((...arg: Parameters<Fn>) => {
-        if (timerRef.current) {
-            clearTimeout(timerRef.current);
-        }
+    if (eventUI) {
+        callbackFn = (evt: UIEvent<HTMLDivElement>) => {
+            if (timerRef.current) {
+                clearTimeout(timerRef.current);
+            }
 
-        timerRef.current = setTimeout(() => {
-            callback?.(...arg);
-        }, delay);
-    }, [callback, delay]);
+            const argEvt = evt.currentTarget.scrollTop;
+
+            timerRef.current = setTimeout(() => {
+                callback?.(argEvt);
+            }, delay);
+        };
+    } else {
+        callbackFn = (...arg: any[]) => {
+            if (timerRef.current) {
+                clearTimeout(timerRef.current);
+            }
+
+            timerRef.current = setTimeout(() => {
+                callback?.(...arg);
+            }, delay);
+        };
+    }
 
     useEffect(() => () => {
         clearTimeout(timerRef.current);
     }, []);
 
-    return debouncedCallback;
+    return useCallback(callbackFn, [callbackFn]);
 }
