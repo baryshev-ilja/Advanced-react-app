@@ -17,7 +17,9 @@ describe('initArticlesList.test', () => {
             },
         });
 
-        const action = await thunk.callThunk();
+        const searchParams = new URLSearchParams();
+
+        const action = await thunk.callThunk(searchParams);
 
         expect(thunk.dispatch).toHaveBeenCalledTimes(4);
         expect(fetchArticleList).toHaveBeenCalled();
@@ -35,7 +37,9 @@ describe('initArticlesList.test', () => {
             },
         });
 
-        const action = await thunk.callThunk();
+        const searchParams = new URLSearchParams();
+
+        const action = await thunk.callThunk(searchParams);
 
         expect(thunk.dispatch).toHaveBeenCalledTimes(2);
         expect(fetchArticleList).not.toHaveBeenCalled();

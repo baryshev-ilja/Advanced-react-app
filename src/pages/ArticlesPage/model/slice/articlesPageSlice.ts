@@ -1,8 +1,9 @@
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
-import { Article, ArticleView } from 'entities/Article';
+import {
+    Article, ArticleTypes, ArticleView, ArticleSortTypes,
+} from 'entities/Article';
 import { LIST_VIEW_ARTICLES_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
-import { ArticleSortTypes } from 'entities/Article/model/types/article';
 import { TypesOfOrders } from 'shared/types';
 import { fetchArticleList } from '../services/fetchArticleList/fetchArticleList';
 import { ArticlesPageSchema } from '../types/ArticlesPageSchema';
@@ -29,6 +30,7 @@ const articleCommentsSlice = createSlice({
         order: 'asc',
         sort: ArticleSortTypes.CREATED,
         search: '',
+        type: ArticleTypes.ALL,
         _inited: false,
     }),
     reducers: {
@@ -48,6 +50,9 @@ const articleCommentsSlice = createSlice({
         setSearch: (state, action: PayloadAction<string>) => {
             state.search = action.payload;
         },
+        setType: (state, action: PayloadAction<ArticleTypes>) => {
+            state.type = action.payload;
+        },
         initState: (state) => {
             const view = localStorage.getItem(LIST_VIEW_ARTICLES_LOCALSTORAGE_KEY) as ArticleView;
             state.view = view;
@@ -66,7 +71,7 @@ const articleCommentsSlice = createSlice({
             })
             .addCase(fetchArticleList.fulfilled, (state, action) => {
                 state.isLoading = false;
-                state.hasMore = action.payload.length > 0;
+                state.hasMore = action.payload.length >= state.limit;
 
                 if (action.meta.arg.replace) {
                     articlesAdapter.setAll(state, action);
