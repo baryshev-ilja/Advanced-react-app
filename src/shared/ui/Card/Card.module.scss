@@ -1,5 +1,14 @@
 .card {
     border-radius: 15px;
-    background-color: var(--bg-card);
     overflow: hidden;
+}
+
+.normal {
+    background: none;
+    border: 1px solid var(--primary-color);
+}
+
+.current {
+    background-color: var(--bg-card);
+    border: none;
 }

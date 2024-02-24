@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { ToggleViewArticleList } from 'features/ToggleViewArticleList';
 import { ArticleView } from 'entities/Article';
 import { useSelector } from 'react-redux';
@@ -8,14 +8,15 @@ import { SortByFiltersArticleList } from 'features/SortArticleList';
 import { Card } from 'shared/ui/Card/Card';
 import { Input } from 'shared/ui/Input/Input';
 import { useTranslation } from 'react-i18next';
-import { ArticleSortTypes } from 'entities/Article/model/types/article';
+import { ArticleSortTypes, ArticleTypes } from 'entities/Article/model/types/article';
 import { TypesOfOrders } from 'shared/types';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
+import { Tabs, TabsItem } from 'shared/ui/Tabs/Tabs';
 import { articlesPageActions } from '../../model/slice/articlesPageSlice';
 import {
     getArticlesPageOrder,
     getArticlesPageSearch,
-    getArticlesPageSort,
+    getArticlesPageSort, getArticlesPageType,
     getArticlesPageView,
 } from '../../model/selectors/getArticlesPageSelectors';
 import { fetchArticleList } from '../../model/services/fetchArticleList/fetchArticleList';
@@ -34,6 +35,7 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
     const sort = useSelector(getArticlesPageSort);
     const order = useSelector(getArticlesPageOrder);
     const search = useSelector(getArticlesPageSearch);
+    const type = useSelector(getArticlesPageType);
 
     const fetchData = useCallback(() => {
         dispatch(fetchArticleList({ replace: true }));
@@ -57,11 +59,25 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
         fetchData();
     }, [dispatch, fetchData]);
 
+    const changeTypeTabsHandler = useCallback((tab: TabsItem<ArticleTypes>) => {
+        dispatch(articlesPageActions.setType(tab.value));
+        dispatch(articlesPageActions.setPage(1));
+        fetchData();
+    }, [dispatch, fetchData]);
+
     const changeSearchHandler = useCallback((newValue: string) => {
         dispatch(articlesPageActions.setSearch(newValue));
         dispatch(articlesPageActions.setPage(1));
         debouncedFetchData();
     }, [debouncedFetchData, dispatch]);
+
+    const typesTabs = useMemo(() => Object.values(ArticleTypes).reduce((acc: TabsItem<ArticleTypes>[], cur) => ([
+        ...acc,
+        {
+            value: cur,
+            content: t(cur, { ns: 'article' }),
+        },
+    ]), []), [t]);
 
     return (
         <div className={classNames(cls.articlesPageFilters, {}, [className])}>
@@ -81,6 +97,12 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
                     labelElement={t('Поиск')}
                 />
             </Card>
+            <Tabs
+                className={cls.tabs}
+                tabs={typesTabs}
+                currentValue={type}
+                onTabClick={changeTypeTabsHandler}
+            />
         </div>
     );
 });
