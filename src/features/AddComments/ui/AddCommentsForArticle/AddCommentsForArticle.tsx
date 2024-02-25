@@ -6,19 +6,14 @@ import { CommentForm, CommentList } from 'entities/Comment';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { getArticleCommentsIsLoading } from 'features/AddComments/model/selectors/getArticleCommentsData';
 import { CommentListSkeletons } from 'entities/Comment/ui/CommentList/CommentListSkeletons';
-import { Text, ThemeText } from 'shared/ui/Text/Text';
+import { Text } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
-import {
-    articleCommentsReducer,
-    getArticleComments,
-} from '../../model/slice/articleCommentsSlice/articleCommentsSlice';
+import { articleCommentsReducer } from 'features/AddComments/model/slice';
+import { getArticleCommentsList } from '../../model/slice/articleCommentsSlice/articleCommentsSlice';
 import { sendComment } from '../../model/services/sendCommentByArticleId/sendComment';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { getAddCommentFormText } from '../../model/selectors/getAddCommentFormSelectors';
-import {
-    addCommentFormActions,
-    addCommentFormReducer,
-} from '../../model/slice/addCommentFormSlice/addCommentFormSlice';
+import { addCommentFormActions } from '../../model/slice/addCommentFormSlice/addCommentFormSlice';
 
 interface AddCommentsForArticleProps {
     className?: string;
@@ -26,7 +21,6 @@ interface AddCommentsForArticleProps {
 }
 
 const reducers: ReducersList = {
-    addCommentForm: addCommentFormReducer,
     articleComments: articleCommentsReducer,
 };
 
@@ -36,7 +30,7 @@ const AddCommentsForArticle = memo((props: AddCommentsForArticleProps) => {
     const { t } = useTranslation();
 
     const text = useSelector(getAddCommentFormText);
-    const comments = useSelector(getArticleComments.selectAll);
+    const comments = useSelector(getArticleCommentsList.selectAll);
     const isLoading = useSelector(getArticleCommentsIsLoading);
 
     useInitialEffect(() => {

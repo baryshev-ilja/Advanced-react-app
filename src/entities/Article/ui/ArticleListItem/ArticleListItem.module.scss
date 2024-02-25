@@ -7,6 +7,7 @@
 .meta-view-inner {
     display: flex;
     align-items: center;
+    color: var(--primary-color);
 }
 
 .LIST {
@@ -97,7 +98,8 @@
 .GRID {
     display: flex;
     flex-direction: column;
-    width: 250px;
+    min-width: 250px;
+    max-width: 250px;
 
     .image-wrapper {
         width: 100%;

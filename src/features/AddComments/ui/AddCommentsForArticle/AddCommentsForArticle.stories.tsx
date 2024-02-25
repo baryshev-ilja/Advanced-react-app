@@ -19,13 +19,15 @@ Normal.args = {
 };
 Normal.decorators = [StoreDecorator({
     articleComments: {
-        isLoading: false,
-        ids: ['1'],
-        entities: {
-            1: {
-                id: '1',
-                text: 'hello world',
-                user: { id: '1', username: 'Vasya' },
+        comments: {
+            isLoading: false,
+            ids: ['1'],
+            entities: {
+                1: {
+                    id: '1',
+                    text: 'hello world',
+                    user: { id: '1', username: 'Vasya' },
+                },
             },
         },
     },

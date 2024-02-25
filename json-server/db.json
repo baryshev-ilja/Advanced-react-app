@@ -112,7 +112,7 @@
         {
           "id": "3",
           "type": "CODE",
-          "code": "const path = require('path');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);"
+          "code": "const path = require('path');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, jsonServer.router(path.resolve(__dirname, jsonServer.router(path.resolve(__dirname, 'db.json'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);"
         },
         {
           "id": "8",
@@ -811,6 +811,24 @@
       "articleId": "7",
       "text": "dfsdfdf",
       "id": "-Ow04RA"
+    },
+    {
+      "userId": "1",
+      "articleId": "2",
+      "text": "fgdfgdfg",
+      "id": "e_9g2ib"
+    },
+    {
+      "userId": "1",
+      "articleId": "6",
+      "text": "аваука",
+      "id": "03eqrJx"
+    },
+    {
+      "userId": "1",
+      "articleId": "6",
+      "text": "errfer",
+      "id": "cnMxIK-"
     }
   ],
   "users": [
