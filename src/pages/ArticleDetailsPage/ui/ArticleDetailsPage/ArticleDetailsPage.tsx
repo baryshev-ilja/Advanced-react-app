@@ -1,11 +1,9 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { ArticleWithComments } from 'widgets/ArticleWithComments';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { useCallback } from 'react';
-import { RoutePaths } from 'shared/config/routeConfig/routeConfig';
 import { Page } from 'widgets/Page/ui/Page';
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
@@ -16,11 +14,6 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const { className } = props;
     const { t } = useTranslation('article');
     const { id } = useParams<{id: string}>();
-    const navigate = useNavigate();
-
-    const onButtonBackHandler = useCallback(() => {
-        navigate(`${RoutePaths.articles}`);
-    }, [navigate]);
 
     if (!id) {
         return (
@@ -32,13 +25,7 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
 
     return (
         <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
-            <Button
-                className={cls.toBackArticles}
-                onClick={onButtonBackHandler}
-                theme={ButtonTheme.OUTLINE}
-            >
-                {t('Вернуться к списку статей')}
-            </Button>
+            <ArticleDetailsPageHeader />
             <ArticleWithComments id={id} />
         </Page>
     );
