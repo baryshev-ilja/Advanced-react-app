@@ -1,5 +1,5 @@
 import { TestAsyncThunk } from 'shared/lib/tests/testAsyncThunk/TestAsyncThunk';
-import { initArticlesList } from 'pages/ArticlesPage/model/services/initArticlesList/initArticlesList';
+import { initArticlesList } from './initArticlesList';
 import { fetchArticleList } from '../fetchArticleList/fetchArticleList';
 
 jest.mock('../fetchArticleList/fetchArticleList');
