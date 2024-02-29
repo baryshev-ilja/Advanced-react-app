@@ -23,7 +23,7 @@ export const CommentForm = memo((props: CommentFormProps) => {
     const { t } = useTranslation();
 
     return (
-        <HStack justify="between" className={classNames(cls.commentForm, {}, [className])}>
+        <HStack justify="between" max align="center" className={classNames(cls.commentForm, {}, [className])}>
             <Input
                 labelElement={t('Введите сообщение')}
                 value={text}

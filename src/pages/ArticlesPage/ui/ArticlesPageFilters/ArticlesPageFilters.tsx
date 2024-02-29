@@ -81,8 +81,8 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
     ]), []), [t]);
 
     return (
-        <VStack gap="16">
-            <HStack justify="between">
+        <VStack gap="16" max>
+            <HStack justify="between" max>
                 <SortByFiltersArticleList
                     orderValue={order}
                     sortValue={sort}

@@ -60,7 +60,7 @@ export const ArticleWithComments = (props: ArticleWithCommentsProps) => {
                 </VStack>
                 {article
                     && (
-                        <VStack gap="16">
+                        <VStack gap="16" max>
                             <Text title={t('Комментарии')} size={TextSize.L} />
                             <AddCommentsForArticle id={id} />
                         </VStack>

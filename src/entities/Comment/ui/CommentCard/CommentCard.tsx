@@ -25,16 +25,14 @@ export const CommentCard = memo((props: CommentCardProps) => {
     }
 
     return (
-        <div className={classNames(cls.commentCard, {}, [className])}>
-            <VStack>
-                <HStack gap="8" align="center">
-                    {comment.user.avatar ? <Avatar size={30} src={comment.user.avatar} /> : null}
-                    <AppLink to={`${RoutePaths.profile}${comment.user.id}`}>
-                        <Text title={comment.user.username} />
-                    </AppLink>
-                </HStack>
-                <Text description={comment.text} />
-            </VStack>
-        </div>
+        <VStack max className={classNames(cls.commentCard, {}, [className])}>
+            <HStack gap="8" align="center">
+                {comment.user.avatar ? <Avatar size={30} src={comment.user.avatar} /> : null}
+                <AppLink to={`${RoutePaths.profile}${comment.user.id}`}>
+                    <Text title={comment.user.username} />
+                </AppLink>
+            </HStack>
+            <Text description={comment.text} />
+        </VStack>
     );
 });

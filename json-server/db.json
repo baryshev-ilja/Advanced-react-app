@@ -853,6 +853,30 @@
       "articleId": "2",
       "text": "sdas",
       "id": "ZBMWrvW"
+    },
+    {
+      "userId": "2",
+      "articleId": "2",
+      "text": "fghdfghdfg",
+      "id": "_Mrm0rf"
+    },
+    {
+      "userId": "2",
+      "articleId": "2",
+      "text": "dfgdfg",
+      "id": "Vlerus0"
+    },
+    {
+      "userId": "2",
+      "articleId": "2",
+      "text": "gfdfgd",
+      "id": "ADP39xm"
+    },
+    {
+      "userId": "2",
+      "articleId": "2",
+      "text": "sdfsdfsdf",
+      "id": "8_BLUyQ"
     }
   ],
   "users": [
@@ -888,8 +912,8 @@
       "first": "Илья",
       "lastname": "Барышев",
       "age": 27,
-      "currency": "USD",
-      "country": "Armenia",
+      "currency": "RUB",
+      "country": "Kazakhstan",
       "city": "Minsk",
       "username": "user",
       "avatar": "https://www.pavilionweb.com/wp-content/uploads/2017/03/man.png"

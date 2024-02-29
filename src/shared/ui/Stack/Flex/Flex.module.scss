@@ -19,19 +19,15 @@
 }
 
 .align-start {
-    align-content: flex-start;
+    align-items: flex-start;
 }
 
 .align-center {
-    align-content: center;
+    align-items: center;
 }
 
 .align-end {
-    align-content: flex-end;
-}
-
-.align-between {
-    align-content: space-between;
+    align-items: flex-end;
 }
 
 .direction-row {

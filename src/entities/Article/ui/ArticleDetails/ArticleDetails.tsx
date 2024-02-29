@@ -10,6 +10,7 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import CalendarIcon from 'shared/assets/icons/calendar_icon.svg';
 import EyeIcon from 'shared/assets/icons/eye_icon.svg';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { VStack } from 'shared/ui/Stack';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
@@ -148,9 +149,9 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
     return (
         <DynamicReducerLoad reducers={reducers}>
-            <div className={classNames(cls.articleDetails, {}, [className])}>
+            <VStack max className={classNames(cls.articleDetails, {}, [className])}>
                 {content}
-            </div>
+            </VStack>
         </DynamicReducerLoad>
     );
 });

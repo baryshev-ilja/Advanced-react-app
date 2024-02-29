@@ -4,6 +4,10 @@
 @import "themes/dark";
 @import "themes/gray";
 
+li {
+    list-style-type: none;
+}
+
 .app,
 .app-modal {
     font: var(--font-m);

@@ -37,7 +37,7 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
     }, [dispatch]);
 
     return (
-        <HStack justify="between">
+        <HStack justify="between" max>
             <Text
                 title={t('Профиль')}
             />

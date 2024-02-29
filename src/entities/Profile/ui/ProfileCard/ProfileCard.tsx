@@ -44,9 +44,9 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
     if (isLoading) {
         return (
-            <div className={classNames(cls.profileCard, {}, [className, cls.loading])}>
+            <HStack max className={classNames(cls.profileCard, {}, [className, cls.loading])}>
                 <Loader />
-            </div>
+            </HStack>
         );
     }
 
@@ -64,8 +64,8 @@ export const ProfileCard = (props: ProfileCardProps) => {
     }
 
     return (
-        <VStack gap="8" className={classNames(cls.profileCard, {}, [className])}>
-            <HStack justify="center">
+        <VStack gap="8" align="start" max className={classNames(cls.profileCard, {}, [className])}>
+            <HStack justify="center" max>
                 {data?.avatar && (
                     <Avatar
                         src={data?.avatar}
@@ -74,7 +74,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     />
                 )}
             </HStack>
-            <VStack gap="8">
+            <VStack gap="8" align="start">
                 <Input
                     className={cls.input}
                     value={data?.first}
