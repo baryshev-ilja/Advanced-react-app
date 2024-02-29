@@ -10,6 +10,7 @@
 
 .input-element {
     width: 100%;
+    flex-grow: 2;
     outline: none;
     border: none;
     color: var(--primary-color);

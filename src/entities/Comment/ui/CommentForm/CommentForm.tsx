@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { Input } from 'shared/ui/Input/Input';
 import { Button } from 'shared/ui/Button/Button';
+import { HStack } from 'shared/ui/Stack';
 import cls from './CommentForm.module.scss';
 
 interface CommentFormProps {
@@ -22,7 +23,7 @@ export const CommentForm = memo((props: CommentFormProps) => {
     const { t } = useTranslation();
 
     return (
-        <div className={classNames(cls.commentForm, {}, [className])}>
+        <HStack justify="between" className={classNames(cls.commentForm, {}, [className])}>
             <Input
                 labelElement={t('Введите сообщение')}
                 value={text}
@@ -33,6 +34,6 @@ export const CommentForm = memo((props: CommentFormProps) => {
             >
                 {t('Отправить')}
             </Button>
-        </div>
+        </HStack>
     );
 });
