@@ -1,7 +1,5 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Flex } from './Flex';
 
 export default {
@@ -14,9 +12,72 @@ export default {
 
 const Template: ComponentStory<typeof Flex> = (args) => <Flex {...args} />;
 
-export const Normal = Template.bind({});
-Normal.args = {};
+export const DirectionRow = Template.bind({});
+DirectionRow.args = {
+    children: (
+        <>
+            <div>Element-1</div>
+            <div>Element-2</div>
+            <div>Element-3</div>
+            <div>Element-4</div>
+            <div>Element-5</div>
+        </>
+    ),
+};
 
-export const Dark = Template.bind({});
-Dark.args = {};
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+export const JustifyRowCenter = Template.bind({});
+JustifyRowCenter.args = {
+    justify: 'center',
+    children: (
+        <>
+            <div>Element-1</div>
+            <div>Element-2</div>
+            <div>Element-3</div>
+            <div>Element-4</div>
+            <div>Element-5</div>
+        </>
+    ),
+};
+
+export const DirectionColumn = Template.bind({});
+DirectionColumn.args = {
+    direction: 'column',
+    children: (
+        <>
+            <div>Element-1</div>
+            <div>Element-2</div>
+            <div>Element-3</div>
+            <div>Element-4</div>
+            <div>Element-5</div>
+        </>
+    ),
+};
+
+export const DirectionRowGap16 = Template.bind({});
+DirectionRowGap16.args = {
+    gap: '16',
+    children: (
+        <>
+            <div>Element-1</div>
+            <div>Element-2</div>
+            <div>Element-3</div>
+            <div>Element-4</div>
+            <div>Element-5</div>
+        </>
+    ),
+};
+
+export const DirectionColumnGap24 = Template.bind({});
+DirectionColumnGap24.args = {
+    direction: 'column',
+    gap: '24',
+    children: (
+        <>
+            <div>Element-1</div>
+            <div>Element-2</div>
+            <div>Element-3</div>
+            <div>Element-4</div>
+            <div>Element-5</div>
+        </>
+    ),
+};

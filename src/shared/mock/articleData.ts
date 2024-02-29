@@ -1,6 +1,6 @@
 import { Article } from 'entities/Article';
 
-export const article = {
+export const articleMock = {
     id: '1',
     title: 'Javascript news from America',
     subtitle: 'Что нового в JS за 2022 год?',

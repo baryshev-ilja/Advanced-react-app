@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { article } from 'shared/mock/articleData';
+import { articleMock } from 'shared/mock/articleData';
 import { ArticleList } from './ArticleList';
 import cls from './ArticleList.module.scss';
 
@@ -15,7 +15,7 @@ export default {
 } as ComponentMeta<typeof ArticleList>;
 
 const articlesMock = new Array(9).fill(0).map((item, index) => ({
-    ...article,
+    ...articleMock,
     id: String(index),
 }));
 
