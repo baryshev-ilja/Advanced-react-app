@@ -1,0 +1,38 @@
+.listBox {
+    position: relative;
+}
+
+.button-trigger {
+    background: none;
+    padding: 0;
+    border: none;
+    outline-color: transparent;
+}
+
+.options {
+    position: absolute;
+    z-index: 1000;
+    background: var(--listbox-bg);
+    border-radius: 16px;
+    overflow: hidden;
+
+    &.top {
+        bottom: 100%;
+    }
+
+    &.bottom {
+        top: 100%;
+    }
+}
+
+.item {
+    padding: 10px;
+}
+
+.hovered {
+    background: var(--inverted-secondary-color);
+}
+
+.disabled {
+    opacity: 0.5;
+}
