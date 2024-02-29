@@ -6,6 +6,7 @@ import { Text, TextAlign, ThemeText } from 'shared/ui/Text/Text';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Currency, CurrencySelect } from 'entities/Currency';
 import { Country, CountrySelect } from 'entities/Country';
+import { HStack, VStack } from 'shared/ui/Stack';
 import { Profile } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
 
@@ -63,8 +64,8 @@ export const ProfileCard = (props: ProfileCardProps) => {
     }
 
     return (
-        <div className={classNames(cls.profileCard, {}, [className])}>
-            <div className={cls.avatarWrapper}>
+        <VStack gap="8" className={classNames(cls.profileCard, {}, [className])}>
+            <HStack justify="center">
                 {data?.avatar && (
                     <Avatar
                         src={data?.avatar}
@@ -72,8 +73,8 @@ export const ProfileCard = (props: ProfileCardProps) => {
                         size={250}
                     />
                 )}
-            </div>
-            <div className={cls.data}>
+            </HStack>
+            <VStack gap="8">
                 <Input
                     className={cls.input}
                     value={data?.first}
@@ -121,8 +122,8 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     readonly={readonly}
                     onChange={onChangeCountry}
                 />
-            </div>
+            </VStack>
 
-        </div>
+        </VStack>
     );
 };

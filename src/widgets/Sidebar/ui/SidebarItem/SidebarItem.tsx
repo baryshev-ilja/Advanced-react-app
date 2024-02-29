@@ -4,7 +4,8 @@ import React from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { getUserAuthData } from 'entities/User';
 import { useSelector } from 'react-redux';
-import { SidebarItemType } from 'widgets/Sidebar/model/types/sidebar';
+import { HStack } from 'shared/ui/Stack';
+import { SidebarItemType } from '../../model/types/sidebar';
 import cls from './SidebarItem.module.scss';
 
 interface SidebarItemProps {
@@ -27,12 +28,14 @@ export const SidebarItem = (props: SidebarItemProps) => {
 
     return (
         <AppLink
-            className={classNames(cls.item, { [cls.sidebarCollapsed]: collapsed })}
+            className={classNames('', { [cls.sidebarCollapsed]: collapsed })}
             to={item.path}
 
         >
-            <item.Icon className={cls.icon} />
-            <span className={cls.link}>{t(item.text)}</span>
+            <HStack gap="12">
+                <item.Icon className={cls.icon} />
+                <span className={cls.link}>{t(item.text)}</span>
+            </HStack>
         </AppLink>
     );
 };

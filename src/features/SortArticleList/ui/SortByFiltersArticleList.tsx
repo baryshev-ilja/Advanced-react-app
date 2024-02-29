@@ -1,13 +1,11 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { OptionsList, Select } from 'shared/ui/Select/Select';
 import { useMemo } from 'react';
 import { ArticleSortTypes } from 'entities/Article/model/types/article';
 import { TypesOfOrders } from 'shared/types';
-import cls from './SortByFiltersArticleList.module.scss';
+import { HStack } from 'shared/ui/Stack';
 
 interface SortArticleListProps {
-    className?: string;
     sortValue: ArticleSortTypes;
     orderValue: TypesOfOrders;
     onChangeSort: (value: ArticleSortTypes) => void;
@@ -16,7 +14,6 @@ interface SortArticleListProps {
 
 export const SortByFiltersArticleList = (props: SortArticleListProps) => {
     const {
-        className,
         sortValue,
         orderValue,
         onChangeSort,
@@ -51,9 +48,8 @@ export const SortByFiltersArticleList = (props: SortArticleListProps) => {
     ], [t]);
 
     return (
-        <div className={classNames(cls.sortArticleList, {}, [className])}>
+        <HStack gap="16">
             <Select
-                className={cls.select}
                 value={sortValue}
                 options={optionsForSortSelect}
                 label={t('Сортировать по')}
@@ -65,6 +61,6 @@ export const SortByFiltersArticleList = (props: SortArticleListProps) => {
                 label={t('по')}
                 onChange={onChangeOrder}
             />
-        </div>
+        </HStack>
     );
 };

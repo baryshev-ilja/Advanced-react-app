@@ -8,6 +8,7 @@ import { EditableProfileCard, fetchProfileData } from 'features/EditProfileCard'
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useParams } from 'react-router-dom';
 import { Page } from 'widgets/Page/ui/Page';
+import { VStack } from 'shared/ui/Stack';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 interface ProfilePageProps {
@@ -32,8 +33,10 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
     return (
         <DynamicReducerLoad reducers={reducers}>
             <Page className={classNames('', {}, [className])}>
-                <ProfilePageHeader />
-                <EditableProfileCard />
+                <VStack gap="16">
+                    <ProfilePageHeader />
+                    <EditableProfileCard />
+                </VStack>
             </Page>
         </DynamicReducerLoad>
     );

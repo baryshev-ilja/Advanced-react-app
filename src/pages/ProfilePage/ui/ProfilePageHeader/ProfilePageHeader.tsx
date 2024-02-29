@@ -1,4 +1,3 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { Text } from 'shared/ui/Text/Text';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
@@ -8,7 +7,7 @@ import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { updateProfileData } from 'features/EditProfileCard/model/services/updateProfileData/updateProfileData';
 import { getUserAuthData } from 'entities/User';
-import cls from './ProfilePageHeader.module.scss';
+import { HStack } from 'shared/ui/Stack';
 
 interface ProfilePageHeaderProps {
     className?: string;
@@ -38,16 +37,14 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
     }, [dispatch]);
 
     return (
-        <div className={classNames(cls.profilePageHeader, {}, [className])}>
+        <HStack justify="between">
             <Text
                 title={t('Профиль')}
-                className={cls.title}
             />
             {canEdit && (
-                <div className={cls.btnWrapper}>
+                <HStack gap="16">
                     {readonly ? (
                         <Button
-                            className={cls.editBtn}
                             theme={ButtonTheme.OUTLINE}
                             onClick={btnEditHandler}
                         >
@@ -57,14 +54,12 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
                         : (
                             <>
                                 <Button
-                                    className={cls.editBtn}
                                     theme={ButtonTheme.OUTLINE_ERROR}
                                     onClick={btnCancelEditHandler}
                                 >
                                     {t('Отменить')}
                                 </Button>
                                 <Button
-                                    className={cls.editBtn}
                                     theme={ButtonTheme.OUTLINE}
                                     onClick={btnSaveHandler}
                                 >
@@ -72,8 +67,8 @@ export const ProfilePageHeader = (props: ProfilePageHeaderProps) => {
                                 </Button>
                             </>
                         )}
-                </div>
+                </HStack>
             )}
-        </div>
+        </HStack>
     );
 };

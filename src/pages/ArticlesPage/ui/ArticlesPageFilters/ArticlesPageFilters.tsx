@@ -12,6 +12,7 @@ import { ArticleSortTypes, ArticleTypes } from 'entities/Article/model/types/art
 import { TypesOfOrders } from 'shared/types';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 import { Tabs, TabsItem } from 'shared/ui/Tabs/Tabs';
+import { HStack, VStack } from 'shared/ui/Stack';
 import { articlesPageActions } from '../../model/slice/articlesPageSlice';
 import {
     getArticlesPageOrder,
@@ -80,8 +81,8 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
     ]), []), [t]);
 
     return (
-        <div className={classNames(cls.articlesPageFilters, {}, [className])}>
-            <div className={cls.articlesPageFilters_wrapper}>
+        <VStack gap="16">
+            <HStack justify="between">
                 <SortByFiltersArticleList
                     orderValue={order}
                     sortValue={sort}
@@ -89,7 +90,7 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
                     onChangeSort={sortFilterHandler}
                 />
                 <ToggleViewArticleList view={view} onClickView={onClickViewHandler} />
-            </div>
+            </HStack>
             <Card className={cls.inputSearch_wrapper}>
                 <Input
                     value={search}
@@ -98,11 +99,10 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
                 />
             </Card>
             <Tabs
-                className={cls.tabs}
                 tabs={typesTabs}
                 currentValue={type}
                 onTabClick={changeTypeTabsHandler}
             />
-        </div>
+        </VStack>
     );
 });
