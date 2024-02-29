@@ -1,8 +1,8 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { Text, ThemeText } from './Text';
+import { Text, TextSize, ThemeText } from './Text';
 
 export default {
     title: 'shared/Text',
@@ -41,3 +41,24 @@ OnlyDescription.args = {
     theme: ThemeText.ERROR,
 };
 OnlyDescription.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const H1 = Template.bind({});
+H1.args = {
+    size: TextSize.L,
+    title: 'Title',
+    description: 'It is just description',
+};
+
+export const H2 = Template.bind({});
+H2.args = {
+    size: TextSize.M,
+    title: 'Title',
+    description: 'It is just description',
+};
+
+export const H3 = Template.bind({});
+H3.args = {
+    size: TextSize.S,
+    title: 'Title',
+    description: 'It is just description',
+};

@@ -44,6 +44,7 @@ export interface FlexProps {
     direction: FlexDirection;
     max?: boolean;
     gap?: FlexGap;
+    tagName?: keyof HTMLElementTagNameMap;
 }
 
 export const Flex = (props: FlexProps) => {
@@ -55,7 +56,10 @@ export const Flex = (props: FlexProps) => {
         direction = 'row',
         max,
         gap,
+        tagName = 'div',
     } = props;
+
+    const Tag = tagName;
 
     const mods: Mods = {
         [cls.max]: max,
@@ -69,8 +73,8 @@ export const Flex = (props: FlexProps) => {
         gap && gapClasses[gap],
     ];
     return (
-        <div className={classNames(cls.flex, mods, classes)}>
+        <Tag className={classNames(cls.flex, mods, classes)}>
             {children}
-        </div>
+        </Tag>
     );
 };

@@ -40,7 +40,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         const textBlock = article.blocks.find((block) => block.type === 'TEXT') as ArticleTextBlock;
 
         return (
-            <div className={classNames(cls.articleList_item, {}, [className, cls[view]])}>
+            <article className={classNames(cls.articleList_item, {}, [className, cls[view]])}>
                 <Card>
                     <div className={cls.articleHeaderList}>
                         <div className={cls.articleHeader_listInner}>
@@ -76,29 +76,31 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                         {views}
                     </div>
                 </Card>
-            </div>
+            </article>
         );
     }
 
     return (
-        <AppLink
-            to={`${RoutePaths.article_details}${article.id}`}
-            target={target}
-            className={classNames(cls.articleList_item, {}, [className, cls[view]])}
-        >
-            <Card>
-                <div className={cls.imageWrapper}>
-                    <img className={cls.img} src={article.img} alt={article.title} />
-                    <Text className={cls.date} description={article.createdAt} />
-                </div>
-                <div className={cls.titleWrapper}>
-                    <div className={cls.metaInner}>
-                        <Text className={cls.metaTags} description={articleTags} />
-                        {views}
+        <article>
+            <AppLink
+                to={`${RoutePaths.article_details}${article.id}`}
+                target={target}
+                className={classNames(cls.articleList_item, {}, [className, cls[view]])}
+            >
+                <Card>
+                    <div className={cls.imageWrapper}>
+                        <img className={cls.img} src={article.img} alt={article.title} />
+                        <Text className={cls.date} description={article.createdAt} />
                     </div>
-                    <Text className={cls.title} description={article.title} />
-                </div>
-            </Card>
-        </AppLink>
+                    <div className={cls.titleWrapper}>
+                        <div className={cls.metaInner}>
+                            <Text className={cls.metaTags} description={articleTags} />
+                            {views}
+                        </div>
+                        <Text className={cls.title} description={article.title} />
+                    </div>
+                </Card>
+            </AppLink>
+        </article>
     );
 });
