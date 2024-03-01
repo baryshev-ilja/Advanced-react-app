@@ -41,6 +41,7 @@ export const CurrencySelect = (props: CurrencySelectProps) => {
             onChange={selectChangeHandler}
             items={options}
             readonly={readonly}
+            direction="topRight"
         />
     );
 };

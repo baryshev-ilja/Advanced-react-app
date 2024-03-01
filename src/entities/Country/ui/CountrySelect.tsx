@@ -44,7 +44,7 @@ export const CountrySelect = (props: CountrySelectProps) => {
             onChange={selectChangeHandler}
             items={options}
             readonly={readonly}
-            direction="top"
+            direction="topRight"
         />
     );
 };

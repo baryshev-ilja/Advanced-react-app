@@ -1,7 +1,5 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
 import { ListBox } from './ListBox';
 
 export default {
@@ -10,13 +8,94 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [
+        (Story) => <div style={{ padding: 150 }}><Story /></div>,
+    ],
 } as ComponentMeta<typeof ListBox>;
 
 const Template: ComponentStory<typeof ListBox> = (args) => <ListBox {...args} />;
 
-export const Normal = Template.bind({});
-Normal.args = {};
+export const TopLeft = Template.bind({});
+TopLeft.args = {
+    currentValue: 'Menu',
+    direction: 'topLeft',
+    items: [
+        {
+            value: 'firstElement',
+            content: 'firstElement',
+            disabled: true,
+        },
+        {
+            value: 'secondElement',
+            content: 'secondElement',
+            disabled: true,
+        },
+        {
+            value: 'thirdElement',
+            content: 'thirdElement',
+        },
+    ],
+};
 
-export const Dark = Template.bind({});
-Dark.args = {};
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+export const TopRight = Template.bind({});
+TopRight.args = {
+    currentValue: 'Menu',
+    direction: 'topRight',
+    items: [
+        {
+            value: 'firstElement',
+            content: 'firstElement',
+        },
+        {
+            value: 'secondElement',
+            content: 'secondElement',
+            disabled: true,
+        },
+        {
+            value: 'thirdElement',
+            content: 'thirdElement',
+        },
+    ],
+};
+
+export const BottomRight = Template.bind({});
+BottomRight.args = {
+    currentValue: 'Menu',
+    direction: 'bottomRight',
+    items: [
+        {
+            value: 'firstElement',
+            content: 'firstElement',
+        },
+        {
+            value: 'secondElement',
+            content: 'secondElement',
+        },
+        {
+            value: 'thirdElement',
+            content: 'thirdElement',
+            disabled: true,
+        },
+    ],
+};
+
+export const BottomLeft = Template.bind({});
+BottomLeft.args = {
+    currentValue: 'Menu',
+    direction: 'bottomLeft',
+    items: [
+        {
+            value: 'firstElement',
+            content: 'firstElement',
+            disabled: true,
+        },
+        {
+            value: 'secondElement',
+            content: 'secondElement',
+        },
+        {
+            value: 'thirdElement',
+            content: 'thirdElement',
+        },
+    ],
+};
