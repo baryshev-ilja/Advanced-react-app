@@ -27,7 +27,8 @@
     "storybook": "start-storybook -p 6006 -c ./config/storybook",
     "build-storybook": "build-storybook -c ./config/storybook",
     "chromatic": "npx chromatic --project-token=chpt_025e1e413343d56",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "generate:slice": "node ./scripts/createSlice/index.js"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
