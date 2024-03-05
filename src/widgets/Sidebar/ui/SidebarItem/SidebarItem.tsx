@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import React from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
-import { getUserAuthData } from 'entities/User';
+import { getUserAuthData } from 'entities/user';
 import { useSelector } from 'react-redux';
 import { HStack } from 'shared/ui/Stack';
 import { SidebarItemType } from '../../model/types/sidebar';

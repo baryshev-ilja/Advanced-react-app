@@ -4,7 +4,7 @@ import {
     ArticleView,
     ArticleSortTypes,
     ArticleTypes,
-} from 'entities/Article';
+} from 'entities/article';
 import { TypesOfOrders } from 'shared/types';
 
 export interface ArticlesPageSchema extends EntityState<Article> {

@@ -1,6 +1,6 @@
-import { ArticleView } from 'entities/Article';
 import { Card } from 'shared/ui/Card/Card';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { ArticleView } from '../../model/types/article';
 import cls from './ArticleListItem.module.scss';
 
 interface ArticleListItemSkeletonProps {

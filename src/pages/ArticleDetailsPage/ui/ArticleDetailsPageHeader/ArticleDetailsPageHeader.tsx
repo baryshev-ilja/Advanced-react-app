@@ -5,8 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import { useCallback } from 'react';
 import { RoutePaths } from 'shared/config/routeConfig/routeConfig';
 import { useSelector } from 'react-redux';
-import { getCanEditArticle } from 'pages/ArticleDetailsPage/model/selectors/getCanEditArticle';
-import { getArticleDetailsData } from 'entities/Article';
+import { getArticleDetailsData } from 'entities/article';
+import { getCanEditArticle } from '../../model/selectors/getCanEditArticle';
 import cls from './ArticleDetailsPageHeader.module.scss';
 
 interface ArticleDetailsPageHeaderProps {

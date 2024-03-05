@@ -1,11 +1,11 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList';
+import { ArticleList } from 'entities/article/ui/ArticleList/ArticleList';
 import { DynamicReducerLoad, ReducersList } from 'shared/lib/HOC/DynamicReducerLoad';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useCallback } from 'react';
-import { Page } from 'widgets/Page/ui/Page';
+import { Page } from 'widgets/page/ui/Page';
 import { useSearchParams } from 'react-router-dom';
 import { VStack } from 'shared/ui/Stack';
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';

@@ -1,5 +1,5 @@
-import { Currency } from 'entities/Currency/model/types/currency';
-import { Country } from 'entities/Country/model/types/country';
+import { Currency } from 'entities/currency/model/types/currency';
+import { Country } from 'entities/country/model/types/country';
 
 export enum ValidateProfileError {
     INCORRECT_FIRST_LASTNAME = 'INCORRECT_FIRST_LASTNAME',

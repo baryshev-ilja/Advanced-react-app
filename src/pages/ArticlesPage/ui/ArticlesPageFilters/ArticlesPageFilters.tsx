@@ -1,14 +1,14 @@
 import { classNames } from 'shared/lib/classNames/classNames';
 import { memo, useCallback, useMemo } from 'react';
-import { ToggleViewArticleList } from 'features/ToggleViewArticleList';
-import { ArticleView } from 'entities/Article';
+import { ToggleViewArticleList } from 'features/toggleViewArticleList';
+import { ArticleView } from 'entities/article';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { SortByFiltersArticleList } from 'features/SortArticleList';
+import { SortByFiltersArticleList } from 'features/sortArticleList';
 import { Card } from 'shared/ui/Card/Card';
 import { Input } from 'shared/ui/Input/Input';
 import { useTranslation } from 'react-i18next';
-import { ArticleSortTypes, ArticleTypes } from 'entities/Article/model/types/article';
+import { ArticleSortTypes, ArticleTypes } from 'entities/article/model/types/article';
 import { TypesOfOrders } from 'shared/types';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 import { Tabs, TabsItem } from 'shared/ui/Tabs/Tabs';
