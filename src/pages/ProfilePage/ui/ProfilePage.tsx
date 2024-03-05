@@ -1,44 +1,20 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { DynamicReducerLoad, ReducersList } from 'shared/lib/HOC/DynamicReducerLoad';
-import { profileReducer } from 'features/editableProfileCard/model/slice/profileSlice';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useParams } from 'react-router-dom';
 import { Page } from 'widgets/page/ui/Page';
-import { VStack } from 'shared/ui/Stack';
-import { EditableProfileCard, fetchProfileData } from 'features/editableProfileCard';
-import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
+import { EditableProfileCard } from 'features/editableProfileCard';
 
 interface ProfilePageProps {
     className?: string;
 }
 
-const reducers: ReducersList = {
-    profile: profileReducer,
-};
-
 const ProfilePage = memo(({ className }: ProfilePageProps) => {
-    const { t } = useTranslation();
-    const dispatch = useAppDispatch();
     const { id } = useParams<{id: string}>();
 
-    useInitialEffect(() => {
-        if (id) {
-            dispatch(fetchProfileData(id));
-        }
-    });
-
     return (
-        <DynamicReducerLoad reducers={reducers}>
-            <Page className={classNames('', {}, [className])}>
-                <VStack gap="16">
-                    <ProfilePageHeader />
-                    <EditableProfileCard />
-                </VStack>
-            </Page>
-        </DynamicReducerLoad>
+        <Page className={classNames('', {}, [className])}>
+            <EditableProfileCard id={id} />
+        </Page>
     );
 });
 

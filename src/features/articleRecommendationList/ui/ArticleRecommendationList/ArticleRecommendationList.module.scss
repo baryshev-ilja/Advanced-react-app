@@ -1,0 +1,14 @@
+.recommendation-list {
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+
+.recommendations {
+    flex-wrap: nowrap;
+}
+
+.skeletons {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}

@@ -5,8 +5,9 @@ import { useSelector } from 'react-redux';
 import { CommentForm, CommentList } from 'entities/comment';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { CommentListSkeletons } from 'entities/comment/ui/CommentList/CommentListSkeletons';
-import { Text } from 'shared/ui/Text/Text';
+import { Text, TextSize } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
+import { VStack } from 'shared/ui/Stack';
 import { getArticleCommentsIsLoading } from '../../model/selectors/getArticleCommentsData';
 import { articleCommentsReducer } from '../../model/slice';
 import { getArticleCommentsList } from '../../model/slice/articleCommentsSlice/articleCommentsSlice';
@@ -16,7 +17,6 @@ import { getAddCommentFormText } from '../../model/selectors/getAddCommentFormSe
 import { addCommentFormActions } from '../../model/slice/addCommentFormSlice/addCommentFormSlice';
 
 interface AddCommentsForArticleProps {
-    className?: string;
     id: string;
 }
 
@@ -25,7 +25,7 @@ const reducers: ReducersList = {
 };
 
 const AddCommentsForArticle = memo((props: AddCommentsForArticleProps) => {
-    const { className, id } = props;
+    const { id } = props;
     const dispatch = useAppDispatch();
     const { t } = useTranslation();
 
@@ -62,12 +62,15 @@ const AddCommentsForArticle = memo((props: AddCommentsForArticleProps) => {
 
     return (
         <DynamicReducerLoad reducers={reducers}>
-            <CommentForm
-                text={text}
-                onChangeComment={changeCommentTextHandler}
-                onSendComment={sendCommentFormHandler}
-            />
-            {contentComments}
+            <VStack gap="16" max>
+                <Text title={t('Комментарии')} size={TextSize.L} />
+                <CommentForm
+                    text={text}
+                    onChangeComment={changeCommentTextHandler}
+                    onSendComment={sendCommentFormHandler}
+                />
+                {contentComments}
+            </VStack>
         </DynamicReducerLoad>
     );
 });

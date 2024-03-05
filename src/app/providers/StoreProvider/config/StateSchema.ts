@@ -14,9 +14,9 @@ import { ArticleDetailsSchema } from 'entities/article/model/types/ArticleDetail
 
 import { ArticlesPageSchema } from 'pages/articlesPage/model/types/ArticlesPageSchema';
 import { ScrollSaveSchema } from 'widgets/page';
-import { ArticleDetailsRecommendationsSchema } from 'widgets/articleWithComments';
 import { ArticleCommentsSchema } from 'features/addComments';
 import { rtkApi } from 'shared/api/rtkApi';
+import { ArticleDetailsRecommendationsSchema } from 'features/articleRecommendationList';
 
 export interface StateSchema {
     counter: CounterSchema;

@@ -1,4 +1,4 @@
-export {
-    AddCommentsForArticleAsync as AddNewCommentForm,
-} from './ui/AddCommentsForArticle/AddCommentsForArticle.async';
+import AddCommentsForArticle from './ui/AddCommentsForArticle/AddCommentsForArticle';
+
 export { ArticleCommentsSchema } from './model/types/index';
+export { AddCommentsForArticle };
