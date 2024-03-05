@@ -51,7 +51,7 @@ export const Flex = (props: FlexProps) => {
         className,
         children,
         justify = 'start',
-        align = 'start',
+        align,
         direction = 'row',
         max,
         gap,
@@ -67,7 +67,7 @@ export const Flex = (props: FlexProps) => {
     const classes: AdditionalCls = [
         className,
         justifyClasses[justify],
-        alignClasses[align],
+        align && alignClasses[align],
         directionClasses[direction],
         gap && gapClasses[gap],
     ];
