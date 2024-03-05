@@ -8,6 +8,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { ArticleList } from 'entities/Article/ui/ArticleList/ArticleList';
 import { DynamicReducerLoad, ReducersList } from 'shared/lib/HOC/DynamicReducerLoad';
 import { VStack } from 'shared/ui/Stack';
+import { rtkApi } from 'shared/api/rtkApi';
 import {
     fetchArticleRecommendations,
 } from '../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
@@ -29,6 +30,21 @@ const reducers: ReducersList = {
     articleDetailsRecommendations: articleRecommendationsReducer,
 };
 
+const recommendationsApi = rtkApi.injectEndpoints({
+    endpoints: (build) => ({
+        getArticleRecommendationList: build.query({
+            query: (limit) => ({
+                url: '/articles',
+                params: {
+                    _limit: limit,
+                },
+            }),
+        }),
+    }),
+});
+
+const useRecommendationList = recommendationsApi.useGetArticleRecommendationListQuery;
+
 export const ArticleWithComments = (props: ArticleWithCommentsProps) => {
     const { id } = props;
     const { t } = useTranslation();
@@ -38,6 +54,7 @@ export const ArticleWithComments = (props: ArticleWithCommentsProps) => {
     const recommendations = useSelector(getArticleRecommendations.selectAll);
     const recommendationsIsLoading = useSelector(getArticleRecommendationsIsLoading);
     const recommendationsError = useSelector(getArticleRecommendationsError);
+    const { data: articles } = useRecommendationList(3);
 
     useInitialEffect(() => {
         dispatch(fetchArticleRecommendations());
@@ -47,15 +64,17 @@ export const ArticleWithComments = (props: ArticleWithCommentsProps) => {
         <DynamicReducerLoad reducers={reducers}>
             <VStack gap="32">
                 <ArticleDetails id={id} isLoading={isLoading} data={article} />
-                <VStack gap="8">
+                <VStack gap="8" max>
                     <Text title={t('Рекомендуем')} size={TextSize.L} />
                     <div className={cls.recommendationList}>
-                        <ArticleList
-                            className={cls.recommendations}
-                            articles={recommendations}
-                            view="GRID"
-                            target="_blank"
-                        />
+                        {articles && (
+                            <ArticleList
+                                className={cls.recommendations}
+                                articles={articles}
+                                view="GRID"
+                                target="_blank"
+                            />
+                        )}
                     </div>
                 </VStack>
                 {article
