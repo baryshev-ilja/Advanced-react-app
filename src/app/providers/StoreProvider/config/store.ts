@@ -1,8 +1,8 @@
 import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
-import { counterReducer } from 'entities/Counter';
-import { userReducer } from 'entities/User';
+import { counterReducer } from 'entities/counter';
+import { userReducer } from 'entities/user';
 import { $api } from 'shared/api/api';
-import { scrollSaveReducer } from 'widgets/Page/model/slice/scrollSaveSlice';
+import { scrollSaveReducer } from 'widgets/page/model/slice/scrollSaveSlice';
 import { rtkApi } from 'shared/api/rtkApi';
 import { createReducerManager } from './reducerManager';
 import { StateSchema, ThunkExtraArg } from './StateSchema';

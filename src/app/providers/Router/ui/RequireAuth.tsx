@@ -1,6 +1,6 @@
 import { JSX } from 'react';
 import { useSelector } from 'react-redux';
-import { getUserAuthData } from 'entities/User';
+import { getUserAuthData } from 'entities/user';
 import { Navigate, useLocation } from 'react-router-dom';
 import { RoutePaths } from 'shared/config/routeConfig/routeConfig';
 

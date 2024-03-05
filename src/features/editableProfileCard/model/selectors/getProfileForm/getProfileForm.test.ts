@@ -1,10 +1,10 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
-import { getProfileData } from './getProfileData';
+import { Country } from 'entities/country';
+import { Currency } from 'entities/currency';
+import { getProfileForm } from './getProfileForm';
 
-describe('getProfileData.test', () => {
-    test('should return profile state', () => {
+describe('getProfileForm.test', () => {
+    test('should return profile state form', () => {
         const data = {
             first: 'Илья',
             lastname: 'Барышев',
@@ -17,14 +17,14 @@ describe('getProfileData.test', () => {
 
         const state: DeepPartial<StateSchema> = {
             profile: {
-                data,
+                form: data,
             },
         };
-        expect(getProfileData(state as StateSchema)).toEqual(data);
+        expect(getProfileForm(state as StateSchema)).toEqual(data);
     });
 
-    test('should return empty login state undefined', () => {
+    test('should return empty profile state undefined', () => {
         const state: DeepPartial<StateSchema> = {};
-        expect(getProfileData(state as StateSchema)).toBe(undefined);
+        expect(getProfileForm(state as StateSchema)).toBe(undefined);
     });
 });

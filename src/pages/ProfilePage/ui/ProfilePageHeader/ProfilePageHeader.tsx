@@ -1,12 +1,12 @@
 import { useTranslation } from 'react-i18next';
 import { Text } from 'shared/ui/Text/Text';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { getProfileData, getProfileReadonly, profileActions } from 'features/EditProfileCard';
+import { getProfileData, getProfileReadonly, profileActions } from 'features/editableProfileCard';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { updateProfileData } from 'features/EditProfileCard/model/services/updateProfileData/updateProfileData';
-import { getUserAuthData } from 'entities/User';
+import { updateProfileData } from 'features/editableProfileCard/model/services/updateProfileData/updateProfileData';
+import { getUserAuthData } from 'entities/user';
 import { HStack } from 'shared/ui/Stack';
 
 interface ProfilePageHeaderProps {

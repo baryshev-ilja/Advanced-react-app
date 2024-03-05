@@ -1,6 +1,6 @@
-import { CounterSchema } from 'entities/Counter';
-import { UserSchema } from 'entities/User';
-import { LoginSchema } from 'features/AuthByUsername';
+import { CounterSchema } from 'entities/counter';
+import { UserSchema } from 'entities/user';
+import { LoginSchema } from 'features/authByUsername';
 import {
     AnyAction,
     EnhancedStore,
@@ -8,14 +8,14 @@ import {
     ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { CombinedState } from 'redux';
-import { ProfileSchema } from 'entities/Profile';
+import { ProfileSchema } from 'entities/profile';
 import { AxiosInstance } from 'axios';
-import { ArticleDetailsSchema } from 'entities/Article/model/types/ArticleDetailsSchema';
+import { ArticleDetailsSchema } from 'entities/article/model/types/ArticleDetailsSchema';
 
-import { ArticlesPageSchema } from 'pages/ArticlesPage/model/types/ArticlesPageSchema';
-import { ScrollSaveSchema } from 'widgets/Page';
-import { ArticleDetailsRecommendationsSchema } from 'widgets/ArticleWithComments';
-import { ArticleCommentsSchema } from 'features/AddComments';
+import { ArticlesPageSchema } from 'pages/articlesPage/model/types/ArticlesPageSchema';
+import { ScrollSaveSchema } from 'widgets/page';
+import { ArticleDetailsRecommendationsSchema } from 'widgets/articleWithComments';
+import { ArticleCommentsSchema } from 'features/addComments';
 import { rtkApi } from 'shared/api/rtkApi';
 
 export interface StateSchema {

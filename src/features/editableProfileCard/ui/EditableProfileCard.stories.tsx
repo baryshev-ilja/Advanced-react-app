@@ -1,8 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
+import { Country } from 'entities/country';
+import { Currency } from 'entities/currency';
 import AvatarImg from 'shared/assets/storybook.jpg';
 import { EditableProfileCard } from './EditableProfileCard';
 
