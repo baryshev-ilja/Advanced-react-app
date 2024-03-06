@@ -36,7 +36,7 @@ export function DropDown(props: DropdownProps) {
                 {items?.map((item, index) => {
                     const content = ({ active }: {active: boolean}) => {
                         if (item.tagName) {
-                            const Tag = item?.tagName;
+                            const Tag = item.tagName;
 
                             return (
                                 <Tag

@@ -920,15 +920,22 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN",
+      "roles": ["ADMIN"],
       "avatar": "https://teknotower.com/wp-content/uploads/2020/11/js.png"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "role": "USER",
+      "roles": ["USER"],
       "avatar": "https://www.pavilionweb.com/wp-content/uploads/2017/03/man.png"
+    },
+    {
+        "id": "3",
+        "username": "manager",
+        "password": "123",
+        "roles": ["MANAGER"],
+        "avatar": "https://www.pavilionweb.com/wp-content/uploads/2017/03/man.png"
     }
   ],
   "profile": [
