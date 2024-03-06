@@ -41,6 +41,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                         {
                             content: t('Профиль'),
                             href: `${RoutePaths.profile}${authData.id}`,
+                            tagName: 'span',
                         },
                         {
                             content: t('Выйти'),

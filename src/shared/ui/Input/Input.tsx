@@ -13,6 +13,7 @@ interface InputProps extends HTMLInputProps {
     labelElement?: string;
     autofocus?: boolean;
     readonly?: boolean;
+    'data-testid'?: string;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -25,6 +26,7 @@ export const Input = memo((props: InputProps) => {
         labelElement,
         autofocus,
         readonly,
+        'data-testid': dataTestId = '',
         ...otherProps
     } = props;
 
@@ -64,6 +66,7 @@ export const Input = memo((props: InputProps) => {
                 /* eslint-disable-next-line jsx-a11y/no-autofocus */
                 autoFocus={autofocus}
                 readOnly={readonly}
+                data-testid={dataTestId}
             />
         </div>
     );
