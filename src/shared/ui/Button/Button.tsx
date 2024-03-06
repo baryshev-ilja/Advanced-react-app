@@ -21,6 +21,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
     size?: ButtonSize;
     disabled?: boolean;
     children?: ReactNode;
+    tagName?: keyof HTMLElementTagNameMap;
 }
 
 export const Button = memo((props: ButtonProps) => {
@@ -31,6 +32,7 @@ export const Button = memo((props: ButtonProps) => {
         square,
         disabled,
         size = 'sizeM',
+        tagName,
         ...otherProps
     } = props;
 
@@ -44,6 +46,19 @@ export const Button = memo((props: ButtonProps) => {
         cls[theme],
         cls[size],
     ];
+
+    const Tag = tagName;
+
+    if (Tag) {
+        return (
+            <Tag
+                data-testid="button-test"
+                className={classNames(cls.button, modsCls, additionalCls)}
+            >
+                {children}
+            </Tag>
+        );
+    }
 
     return (
         <button
