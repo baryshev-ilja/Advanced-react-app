@@ -51,6 +51,7 @@ export function ListBox(props: ListBoxProps) {
                 >
                     <Button
                         theme={ButtonTheme.OUTLINE}
+                        tagName="div"
                         disabled={readonly}
                     >
                         {currentValue ?? defaultValue}
