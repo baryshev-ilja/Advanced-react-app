@@ -3,4 +3,5 @@
 node_modules
 /build
 /storybook-static
+/reports
 build-storybook.log
