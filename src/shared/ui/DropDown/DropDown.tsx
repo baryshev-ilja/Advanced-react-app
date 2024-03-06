@@ -7,6 +7,7 @@ import cls from './DropDown.module.scss';
 
 export interface MenuDropdownItem {
     disabled?: boolean;
+    tagName?: keyof HTMLElementTagNameMap;
     content?: ReactNode;
     onClick?: () => void;
     href?: string;
@@ -33,18 +34,35 @@ export function DropDown(props: DropdownProps) {
 
             <Menu.Items className={classNames(cls.menu, {}, [cls[direction]])}>
                 {items?.map((item, index) => {
-                    const content = ({ active }: {active: boolean}) => (
-                        <button
-                            type="button"
-                            className={classNames(cls.item, {
-                                [cls.hovered]: active,
-                                [cls.disabled]: item.disabled,
-                            })}
-                            onClick={item.onClick}
-                        >
-                            {item.content}
-                        </button>
-                    );
+                    const content = ({ active }: {active: boolean}) => {
+                        if (item.tagName) {
+                            const Tag = item?.tagName;
+
+                            return (
+                                <Tag
+                                    className={classNames(cls.item, {
+                                        [cls.hovered]: active,
+                                        [cls.disabled]: item.disabled,
+                                    })}
+                                >
+                                    {item.content}
+                                </Tag>
+                            );
+                        }
+
+                        return (
+                            <button
+                                type="button"
+                                className={classNames(cls.item, {
+                                    [cls.hovered]: active,
+                                    [cls.disabled]: item.disabled,
+                                })}
+                                onClick={item.onClick}
+                            >
+                                {item.content}
+                            </button>
+                        );
+                    };
 
                     if (item.href) {
                         return (
