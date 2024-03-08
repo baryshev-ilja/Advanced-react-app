@@ -8,7 +8,7 @@ import { ArticleDetails } from './ArticleDetails';
 import './ArticleDetails.module.scss';
 
 export default {
-    title: 'entities/Article/ArticleDetails',
+    title: 'entities/article/ArticleDetails',
     component: ArticleDetails,
     argTypes: {
         backgroundColor: { control: 'color' },

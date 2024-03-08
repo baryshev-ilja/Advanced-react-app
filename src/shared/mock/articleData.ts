@@ -1,4 +1,4 @@
-import { Article } from 'entities/Article';
+import { Article } from 'entities/article';
 
 export const articleMock = {
     id: '1',

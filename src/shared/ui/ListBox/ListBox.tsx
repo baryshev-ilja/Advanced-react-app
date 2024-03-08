@@ -46,12 +46,10 @@ export function ListBox(props: ListBoxProps) {
                 disabled={readonly}
             >
                 <HListBox.Button
-                    className={cls.buttonTrigger}
-                    disabled={readonly}
+                    as={Fragment}
                 >
                     <Button
                         theme={ButtonTheme.OUTLINE}
-                        tagName="div"
                         disabled={readonly}
                     >
                         {currentValue ?? defaultValue}

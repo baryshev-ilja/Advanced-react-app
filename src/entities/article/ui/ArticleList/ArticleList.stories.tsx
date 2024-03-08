@@ -7,7 +7,7 @@ import { ArticleList } from './ArticleList';
 import cls from './ArticleList.module.scss';
 
 export default {
-    title: 'entities/Article/ArticleList',
+    title: 'entities/article/ArticleList',
     component: ArticleList,
     argTypes: {
         backgroundColor: { control: 'color' },

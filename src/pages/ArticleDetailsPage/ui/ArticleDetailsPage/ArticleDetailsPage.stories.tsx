@@ -12,18 +12,18 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [StoreDecorator({
+        articleDetails: {
+            data: articleMock,
+        },
+    })],
 } as ComponentMeta<typeof ArticleDetailsPage>;
 
 const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDetailsPage {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [StoreDecorator({})];
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
-    articleDetails: {
-        data: articleMock,
-    },
-})];
+Dark.decorators = [ThemeDecorator(Theme.DARK)];

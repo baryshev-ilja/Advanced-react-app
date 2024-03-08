@@ -15,18 +15,18 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     const { t } = useTranslation('article');
     const { id } = useParams<{id: string}>();
 
-    if (!id) {
-        return (
-            <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
-                {t('Страница не найдена(')}
-            </Page>
-        );
-    }
+    // if (!id) {
+    //     return (
+    //         <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
+    //             {t('Страница не найдена(')}
+    //         </Page>
+    //     );
+    // }
 
     return (
         <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
             <ArticleDetailsPageHeader />
-            <ArticleWithComments id={id} />
+            <ArticleWithComments id={id!} />
         </Page>
     );
 };
