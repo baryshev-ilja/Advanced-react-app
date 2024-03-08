@@ -1,2 +1,2 @@
 export { Page } from './ui/Page';
-export { ScrollSaveSchema } from './model/types/ScrollSaveSchema';
+export type { ScrollSaveSchema, ScrollSaveParams } from './model/types/ScrollSaveSchema';

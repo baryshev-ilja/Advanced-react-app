@@ -3,9 +3,10 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator';
-import { ArticleTypes, Article } from '../../model/types/article';
+import { Article } from '../../model/types/article';
 import { ArticleDetails } from './ArticleDetails';
 import './ArticleDetails.module.scss';
+import { ArticleTypes } from '../../model/consts/constsArticle';
 
 export default {
     title: 'entities/article/ArticleDetails',
