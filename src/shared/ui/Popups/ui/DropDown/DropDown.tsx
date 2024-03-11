@@ -2,8 +2,9 @@ import { Menu } from '@headlessui/react';
 import { Fragment, ReactNode } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import { DropdownDirection } from 'shared/types/ui';
-import { AppLink } from '../AppLink/AppLink';
+import { AppLink } from '../../../AppLink/AppLink';
 import cls from './DropDown.module.scss';
+import clsPopup from '../../styles/popup.module.scss';
 
 export interface MenuDropdownItem {
     disabled?: boolean;
@@ -29,8 +30,8 @@ export function DropDown(props: DropdownProps) {
     } = props;
 
     return (
-        <Menu as="div" className={classNames(cls.dropDown, {}, [className])}>
-            <Menu.Button className={cls.btn}>{trigger}</Menu.Button>
+        <Menu as="div" className={classNames(clsPopup.popup, {}, [className])}>
+            <Menu.Button className={clsPopup.btnTrigger}>{trigger}</Menu.Button>
 
             <Menu.Items className={classNames(cls.menu, {}, [cls[direction]])}>
                 {items?.map((item, index) => {
@@ -41,9 +42,9 @@ export function DropDown(props: DropdownProps) {
                             return (
                                 <Tag
                                     className={classNames(cls.item, {
-                                        [cls.hovered]: active,
-                                        [cls.disabled]: item.disabled,
-                                    })}
+                                        [clsPopup.hovered]: active,
+                                        [clsPopup.disabled]: item.disabled,
+                                    }, [clsPopup.itemBg])}
                                 >
                                     {item.content}
                                 </Tag>
@@ -54,9 +55,9 @@ export function DropDown(props: DropdownProps) {
                             <button
                                 type="button"
                                 className={classNames(cls.item, {
-                                    [cls.hovered]: active,
-                                    [cls.disabled]: item.disabled,
-                                })}
+                                    [clsPopup.hovered]: active,
+                                    [clsPopup.disabled]: item.disabled,
+                                }, [clsPopup.itemBg])}
                                 onClick={item.onClick}
                             >
                                 {item.content}
