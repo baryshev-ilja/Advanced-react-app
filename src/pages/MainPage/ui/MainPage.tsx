@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { BugButton } from 'app/providers/ErrorBoundary';
-import { Page } from 'widgets/page/ui/Page';
+import { BugButton } from '@/app/providers/ErrorBoundary';
+import { Page } from '@/widgets/page/ui/Page';
 
 const MainPage = memo(() => {
     const { t } = useTranslation();

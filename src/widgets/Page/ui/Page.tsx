@@ -1,11 +1,11 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { MutableRefObject, ReactNode, useRef } from 'react';
-import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInffinteScroll';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { StateSchema } from 'app/providers/StoreProvider';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
+import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInffinteScroll';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
 import { scrollSaveActions } from '../model/slice/scrollSaveSlice';
 import { getScrollPositionByPath } from '../model/selectors/getScrollSavePosition';
 import cls from './Page.module.scss';

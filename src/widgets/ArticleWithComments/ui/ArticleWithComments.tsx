@@ -1,8 +1,8 @@
-import { ArticleDetails, getArticleDetailsData, getArticleDetailsIsLoading } from 'entities/article';
 import { useSelector } from 'react-redux';
-import { AddCommentsForArticle } from 'features/addComments';
-import { VStack } from 'shared/ui/Stack';
-import { ArticleRecommendationList } from 'features/articleRecommendationList';
+import { ArticleDetails, getArticleDetailsData, getArticleDetailsIsLoading } from '@/entities/article';
+import { AddCommentsForArticle } from '@/features/addComments';
+import { VStack } from '@/shared/ui/Stack';
+import { ArticleRecommendationList } from '@/features/articleRecommendationList';
 
 interface ArticleWithCommentsProps {
     id: string;

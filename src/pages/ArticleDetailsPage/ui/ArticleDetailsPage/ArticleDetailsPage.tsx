@@ -1,8 +1,8 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
-import { ArticleWithComments } from 'widgets/articleWithComments';
-import { Page } from 'widgets/page/ui/Page';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { ArticleWithComments } from '@/widgets/articleWithComments';
+import { Page } from '@/widgets/page/ui/Page';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import cls from './ArticleDetailsPage.module.scss';
 

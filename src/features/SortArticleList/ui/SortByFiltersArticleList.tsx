@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next';
-import { OptionsList, Select } from 'shared/ui/Select/Select';
 import { useMemo } from 'react';
-import { TypesOfOrders } from 'shared/types';
-import { HStack } from 'shared/ui/Stack';
-import { ArticleSortTypes } from 'entities/article';
+import { OptionsList, Select } from '@/shared/ui/Select/Select';
+import { TypesOfOrders } from '@/shared/types';
+import { HStack } from '@/shared/ui/Stack';
+import { ArticleSortTypes } from '@/entities/article';
 
 interface SortArticleListProps {
     sortValue: ArticleSortTypes;

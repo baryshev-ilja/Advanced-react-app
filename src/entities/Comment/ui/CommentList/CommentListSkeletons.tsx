@@ -1,4 +1,4 @@
-import { VStack } from 'shared/ui/Stack';
+import { VStack } from '@/shared/ui/Stack';
 import { CommentCardSkeleton } from '../CommentCard/CommentCardSkeleton';
 
 export const CommentListSkeletons = () => (

@@ -1,6 +1,3 @@
-import { CounterSchema } from 'entities/counter';
-import { UserSchema } from 'entities/user';
-import { LoginSchema } from 'features/authByUsername';
 import {
     AnyAction,
     EnhancedStore,
@@ -8,15 +5,18 @@ import {
     ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { CombinedState } from 'redux';
-import { ProfileSchema } from 'entities/profile';
 import { AxiosInstance } from 'axios';
-import { ArticleDetailsSchema } from 'entities/article/model/types/ArticleDetailsSchema';
+import { CounterSchema } from '@/entities/counter';
+import { UserSchema } from '@/entities/user';
+import { LoginSchema } from '@/features/authByUsername';
+import { ProfileSchema } from '@/entities/profile';
+import { ArticleDetailsSchema } from '@/entities/article/model/types/ArticleDetailsSchema';
 
-import { ArticlesPageSchema } from 'pages/articlesPage/model/types/ArticlesPageSchema';
-import { ScrollSaveSchema } from 'widgets/page';
-import { ArticleCommentsSchema } from 'features/addComments';
-import { rtkApi } from 'shared/api/rtkApi';
-import { ArticleDetailsRecommendationsSchema } from 'features/articleRecommendationList';
+import { ArticlesPageSchema } from '@/pages/articlesPage/model/types/ArticlesPageSchema';
+import { ScrollSaveSchema } from '@/widgets/page';
+import { ArticleCommentsSchema } from '@/features/addComments';
+import { rtkApi } from '@/shared/api/rtkApi';
+import { ArticleDetailsRecommendationsSchema } from '@/features/articleRecommendationList';
 
 export interface StateSchema {
     counter: CounterSchema;

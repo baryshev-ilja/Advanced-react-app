@@ -1,5 +1,5 @@
-import { Currency } from 'entities/currency/model/types/currency';
-import { Country } from 'entities/country/model/types/country';
+import { Currency } from '@/entities/currency/model/types/currency';
+import { Country } from '@/entities/country/model/types/country';
 import { ValidateProfileError } from '../consts/constsProfile';
 
 export interface Profile {

@@ -1,14 +1,14 @@
 import { RouteProps } from 'react-router-dom';
-import { MainPage } from 'pages/mainPage';
-import { AboutPage } from 'pages/aboutPage';
-import { NotFoundPage } from 'pages/notFoundPage';
-import { ProfilePage } from 'pages/profilePage';
-import { ArticlesPage } from 'pages/articlesPage';
-import { ArticleDetailsPage } from 'pages/articleDetailsPage';
-import { ArticleDetailsEditPage } from 'pages/articleDetailsEditPage';
-import { AdminPanelPage } from 'pages/adminPanelPage';
-import { UserRole } from 'entities/user';
-import { ForbiddenPage } from 'pages/forbiddenPage';
+import { MainPage } from '@/pages/mainPage';
+import { AboutPage } from '@/pages/aboutPage';
+import { NotFoundPage } from '@/pages/notFoundPage';
+import { ProfilePage } from '@/pages/profilePage';
+import { ArticlesPage } from '@/pages/articlesPage';
+import { ArticleDetailsPage } from '@/pages/articleDetailsPage';
+import { ArticleDetailsEditPage } from '@/pages/articleDetailsEditPage';
+import { AdminPanelPage } from '@/pages/adminPanelPage';
+import { UserRole } from '@/entities/user';
+import { ForbiddenPage } from '@/pages/forbiddenPage';
 
 export enum AppRoutes {
     MAIN = 'main',
