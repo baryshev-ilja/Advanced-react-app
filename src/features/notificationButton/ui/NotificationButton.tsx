@@ -41,11 +41,9 @@ export const NotificationButton = (props: NotificationButtonProps) => {
         return (
             <div>
                 {returnTriggerBtn()}
-                <AnimationProvider>
-                    <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
-                        <NotificationList />
-                    </Drawer>
-                </AnimationProvider>
+                <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
+                    <NotificationList />
+                </Drawer>
 
             </div>
         );
