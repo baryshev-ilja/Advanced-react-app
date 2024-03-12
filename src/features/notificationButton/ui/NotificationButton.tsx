@@ -6,13 +6,12 @@ import { Popover } from 'shared/ui/Popups';
 import { useDevice } from 'shared/lib/hooks/useDevice/useDevice';
 import { Drawer } from 'shared/ui/Drawer/Drawer';
 import { useCallback, useState } from 'react';
+import { AnimationProvider } from 'shared/lib/HOC/AnimationProvider/AnimationProvider';
 import cls from './NotificationButton.module.scss';
 
 interface NotificationButtonProps {
     className?: string;
 }
-
-type ReturnTriggerBtnProps = keyof HTMLElementTagNameMap;
 
 export const NotificationButton = (props: NotificationButtonProps) => {
     const { className } = props;
@@ -28,7 +27,7 @@ export const NotificationButton = (props: NotificationButtonProps) => {
         setIsOpen(false);
     }, []);
 
-    const returnTriggerBtn = (tagName?: ReturnTriggerBtnProps) => (
+    const returnTriggerBtn = (tagName?: keyof HTMLElementTagNameMap) => (
         <Button
             theme={ButtonTheme.CLEAR}
             onClick={onOpenDrawer}
@@ -42,9 +41,12 @@ export const NotificationButton = (props: NotificationButtonProps) => {
         return (
             <div>
                 {returnTriggerBtn()}
-                <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
-                    <NotificationList />
-                </Drawer>
+                <AnimationProvider>
+                    <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
+                        <NotificationList />
+                    </Drawer>
+                </AnimationProvider>
+
             </div>
         );
     }
