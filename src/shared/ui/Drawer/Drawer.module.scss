@@ -45,6 +45,10 @@
     opacity: 1;
     z-index: var(--modal-z-index);
 
+    .overlay {
+        opacity: 1;
+    }
+
     .content {
         transform: translateY(0%);
     }

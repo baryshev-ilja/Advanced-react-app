@@ -30,7 +30,7 @@ export const Drawer = memo((props: DrawerProps) => {
     return (
         <Portal container={container}>
             <div className={classNames(cls.drawer, mods, [className, theme, 'app-drawer'])}>
-                <Overlay onClick={onClose} />
+                <Overlay onClick={onClose} className={cls.overlay} />
                 <div
                     className={cls.content}
                 >

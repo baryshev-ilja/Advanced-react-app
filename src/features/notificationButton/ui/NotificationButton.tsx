@@ -12,9 +12,7 @@ interface NotificationButtonProps {
     className?: string;
 }
 
-interface ReturnTriggerBtnProps {
-    tagName?: keyof HTMLElementTagNameMap;
-}
+type ReturnTriggerBtnProps = keyof HTMLElementTagNameMap;
 
 export const NotificationButton = (props: NotificationButtonProps) => {
     const { className } = props;
@@ -30,7 +28,7 @@ export const NotificationButton = (props: NotificationButtonProps) => {
         setIsOpen(false);
     }, []);
 
-    const returnTriggerBtn = ({ tagName }: ReturnTriggerBtnProps) => (
+    const returnTriggerBtn = (tagName?: ReturnTriggerBtnProps) => (
         <Button
             theme={ButtonTheme.CLEAR}
             onClick={onOpenDrawer}
@@ -43,7 +41,7 @@ export const NotificationButton = (props: NotificationButtonProps) => {
     if (isMobile) {
         return (
             <div>
-                {returnTriggerBtn({})}
+                {returnTriggerBtn()}
                 <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
                     <NotificationList />
                 </Drawer>
@@ -55,7 +53,7 @@ export const NotificationButton = (props: NotificationButtonProps) => {
         <Popover
             className={classNames(cls.notificationButton, {}, [className])}
             direction="bottomLeft"
-            trigger={returnTriggerBtn({ tagName: 'span' })}
+            trigger={returnTriggerBtn('span')}
         >
             <NotificationList className={cls.notifications} />
         </Popover>
