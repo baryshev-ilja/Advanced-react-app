@@ -47,7 +47,7 @@ export function ListBox(props: ListBoxProps) {
                 disabled={readonly}
             >
                 <HListBox.Button
-                    as={Fragment}
+                    as="div"
                 >
                     <Button
                         theme={ButtonTheme.OUTLINE}
