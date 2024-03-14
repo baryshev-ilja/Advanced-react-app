@@ -18,6 +18,7 @@ import { getProfileLoading } from '../../model/selectors/getProfileLoading/getPr
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
+import { ProfileRating } from '@/features/profileRating';
 
 interface EditableProfileCardProps {
     className?: string;
@@ -107,6 +108,7 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
                     onChangeCurrency={currencyChangeHandler}
                     onChangeCountry={countryChangeHandler}
                 />
+                <ProfileRating profileId={id!} />
             </VStack>
         </DynamicReducerLoad>
     );
