@@ -1001,5 +1001,56 @@
       "description": "Произошло какое-то событие",
       "userId": "2"
     }
+  ],
+  "article-rating": [
+    {
+      "id": "1",
+      "userId": "1",
+      "articleId": "1",
+      "rate": 4,
+      "feedback": "В целом понравилась"
+    },
+    {
+      "id": "2",
+      "userId": "1",
+      "articleId": "2",
+      "rate": 3,
+      "feedback": "Слабоватенько..."
+    },
+    {
+      "userId": "1",
+      "articleId": "9",
+      "rate": 3,
+      "feedback": "ffghdfghdfgh",
+      "id": "NMjN0oH"
+    },
+    {
+      "userId": "1",
+      "articleId": "15",
+      "rate": 4,
+      "id": "_pceI8K"
+    },
+    {
+      "userId": "1",
+      "articleId": "5",
+      "rate": 4,
+      "feedback": "",
+      "id": "9jRO92-"
+    },
+    {
+      "userId": "2",
+      "articleId": "5",
+      "rate": 3,
+      "feedback": "",
+      "id": "ScaF7q7"
+    }
+  ],
+  "profile-rating": [
+    {
+      "userId": "2",
+      "profileId": "2",
+      "rate": 4,
+      "id": 1
+    }
   ]
 }

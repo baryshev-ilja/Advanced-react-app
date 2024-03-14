@@ -3,6 +3,7 @@ import { ArticleDetails, getArticleDetailsData, getArticleDetailsIsLoading } fro
 import { AddCommentsForArticle } from '@/features/addComments';
 import { VStack } from '@/shared/ui/Stack';
 import { ArticleRecommendationList } from '@/features/articleRecommendationList';
+import { ArticleRating } from '@/features/articleRating';
 
 interface ArticleWithCommentsProps {
     id: string;
@@ -16,6 +17,7 @@ export const ArticleWithComments = (props: ArticleWithCommentsProps) => {
     return (
         <VStack gap="32">
             <ArticleDetails id={id} isLoading={isLoading} data={article} />
+            {article && <ArticleRating articleId={id} />}
             {article && <ArticleRecommendationList />}
             {article && <AddCommentsForArticle id={id} />}
         </VStack>
