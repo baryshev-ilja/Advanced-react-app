@@ -1,8 +1,8 @@
 const interfaceConst = 'interface';
 
-module.exports = (ComponentName, componentNameForCSS) => `import { classNames } from 'shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
+module.exports = (ComponentName, componentNameForCSS) => `import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import cls from './${ComponentName}.module.scss';
 
 ${interfaceConst} ${ComponentName}Props {
