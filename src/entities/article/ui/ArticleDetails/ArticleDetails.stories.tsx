@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
+import { ThemeStory } from '@/app/providers/ThemeProvider';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { Article } from '../../model/types/article';
 import { ArticleDetails } from './ArticleDetails';
@@ -14,6 +14,9 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [
+        (Story) => <div style={{ minHeight: '100vh', overflowY: 'auto' }}><Story /></div>,
+    ],
 } as ComponentMeta<typeof ArticleDetails>;
 
 const Template: ComponentStory<typeof ArticleDetails> = (args) => <ArticleDetails {...args} />;
@@ -96,7 +99,7 @@ export const Normal = Template.bind({});
 Normal.args = {
     data: articleData,
 };
-Normal.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
+Normal.decorators = [ThemeDecorator(ThemeStory.DARK), StoreDecorator({
     articleDetails: {
         data: articleData,
     },
@@ -104,7 +107,7 @@ Normal.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
 
 export const Error = Template.bind({});
 Error.args = {};
-Error.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
+Error.decorators = [ThemeDecorator(ThemeStory.DARK), StoreDecorator({
     articleDetails: {
         error: 'error',
     },
@@ -114,4 +117,8 @@ export const isLoading = Template.bind({});
 isLoading.args = {
     isLoading: true,
 };
-isLoading.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];
+isLoading.decorators = [StoreDecorator({
+    articleDetails: {
+        isLoading: true,
+    },
+})];

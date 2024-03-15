@@ -1,11 +1,4 @@
-import ThemeSBProvider from '@/app/providers/ThemeProvider/ui/ThemeSBProvider';
-import ThemeProvider from './ui/ThemeProvider';
-import { useTheme } from './lib/useTheme';
-import { Theme } from './lib/ThemeContext';
-
-export {
-    ThemeProvider,
-    ThemeSBProvider,
-    useTheme,
-    Theme,
-};
+export { default as ThemeSBProvider } from '@/app/providers/ThemeProvider/ui/ThemeSBProvider';
+export { default as ThemeProvider } from './ui/ThemeProvider';
+export { useTheme } from './lib/useTheme';
+export { Theme, ThemeStory } from './lib/ThemeContext';

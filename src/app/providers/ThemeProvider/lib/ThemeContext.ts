@@ -6,6 +6,12 @@ export enum Theme {
     GRAY = 'app-gray-theme',
 }
 
+export enum ThemeStory {
+    LIGHT = '#e0e0e0',
+    DARK = '#161637',
+    GRAY = '#f4f7fb',
+}
+
 export interface IThemeContextProps {
     theme?: Theme;
     setTheme?: (theme: Theme) => void;

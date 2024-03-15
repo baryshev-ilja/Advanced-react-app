@@ -14,4 +14,12 @@ module.exports = {
         builder: 'webpack5',
     },
     staticDirs: ['../../public'],
+    previewHead: (head) => `
+    ${head}
+    <style>
+      body {
+        padding: 0 !important;
+      }
+    </style>
+ `,
 };
