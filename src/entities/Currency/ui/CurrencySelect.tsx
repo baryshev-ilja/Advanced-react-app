@@ -3,12 +3,14 @@ import { useCallback } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ListBox } from '@/shared/ui/Popups/ui/ListBox/ListBox';
 import { Currency } from '../model/types/currency';
+import { DropdownDirection } from '@/shared/types/ui';
 
 interface CurrencySelectProps {
     className?: string;
     value?: Currency;
     onChange?: (currency: Currency) => void;
     readonly?: boolean;
+    direction?: DropdownDirection;
 }
 
 const options = [
@@ -23,6 +25,7 @@ export const CurrencySelect = (props: CurrencySelectProps) => {
         value,
         onChange,
         readonly,
+        direction = 'topRight',
     } = props;
     const { t } = useTranslation();
 
@@ -40,7 +43,7 @@ export const CurrencySelect = (props: CurrencySelectProps) => {
             onChange={selectChangeHandler}
             items={options}
             readonly={readonly}
-            direction="topRight"
+            direction={direction}
         />
     );
 };

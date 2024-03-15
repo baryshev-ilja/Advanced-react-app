@@ -4,8 +4,9 @@ import withMock from 'storybook-addon-mock';
 
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { Article, ArticleTypes } from '@/entities/article';
-// import withMock from 'storybook-addon-mock';
 import { ArticleRecommendationList } from './ArticleRecommendationList';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { ThemeStory } from '@/app/providers/ThemeProvider';
 
 const articleMock: Article = {
     id: '1',
@@ -32,7 +33,7 @@ export default {
     decorators: [
         StoreDecorator({}),
         withMock,
-        (Story) => <div style={{ padding: 50 }}><Story /></div>,
+        ThemeDecorator(ThemeStory.LIGHT),
     ],
 } as ComponentMeta<typeof ArticleRecommendationList>;
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
+import { ThemeStory } from '@/app/providers/ThemeProvider';
 import { Country } from '@/entities/country';
 import { Currency } from '@/entities/currency';
 import AvatarImg from '@/shared/assets/storybook.jpg';
@@ -21,7 +21,7 @@ const Template: ComponentStory<typeof ProfilePagePage> = () => <ProfilePagePage 
 export const Light = Template.bind({});
 Light.args = {
 };
-Light.decorators = [StoreDecorator({
+Light.decorators = [ThemeDecorator(ThemeStory.LIGHT), StoreDecorator({
     profile: {
         data: {
             first: 'Илья',
@@ -48,7 +48,7 @@ Light.decorators = [StoreDecorator({
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
+Dark.decorators = [ThemeDecorator(ThemeStory.DARK), StoreDecorator({
     profile: {
         data: {
             first: 'Илья',

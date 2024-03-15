@@ -27,14 +27,11 @@ export function ThemeDecorator(theme: ThemeStory) {
             <div
                 className={`${themeForProvider}`}
                 style={{
-                    display: 'grid',
-                    gridTemplateRows: 'minmax(0, 1fr)',
-                    gridTemplateColumns: 'minmax(0, 1fr)',
                     fontSize: '16px',
                     lineHeight: '24px',
                     fontFamily: 'Consolas',
                     background: `${theme}`,
-                    padding: 35,
+                    padding: '25px 40px',
                     minHeight: '100vh',
                     color: `${colorTextForStory}`,
                 }}

@@ -1,7 +1,9 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Avatar } from './Avatar';
 import AvatarImg from '../../assets/storybook.jpg';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { ThemeStory } from '@/app/providers/ThemeProvider';
 
 export default {
     title: 'shared/Avatar',
@@ -9,6 +11,7 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [ThemeDecorator(ThemeStory.LIGHT)],
 } as ComponentMeta<typeof Avatar>;
 
 const Template: ComponentStory<typeof Avatar> = (args) => <Avatar {...args} />;

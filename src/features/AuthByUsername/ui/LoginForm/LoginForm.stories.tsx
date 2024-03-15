@@ -1,7 +1,10 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import withMock from 'storybook-addon-mock';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import LoginForm from './LoginForm';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { ThemeStory } from '@/app/providers/ThemeProvider';
 
 export default {
     title: 'features/LoginForm',
@@ -9,6 +12,7 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [ThemeDecorator(ThemeStory.LIGHT)],
 } as ComponentMeta<typeof LoginForm>;
 
 const Template: ComponentStory<typeof LoginForm> = (args) => <LoginForm {...args} />;

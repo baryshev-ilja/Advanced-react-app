@@ -3,12 +3,14 @@ import { useCallback } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ListBox } from '@/shared/ui/Popups/ui/ListBox/ListBox';
 import { Country } from '../model/types/country';
+import { DropdownDirection } from '@/shared/types/ui';
 
 interface CountrySelectProps {
     className?: string;
     value?: Country;
     onChange?: (country: Country) => void;
     readonly?: boolean;
+    direction?: DropdownDirection;
 }
 
 const options = [
@@ -25,6 +27,7 @@ export const CountrySelect = (props: CountrySelectProps) => {
         value,
         onChange,
         readonly,
+        direction = 'topRight',
     } = props;
     const { t } = useTranslation();
 
@@ -43,7 +46,7 @@ export const CountrySelect = (props: CountrySelectProps) => {
             onChange={selectChangeHandler}
             items={options}
             readonly={readonly}
-            direction="topRight"
+            direction={direction}
         />
     );
 };

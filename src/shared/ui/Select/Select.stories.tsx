@@ -1,6 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Select } from './Select';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { ThemeStory } from '@/app/providers/ThemeProvider';
 
 export default {
     title: 'shared/Select',
@@ -8,6 +10,7 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [ThemeDecorator(ThemeStory.LIGHT)],
 } as ComponentMeta<typeof Select>;
 
 const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;

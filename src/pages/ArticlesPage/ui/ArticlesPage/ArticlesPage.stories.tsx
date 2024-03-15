@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
+import { ThemeStory } from '@/app/providers/ThemeProvider';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { articleMock } from '@/shared/mock/articleData';
 import ArticlesPage from './ArticlesPage';
@@ -18,7 +18,7 @@ const Template: ComponentStory<typeof ArticlesPage> = (args) => <ArticlesPage {.
 
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [StoreDecorator({
+Normal.decorators = [ThemeDecorator(ThemeStory.LIGHT), StoreDecorator({
     articlesPage: {
         ids: ['1', '2', '3'],
         entities: {
@@ -40,7 +40,7 @@ Normal.decorators = [StoreDecorator({
 
 export const NormalIsLoading = Template.bind({});
 NormalIsLoading.args = {};
-NormalIsLoading.decorators = [StoreDecorator({
+NormalIsLoading.decorators = [ThemeDecorator(ThemeStory.LIGHT), StoreDecorator({
     articlesPage: {
         ids: [],
         entities: {},
@@ -50,7 +50,7 @@ NormalIsLoading.decorators = [StoreDecorator({
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
+Dark.decorators = [ThemeDecorator(ThemeStory.DARK), StoreDecorator({
     articlesPage: {
         ids: ['1', '2', '3'],
         entities: {
@@ -72,7 +72,7 @@ Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
 
 export const DarkIsLoading = Template.bind({});
 DarkIsLoading.args = {};
-DarkIsLoading.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
+DarkIsLoading.decorators = [ThemeDecorator(ThemeStory.DARK), StoreDecorator({
     articlesPage: {
         ids: [],
         entities: {},

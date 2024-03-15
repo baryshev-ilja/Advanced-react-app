@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
+import { ThemeStory } from '@/app/providers/ThemeProvider';
 import { Code } from './Code';
 
 export default {
@@ -30,6 +30,7 @@ Normal.args = {
     );
 }`,
 };
+Normal.decorators = [ThemeDecorator(ThemeStory.LIGHT)];
 
 export const Dark = Template.bind({});
 Dark.args = {
@@ -47,4 +48,4 @@ Dark.args = {
     );
 }`,
 };
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+Dark.decorators = [ThemeDecorator(ThemeStory.DARK)];

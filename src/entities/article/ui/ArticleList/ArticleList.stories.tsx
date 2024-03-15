@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
+import { ThemeStory } from '@/app/providers/ThemeProvider';
 import { articleMock } from '@/shared/mock/articleData';
 import { ArticleList } from './ArticleList';
 import cls from './ArticleList.module.scss';
@@ -28,6 +28,7 @@ NormalGrid.args = {
     className: cls.articleList,
     isLoading: false,
 };
+NormalGrid.decorators = [ThemeDecorator(ThemeStory.LIGHT)];
 
 export const DarkGrid = Template.bind({});
 DarkGrid.args = {
@@ -36,24 +37,25 @@ DarkGrid.args = {
     className: cls.articleList,
     isLoading: false,
 };
-DarkGrid.decorators = [ThemeDecorator(Theme.DARK)];
+DarkGrid.decorators = [ThemeDecorator(ThemeStory.DARK)];
 
 export const NormalGridIsLoading = Template.bind({});
 NormalGridIsLoading.args = {
-    articles: articlesMock,
+    articles: [],
     view: 'GRID',
     className: cls.articleList,
     isLoading: true,
 };
+NormalGridIsLoading.decorators = [ThemeDecorator(ThemeStory.LIGHT)];
 
 export const DarkGridIsLoading = Template.bind({});
 DarkGridIsLoading.args = {
-    articles: articlesMock,
+    articles: [],
     view: 'GRID',
     className: cls.articleList,
     isLoading: true,
 };
-DarkGridIsLoading.decorators = [ThemeDecorator(Theme.DARK)];
+DarkGridIsLoading.decorators = [ThemeDecorator(ThemeStory.DARK)];
 
 export const NormalList = Template.bind({});
 NormalList.args = {
@@ -62,6 +64,7 @@ NormalList.args = {
     className: cls.articleList,
     isLoading: false,
 };
+NormalList.decorators = [ThemeDecorator(ThemeStory.LIGHT)];
 
 export const DarkList = Template.bind({});
 DarkList.args = {
@@ -70,21 +73,22 @@ DarkList.args = {
     className: cls.articleList,
     isLoading: false,
 };
-DarkList.decorators = [ThemeDecorator(Theme.DARK)];
+DarkList.decorators = [ThemeDecorator(ThemeStory.DARK)];
 
 export const NormalListIsLoading = Template.bind({});
 NormalListIsLoading.args = {
-    articles: articlesMock,
+    articles: [],
     view: 'LIST',
     className: cls.articleList,
     isLoading: true,
 };
+NormalListIsLoading.decorators = [ThemeDecorator(ThemeStory.LIGHT)];
 
 export const DarkListIsLoading = Template.bind({});
 DarkListIsLoading.args = {
-    articles: articlesMock,
+    articles: [],
     view: 'LIST',
     className: cls.articleList,
     isLoading: true,
 };
-DarkListIsLoading.decorators = [ThemeDecorator(Theme.DARK)];
+DarkListIsLoading.decorators = [ThemeDecorator(ThemeStory.DARK)];

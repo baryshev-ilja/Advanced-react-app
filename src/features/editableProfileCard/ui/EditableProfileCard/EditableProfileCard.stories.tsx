@@ -5,6 +5,8 @@ import { Country } from '@/entities/country';
 import { Currency } from '@/entities/currency';
 import AvatarImg from '@/shared/assets/storybook.jpg';
 import { EditableProfileCard } from './EditableProfileCard';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { ThemeStory } from '@/app/providers/ThemeProvider';
 
 export default {
     title: 'features/EditableProfileCard',
@@ -12,6 +14,7 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [ThemeDecorator(ThemeStory.LIGHT)],
 } as ComponentMeta<typeof EditableProfileCard>;
 
 const Template: ComponentStory<typeof EditableProfileCard> = () => <EditableProfileCard />;
@@ -21,6 +24,16 @@ Light.args = {};
 Light.decorators = [StoreDecorator({
     profile: {
         form: {
+            first: 'Илья',
+            lastname: 'Барышев',
+            age: 27,
+            city: 'Набережные Челны',
+            country: Country.Russia,
+            currency: Currency.RUB,
+            username: 'admin',
+            avatar: AvatarImg,
+        },
+        data: {
             first: 'Илья',
             lastname: 'Барышев',
             age: 27,

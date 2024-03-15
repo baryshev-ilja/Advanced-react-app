@@ -1,6 +1,8 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ListBox } from './ListBox';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { ThemeStory } from '@/app/providers/ThemeProvider';
 
 export default {
     title: 'shared/ListBox',
@@ -10,6 +12,7 @@ export default {
     },
     decorators: [
         (Story) => <div style={{ padding: 150 }}><Story /></div>,
+        ThemeDecorator(ThemeStory.LIGHT),
     ],
 } as ComponentMeta<typeof ListBox>;
 

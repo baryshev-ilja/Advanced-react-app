@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
+import { ThemeStory } from '@/app/providers/ThemeProvider';
 import { Tabs } from './Tabs';
 
 export default {
@@ -34,6 +34,7 @@ Normal.args = {
     currentValue: 'tab 1',
     onTabClick: action('onTabClick'),
 };
+Normal.decorators = [ThemeDecorator(ThemeStory.LIGHT)];
 
 export const Dark = Template.bind({});
 Dark.args = {
@@ -54,4 +55,4 @@ Dark.args = {
     currentValue: 'tab 1',
     onTabClick: action('onTabClick'),
 };
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+Dark.decorators = [ThemeDecorator(ThemeStory.DARK)];

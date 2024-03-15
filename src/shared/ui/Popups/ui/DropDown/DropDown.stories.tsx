@@ -1,7 +1,9 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Button } from '../../../Button/Button';
 import { DropDown } from './DropDown';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { ThemeStory } from '@/app/providers/ThemeProvider';
 
 export default {
     title: 'shared/DropDown',
@@ -11,6 +13,7 @@ export default {
     },
     decorators: [
         (Story) => <div style={{ padding: 150, display: 'flex', justifyContent: 'flex-start' }}><Story /></div>,
+        ThemeDecorator(ThemeStory.LIGHT),
     ],
 } as ComponentMeta<typeof DropDown>;
 

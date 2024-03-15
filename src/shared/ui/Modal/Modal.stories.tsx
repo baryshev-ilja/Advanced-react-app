@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
+import { ThemeStory } from '@/app/providers/ThemeProvider';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { Modal } from './Modal';
 
@@ -21,7 +21,7 @@ Light.args = {
     isOpen: true,
     children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, expedita ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, expedita.',
 };
-Light.decorators = [StoreDecorator({
+Light.decorators = [ThemeDecorator(ThemeStory.LIGHT), StoreDecorator({
     loginForm: {
         username: 'admin',
         password: '123',
@@ -35,7 +35,7 @@ Dark.args = {
     children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, expedita ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, expedita.',
 };
 
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({
+Dark.decorators = [ThemeDecorator(ThemeStory.DARK), StoreDecorator({
     loginForm: {
         username: 'admin',
         password: '123',

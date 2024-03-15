@@ -14,9 +14,6 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    decorators: [
-        (Story) => <div style={{ minHeight: '100vh', overflowY: 'auto' }}><Story /></div>,
-    ],
 } as ComponentMeta<typeof ArticleDetails>;
 
 const Template: ComponentStory<typeof ArticleDetails> = (args) => <ArticleDetails {...args} />;
@@ -117,7 +114,7 @@ export const isLoading = Template.bind({});
 isLoading.args = {
     isLoading: true,
 };
-isLoading.decorators = [StoreDecorator({
+isLoading.decorators = [ThemeDecorator(ThemeStory.LIGHT), StoreDecorator({
     articleDetails: {
         isLoading: true,
     },

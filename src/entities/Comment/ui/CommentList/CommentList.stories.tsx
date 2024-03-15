@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
+import { ThemeStory } from '@/app/providers/ThemeProvider';
 import { CommentList } from './CommentList';
 
 export default {
@@ -29,9 +29,10 @@ Normal.args = {
         },
     ],
 };
+Normal.decorators = [ThemeDecorator(ThemeStory.LIGHT)];
 
-export const Dark = Template.bind({});
-Dark.args = {
+export const DarkLoading = Template.bind({});
+DarkLoading.args = {
     comments: [
         {
             id: '1',
@@ -46,4 +47,4 @@ Dark.args = {
     ],
     loading: true,
 };
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+DarkLoading.decorators = [ThemeDecorator(ThemeStory.DARK)];

@@ -1,11 +1,11 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
+import { ThemeStory } from '@/app/providers/ThemeProvider';
 import { NotificationItem } from './NotificationItem';
 
 export default {
-    title: 'shared/NotificationItem',
+    title: 'entities/Notification/NotificationItem',
     component: NotificationItem,
     argTypes: {
         backgroundColor: { control: 'color' },
@@ -14,9 +14,12 @@ export default {
 
 const Template: ComponentStory<typeof NotificationItem> = (args) => <NotificationItem {...args} />;
 
-export const Normal = Template.bind({});
-Normal.args = {};
-
 export const Dark = Template.bind({});
-Dark.args = {};
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+Dark.args = {
+    item: {
+        id: '1',
+        title: 'Уведомление 1',
+        description: 'Вы подписались на блог',
+    },
+};
+Dark.decorators = [ThemeDecorator(ThemeStory.DARK)];
