@@ -65,7 +65,7 @@ module.exports = {
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
         'arrow-body-style': 'off',
-        'baryshewww/path-checker': 'error',
+        'baryshewww/path-checker': ['error', { alias: '@' }],
     },
     globals: {
         __IS_DEV__: true,
