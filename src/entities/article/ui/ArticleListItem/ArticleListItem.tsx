@@ -6,11 +6,11 @@ import EyeIcon from '@/shared/assets/icons/eye_icon.svg';
 import { Card } from '@/shared/ui/Card/Card';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { Button } from '@/shared/ui/Button/Button';
-import { RoutePaths } from '@/shared/config/routeConfig/routeConfig';
 import { AppLink } from '@/shared/ui/AppLink/AppLink';
 import { Article, ArticleTextBlock, ArticleView } from '../../model/types/article';
 import cls from './ArticleListItem.module.scss';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+import { RoutePaths } from '@/shared/const/routerConsts';
 
 interface ArticleListItemProps {
     className?: string;

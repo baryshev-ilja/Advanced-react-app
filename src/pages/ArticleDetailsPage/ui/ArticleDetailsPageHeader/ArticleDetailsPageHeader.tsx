@@ -2,12 +2,12 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
-import { RoutePaths } from '@/shared/config/routeConfig/routeConfig';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { getArticleDetailsData } from '@/entities/article';
 import { getCanEditArticle } from '../../model/selectors/getCanEditArticle';
 import cls from './ArticleDetailsPageHeader.module.scss';
+import { RoutePaths } from '@/shared/const/routerConsts';
 
 interface ArticleDetailsPageHeaderProps {
     className?: string;
