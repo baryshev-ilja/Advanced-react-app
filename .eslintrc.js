@@ -66,6 +66,7 @@ module.exports = {
         'react/no-array-index-key': 'off',
         'arrow-body-style': 'off',
         'baryshewww/path-checker': ['error', { alias: '@' }],
+        'baryshewww/import-public-api': ['error', { alias: '@' }],
     },
     globals: {
         __IS_DEV__: true,

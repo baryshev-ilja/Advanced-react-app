@@ -6,13 +6,12 @@ import {
 } from '@reduxjs/toolkit';
 import { CombinedState } from 'redux';
 import { AxiosInstance } from 'axios';
-import { CounterSchema } from '@/entities/counter';
-import { UserSchema } from '@/entities/user';
-import { LoginSchema } from '@/features/authByUsername';
-import { ProfileSchema } from '@/entities/profile';
-import { ArticleDetailsSchema } from '@/entities/article/model/types/ArticleDetailsSchema';
-
-import { ArticlesPageSchema } from '@/pages/articlesPage/model/types/ArticlesPageSchema';
+import type { CounterSchema } from '@/entities/counter';
+import type { UserSchema } from '@/entities/user';
+import type { LoginSchema } from '@/features/authByUsername';
+import type { ProfileSchema } from '@/entities/profile';
+import type { ArticleDetailsSchema } from '@/entities/article';
+import type { ArticlesPageSchema } from '@/pages/articlesPage';
 import { ScrollSaveSchema } from '@/widgets/page';
 import { ArticleCommentsSchema } from '@/features/addComments';
 import { rtkApi } from '@/shared/api/rtkApi';
