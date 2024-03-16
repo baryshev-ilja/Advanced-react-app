@@ -66,7 +66,13 @@ module.exports = {
         'react/no-array-index-key': 'off',
         'arrow-body-style': 'off',
         'baryshewww/path-checker': ['error', { alias: '@' }],
-        'baryshewww/import-public-api': ['error', { alias: '@' }],
+        'baryshewww/import-public-api': [
+            'error',
+            {
+                alias: '@',
+                testFilePatterns: ['**/*.test.*', '**/StoreDecorator.tsx'],
+            },
+        ],
     },
     globals: {
         __IS_DEV__: true,
