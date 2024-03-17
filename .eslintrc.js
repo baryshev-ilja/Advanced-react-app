@@ -73,6 +73,13 @@ module.exports = {
                 testFilePatterns: ['**/*.test.*', '**/StoreDecorator.tsx'],
             },
         ],
+        'baryshewww/layers-import': [
+            'error',
+            {
+                alias: '@',
+                ignoreImportPatterns: ['**/StoreProvider'],
+            },
+        ],
     },
     globals: {
         __IS_DEV__: true,
