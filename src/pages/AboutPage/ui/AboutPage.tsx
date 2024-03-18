@@ -7,6 +7,7 @@ const AboutPage = memo(() => {
     return (
         <Page>
             {t('about')}
+            {t('about')}
         </Page>
     );
 });
