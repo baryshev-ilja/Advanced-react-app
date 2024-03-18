@@ -1,7 +1,8 @@
 import React, {
-    FC, ReactNode, useMemo, useState,
+    FC, ReactNode, useCallback, useMemo, useState,
 } from 'react';
-import { Theme, ThemeContext } from '../lib/ThemeContext';
+import { ThemeContext } from '../../../../shared/context/ThemeContext';
+import { Theme } from '@/shared/const/theme';
 
 interface ThemeSBProviderProps {
     children: ReactNode;
@@ -11,9 +12,9 @@ interface ThemeSBProviderProps {
 const ThemeSBProvider: FC<ThemeSBProviderProps> = ({ children, initialTheme }) => {
     const [theme, setTheme] = useState<Theme>(initialTheme);
 
-    const toggleTheme = () => {
+    const toggleTheme = useCallback(() => {
         setTheme(theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT);
-    };
+    }, [theme]);
 
     const defaultProps = useMemo(() => ({
         theme,

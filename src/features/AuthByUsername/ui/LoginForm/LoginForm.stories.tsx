@@ -4,7 +4,8 @@ import withMock from 'storybook-addon-mock';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import LoginForm from './LoginForm';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { ThemeStory } from '@/app/providers/ThemeProvider';
+
+import { ThemeStory } from '@/shared/const/theme';
 
 export default {
     title: 'features/LoginForm',

@@ -3,7 +3,8 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import AddCommentsForArticle from './AddCommentsForArticle';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { ThemeStory } from '@/app/providers/ThemeProvider';
+
+import { ThemeStory } from '@/shared/const/theme';
 
 export default {
     title: 'features/AddCommentsForArticle',

@@ -3,7 +3,8 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Button } from '../../../Button/Button';
 import { DropDown } from './DropDown';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { ThemeStory } from '@/app/providers/ThemeProvider';
+
+import { ThemeStory } from '@/shared/const/theme';
 
 export default {
     title: 'shared/DropDown',

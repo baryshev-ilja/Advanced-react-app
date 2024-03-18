@@ -1,10 +1,10 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { ThemeStory } from '@/app/providers/ThemeProvider';
 import { Drawer } from './Drawer';
-import { NotificationList } from '@/entities/notification';
+// eslint-disable-next-line
 import { NotificationItem } from '@/entities/notification/ui/NotificationItem/NotificationItem';
+import { ThemeStory } from '@/shared/const/theme';
 
 export default {
     title: 'shared/Drawer',

@@ -26,3 +26,5 @@ root.render(
         </StoreProvider>
     </BrowserRouter>,
 );
+export { ThemeStory } from '@/shared/const/theme';
+export { Theme } from '@/shared/const/theme';

@@ -1,8 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { ThemeStory } from '@/app/providers/ThemeProvider';
 import { CommentForm } from './CommentForm';
+import { ThemeStory } from '@/shared/const/theme';
 
 export default {
     title: 'entities/Comment/CommentForm',

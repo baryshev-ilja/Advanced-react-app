@@ -1,10 +1,10 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { ThemeStory } from '@/app/providers/ThemeProvider';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { articleMock } from '@/shared/mock/articleData';
 import ArticlesPage from './ArticlesPage';
+import { ThemeStory } from '@/shared/const/theme';
 
 export default {
     title: 'pages/ArticlesPage',

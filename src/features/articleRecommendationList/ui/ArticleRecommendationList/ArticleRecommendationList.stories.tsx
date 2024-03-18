@@ -6,7 +6,8 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { Article, ArticleTypes } from '@/entities/article';
 import { ArticleRecommendationList } from './ArticleRecommendationList';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { ThemeStory } from '@/app/providers/ThemeProvider';
+
+import { ThemeStory } from '@/shared/const/theme';
 
 const articleMock: Article = {
     id: '1',

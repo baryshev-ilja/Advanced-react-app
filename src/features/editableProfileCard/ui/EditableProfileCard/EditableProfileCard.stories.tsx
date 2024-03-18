@@ -6,7 +6,8 @@ import { Currency } from '@/entities/currency';
 import AvatarImg from '@/shared/assets/storybook.jpg';
 import { EditableProfileCard } from './EditableProfileCard';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { ThemeStory } from '@/app/providers/ThemeProvider';
+
+import { ThemeStory } from '@/shared/const/theme';
 
 export default {
     title: 'features/EditableProfileCard',
