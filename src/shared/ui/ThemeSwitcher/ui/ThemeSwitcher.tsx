@@ -1,6 +1,8 @@
 import { memo } from 'react';
-import Icon from '@/shared/assets/icons/theme-dark.svg';
+
 import { Button, ButtonTheme } from '../../Button';
+
+import Icon from '@/shared/assets/icons/theme-dark.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import './ThemeSwitcher.module.scss';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';

@@ -1,8 +1,9 @@
-import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { CurrencySelect } from './CurrencySelect';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import React from 'react';
 
+import { CurrencySelect } from './CurrencySelect';
+
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 export default {

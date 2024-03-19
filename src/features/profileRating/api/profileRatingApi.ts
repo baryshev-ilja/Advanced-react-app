@@ -1,5 +1,6 @@
-import { rtkApi } from '@/shared/api/rtkApi';
 import { ProfileRatingType } from '../model/types/profileRating';
+
+import { rtkApi } from '@/shared/api/rtkApi';
 
 interface GetProfileRateArg {
     profileId: string,

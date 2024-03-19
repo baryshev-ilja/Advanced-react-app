@@ -1,8 +1,10 @@
-import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { RatingCard } from '@/entities/rating';
+
 import { useGetRateArticle, useRateArticle } from '../../api/articleRatingApi';
+
+import { RatingCard } from '@/entities/rating';
 import { getUserAuthData } from '@/entities/user';
 import { Skeleton } from '@/shared/ui/Skeleton';
 

@@ -4,18 +4,19 @@ import {
     Reducer,
     ReducersMapObject,
 } from '@reduxjs/toolkit';
-import { CombinedState } from 'redux';
 import { AxiosInstance } from 'axios';
-import type { CounterSchema } from '@/entities/counter';
-import type { UserSchema } from '@/entities/user';
-import type { LoginSchema } from '@/features/authByUsername';
-import type { ProfileSchema } from '@/entities/profile';
+import { CombinedState } from 'redux';
+
 import type { ArticleDetailsSchema } from '@/entities/article';
-import type { ArticlesPageSchema } from '@/pages/articlesPage';
-import { ScrollSaveSchema } from '@/widgets/page';
+import type { CounterSchema } from '@/entities/counter';
+import type { ProfileSchema } from '@/entities/profile';
+import type { UserSchema } from '@/entities/user';
 import { ArticleCommentsSchema } from '@/features/addComments';
-import { rtkApi } from '@/shared/api/rtkApi';
 import { ArticleDetailsRecommendationsSchema } from '@/features/articleRecommendationList';
+import type { LoginSchema } from '@/features/authByUsername';
+import type { ArticlesPageSchema } from '@/pages/articlesPage';
+import { rtkApi } from '@/shared/api/rtkApi';
+import { ScrollSaveSchema } from '@/widgets/page';
 
 export interface StateSchema {
     counter: CounterSchema;

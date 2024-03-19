@@ -1,7 +1,9 @@
-import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import React from 'react';
+
 import { RatingCard } from './RatingCard';
+
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 export default {

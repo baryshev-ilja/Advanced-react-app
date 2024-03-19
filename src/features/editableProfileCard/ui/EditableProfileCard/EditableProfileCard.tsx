@@ -1,26 +1,28 @@
-import { useSelector } from 'react-redux';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ProfileCard, ValidateProfileError } from '@/entities/profile';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Currency } from '@/entities/currency';
-import { Country } from '@/entities/country';
-import { Text, ThemeText } from '@/shared/ui/Text';
-import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { DynamicReducerLoad, ReducersList } from '@/shared/lib/HOC/DynamicReducerLoad';
-import { VStack } from '@/shared/ui/Stack';
-import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
+import { useSelector } from 'react-redux';
+
+import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
+import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
+import { getProfileLoading } from '../../model/selectors/getProfileLoading/getProfileLoading';
+import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
+import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
-import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
-import { getProfileLoading } from '../../model/selectors/getProfileLoading/getProfileLoading';
-import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
-import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
-import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
+import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
+
+import { Country } from '@/entities/country';
+import { Currency } from '@/entities/currency';
+import { ProfileCard, ValidateProfileError } from '@/entities/profile';
 // TODO
 // нужно будеть сделать виджет из этих двух фич
 // eslint-disable-next-line baryshewww/layers-import
 import { ProfileRating } from '@/features/profileRating';
+import { DynamicReducerLoad, ReducersList } from '@/shared/lib/HOC/DynamicReducerLoad';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { VStack } from '@/shared/ui/Stack';
+import { Text, ThemeText } from '@/shared/ui/Text';
 
 interface EditableProfileCardProps {
     className?: string;

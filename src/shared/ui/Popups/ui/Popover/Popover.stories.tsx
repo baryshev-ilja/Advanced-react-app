@@ -1,8 +1,11 @@
-import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { Popover } from './Popover';
+import React from 'react';
+
 import { Light } from '../../../PageLoader/PageLoader.stories';
+
+import { Popover } from './Popover';
+
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 export default {

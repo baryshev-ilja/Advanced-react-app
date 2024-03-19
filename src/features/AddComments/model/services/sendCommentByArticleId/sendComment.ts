@@ -1,9 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
+import { fetchCommentsByArticleId } from '../fetchCommentsByArticleId/fetchCommentsByArticleId';
+
 import { ThunkConfigApi } from '@/app/providers/StoreProvider';
+import { getArticleDetailsData } from '@/entities/article';
 import { CommentType } from '@/entities/comment';
 import { getUserAuthData } from '@/entities/user';
-import { getArticleDetailsData } from '@/entities/article';
-import { fetchCommentsByArticleId } from '../fetchCommentsByArticleId/fetchCommentsByArticleId';
 
 export const sendComment = createAsyncThunk<CommentType, string, ThunkConfigApi<string>>(
     'addCommentForm/sendComment',

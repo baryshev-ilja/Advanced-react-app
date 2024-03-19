@@ -1,12 +1,17 @@
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
+
+import { fetchArticleList } from '../services/fetchArticleList/fetchArticleList';
+import { ArticlesPageSchema } from '../types/ArticlesPageSchema';
+
 import { StateSchema } from '@/app/providers/StoreProvider';
 import {
-    Article, ArticleTypes, ArticleView, ArticleSortTypes,
+    Article,
+    ArticleTypes,
+    ArticleView,
+    ArticleSortTypes,
 } from '@/entities/article';
 import { LIST_VIEW_ARTICLES_LOCALSTORAGE_KEY } from '@/shared/const/localStorage';
 import { TypesOfOrders } from '@/shared/types';
-import { fetchArticleList } from '../services/fetchArticleList/fetchArticleList';
-import { ArticlesPageSchema } from '../types/ArticlesPageSchema';
 
 const articlesAdapter = createEntityAdapter<Article>({
     selectId: (article) => article.id,

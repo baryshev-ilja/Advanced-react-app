@@ -1,7 +1,9 @@
-import { CSSProperties, memo } from 'react';
-import { WithAnimated } from '@react-spring/web/dist/declarations/src/animated';
 import { Interpolation } from '@react-spring/web';
+import { WithAnimated } from '@react-spring/web/dist/declarations/src/animated';
+import { CSSProperties, memo } from 'react';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
+
 import cls from './Overlay.module.scss';
 
 type StyleAttr = Omit<CSSProperties, 'display' | 'opacity'>;

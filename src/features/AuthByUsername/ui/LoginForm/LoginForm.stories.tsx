@@ -1,10 +1,10 @@
-import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import withMock from 'storybook-addon-mock';
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
-import LoginForm from './LoginForm';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import React from 'react';
 
+import LoginForm from './LoginForm';
+
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 export default {

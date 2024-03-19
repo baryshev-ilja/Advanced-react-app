@@ -1,9 +1,10 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
-import AddCommentsForArticle from './AddCommentsForArticle';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import React from 'react';
 
+import AddCommentsForArticle from './AddCommentsForArticle';
+
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 export default {

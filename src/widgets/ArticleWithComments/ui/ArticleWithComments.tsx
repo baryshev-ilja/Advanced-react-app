@@ -1,9 +1,10 @@
 import { useSelector } from 'react-redux';
+
 import { ArticleDetails, getArticleDetailsData, getArticleDetailsIsLoading } from '@/entities/article';
 import { AddCommentsForArticle } from '@/features/addComments';
-import { VStack } from '@/shared/ui/Stack';
-import { ArticleRecommendationList } from '@/features/articleRecommendationList';
 import { ArticleRating } from '@/features/articleRating';
+import { ArticleRecommendationList } from '@/features/articleRecommendationList';
+import { VStack } from '@/shared/ui/Stack';
 
 interface ArticleWithCommentsProps {
     id: string;

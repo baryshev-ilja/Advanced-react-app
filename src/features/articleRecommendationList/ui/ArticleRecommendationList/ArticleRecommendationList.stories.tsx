@@ -1,12 +1,12 @@
-import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import React from 'react';
 import withMock from 'storybook-addon-mock';
 
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
-import { Article, ArticleTypes } from '@/entities/article';
 import { ArticleRecommendationList } from './ArticleRecommendationList';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 
+import { Article, ArticleTypes } from '@/entities/article';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 const articleMock: Article = {

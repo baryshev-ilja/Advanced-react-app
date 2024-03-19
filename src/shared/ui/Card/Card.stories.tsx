@@ -1,9 +1,11 @@
-import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Text } from '../Text/Text';
-import { Card } from './Card';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import React from 'react';
 
+import { Text } from '../Text/Text';
+
+import { Card } from './Card';
+
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 export default {

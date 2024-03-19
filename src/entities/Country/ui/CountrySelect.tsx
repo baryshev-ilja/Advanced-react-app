@@ -1,9 +1,11 @@
-import { useTranslation } from 'react-i18next';
 import { useCallback } from 'react';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { ListBox } from '@/shared/ui/Popups';
+import { useTranslation } from 'react-i18next';
+
 import { Country } from '../model/types/country';
+
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { DropdownDirection } from '@/shared/types/ui';
+import { ListBox } from '@/shared/ui/Popups';
 
 interface CountrySelectProps {
     className?: string;

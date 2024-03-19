@@ -1,7 +1,9 @@
-import { TestAsyncThunk } from '@/shared/lib/tests/testAsyncThunk/TestAsyncThunk';
 import { ArticleTypes } from '../../consts/constsArticle';
 import { Article } from '../../types/article';
+
 import { fetchArticleDetailsById } from './fetchArticleDetailsById';
+
+import { TestAsyncThunk } from '@/shared/lib/tests/testAsyncThunk/TestAsyncThunk';
 
 const articleData: Article = {
     id: '1',

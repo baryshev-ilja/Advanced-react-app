@@ -1,11 +1,13 @@
-import { StateSchema } from '@/app/providers/StoreProvider';
 import { ArticleTypes } from '../consts/constsArticle';
 import { Article } from '../types/article';
+
 import {
     getArticleDetailsData,
     getArticleDetailsIsLoading,
     getArticleDetailsError,
 } from './getArticleDetails';
+
+import { StateSchema } from '@/app/providers/StoreProvider';
 
 const articleData: Article = {
     id: '1',

@@ -1,9 +1,11 @@
-import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import React from 'react';
+
 import { Drawer } from './Drawer';
+
 // eslint-disable-next-line
 import { NotificationItem } from '@/entities/notification/ui/NotificationItem/NotificationItem';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 export default {

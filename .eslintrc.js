@@ -23,6 +23,8 @@ module.exports = {
         'i18next',
         'react-hooks',
         'baryshewww',
+        'unused-imports',
+        'import',
     ],
     rules: {
         'react/jsx-indent': [2, 4],
@@ -65,6 +67,7 @@ module.exports = {
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
         'arrow-body-style': 'off',
+        'unused-imports/no-unused-imports': 'error',
         'baryshewww/path-checker': ['error', { alias: '@' }],
         'baryshewww/import-public-api': [
             'error',
@@ -77,7 +80,29 @@ module.exports = {
             'error',
             {
                 alias: '@',
-                ignoreImportPatterns: ['**/StoreProvider'],
+                ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+            },
+        ],
+        'import/order': [
+            'error',
+            {
+                pathGroups: [
+                    {
+                        pattern: '@/**',
+                        group: 'internal',
+                        position: 'after',
+                    },
+                    {
+                        pattern: './**.module.*',
+                        group: 'internal',
+                        position: 'after',
+                    },
+                ],
+                'newlines-between': 'always',
+                alphabetize: {
+                    order: 'asc',
+                    caseInsensitive: false,
+                },
             },
         ],
     },

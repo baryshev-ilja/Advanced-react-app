@@ -1,7 +1,8 @@
+import { validateProfileData } from './validateProfileData';
+
 import { Country } from '@/entities/country';
 import { Currency } from '@/entities/currency';
 import { ValidateProfileError } from '@/entities/profile';
-import { validateProfileData } from './validateProfileData';
 
 const data = {
     first: 'Илья',

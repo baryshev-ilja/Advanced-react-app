@@ -1,9 +1,12 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
+
 import { ArticleView, Article } from '../../model/types/article';
-import cls from './ArticleList.module.scss';
+import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
+
+import { classNames } from '@/shared/lib/classNames/classNames';
+
+import cls from './ArticleList.module.scss';
 
 interface ArticleListProps {
     className?: string;

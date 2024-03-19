@@ -1,19 +1,21 @@
 import { memo, useCallback } from 'react';
-import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
+
+import { getAddCommentFormText } from '../../model/selectors/getAddCommentFormSelectors';
+import { getArticleCommentsIsLoading } from '../../model/selectors/getArticleCommentsData';
+import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { sendComment } from '../../model/services/sendCommentByArticleId/sendComment';
+import { articleCommentsReducer } from '../../model/slice';
+import { addCommentFormActions } from '../../model/slice/addCommentFormSlice/addCommentFormSlice';
+import { getArticleCommentsList } from '../../model/slice/articleCommentsSlice/articleCommentsSlice';
+
+import { CommentForm, CommentList, CommentListSkeletons } from '@/entities/comment';
 import { DynamicReducerLoad, ReducersList } from '@/shared/lib/HOC/DynamicReducerLoad';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { CommentForm, CommentList, CommentListSkeletons } from '@/entities/comment';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Text, TextSize } from '@/shared/ui/Text';
 import { VStack } from '@/shared/ui/Stack';
-import { getArticleCommentsIsLoading } from '../../model/selectors/getArticleCommentsData';
-import { articleCommentsReducer } from '../../model/slice';
-import { getArticleCommentsList } from '../../model/slice/articleCommentsSlice/articleCommentsSlice';
-import { sendComment } from '../../model/services/sendCommentByArticleId/sendComment';
-import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { getAddCommentFormText } from '../../model/selectors/getAddCommentFormSelectors';
-import { addCommentFormActions } from '../../model/slice/addCommentFormSlice/addCommentFormSlice';
+import { Text, TextSize } from '@/shared/ui/Text';
 
 interface AddCommentsForArticleProps {
     id: string;

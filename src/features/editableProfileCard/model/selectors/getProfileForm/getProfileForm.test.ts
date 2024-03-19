@@ -1,7 +1,8 @@
+import { getProfileForm } from './getProfileForm';
+
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { Country } from '@/entities/country';
 import { Currency } from '@/entities/currency';
-import { getProfileForm } from './getProfileForm';
 
 describe('getProfileForm.test', () => {
     test('should return profile state form', () => {

@@ -1,12 +1,14 @@
 import { Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
+import { AppRouter } from './providers/Router';
+
+import { getUserInited, userActions } from '@/entities/user';
+import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localStorage';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { useTheme } from '@/app/providers/ThemeProvider';
-import { AppRouter } from '@/app/providers/Router';
+import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { Navbar } from '@/widgets/navbar';
 import { Sidebar } from '@/widgets/sidebar';
-import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localStorage';
-import { getUserInited, userActions } from '@/entities/user';
 
 function App() {
     const { theme } = useTheme();

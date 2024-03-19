@@ -1,5 +1,6 @@
-import { User } from '@/entities/user';
 import { ArticleTypes } from '../consts/constsArticle';
+
+import { User } from '@/entities/user';
 
 export type ArticleBlockType = 'CODE' | 'TEXT' | 'IMAGE';
 

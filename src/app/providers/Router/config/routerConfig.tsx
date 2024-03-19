@@ -1,13 +1,13 @@
-import { MainPage } from '@/pages/mainPage';
-import { AboutPage } from '@/pages/aboutPage';
-import { ProfilePage } from '@/pages/profilePage';
-import { ArticlesPage } from '@/pages/articlesPage';
-import { ArticleDetailsPage } from '@/pages/articleDetailsPage';
-import { ArticleDetailsEditPage } from '@/pages/articleDetailsEditPage';
-import { AdminPanelPage } from '@/pages/adminPanelPage';
 import { UserRole } from '@/entities/user';
+import { AboutPage } from '@/pages/aboutPage';
+import { AdminPanelPage } from '@/pages/adminPanelPage';
+import { ArticleDetailsEditPage } from '@/pages/articleDetailsEditPage';
+import { ArticleDetailsPage } from '@/pages/articleDetailsPage';
+import { ArticlesPage } from '@/pages/articlesPage';
 import { ForbiddenPage } from '@/pages/forbiddenPage';
+import { MainPage } from '@/pages/mainPage';
 import { NotFoundPage } from '@/pages/notFoundPage';
+import { ProfilePage } from '@/pages/profilePage';
 import { AppRoutes, RoutePaths } from '@/shared/const/routerConsts';
 import { AppRouteProps } from '@/shared/types/router';
 

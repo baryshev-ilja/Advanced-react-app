@@ -1,9 +1,12 @@
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
+
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ArticleWithComments } from '@/widgets/articleWithComments';
-import { Page } from '@/widgets/page/ui/Page';
-import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import { Page } from '@/widgets/page';
+
 import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {

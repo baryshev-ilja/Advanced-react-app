@@ -1,4 +1,5 @@
 import { Story } from '@storybook/react';
+
 // eslint-disable-next-line baryshewww/layers-import
 import { ThemeProvider } from '@/app/providers/ThemeProvider';
 import { Theme, ThemeStory } from '@/shared/const/theme';

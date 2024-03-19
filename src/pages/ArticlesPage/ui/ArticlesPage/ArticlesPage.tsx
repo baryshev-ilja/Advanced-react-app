@@ -1,14 +1,16 @@
 import { useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { DynamicReducerLoad, ReducersList } from '@/shared/lib/HOC/DynamicReducerLoad';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Page } from '@/widgets/page';
-import { VStack } from '@/shared/ui/Stack';
-import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
+
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { articlesPageReducer } from '../../model/slice/articlesPageSlice';
 import { ArticlesInfiniteList } from '../ArticlesInfiniteList/ArticlesInfiniteList';
+import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
+
+import { DynamicReducerLoad, ReducersList } from '@/shared/lib/HOC/DynamicReducerLoad';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { VStack } from '@/shared/ui/Stack';
+import { Page } from '@/widgets/page';
 
 interface ArticlesPageProps {
     className?: string;

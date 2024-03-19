@@ -1,4 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
 import { ThunkConfigApi } from '@/app/providers/StoreProvider';
 import { Article } from '@/entities/article';
 

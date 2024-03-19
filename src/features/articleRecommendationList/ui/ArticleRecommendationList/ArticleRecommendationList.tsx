@@ -1,13 +1,16 @@
-import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text, TextSize } from '@/shared/ui/Text';
-import { ArticleList, ArticleListItemSkeleton } from '@/entities/article';
-import { VStack } from '@/shared/ui/Stack';
-import { DynamicReducerLoad, ReducersList } from '@/shared/lib/HOC/DynamicReducerLoad';
-import { articleRecommendationsReducer } from '../../model/slice/ArticleDetailsRecomendationSlice';
-import cls from './ArticleRecommendationList.module.scss';
+import { useTranslation } from 'react-i18next';
+
 import { useRecommendationList } from '../../api/articleRecommendationApi';
+import { articleRecommendationsReducer } from '../../model/slice/ArticleDetailsRecomendationSlice';
+
+import { ArticleList, ArticleListItemSkeleton } from '@/entities/article';
+import { DynamicReducerLoad, ReducersList } from '@/shared/lib/HOC/DynamicReducerLoad';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { VStack } from '@/shared/ui/Stack';
+import { Text, TextSize } from '@/shared/ui/Text';
+
+import cls from './ArticleRecommendationList.module.scss';
 
 interface ArticleRecommendationListProps {
     className?: string;

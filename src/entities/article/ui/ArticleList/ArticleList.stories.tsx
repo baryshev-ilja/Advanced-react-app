@@ -1,10 +1,13 @@
-import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { articleMock } from '@/shared/mock/articleData';
+import React from 'react';
+
 import { ArticleList } from './ArticleList';
-import cls from './ArticleList.module.scss';
+
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { ThemeStory } from '@/shared/const/theme';
+import { articleMock } from '@/shared/mock/articleData';
+
+import cls from './ArticleList.module.scss';
 
 export default {
     title: 'entities/article/ArticleList',

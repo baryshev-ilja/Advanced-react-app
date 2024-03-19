@@ -1,13 +1,16 @@
 import { MutableRefObject, ReactNode, useRef } from 'react';
-import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInffinteScroll';
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { useLocation } from 'react-router-dom';
+
+import { getScrollPositionByPath } from '../model/selectors/getScrollSavePosition';
+import { scrollSaveActions } from '../model/slice/scrollSaveSlice';
+
 import { StateSchema } from '@/app/providers/StoreProvider';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
-import { scrollSaveActions } from '../model/slice/scrollSaveSlice';
-import { getScrollPositionByPath } from '../model/selectors/getScrollSavePosition';
+import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInffinteScroll';
+
 import cls from './Page.module.scss';
 
 interface PageProps {

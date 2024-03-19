@@ -1,10 +1,12 @@
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { ArticleList } from '@/entities/article';
+
+import { getArticlesPageIsLoading, getArticlesPageView } from '../../model/selectors/getArticlesPageSelectors';
 import { initArticlesList } from '../../model/services/initArticlesList/initArticlesList';
 import { getArticleComments } from '../../model/slice/articlesPageSlice';
-import { getArticlesPageIsLoading, getArticlesPageView } from '../../model/selectors/getArticlesPageSelectors';
+
+import { ArticleList } from '@/entities/article';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 
 interface ArticlesInfiniteListProps {
     className?: string;

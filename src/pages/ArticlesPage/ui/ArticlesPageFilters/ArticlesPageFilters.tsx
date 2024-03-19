@@ -1,17 +1,7 @@
 import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { ToggleViewArticleList } from '@/features/toggleViewArticleList';
-import { ArticleSortTypes, ArticleTypes, ArticleView } from '@/entities/article';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { SortByFiltersArticleList } from '@/features/sortArticleList';
-import { Card } from '@/shared/ui/Card';
-import { Input } from '@/shared/ui/Input';
-import { TypesOfOrders } from '@/shared/types';
-import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
-import { Tabs, TabsItem } from '@/shared/ui/Tabs';
-import { HStack, VStack } from '@/shared/ui/Stack';
-import { articlesPageActions } from '../../model/slice/articlesPageSlice';
+
 import {
     getArticlesPageOrder,
     getArticlesPageSearch,
@@ -20,6 +10,19 @@ import {
     getArticlesPageView,
 } from '../../model/selectors/getArticlesPageSelectors';
 import { fetchArticleList } from '../../model/services/fetchArticleList/fetchArticleList';
+import { articlesPageActions } from '../../model/slice/articlesPageSlice';
+
+import { ArticleSortTypes, ArticleTypes, ArticleView } from '@/entities/article';
+import { SortByFiltersArticleList } from '@/features/sortArticleList';
+import { ToggleViewArticleList } from '@/features/toggleViewArticleList';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
+import { TypesOfOrders } from '@/shared/types';
+import { Card } from '@/shared/ui/Card';
+import { Input } from '@/shared/ui/Input';
+import { HStack, VStack } from '@/shared/ui/Stack';
+import { Tabs, TabsItem } from '@/shared/ui/Tabs';
+
 import cls from './ArticlesPageFilters.module.scss';
 
 interface ArticlesPageFiltersProps {
