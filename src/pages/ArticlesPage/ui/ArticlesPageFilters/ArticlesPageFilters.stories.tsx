@@ -19,7 +19,7 @@ const Template: ComponentStory<typeof ArticlesPageFilters> = (args) => <Articles
 
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [StoreDecorator({})];
+Normal.decorators = [ThemeDecorator(ThemeStory.LIGHT), StoreDecorator({})];
 
 export const Dark = Template.bind({});
 Dark.args = {};

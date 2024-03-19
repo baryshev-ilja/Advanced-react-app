@@ -1,7 +1,9 @@
-import { memo, ReactNode, useCallback } from 'react';
+import { ReactNode, useCallback } from 'react';
 
 import { Card, CardTheme } from '../Card/Card';
 import { HStack } from '../Stack';
+
+import { typedMemo } from '@/shared/const/typedMemo';
 
 import cls from './Tabs.module.scss';
 
@@ -15,8 +17,6 @@ interface TabsProps<T extends string> {
     currentValue: T;
     onTabClick: (tab: TabsItem<T>) => void;
 }
-
-const typedMemo: <T>(Component: T) => T = memo;
 
 export const Tabs = typedMemo(<T extends string>(props: TabsProps<T>) => {
     const {
