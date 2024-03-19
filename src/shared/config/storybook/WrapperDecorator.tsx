@@ -5,6 +5,7 @@ export function WrapperDecorator() {
         <div style={{
             minHeight: '100vh',
             overflowY: 'auto',
+            padding: '25px 40px',
         }}
         >
             <StoryComponent />

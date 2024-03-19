@@ -7,8 +7,6 @@ import { Article } from '../../model/types/article';
 import { ArticleDetails } from './ArticleDetails';
 
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { ThemeStory } from '@/shared/const/theme';
 
 import './ArticleDetails.module.scss';
 
@@ -100,7 +98,7 @@ export const Normal = Template.bind({});
 Normal.args = {
     data: articleData,
 };
-Normal.decorators = [ThemeDecorator(ThemeStory.DARK), StoreDecorator({
+Normal.decorators = [StoreDecorator({
     articleDetails: {
         data: articleData,
     },
@@ -108,7 +106,7 @@ Normal.decorators = [ThemeDecorator(ThemeStory.DARK), StoreDecorator({
 
 export const Error = Template.bind({});
 Error.args = {};
-Error.decorators = [ThemeDecorator(ThemeStory.DARK), StoreDecorator({
+Error.decorators = [StoreDecorator({
     articleDetails: {
         error: 'error',
     },
@@ -118,7 +116,7 @@ export const isLoading = Template.bind({});
 isLoading.args = {
     isLoading: true,
 };
-isLoading.decorators = [ThemeDecorator(ThemeStory.LIGHT), StoreDecorator({
+isLoading.decorators = [StoreDecorator({
     articleDetails: {
         isLoading: true,
     },

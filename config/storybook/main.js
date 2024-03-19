@@ -4,22 +4,29 @@ module.exports = {
     ],
     addons: [
         '@storybook/addon-links',
-        '@storybook/addon-essentials',
+        {
+            name: '@storybook/addon-essentials',
+            options: {
+                backgrounds: false,
+            },
+
+        },
         '@storybook/addon-interactions',
         '@storybook/addon-queryparams',
         'storybook-addon-mock/register',
+        'storybook-addon-themes',
     ],
     framework: '@storybook/react',
     core: {
         builder: 'webpack5',
     },
     staticDirs: ['../../public'],
-    previewHead: (head) => `
-    ${head}
-    <style>
-      body {
-        padding: 0 !important;
-      }
-    </style>
- `,
+    //    previewHead: (head) => `
+    //    ${head}
+    //    <style>
+    //      body {
+    //        padding: 0 !important;
+    //      }
+    //    </style>
+    // `,
 };

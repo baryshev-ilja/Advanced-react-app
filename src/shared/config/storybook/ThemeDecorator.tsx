@@ -34,7 +34,6 @@ export function ThemeDecorator(theme: ThemeStory) {
                     lineHeight: '24px',
                     fontFamily: 'Consolas',
                     background: `${theme}`,
-                    padding: '25px 40px',
                     minHeight: '100vh',
                     color: `${colorTextForStory}`,
                 }}
