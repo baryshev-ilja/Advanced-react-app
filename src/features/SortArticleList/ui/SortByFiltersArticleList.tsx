@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { useMemo } from 'react';
-import { OptionsList, Select } from '@/shared/ui/Select/Select';
+import { OptionsList, Select } from '@/shared/ui/Select';
 import { TypesOfOrders } from '@/shared/types';
 import { HStack } from '@/shared/ui/Stack';
 import { ArticleSortTypes } from '@/entities/article';

@@ -1,8 +1,8 @@
 import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
-import { Text } from '@/shared/ui/Text/Text';
-import { AppLink } from '@/shared/ui/AppLink/AppLink';
+import { Avatar } from '@/shared/ui/Avatar';
+import { Text } from '@/shared/ui/Text';
+import { AppLink } from '@/shared/ui/AppLink';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { CommentCardSkeleton } from './CommentCardSkeleton';
 import { CommentType } from '../../model/types/comment';

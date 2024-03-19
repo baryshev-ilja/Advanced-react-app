@@ -3,12 +3,11 @@ import { useSearchParams } from 'react-router-dom';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { DynamicReducerLoad, ReducersList } from '@/shared/lib/HOC/DynamicReducerLoad';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Page } from '@/widgets/page/ui/Page';
+import { Page } from '@/widgets/page';
 import { VStack } from '@/shared/ui/Stack';
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import { articlesPageReducer } from '../../model/slice/articlesPageSlice';
-import cls from './ArticlesPage.module.scss';
 import { ArticlesInfiniteList } from '../ArticlesInfiniteList/ArticlesInfiniteList';
 
 interface ArticlesPageProps {
@@ -31,7 +30,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     return (
         <DynamicReducerLoad reducers={reducers} removeAfterUnmount={false}>
             <Page
-                className={classNames(cls.articlesPage, {}, [className])}
+                className={classNames('', {}, [className])}
                 onEndScroll={onLoadNextPart}
             >
                 <VStack gap="24">

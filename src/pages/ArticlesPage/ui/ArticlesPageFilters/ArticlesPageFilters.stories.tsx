@@ -21,4 +21,4 @@ Normal.decorators = [StoreDecorator({})];
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];
+Dark.decorators = [ThemeDecorator(ThemeStory.DARK), StoreDecorator({})];

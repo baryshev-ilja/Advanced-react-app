@@ -5,11 +5,11 @@ import { ToggleViewArticleList } from '@/features/toggleViewArticleList';
 import { ArticleSortTypes, ArticleTypes, ArticleView } from '@/entities/article';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { SortByFiltersArticleList } from '@/features/sortArticleList';
-import { Card } from '@/shared/ui/Card/Card';
-import { Input } from '@/shared/ui/Input/Input';
+import { Card } from '@/shared/ui/Card';
+import { Input } from '@/shared/ui/Input';
 import { TypesOfOrders } from '@/shared/types';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
-import { Tabs, TabsItem } from '@/shared/ui/Tabs/Tabs';
+import { Tabs, TabsItem } from '@/shared/ui/Tabs';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { articlesPageActions } from '../../model/slice/articlesPageSlice';
 import {

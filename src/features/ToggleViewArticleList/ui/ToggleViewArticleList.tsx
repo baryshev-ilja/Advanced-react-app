@@ -1,6 +1,6 @@
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ArticleView } from '@/entities/article';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
 import TileIcon from '@/shared/assets/icons/tiled.svg';
 import ListIcon from '@/shared/assets/icons/list.svg';
 import cls from './ToggleViewArticleList.module.scss';

@@ -1,12 +1,11 @@
 import { useSelector } from 'react-redux';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ProfileCard } from '@/entities/profile/ui/ProfileCard/ProfileCard';
+import { ProfileCard, ValidateProfileError } from '@/entities/profile';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Currency } from '@/entities/currency';
 import { Country } from '@/entities/country';
-import { Text, ThemeText } from '@/shared/ui/Text/Text';
-import { ValidateProfileError } from '@/entities/profile';
+import { Text, ThemeText } from '@/shared/ui/Text';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { DynamicReducerLoad, ReducersList } from '@/shared/lib/HOC/DynamicReducerLoad';
 import { VStack } from '@/shared/ui/Stack';
@@ -18,6 +17,9 @@ import { getProfileLoading } from '../../model/selectors/getProfileLoading/getPr
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
 import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
+// TODO
+// нужно будеть сделать виджет из этих двух фич
+// eslint-disable-next-line baryshewww/layers-import
 import { ProfileRating } from '@/features/profileRating';
 
 interface EditableProfileCardProps {

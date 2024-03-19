@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Avatar } from '@/shared/ui/Avatar';
 import { DropDown, MenuDropdownItem } from '@/shared/ui/Popups';
 import {
     getUserAuthData, isUserAdmin, isUserManager, userActions,

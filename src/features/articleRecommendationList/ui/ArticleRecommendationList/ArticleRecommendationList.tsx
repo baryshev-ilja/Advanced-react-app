@@ -1,11 +1,10 @@
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Text, TextSize } from '@/shared/ui/Text/Text';
-import { ArticleList } from '@/entities/article/ui/ArticleList/ArticleList';
+import { Text, TextSize } from '@/shared/ui/Text';
+import { ArticleList, ArticleListItemSkeleton } from '@/entities/article';
 import { VStack } from '@/shared/ui/Stack';
 import { DynamicReducerLoad, ReducersList } from '@/shared/lib/HOC/DynamicReducerLoad';
-import { ArticleListItemSkeleton } from '@/entities/article';
 import { articleRecommendationsReducer } from '../../model/slice/ArticleDetailsRecomendationSlice';
 import cls from './ArticleRecommendationList.module.scss';
 import { useRecommendationList } from '../../api/articleRecommendationApi';

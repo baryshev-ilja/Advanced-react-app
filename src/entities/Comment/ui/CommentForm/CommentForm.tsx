@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Input } from '@/shared/ui/Input/Input';
-import { Button } from '@/shared/ui/Button/Button';
+import { Input } from '@/shared/ui/Input';
+import { Button } from '@/shared/ui/Button';
 import { HStack } from '@/shared/ui/Stack';
 import cls from './CommentForm.module.scss';
 

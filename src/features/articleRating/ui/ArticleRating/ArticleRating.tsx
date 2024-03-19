@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { RatingCard } from '@/entities/rating';
 import { useGetRateArticle, useRateArticle } from '../../api/articleRatingApi';
 import { getUserAuthData } from '@/entities/user';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { Skeleton } from '@/shared/ui/Skeleton';
 
 export interface ArticleRatingProps {
     className?: string;

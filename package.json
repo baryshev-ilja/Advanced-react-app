@@ -31,7 +31,7 @@
     "chromatic": "npx chromatic --project-token=chpt_025e1e413343d56",
     "prepare": "husky install",
     "generate:slice": "node ./scripts/createSlice/index.js",
-    "ts:morph": "ts-node ./scripts/updateImports.ts"
+    "ts:morph": "ts-node scripts/refactoring/updateImports.ts"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
