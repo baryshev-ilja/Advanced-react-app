@@ -74,13 +74,14 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
         debouncedFetchData();
     }, [debouncedFetchData, dispatch]);
 
-    const typesTabs = useMemo(() => Object.values(ArticleTypes).reduce((acc: TabsItem<ArticleTypes>[], cur) => ([
-        ...acc,
-        {
-            value: cur,
-            content: t(cur, { ns: 'article' }),
-        },
-    ]), []), [t]);
+    const typesTabs = useMemo(() => Object.values(ArticleTypes)
+        .reduce((acc: TabsItem<ArticleTypes>[], cur) => ([
+            ...acc,
+            {
+                value: cur,
+                content: t(cur, { ns: 'article' }),
+            },
+        ]), []), [t]);
 
     return (
         <VStack gap="16" max>

@@ -33,11 +33,6 @@ export function buildPlugins(props: BuildOptions): webpack.WebpackPluginInstance
             __PROJECT__: JSON.stringify(project),
         }),
         new webpack.HotModuleReplacementPlugin(),
-        new CopyPlugin({
-            patterns: [
-                { from: paths.locales, to: paths.buildLocales },
-            ],
-        }),
         new ForkTsCheckerWebpackPlugin({
             typescript: {
                 diagnosticOptions: {
@@ -55,6 +50,16 @@ export function buildPlugins(props: BuildOptions): webpack.WebpackPluginInstance
             new CircularDependencyPlugin({
                 exclude: /node_modules/,
                 failOnError: true,
+            }),
+        );
+    }
+
+    if (!isDev) {
+        plugins.push(
+            new CopyPlugin({
+                patterns: [
+                    { from: paths.locales, to: paths.buildLocales },
+                ],
             }),
         );
     }
