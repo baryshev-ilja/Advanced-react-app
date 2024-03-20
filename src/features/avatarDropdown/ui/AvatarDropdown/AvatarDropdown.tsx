@@ -8,7 +8,7 @@ import {
     isUserManager,
     userActions,
 } from '@/entities/user';
-import { RoutePaths } from '@/shared/const/routerConsts';
+import { AppRoutePaths } from '@/shared/const/routerConsts';
 import { Avatar } from '@/shared/ui/Avatar';
 import { DropDown, MenuDropdownItem } from '@/shared/ui/Popups';
 
@@ -32,7 +32,7 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
 
     const adminPanelLinkObj: MenuDropdownItem = {
         content: t('Админка'),
-        href: `${RoutePaths.admin_panel}`,
+        href: `${AppRoutePaths.adminPanel()}`,
         tagName: 'span',
     };
 
@@ -47,7 +47,7 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
                 ...(isAdminPanelAvailable ? [adminPanelLinkObj] : []),
                 {
                     content: t('Профиль'),
-                    href: `${RoutePaths.profile}${authData.id}`,
+                    href: `${AppRoutePaths.profile(authData.id)}`,
                     tagName: 'span',
                 },
                 {

@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { getCanEditArticle } from '../../model/selectors/getCanEditArticle';
 
 import { getArticleDetailsData } from '@/entities/article';
-import { RoutePaths } from '@/shared/const/routerConsts';
+import { AppRoutePaths } from '@/shared/const/routerConsts';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 
@@ -24,12 +24,14 @@ export const ArticleDetailsPageHeader = (props: ArticleDetailsPageHeaderProps) =
     const article = useSelector(getArticleDetailsData);
 
     const onButtonBackHandler = useCallback(() => {
-        navigate(`${RoutePaths.articles}`);
+        navigate(`${AppRoutePaths.articles()}`);
     }, [navigate]);
 
     const onButtonEditHandler = useCallback(() => {
-        navigate(`${RoutePaths.article_details}${article?.id}/edit`);
-    }, [article?.id, navigate]);
+        if (article) {
+            navigate(`${AppRoutePaths.articlesDetails(article.id)}`);
+        }
+    }, [article, navigate]);
 
     return (
         <div className={classNames(cls.articleDetailsPageHeader, {}, [className])}>

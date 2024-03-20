@@ -5,7 +5,7 @@ import { Article, ArticleTextBlock, ArticleView } from '../../model/types/articl
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 
 import EyeIcon from '@/shared/assets/icons/eye_icon.svg';
-import { RoutePaths } from '@/shared/const/routerConsts';
+import { AppRoutePaths } from '@/shared/const/routerConsts';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink } from '@/shared/ui/AppLink';
 import { Avatar } from '@/shared/ui/Avatar';
@@ -67,7 +67,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     </div>
                     <div className={cls.footer}>
                         <AppLink
-                            to={`${RoutePaths.article_details}${article.id}`}
+                            to={AppRoutePaths.articlesDetails(article.id)}
                             target={target}
                         >
                             <Button
@@ -86,7 +86,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     return (
         <article>
             <AppLink
-                to={`${RoutePaths.article_details}${article.id}`}
+                to={AppRoutePaths.articlesDetails(article.id)}
                 target={target}
                 className={classNames(cls.articleList_item, {}, [className, cls[view]])}
             >
