@@ -13,10 +13,15 @@ permissions:
     pages: write
     id-token: write
 
+#concurrency:
+#    group: "pages"
+#    cancel-in-progress: true
+
 jobs:
     lint_unit_build:
         if: ${{ github.event_name == 'push' }}
         runs-on: ubuntu-latest
+#        concurrency: ci-${{ github.ref }}
 
         environment:
             name: github-pages
