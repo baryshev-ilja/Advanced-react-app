@@ -38,7 +38,7 @@ jobs:
 
             - name: Install dependencies
               if: ${{ steps.cache-dependencies.outputs.cache-hit != 'true' }}
-              run: npm ci
+              run: npm ci --force
 
             - name: Run lint scss
               run: npm run lint:scss
@@ -84,7 +84,7 @@ jobs:
 
             - name: Install dependencies
               if: ${{ steps.cache-dependencies.outputs.cache-hit != 'true' }}
-              run: npm ci
+              run: npm ci --force
 
             - name: Run screenshots testing chromatic
               uses: chromaui/action@latest
