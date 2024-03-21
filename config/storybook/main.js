@@ -4,13 +4,7 @@ module.exports = {
     ],
     addons: [
         '@storybook/addon-links',
-        {
-            name: '@storybook/addon-essentials',
-            options: {
-                backgrounds: false,
-            },
-
-        },
+        '@storybook/addon-essentials',
         '@storybook/addon-interactions',
         '@storybook/addon-queryparams',
         'storybook-addon-mock/register',
@@ -21,12 +15,12 @@ module.exports = {
         builder: 'webpack5',
     },
     staticDirs: ['../../public'],
-    //    previewHead: (head) => `
-    //    ${head}
-    //    <style>
-    //      body {
-    //        padding: 0 !important;
-    //      }
-    //    </style>
-    // `,
+    previewHead: (head) => `
+       ${head}
+       <style>
+         body {
+           padding: 0 !important;
+         }
+       </style>
+    `,
 };
