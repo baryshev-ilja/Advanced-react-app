@@ -2,24 +2,36 @@ name: CI_Pipeline
 run-name: ${{ github.actor }} launched the CI pipeline! 🚀
 on:
   push:
-      branches:
+      branches-ignore:
           - 'master'
   pull_request:
       branches:
           - 'master'
 
+permissions:
+    contents: write
+    pages: write
+    id-token: write
+
+concurrency:
+    group: "pages"
+    cancel-in-progress: true
+
 jobs:
     lint_unit_build:
         if: ${{ github.event_name == 'push' }}
         runs-on: ubuntu-latest
+        concurrency: ci-${{ github.ref }}
+        environment:
+            name: github-pages
+            url: ${{ steps.deployment.outputs.page_url }}
         strategy:
             matrix:
                 node-version: [ 17.x ]
         steps:
             - name: Checkout Commit
               uses: actions/checkout@v4
-              with:
-                  fetch-depth: 0
+
             - name: Use Node.js ${{ matrix.node-version }}
               uses: actions/setup-node@v3
               with:
@@ -42,6 +54,9 @@ jobs:
               if: ${{ steps.cache-dependencies.outputs.cache-hit != 'true' }}
               run: npm ci --force
 
+            - name: Run build production project
+              run: npm run build:prod
+
             - name: Run lint scss
               run: npm run lint:scss
 
@@ -51,16 +66,17 @@ jobs:
             - name: Run unit testing
               run: npm run test:unit
 
-            - name: Run build production project
-              run: npm run build:prod
+            - name: Setup Pages
+              uses: actions/configure-pages@v4
 
-            -   name: Run storybook testing
-                run: npm run build:prod
+            - name: Upload artifact
+              uses: actions/upload-pages-artifact@v3
+              with:
+                path: 'reports/unit'
 
-            -   name: Run screenshots testing chromatic
-                uses: chromaui/action@latest
-                with:
-                    projectToken: chpt_025e1e413343d56
+            - name: Deploy to GitHub Pages
+              id: deployment
+              uses: actions/deploy-pages@v4
 
     ui_test:
         if: ${{ github.event_name == 'pull_request' }}
