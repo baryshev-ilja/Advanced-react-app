@@ -5,9 +5,9 @@ import { profileReducer } from '../../model/slice/profileSlice';
 
 import { EditableProfileCard } from './EditableProfileCard';
 
-import { Country } from '@/entities/country';
-import { Currency } from '@/entities/currency';
-import { Profile } from '@/entities/profile';
+import { Country } from '@/entities/country1';
+import { Currency } from '@/entities/currency1';
+import { Profile } from '@/entities/profile1';
 import { $api } from '@/shared/api/api';
 import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
 

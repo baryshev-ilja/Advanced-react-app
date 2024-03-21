@@ -2,7 +2,7 @@ import { screen } from '@testing-library/react';
 
 import AppRouter from './AppRouter';
 
-import { UserRole } from '@/entities/user';
+import { UserRole } from '@/entities/user1';
 import { AppRoutePaths } from '@/shared/const/routerConsts';
 import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
 

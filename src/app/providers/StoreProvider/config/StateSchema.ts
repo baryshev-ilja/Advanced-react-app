@@ -7,11 +7,11 @@ import {
 import { AxiosInstance } from 'axios';
 import { CombinedState } from 'redux';
 
-import type { ArticleDetailsSchema } from '@/entities/article';
-import type { CounterSchema } from '@/entities/counter';
-import type { ProfileSchema } from '@/entities/profile';
-import type { UserSchema } from '@/entities/user';
-import { ArticleCommentsSchema } from '@/features/addComments';
+import type { ArticleDetailsSchema } from '@/entities/article1';
+import type { CounterSchema } from '@/entities/counter1';
+import type { ProfileSchema } from '@/entities/profile1';
+import type { UserSchema } from '@/entities/user1';
+import { ArticleCommentsSchema } from '@/features/addComments1';
 import { ArticleDetailsRecommendationsSchema } from '@/features/articleRecommendationList';
 import type { LoginSchema } from '@/features/authByUsername';
 import type { ArticlesPageSchema } from '@/pages/articlesPage';

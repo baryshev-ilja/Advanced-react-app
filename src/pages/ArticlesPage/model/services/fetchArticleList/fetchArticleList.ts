@@ -10,7 +10,7 @@ import {
 } from '../../selectors/getArticlesPageSelectors';
 
 import { ThunkConfigApi } from '@/app/providers/StoreProvider';
-import { Article, ArticleTypes } from '@/entities/article';
+import { Article, ArticleTypes } from '@/entities/article1';
 import { addQueryParams } from '@/shared/lib/url/addQueryParams/addQueryParams';
 
 interface fetchArticleListOptions {

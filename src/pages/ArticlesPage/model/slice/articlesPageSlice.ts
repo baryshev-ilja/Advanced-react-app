@@ -9,7 +9,7 @@ import {
     ArticleTypes,
     ArticleView,
     ArticleSortTypes,
-} from '@/entities/article';
+} from '@/entities/article1';
 import { LIST_VIEW_ARTICLES_LOCALSTORAGE_KEY } from '@/shared/const/localStorage';
 import { TypesOfOrders } from '@/shared/types/orderTypes';
 

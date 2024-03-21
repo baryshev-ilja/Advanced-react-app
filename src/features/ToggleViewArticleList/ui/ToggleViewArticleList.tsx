@@ -1,4 +1,4 @@
-import { ArticleView } from '@/entities/article';
+import { ArticleView } from '@/entities/article1';
 import ListIcon from '@/shared/assets/icons/list.svg';
 import TileIcon from '@/shared/assets/icons/tiled.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';

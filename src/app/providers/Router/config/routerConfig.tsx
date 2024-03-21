@@ -1,4 +1,4 @@
-import { UserRole } from '@/entities/user';
+import { UserRole } from '@/entities/user1';
 import { AboutPage } from '@/pages/aboutPage';
 import { AdminPanelPage } from '@/pages/adminPanelPage';
 import { ArticleDetailsEditPage } from '@/pages/articleDetailsEditPage';

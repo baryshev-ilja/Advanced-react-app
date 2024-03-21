@@ -7,7 +7,7 @@ import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/get
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { profileActions } from '../../model/slice/profileSlice';
 
-import { getUserAuthData } from '@/entities/user';
+import { getUserAuthData } from '@/entities/user1';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { HStack } from '@/shared/ui/Stack';

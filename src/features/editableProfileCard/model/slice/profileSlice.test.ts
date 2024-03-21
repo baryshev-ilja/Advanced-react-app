@@ -2,9 +2,9 @@ import { updateProfileData } from '../../model/services/updateProfileData/update
 
 import { profileActions, profileReducer } from './profileSlice';
 
-import { Country } from '@/entities/country';
-import { Currency } from '@/entities/currency';
-import { ProfileSchema, ValidateProfileError } from '@/entities/profile';
+import { Country } from '@/entities/country1';
+import { Currency } from '@/entities/currency1';
+import { ProfileSchema, ValidateProfileError } from '@/entities/profile1';
 
 const data = {
     first: 'Илья',

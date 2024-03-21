@@ -4,7 +4,7 @@ import { getArticlesPageIsLoading, getArticlesPageView } from '../../model/selec
 import { initArticlesList } from '../../model/services/initArticlesList/initArticlesList';
 import { getArticleComments } from '../../model/slice/articlesPageSlice';
 
-import { ArticleList } from '@/entities/article';
+import { ArticleList } from '@/entities/article1';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 

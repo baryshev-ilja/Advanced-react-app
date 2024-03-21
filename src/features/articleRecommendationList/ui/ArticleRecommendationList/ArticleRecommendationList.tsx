@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useRecommendationList } from '../../api/articleRecommendationApi';
 import { articleRecommendationsReducer } from '../../model/slice/ArticleDetailsRecomendationSlice';
 
-import { ArticleList, ArticleListItemSkeleton } from '@/entities/article';
+import { ArticleList, ArticleListItemSkeleton } from '@/entities/article1';
 import { DynamicReducerLoad, ReducersList } from '@/shared/lib/HOC/DynamicReducerLoad';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { VStack } from '@/shared/ui/Stack';

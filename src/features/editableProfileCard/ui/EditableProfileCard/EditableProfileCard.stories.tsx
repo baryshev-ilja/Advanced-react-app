@@ -3,8 +3,8 @@ import React from 'react';
 
 import { EditableProfileCard } from './EditableProfileCard';
 
-import { Country } from '@/entities/country';
-import { Currency } from '@/entities/currency';
+import { Country } from '@/entities/country1';
+import { Currency } from '@/entities/currency1';
 import AvatarImg from '@/shared/assets/storybook.jpg';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';

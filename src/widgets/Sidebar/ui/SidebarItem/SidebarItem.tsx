@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 import { SidebarItemType } from '../../model/types/sidebar';
 
-import { getUserAuthData } from '@/entities/user';
+import { getUserAuthData } from '@/entities/user1';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink } from '@/shared/ui/AppLink/AppLink';
 import { HStack } from '@/shared/ui/Stack';

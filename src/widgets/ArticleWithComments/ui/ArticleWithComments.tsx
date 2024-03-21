@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 
-import { ArticleDetails, getArticleDetailsData, getArticleDetailsIsLoading } from '@/entities/article';
-import { AddCommentsForArticle } from '@/features/addComments';
+import { ArticleDetails, getArticleDetailsData, getArticleDetailsIsLoading } from '@/entities/article1';
+import { AddCommentsForArticle } from '@/features/addComments1';
 import { ArticleRating } from '@/features/articleRating';
 import { ArticleRecommendationList } from '@/features/articleRecommendationList';
 import { VStack } from '@/shared/ui/Stack';

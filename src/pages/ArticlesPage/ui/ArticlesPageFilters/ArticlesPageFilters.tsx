@@ -12,7 +12,7 @@ import {
 import { fetchArticleList } from '../../model/services/fetchArticleList/fetchArticleList';
 import { articlesPageActions } from '../../model/slice/articlesPageSlice';
 
-import { ArticleSortTypes, ArticleTypes, ArticleView } from '@/entities/article';
+import { ArticleSortTypes, ArticleTypes, ArticleView } from '@/entities/article1';
 import { SortByFiltersArticleList } from '@/features/sortArticleList';
 import { ToggleViewArticleList } from '@/features/toggleViewArticleList';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';

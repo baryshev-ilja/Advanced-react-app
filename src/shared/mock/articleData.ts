@@ -1,5 +1,5 @@
 // eslint-disable-next-line baryshewww/layers-import
-import { Article } from '@/entities/article';
+import { Article } from '@/entities/article1';
 
 export const articleMock = {
     id: '1',
