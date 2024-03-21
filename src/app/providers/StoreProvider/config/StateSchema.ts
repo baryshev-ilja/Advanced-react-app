@@ -13,10 +13,10 @@ import type { ProfileSchema } from '@/entities/profile1';
 import type { UserSchema } from '@/entities/user1';
 import { ArticleCommentsSchema } from '@/features/addComments1';
 import { ArticleDetailsRecommendationsSchema } from '@/features/articleRecommendationList';
-import type { LoginSchema } from '@/features/authByUsername';
-import type { ArticlesPageSchema } from '@/pages/articlesPage';
+import type { LoginSchema } from '@/features/authByUsername1';
+import type { ArticlesPageSchema } from '@/pages/articlesPage1';
 import { rtkApi } from '@/shared/api/rtkApi';
-import { ScrollSaveSchema } from '@/widgets/page';
+import { ScrollSaveSchema } from '@/widgets/page1';
 
 export interface StateSchema {
     counter: CounterSchema;

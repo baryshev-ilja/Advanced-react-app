@@ -3,13 +3,13 @@ import { useTranslation } from 'react-i18next';
 
 import { Page } from '@/widgets/page1';
 
-const ForbiddenPage = memo(() => {
+const AboutPage = memo(() => {
     const { t } = useTranslation();
     return (
-        <Page data-testid="Forbidden-page">
-            {t('У вас не прав, чтобы зайти на эту страницу')}
+        <Page data-testid="Page-about">
+            {t('about')}
         </Page>
     );
 });
 
-export default ForbiddenPage;
+export default AboutPage;

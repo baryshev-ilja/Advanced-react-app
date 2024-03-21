@@ -7,8 +7,8 @@ import { getUserInited, userActions } from '@/entities/user1';
 import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localStorage';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
-import { Navbar } from '@/widgets/navbar';
-import { Sidebar } from '@/widgets/sidebar';
+import { Navbar } from '@/widgets/navbar1';
+import { Sidebar } from '@/widgets/sidebar1';
 
 function App() {
     const { theme } = useTheme();

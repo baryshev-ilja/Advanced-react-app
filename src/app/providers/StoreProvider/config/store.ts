@@ -7,7 +7,7 @@ import { counterReducer } from '@/entities/counter1';
 import { userReducer } from '@/entities/user1';
 import { $api } from '@/shared/api/api';
 import { rtkApi } from '@/shared/api/rtkApi';
-import { scrollSaveReducer } from '@/widgets/page';
+import { scrollSaveReducer } from '@/widgets/page1';
 
 export function createReduxStore(
     initialState?: StateSchema,
