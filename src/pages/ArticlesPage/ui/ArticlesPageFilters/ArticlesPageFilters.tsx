@@ -17,7 +17,7 @@ import { SortByFiltersArticleList } from '@/features/sortArticleList';
 import { ToggleViewArticleList } from '@/features/toggleViewArticleList';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
-import { TypesOfOrders } from '@/shared/types';
+import { TypesOfOrders } from '@/shared/types/orderTypes';
 import { Card } from '@/shared/ui/Card';
 import { Input } from '@/shared/ui/Input';
 import { HStack, VStack } from '@/shared/ui/Stack';

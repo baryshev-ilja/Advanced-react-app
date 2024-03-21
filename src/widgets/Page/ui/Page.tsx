@@ -10,10 +10,11 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInffinteScroll';
+import { TestIdProps } from '@/shared/types/tests';
 
 import cls from './Page.module.scss';
 
-interface PageProps {
+interface PageProps extends TestIdProps {
     className?: string;
     children: ReactNode;
     onEndScroll?: () => void;
@@ -21,7 +22,10 @@ interface PageProps {
 
 export const Page = (props: PageProps) => {
     const {
-        className, children, onEndScroll,
+        className,
+        children,
+        onEndScroll,
+        'data-testid': dataTestId = '',
     } = props;
     const wrapperRef = useRef() as MutableRefObject<HTMLElement>;
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
@@ -50,6 +54,7 @@ export const Page = (props: PageProps) => {
             ref={wrapperRef}
             className={classNames(cls.page, {}, [className])}
             onScroll={onScrollHandler}
+            data-testid={dataTestId}
         >
             {children}
             {onEndScroll ? <div className={cls.trigger} ref={triggerRef} /> : null}

@@ -6,7 +6,7 @@ import {
     ArticleSortTypes,
     ArticleTypes,
 } from '@/entities/article';
-import type { TypesOfOrders } from '@/shared/types';
+import type { TypesOfOrders } from '@/shared/types/orderTypes';
 
 export interface ArticlesPageSchema extends EntityState<Article> {
     isLoading?: boolean;

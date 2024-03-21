@@ -8,7 +8,7 @@ import { Page } from '@/widgets/page';
 const MainPage = memo(() => {
     const { t } = useTranslation();
     return (
-        <Page>
+        <Page data-testid="Main-page">
             <BugButton />
             {t('home')}
         </Page>

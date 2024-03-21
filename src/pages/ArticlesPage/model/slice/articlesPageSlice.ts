@@ -11,7 +11,7 @@ import {
     ArticleSortTypes,
 } from '@/entities/article';
 import { LIST_VIEW_ARTICLES_LOCALSTORAGE_KEY } from '@/shared/const/localStorage';
-import { TypesOfOrders } from '@/shared/types';
+import { TypesOfOrders } from '@/shared/types/orderTypes';
 
 const articlesAdapter = createEntityAdapter<Article>({
     selectId: (article) => article.id,

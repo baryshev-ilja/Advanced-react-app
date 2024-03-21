@@ -11,6 +11,26 @@ import { Profile } from '@/entities/profile';
 import { $api } from '@/shared/api/api';
 import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
 
+beforeAll(() => {
+    const root = document.createElement('div');
+    root.setAttribute('id', 'root');
+    document.body.append(root);
+
+    Object.defineProperty(window, 'matchMedia', {
+        writable: true,
+        value: jest.fn().mockImplementation((query) => ({
+            matches: false,
+            media: query,
+            onchange: null,
+            addListener: jest.fn(), // Deprecated
+            removeListener: jest.fn(), // Deprecated
+            addEventListener: jest.fn(),
+            removeEventListener: jest.fn(),
+            dispatchEvent: jest.fn(),
+        })),
+    });
+});
+
 const profile: Profile = {
     id: '1',
     username: 'admin',
@@ -22,7 +42,7 @@ const profile: Profile = {
     city: 'Naberezhnye Chelny',
 };
 
-beforeEach(() => componentRender(<EditableProfileCard />, {
+const initialState = {
     initialState: {
         profile: {
             id: '1',
@@ -40,16 +60,26 @@ beforeEach(() => componentRender(<EditableProfileCard />, {
     asyncReducers: {
         profile: profileReducer,
     },
-}));
+};
 
 describe('EditableProfileCard test', () => {
     test('Должна появится кнопка отмены', async () => {
+        componentRender(<EditableProfileCard />, initialState);
         await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditBtn'));
 
         expect(screen.getByTestId('EditableProfileCardHeader.CancelBtn')).toBeInTheDocument();
     });
 
+    test('Есть ли инпут Имя', async () => {
+        componentRender(<EditableProfileCard />, initialState);
+
+        await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditBtn'));
+        expect(screen.getByTestId('ProfileCard.firstname')).toBeInTheDocument();
+        await userEvent.clear(screen.getByTestId('ProfileCard.firstname'));
+    });
+
     test('Происходит сбрасывание данных к дефолтным значениям', async () => {
+        componentRender(<EditableProfileCard />, initialState);
         await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditBtn'));
 
         await userEvent.clear(screen.getByTestId('ProfileCard.firstname'));
@@ -68,6 +98,7 @@ describe('EditableProfileCard test', () => {
     });
 
     test('Показывается ошибка валидации', async () => {
+        componentRender(<EditableProfileCard />, initialState);
         await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditBtn'));
 
         await userEvent.clear(screen.getByTestId('ProfileCard.firstname'));
@@ -82,6 +113,7 @@ describe('EditableProfileCard test', () => {
     });
 
     test('Происходит успешная отправка на сервер, если нет ошибки', async () => {
+        componentRender(<EditableProfileCard />, initialState);
         const mockedPutReq = jest.spyOn($api, 'put');
 
         await userEvent.click(screen.getByTestId('EditableProfileCardHeader.EditBtn'));

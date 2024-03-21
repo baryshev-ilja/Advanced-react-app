@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { ArticleSortTypes } from '@/entities/article';
-import { TypesOfOrders } from '@/shared/types';
+import { TypesOfOrders } from '@/shared/types/orderTypes';
 import { OptionsList, Select } from '@/shared/ui/Select';
 import { HStack } from '@/shared/ui/Stack';
 
