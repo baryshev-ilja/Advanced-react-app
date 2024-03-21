@@ -1,13 +1,13 @@
-import { UserRole } from '@/entities/user1';
-import { AboutPage } from '@/pages/aboutPage1';
+import { UserRole } from '@/entities/user';
+import { AboutPage } from '@/pages/aboutPage';
 import { AdminPanelPage } from '@/pages/adminPanelPage';
-import { ArticleDetailsEditPage } from '@/pages/articleDetailsEditPage1';
-import { ArticleDetailsPage } from '@/pages/articleDetailsPage1';
-import { ArticlesPage } from '@/pages/articlesPage1';
+import { ArticleDetailsEditPage } from '@/pages/articleDetailsEditPage';
+import { ArticleDetailsPage } from '@/pages/articleDetailsPage';
+import { ArticlesPage } from '@/pages/articlesPage';
 import { ForbiddenPage } from '@/pages/forbiddenPage';
-import { MainPage } from '@/pages/mainPage1';
-import { NotFoundPage } from '@/pages/notFoundPage1';
-import { ProfilePage } from '@/pages/profilePage1';
+import { MainPage } from '@/pages/mainPage';
+import { NotFoundPage } from '@/pages/notFoundPage';
+import { ProfilePage } from '@/pages/profilePage';
 import { AppRoutes, AppRoutePaths } from '@/shared/const/routerConsts';
 import { AppRouteProps } from '@/shared/types/router';
 

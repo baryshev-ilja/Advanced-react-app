@@ -3,12 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { AppRouter } from './providers/Router';
 
-import { getUserInited, userActions } from '@/entities/user1';
+import { getUserInited, userActions } from '@/entities/user';
 import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localStorage';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
-import { Navbar } from '@/widgets/navbar1';
-import { Sidebar } from '@/widgets/sidebar1';
+import { Navbar } from '@/widgets/navbar';
+import { Sidebar } from '@/widgets/sidebar';
 
 function App() {
     const { theme } = useTheme();

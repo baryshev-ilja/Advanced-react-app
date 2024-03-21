@@ -4,7 +4,7 @@ import withMock from 'storybook-addon-mock';
 
 import { ArticleRecommendationList } from './ArticleRecommendationList';
 
-import { Article, ArticleTypes } from '@/entities/article1';
+import { Article, ArticleTypes } from '@/entities/article';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { ThemeStory } from '@/shared/const/theme';

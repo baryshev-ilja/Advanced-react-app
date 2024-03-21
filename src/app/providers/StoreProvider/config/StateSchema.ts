@@ -7,16 +7,16 @@ import {
 import { AxiosInstance } from 'axios';
 import { CombinedState } from 'redux';
 
-import type { ArticleDetailsSchema } from '@/entities/article1';
-import type { CounterSchema } from '@/entities/counter1';
-import type { ProfileSchema } from '@/entities/profile1';
-import type { UserSchema } from '@/entities/user1';
-import { ArticleCommentsSchema } from '@/features/addComments1';
+import type { ArticleDetailsSchema } from '@/entities/article';
+import type { CounterSchema } from '@/entities/counter';
+import type { ProfileSchema } from '@/entities/profile';
+import type { UserSchema } from '@/entities/user';
+import { ArticleCommentsSchema } from '@/features/addComments';
 import { ArticleDetailsRecommendationsSchema } from '@/features/articleRecommendationList';
-import type { LoginSchema } from '@/features/authByUsername1';
-import type { ArticlesPageSchema } from '@/pages/articlesPage1';
+import type { LoginSchema } from '@/features/authByUsername';
+import type { ArticlesPageSchema } from '@/pages/articlesPage';
 import { rtkApi } from '@/shared/api/rtkApi';
-import { ScrollSaveSchema } from '@/widgets/page1';
+import { ScrollSaveSchema } from '@/widgets/page';
 
 export interface StateSchema {
     counter: CounterSchema;

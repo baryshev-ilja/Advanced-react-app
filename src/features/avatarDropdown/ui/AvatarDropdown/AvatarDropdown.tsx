@@ -7,7 +7,7 @@ import {
     isUserAdmin,
     isUserManager,
     userActions,
-} from '@/entities/user1';
+} from '@/entities/user';
 import { AppRoutePaths } from '@/shared/const/routerConsts';
 import { Avatar } from '@/shared/ui/Avatar';
 import { DropDown, MenuDropdownItem } from '@/shared/ui/Popups';

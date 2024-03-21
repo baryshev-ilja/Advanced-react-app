@@ -11,9 +11,9 @@ import { fetchProfileData } from '../../model/services/fetchProfileData/fetchPro
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 
-import { Country } from '@/entities/country1';
-import { Currency } from '@/entities/currency1';
-import { ProfileCard, ValidateProfileError } from '@/entities/profile1';
+import { Country } from '@/entities/country';
+import { Currency } from '@/entities/currency';
+import { ProfileCard, ValidateProfileError } from '@/entities/profile';
 // TODO
 // нужно будеть сделать виджет из этих двух фич
 // eslint-disable-next-line baryshewww/layers-import
