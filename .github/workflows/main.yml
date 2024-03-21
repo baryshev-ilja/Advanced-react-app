@@ -52,6 +52,14 @@ jobs:
             - name: Run build production project
               run: npm run build:prod
 
+            -   name: Run storybook testing
+                run: npm run build:prod
+
+            -   name: Run screenshots testing chromatic
+                uses: chromaui/action@latest
+                with:
+                    projectToken: chpt_025e1e413343d56
+
     ui_test:
         if: ${{ github.event_name == 'pull_request' }}
         runs-on: ubuntu-latest
