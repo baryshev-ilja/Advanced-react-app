@@ -942,7 +942,16 @@
         "MANAGER"
       ],
       "avatar": "https://www.pavilionweb.com/wp-content/uploads/2017/03/man.png"
-    }
+    },
+      {
+          "id": "4",
+          "username": "testUser",
+          "password": "123",
+          "roles": [
+              "MANAGER"
+          ],
+          "avatar": "https://www.pavilionweb.com/wp-content/uploads/2017/03/man.png"
+      }
   ],
   "profile": [
     {
