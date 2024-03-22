@@ -1,9 +1,9 @@
 import { Suspense, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-import { AppRouter } from './providers/Router';
+import AppRouter from './providers/Router/ui/AppRouter';
 
-import { getUserInited, userActions } from '@/entities/user';
+import { userActions } from '@/entities/user';
 import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localStorage';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
@@ -13,7 +13,7 @@ import { Sidebar } from '@/widgets/sidebar';
 function App() {
     const { theme } = useTheme();
     const dispatch = useDispatch();
-    const inited = useSelector(getUserInited);
+    // const inited = useSelector(getUserInited);
 
     useEffect(() => {
         const user = localStorage.getItem(USER_LOCALSTORAGE_KEY);
@@ -28,7 +28,8 @@ function App() {
                 <Navbar />
                 <div className="content-page">
                     <Sidebar />
-                    {inited && <AppRouter />}
+                    {/* {inited && <AppRouter />} */}
+                    <AppRouter />
                 </div>
             </Suspense>
         </div>

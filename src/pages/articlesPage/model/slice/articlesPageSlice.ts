@@ -17,11 +17,11 @@ const articlesAdapter = createEntityAdapter<Article>({
     selectId: (article) => article.id,
 });
 
-export const getArticleComments = articlesAdapter.getSelectors<StateSchema>(
+export const getArticlesPage = articlesAdapter.getSelectors<StateSchema>(
     (state) => state.articlesPage || articlesAdapter.getInitialState(),
 );
 
-const articleCommentsSlice = createSlice({
+const articlesPageSlice = createSlice({
     name: 'articlesPage',
     initialState: articlesAdapter.getInitialState<ArticlesPageSchema>({
         isLoading: false,
@@ -91,5 +91,5 @@ const articleCommentsSlice = createSlice({
     },
 });
 
-export const { actions: articlesPageActions } = articleCommentsSlice;
-export const { reducer: articlesPageReducer } = articleCommentsSlice;
+export const { actions: articlesPageActions } = articlesPageSlice;
+export const { reducer: articlesPageReducer } = articlesPageSlice;
