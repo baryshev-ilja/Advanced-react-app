@@ -1,6 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
-import withMock from 'storybook-addon-mock';
 
 import { ArticleRecommendationList } from './ArticleRecommendationList';
 
@@ -33,7 +32,6 @@ export default {
     },
     decorators: [
         StoreDecorator({}),
-        withMock,
         ThemeDecorator(ThemeStory.LIGHT),
     ],
 } as ComponentMeta<typeof ArticleRecommendationList>;
