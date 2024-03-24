@@ -978,8 +978,8 @@
       "first": "Илья",
       "lastname": "Барышев",
       "age": 27,
-      "currency": "USD",
-      "country": "Ukraina",
+      "currency": "RUB",
+      "country": "Russia",
       "city": "Naberezhnye Chelny",
       "username": "admin",
       "avatar": "https://teknotower.com/wp-content/uploads/2020/11/js.png"
@@ -1082,6 +1082,18 @@
       "rate": 3,
       "feedback": "",
       "id": "ScaF7q7"
+    },
+    {
+      "userId": "1",
+      "articleId": "3",
+      "rate": 5,
+      "id": "durSmFC"
+    },
+    {
+      "userId": "1",
+      "articleId": "6",
+      "rate": 5,
+      "id": "2PVzW5G"
     }
   ],
   "profile-rating": [

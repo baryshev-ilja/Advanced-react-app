@@ -5,28 +5,53 @@ import { I18nextProvider } from 'react-i18next';
 import { MemoryRouter } from 'react-router-dom';
 
 import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
+// eslint-disable-next-line baryshewww/layers-import
+import { ThemeProvider } from '@/app/providers/ThemeProvider';
 import i18nForTests from '@/shared/config/i18n/i18nForTests';
+import { Theme } from '@/shared/const/theme';
+// eslint-disable-next-line baryshewww/layers-import
+import '@/app/styles/index.scss';
 
-export interface componentRenderOptions {
+export interface ComponentRenderOptions {
     route?: string;
     initialState?: DeepPartial<StateSchema>;
     asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>;
+    theme?: Theme;
 }
 
-export const componentRender = (component: ReactNode, options: componentRenderOptions = {}) => {
+interface TestProviderProps {
+    children: ReactNode;
+    options?: ComponentRenderOptions;
+}
+
+export const TestProvider = (props: TestProviderProps) => {
+    const { children, options = {} } = props;
     const {
         route = '/',
         initialState,
         asyncReducers,
+        theme = Theme.LIGHT,
     } = options;
 
-    return render(
+    return (
         <MemoryRouter initialEntries={[route]}>
             <StoreProvider initialState={initialState} asyncReducers={asyncReducers}>
                 <I18nextProvider i18n={i18nForTests}>
-                    {component}
+                    <ThemeProvider initialTheme={theme}>
+                        <div className={`app ${theme}`}>
+                            {children}
+                        </div>
+                    </ThemeProvider>
                 </I18nextProvider>
             </StoreProvider>
-        </MemoryRouter>,
+        </MemoryRouter>
+    );
+};
+
+export const componentRender = (component: ReactNode, options: ComponentRenderOptions = {}) => {
+    return render(
+        <TestProvider options={options}>
+            {component}
+        </TestProvider>,
     );
 };
