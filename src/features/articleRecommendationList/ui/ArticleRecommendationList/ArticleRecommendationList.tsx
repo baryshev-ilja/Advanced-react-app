@@ -35,7 +35,12 @@ export const ArticleRecommendationList = memo((props: ArticleRecommendationListP
 
     return (
         <DynamicReducerLoad reducers={reducers}>
-            <VStack gap="8" max className={classNames(cls.recommendationList, {}, [className])}>
+            <VStack
+                gap="8"
+                max
+                className={classNames(cls.recommendationList, {}, [className])}
+                data-testid="ArticleRecommendationList"
+            >
                 <Text title={t('Рекомендуем')} size={TextSize.L} />
                 {isLoading && articleRecommendationSkeletons}
                 {articlesData && (

@@ -1,29 +1,25 @@
 import { useSelector } from 'react-redux';
 
-import { getArticlesPageIsLoading, getArticlesPageView } from '../../model/selectors/getArticlesPageSelectors';
-import { initArticlesList } from '../../model/services/initArticlesList/initArticlesList';
+import {
+    getArticlesPageIsLoading,
+    getArticlesPageView,
+} from '../../model/selectors/getArticlesPageSelectors';
 import { getArticlesPage } from '../../model/slice/articlesPageSlice';
 
 import { ArticleList } from '@/entities/article';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 
 interface ArticlesInfiniteListProps {
     className?: string;
-    searchParams: URLSearchParams;
 }
 
 export const ArticlesInfiniteList = (props: ArticlesInfiniteListProps) => {
-    const { className, searchParams } = props;
+    const { className } = props;
 
     const dispatch = useAppDispatch();
     const articles = useSelector(getArticlesPage.selectAll);
     const isLoading = useSelector(getArticlesPageIsLoading);
     const view = useSelector(getArticlesPageView);
-
-    useInitialEffect(() => {
-        dispatch(initArticlesList(searchParams));
-    });
 
     return (
         <ArticleList

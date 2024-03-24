@@ -24,7 +24,7 @@ describe('getProfileData.test', () => {
         expect(getProfileData(state as StateSchema)).toEqual(data);
     });
 
-    test('should return empty login state undefined', () => {
+    test('should return empty common state undefined', () => {
         const state: DeepPartial<StateSchema> = {};
         expect(getProfileData(state as StateSchema)).toBe(undefined);
     });

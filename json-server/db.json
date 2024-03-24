@@ -767,6 +767,19 @@
           "title": "Рисунок 1 - скриншот сайта"
         }
       ]
+    },
+    {
+      "title": "Свежие вакансии",
+      "subtitle": "Что нового в JS за 2022 год?",
+      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+      "views": 346,
+      "userId": "1",
+      "createdAt": "17.09.2023",
+      "type": [
+        "Вакансии"
+      ],
+      "blocks": [],
+      "id": "cpVWZW7"
     }
   ],
   "comments": [
@@ -913,6 +926,12 @@
       "articleId": "3",
       "text": "dfghdfgh",
       "id": "I1EtyMa"
+    },
+    {
+      "userId": "4",
+      "articleId": "cpVWZW7",
+      "text": "text",
+      "id": "YFk_oOb"
     }
   ],
   "users": [
@@ -943,15 +962,15 @@
       ],
       "avatar": "https://www.pavilionweb.com/wp-content/uploads/2017/03/man.png"
     },
-      {
-          "id": "4",
-          "username": "testUser",
-          "password": "123",
-          "roles": [
-              "MANAGER"
-          ],
-          "avatar": "https://www.pavilionweb.com/wp-content/uploads/2017/03/man.png"
-      }
+    {
+      "id": "4",
+      "username": "testUser",
+      "password": "123",
+      "roles": [
+        "MANAGER"
+      ],
+      "avatar": "https://www.pavilionweb.com/wp-content/uploads/2017/03/man.png"
+    }
   ],
   "profile": [
     {
@@ -974,6 +993,17 @@
       "country": "Kazakhstan",
       "city": "Minsk",
       "username": "user",
+      "avatar": "https://www.pavilionweb.com/wp-content/uploads/2017/03/man.png"
+    },
+    {
+      "id": "4",
+      "first": "Виктор",
+      "lastname": "Табачков",
+      "age": 67,
+      "currency": "RUB",
+      "country": "Kazakhstan",
+      "city": "Minsk",
+      "username": "userViktor",
       "avatar": "https://www.pavilionweb.com/wp-content/uploads/2017/03/man.png"
     }
   ],

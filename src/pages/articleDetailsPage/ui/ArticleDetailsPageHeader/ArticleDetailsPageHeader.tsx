@@ -7,8 +7,8 @@ import { getCanEditArticle } from '../../model/selectors/getCanEditArticle';
 
 import { getArticleDetailsData } from '@/entities/article';
 import { AppRoutePaths } from '@/shared/const/routerConsts';
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { HStack } from '@/shared/ui/Stack';
 
 import cls from './ArticleDetailsPageHeader.module.scss';
 
@@ -34,7 +34,7 @@ export const ArticleDetailsPageHeader = (props: ArticleDetailsPageHeaderProps) =
     }, [article, navigate]);
 
     return (
-        <div className={classNames(cls.articleDetailsPageHeader, {}, [className])}>
+        <HStack className={className}>
             <Button
                 className={cls.toBackArticles}
                 onClick={onButtonBackHandler}
@@ -51,6 +51,6 @@ export const ArticleDetailsPageHeader = (props: ArticleDetailsPageHeaderProps) =
                     {t('Редактировать')}
                 </Button>
             )}
-        </div>
+        </HStack>
     );
 };

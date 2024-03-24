@@ -16,7 +16,7 @@ interface ArticleListProps {
     target?: HTMLAttributeAnchorTarget;
 }
 
-const getArticleSkeletons = (view: ArticleView) => new Array(view === 'LIST' ? 3 : 10)
+const getArticleSkeletons = (view: ArticleView) => new Array(view === 'LIST' ? 3 : 5)
     .fill(0)
     .map((item, index) => (
         <ArticleListItemSkeleton view={view} key={index} />
@@ -43,7 +43,10 @@ export const ArticleList = memo((props: ArticleListProps) => {
     };
 
     return (
-        <div className={classNames('', {}, [className, cls[view]])}>
+        <div
+            className={classNames('', {}, [className, cls[view]])}
+            data-testid="Article-list"
+        >
             {
                 articles.length > 0
                     ? articles.map(renderArticle)

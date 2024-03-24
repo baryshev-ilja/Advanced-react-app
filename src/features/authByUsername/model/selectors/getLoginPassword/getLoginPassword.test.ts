@@ -3,7 +3,7 @@ import { getLoginPassword } from './getLoginPassword';
 import { StateSchema } from '@/app/providers/StoreProvider';
 
 describe('getLoginPassword.test', () => {
-    test('should return login state password', () => {
+    test('should return common state password', () => {
         const state: DeepPartial<StateSchema> = {
             loginForm: {
                 password: '1223',
@@ -12,7 +12,7 @@ describe('getLoginPassword.test', () => {
         expect(getLoginPassword(state as StateSchema)).toBe('1223');
     });
 
-    test('should return empty login state password', () => {
+    test('should return empty common state password', () => {
         const state: DeepPartial<StateSchema> = {};
         expect(getLoginPassword(state as StateSchema)).toBe('');
     });

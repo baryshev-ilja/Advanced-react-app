@@ -62,6 +62,8 @@ export const StarRating = memo((props: StarRatingProps) => {
                     onMouseEnter={onHoverStar(starNumber)}
                     onMouseLeave={onLeaveStar}
                     onClick={onClickStar(starNumber)}
+                    data-testid={`CardRatingStar.${starNumber}`}
+                    data-selectid={currentStarsCount >= starNumber}
                 />
             ))}
         </HStack>

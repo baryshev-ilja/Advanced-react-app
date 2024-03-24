@@ -3,7 +3,7 @@ import { getLoginError } from './getLoginError';
 import { StateSchema } from '@/app/providers/StoreProvider';
 
 describe('getLoginError.test', () => {
-    test('should return login state error', () => {
+    test('should return common state error', () => {
         const state: DeepPartial<StateSchema> = {
             loginForm: {
                 error: 'error',
@@ -12,7 +12,7 @@ describe('getLoginError.test', () => {
         expect(getLoginError(state as StateSchema)).toBe('error');
     });
 
-    test('should return empty login state error', () => {
+    test('should return empty common state error', () => {
         const state: DeepPartial<StateSchema> = {};
         expect(getLoginError(state as StateSchema)).toBe(undefined);
     });

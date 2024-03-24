@@ -2,6 +2,7 @@ import { useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
+import { initArticlesList } from '../../model/services/initArticlesList/initArticlesList';
 import { articlesPageReducer } from '../../model/slice/articlesPageSlice';
 import { ArticlesInfiniteList } from '../ArticlesInfiniteList/ArticlesInfiniteList';
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
@@ -9,6 +10,7 @@ import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters'
 import { DynamicReducerLoad, ReducersList } from '@/shared/lib/HOC/DynamicReducerLoad';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { VStack } from '@/shared/ui/Stack';
 import { Page } from '@/widgets/page';
 
@@ -29,6 +31,10 @@ const ArticlesPage = (props: ArticlesPageProps) => {
         dispatch(fetchNextArticlesPage());
     }, [dispatch]);
 
+    useInitialEffect(() => {
+        dispatch(initArticlesList(searchParams));
+    });
+
     return (
         <DynamicReducerLoad reducers={reducers} removeAfterUnmount={false}>
             <Page
@@ -38,7 +44,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
             >
                 <VStack gap="24">
                     <ArticlesPageFilters />
-                    <ArticlesInfiniteList searchParams={searchParams} />
+                    <ArticlesInfiniteList />
                 </VStack>
             </Page>
         </DynamicReducerLoad>

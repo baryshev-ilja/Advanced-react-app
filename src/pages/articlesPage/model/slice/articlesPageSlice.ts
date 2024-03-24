@@ -31,7 +31,7 @@ const articlesPageSlice = createSlice({
         entities: {},
         page: 1,
         hasMore: true,
-        limit: 9,
+        limit: 10,
         order: 'asc',
         sort: ArticleSortTypes.CREATED,
         search: '',
@@ -59,9 +59,9 @@ const articlesPageSlice = createSlice({
             state.type = action.payload;
         },
         initState: (state) => {
-            const view = localStorage.getItem(LIST_VIEW_ARTICLES_LOCALSTORAGE_KEY) as ArticleView;
-            state.view = view;
-            state.limit = (view === 'GRID') ? 9 : 4;
+            const viewFromLocalSt = localStorage.getItem(LIST_VIEW_ARTICLES_LOCALSTORAGE_KEY) as ArticleView;
+            state.view = viewFromLocalSt || 'GRID';
+            state.limit = (state.view === 'GRID') ? 10 : 4;
             state._inited = true;
         },
     },

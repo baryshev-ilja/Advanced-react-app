@@ -124,7 +124,10 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                     alt={data?.title}
                 />
 
-                <div className={cls.title}>
+                <div
+                    className={cls.title}
+                    data-testid="ArticleDetails.Info"
+                >
                     <Text
                         size={TextSize.L}
                         title={data?.title}

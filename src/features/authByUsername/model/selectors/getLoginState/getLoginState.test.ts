@@ -3,7 +3,7 @@ import { getLoginState } from './getLoginState';
 import { StateSchema } from '@/app/providers/StoreProvider';
 
 describe('getLoginState.test', () => {
-    test('should return login state', () => {
+    test('should return common state', () => {
         const state: DeepPartial<StateSchema> = {
             loginForm: {
                 username: '',
@@ -20,7 +20,7 @@ describe('getLoginState.test', () => {
         });
     });
 
-    test('should return empty login state', () => {
+    test('should return empty common state', () => {
         const state: DeepPartial<StateSchema> = {};
         expect(getLoginState(state as StateSchema)).toEqual(undefined);
     });

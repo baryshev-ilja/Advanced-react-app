@@ -63,7 +63,7 @@ const AddCommentsForArticle = memo((props: AddCommentsForArticleProps) => {
 
     return (
         <DynamicReducerLoad reducers={reducers}>
-            <VStack gap="16" max>
+            <VStack gap="16" max data-testid="ArticleCommentsForm">
                 <Text title={t('Комментарии')} size={TextSize.L} />
                 <CommentForm
                     text={text}

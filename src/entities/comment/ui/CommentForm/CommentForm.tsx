@@ -30,9 +30,11 @@ export const CommentForm = memo((props: CommentFormProps) => {
                 labelElement={t('Введите сообщение')}
                 value={text}
                 onChange={onChangeComment}
+                data-testid="ArticleCommentForm.Input"
             />
             <Button
                 onClick={onSendComment}
+                data-testid="ArticleCommentForm.Button"
             >
                 {t('Отправить')}
             </Button>

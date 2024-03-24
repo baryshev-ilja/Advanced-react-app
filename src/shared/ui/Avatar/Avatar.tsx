@@ -30,8 +30,13 @@ export const Avatar = (props: AvatarProps) => {
 
     const mods: Mods = {};
 
-    const errorFallbackElement = <UserIcon style={styles} className={cls.userFallbackIcon} />;
-    const loadingFallbackElement = <Skeleton width={size} height={size} borderRadius="50%" />;
+    const errorFallbackElement = (
+        <UserIcon
+            style={styles}
+            className={classNames(cls.userFallbackIcon, mods, [className])}
+        />
+    );
+    const loadingFallbackElement = <Skeleton className={className} width={size} height={size} borderRadius="50%" />;
 
     return (
         <AppImage

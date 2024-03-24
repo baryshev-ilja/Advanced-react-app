@@ -46,6 +46,7 @@ export interface FlexProps {
     max?: boolean;
     gap?: FlexGap;
     tagName?: keyof HTMLElementTagNameMap;
+    'data-testid'?: string;
 }
 
 export const Flex = (props: FlexProps) => {
@@ -58,6 +59,7 @@ export const Flex = (props: FlexProps) => {
         max,
         gap,
         tagName = 'div',
+        'data-testid': dataTestId = '',
     } = props;
 
     const Tag = tagName;
@@ -74,7 +76,10 @@ export const Flex = (props: FlexProps) => {
         gap && gapClasses[gap],
     ];
     return (
-        <Tag className={classNames(cls.flex, mods, classes)}>
+        <Tag
+            className={classNames(cls.flex, mods, classes)}
+            data-testid={dataTestId}
+        >
             {children}
         </Tag>
     );
