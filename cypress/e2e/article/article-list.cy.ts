@@ -7,6 +7,13 @@ describe('Пользователь открывает страницу со сп
     });
 
     it('и список статей показывается', () => {
+        cy.intercept('GET', '**/articles?*', { fixture: 'articles.json' });
+        cy.getByTestId('Article-list').should('exist');
+        cy.getByTestId('Article-list-item').should('have.length.greaterThan', 3);
+    });
+
+    it('и список статей показывается (на стабах)', () => {
+        cy.intercept('GET', '**/articles?*', { fixture: 'articles.json' });
         cy.getByTestId('Article-list').should('exist');
         cy.getByTestId('Article-list-item').should('have.length.greaterThan', 3);
     });

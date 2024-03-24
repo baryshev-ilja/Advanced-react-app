@@ -34,4 +34,12 @@ describe('Пользователь открывает страницу со ст
         cy.setRate(4, 'feedback');
         cy.get('[data-selectid=true]').should('have.length', 4);
     });
+
+    it('и ставит оценку статье (на стабах)', () => {
+        cy.intercept('GET', '**/articles/*', { fixture: 'article-details.json' });
+        cy.getByTestId('ArticleDetails.Info');
+        cy.getByTestId('CardRating').scrollIntoView();
+        cy.setRate(4, 'feedback');
+        cy.get('[data-selectid=true]').should('have.length', 4);
+    });
 });
