@@ -1,6 +1,17 @@
 const fs = require('fs');
-const jsonServer = require('json-server');
+const https = require('https');
 const path = require('path');
+
+const options = {
+    key: fs.readFileSync(
+        path.resolve(__dirname, '/etc/letsencrypt/live/learn-frontend-easy.ru/privkey.pem'),
+    ),
+    cert: fs.readFileSync(
+        path.resolve(__dirname, '/etc/letsencrypt/live/learn-frontend-easy.ru/fullchain.pem'),
+    ),
+};
+
+const jsonServer = require('json-server');
 
 const server = jsonServer.create();
 
@@ -52,6 +63,8 @@ server.use((req, res, next) => {
 server.use(router);
 
 // запуск сервера
-server.listen(8000, () => {
-    console.log('server is running on 8000 port');
+const httpsServer = https.createServer(options, server);
+
+httpsServer.listen(8443, () => {
+    console.log('server is running on 8443 port');
 });
