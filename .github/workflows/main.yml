@@ -93,7 +93,7 @@ jobs:
                   script: |
                       cd ~/Advanced-react-app/.deploy/
                       chmod +x deploy.sh
-                      bush ~/Advanced-react-app/.deploy/deploy.sh
+                      bash ~/Advanced-react-app/.deploy/deploy.sh
 
 
 
