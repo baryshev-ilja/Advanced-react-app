@@ -90,7 +90,10 @@ jobs:
                   host: ${{ secrets.HOST }}
                   username: ${{ secrets.USERNAME }}
                   key: ${{ secrets.PASSWORD }}
-                  script: ~/Advanced-react-app/.deploy/deploy.sh
+                  script: |
+                      cd ~/Advanced-react-app
+                      git pull
+                      npm run build:prod
 
 
 
