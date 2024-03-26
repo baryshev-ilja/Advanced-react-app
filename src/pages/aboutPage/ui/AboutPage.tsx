@@ -8,8 +8,6 @@ const AboutPage = memo(() => {
     return (
         <Page data-testid="Page-about">
             {t('about')}
-            {t('about')}
-            <div>245234523459999999999999999900000000000</div>
         </Page>
     );
 });
