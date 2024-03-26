@@ -91,9 +91,10 @@ jobs:
                   username: ${{ secrets.USERNAME }}
                   key: ${{ secrets.PASSWORD }}
                   script: |
-                      cd ~/Advanced-react-app
-                      git pull
-                      npm run build:prod
+                      cd ~/Advanced-react-app/.deploy/
+                      chmod +x deploy.sh
+                      bush ~/Advanced-react-app/.deploy/deploy.sh
+
 
 
 
