@@ -1,4 +1,5 @@
 const fs = require('fs');
+const http = require('http');
 const https = require('https');
 const path = require('path');
 
@@ -64,6 +65,12 @@ server.use(router);
 
 // запуск сервера
 const httpsServer = https.createServer(options, server);
+
+const httpServer = http.createServer(server);
+
+httpServer.listen(8000, () => {
+    console.log('server is running on 8000 port');
+});
 
 httpsServer.listen(8443, () => {
     console.log('server is running on 8443 port');

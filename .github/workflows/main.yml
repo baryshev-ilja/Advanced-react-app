@@ -2,7 +2,7 @@ name: CI_Pipeline
 run-name: ${{ github.actor }} launched the CI pipeline! 🚀
 on:
   push:
-      branches-ignore:
+      branches:
           - 'master'
   pull_request:
       branches:
@@ -78,6 +78,21 @@ jobs:
             - name: Deploy to GitHub Pages
               id: deployment
               uses: actions/deploy-pages@v4
+
+    deploy:
+        needs: lint_unit_build
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Executing remote ssh commands using password
+              uses: appleboy/ssh-action@master
+              with:
+                  host: ${{ secrets.HOST }}
+                  username: ${{ secrets.USERNAME }}
+                  key: ${{ secrets.PASSWORD }}
+                  script: bash ~/Advanced-react-app/.deploy/deploy.sh
+
+
 
     ui_test:
         if: ${{ github.event_name == 'pull_request' }}
