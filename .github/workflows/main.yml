@@ -93,7 +93,7 @@ jobs:
                   script: |
                       export NVM_DIR=~/.nvm
                       source ~/.nvm/nvm.sh
-                      npm --help
+                      bash ~/Advanced-react-app/.deploy/deploy.sh
 
 
 
