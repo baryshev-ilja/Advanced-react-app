@@ -79,18 +79,18 @@ jobs:
 #              id: deployment
 #              uses: actions/deploy-pages@v4
 
-#    deploy:
-##        needs: lint_unit_build
-#        runs-on: ubuntu-latest
-#
-#        steps:
-#            - name: Executing remote ssh commands using password
-#              uses: appleboy/ssh-action@v1.0.3
-#              with:
-#                  host: ${{ secrets.HOST }}
-#                  username: ${{ secrets.USERNAME }}
-#                  key: ${{ secrets.PASSWORD }}
-#                  script: bash ~/Advanced-react-app/.deploy/deploy.sh
+    deploy:
+#        needs: lint_unit_build
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Executing remote ssh commands using password
+              uses: appleboy/ssh-action@v1.0.3
+              with:
+                  host: ${{ secrets.HOST }}
+                  username: ${{ secrets.USERNAME }}
+                  key: ${{ secrets.PASSWORD }}
+                  script: bash ~/Advanced-react-app/.deploy/deploy.sh
 
 
 
