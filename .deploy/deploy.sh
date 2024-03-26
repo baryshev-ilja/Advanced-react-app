@@ -1,3 +1,4 @@
+#!/bin/bash
 cd ~/Advanced-react-app
 git pull
 npm run build:prod
