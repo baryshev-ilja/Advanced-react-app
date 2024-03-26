@@ -85,12 +85,15 @@ jobs:
 
         steps:
             - name: Executing remote ssh commands using password
-              uses: appleboy/ssh-action@master
+              uses: appleboy/ssh-action@v1.0.3
               with:
                   host: ${{ secrets.HOST }}
                   username: ${{ secrets.USERNAME }}
                   key: ${{ secrets.PASSWORD }}
-                  script: sh ~/Advanced-react-app/.deploy/deploy.sh
+                  script: |
+                      export NVM_DIR=~/.nvm
+                      source ~/.nvm/nvm.sh
+                      npm --help
 
 
 
