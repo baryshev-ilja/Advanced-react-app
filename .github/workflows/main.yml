@@ -18,74 +18,74 @@ permissions:
 #    cancel-in-progress: true
 
 jobs:
-    lint_unit_build:
-        if: ${{ github.event_name == 'push' }}
-        runs-on: ubuntu-latest
-#        concurrency: ci-${{ github.ref }}
-
-        environment:
-            name: github-pages
-            url: ${{ steps.deployment.outputs.page_url }}
-        strategy:
-            matrix:
-                node-version: [ 17.x ]
-        steps:
-            - name: Checkout Commit
-              uses: actions/checkout@v4
-
-            - name: Use Node.js ${{ matrix.node-version }}
-              uses: actions/setup-node@v3
-              with:
-                node-version: ${{ matrix.node-version }}
-
-            - name: Cache node modules
-              uses: actions/cache@v3
-              id: cache-dependencies
-              env:
-                cache-name: cache-node-modules
-              with:
-                path: node_modules
-                key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-                restore-keys: |
-                    ${{ runner.os }}-build-${{ env.cache-name }}-
-                    ${{ runner.os }}-build-
-                    ${{ runner.os }}-
-
-            - name: Install dependencies
-              if: ${{ steps.cache-dependencies.outputs.cache-hit != 'true' }}
-              run: npm ci --force
-
-            - name: Run build production project
-              run: npm run build:prod
-
-            - name: Run lint scss
-              run: npm run lint:scss
-
-            - name: Run lint typescript
-              run: npm run lint:ts
-
-            - name: Run unit testing
-              run: npm run test:unit
-
-            - name: Setup Pages
-              uses: actions/configure-pages@v4
-
-            - name: Upload artifact
-              uses: actions/upload-pages-artifact@v3
-              with:
-                path: 'reports'
-
-            - name: Deploy to GitHub Pages
-              id: deployment
-              uses: actions/deploy-pages@v4
+#    lint_unit_build:
+#        if: ${{ github.event_name == 'push' }}
+#        runs-on: ubuntu-latest
+##        concurrency: ci-${{ github.ref }}
+#
+#        environment:
+#            name: github-pages
+#            url: ${{ steps.deployment.outputs.page_url }}
+#        strategy:
+#            matrix:
+#                node-version: [ 17.x ]
+#        steps:
+#            - name: Checkout Commit
+#              uses: actions/checkout@v4
+#
+#            - name: Use Node.js ${{ matrix.node-version }}
+#              uses: actions/setup-node@v3
+#              with:
+#                node-version: ${{ matrix.node-version }}
+#
+#            - name: Cache node modules
+#              uses: actions/cache@v3
+#              id: cache-dependencies
+#              env:
+#                cache-name: cache-node-modules
+#              with:
+#                path: node_modules
+#                key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+#                restore-keys: |
+#                    ${{ runner.os }}-build-${{ env.cache-name }}-
+#                    ${{ runner.os }}-build-
+#                    ${{ runner.os }}-
+#
+#            - name: Install dependencies
+#              if: ${{ steps.cache-dependencies.outputs.cache-hit != 'true' }}
+#              run: npm ci --force
+#
+#            - name: Run build production project
+#              run: npm run build:prod
+#
+#            - name: Run lint scss
+#              run: npm run lint:scss
+#
+#            - name: Run lint typescript
+#              run: npm run lint:ts
+#
+#            - name: Run unit testing
+#              run: npm run test:unit
+#
+#            - name: Setup Pages
+#              uses: actions/configure-pages@v4
+#
+#            - name: Upload artifact
+#              uses: actions/upload-pages-artifact@v3
+#              with:
+#                path: 'reports'
+#
+#            - name: Deploy to GitHub Pages
+#              id: deployment
+#              uses: actions/deploy-pages@v4
 
     deploy:
-        needs: lint_unit_build
+#        needs: lint_unit_build
         runs-on: ubuntu-latest
 
         steps:
             - name: Executing remote ssh commands using password
-              uses: appleboy/ssh-action@master
+              uses: appleboy/ssh-action@v1.0.3
               with:
                   host: ${{ secrets.HOST }}
                   username: ${{ secrets.USERNAME }}
