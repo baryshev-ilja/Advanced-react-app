@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import AppRouter from './providers/Router/ui/AppRouter';
 
-import { userActions } from '@/entities/user';
+import { User, userActions } from '@/entities/user';
 import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localStorage';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
@@ -18,7 +18,8 @@ function App() {
     useEffect(() => {
         const user = localStorage.getItem(USER_LOCALSTORAGE_KEY);
         if (user) {
-            dispatch(userActions.initAuthData(JSON.parse(user)));
+            const json = JSON.parse(user) as User;
+            dispatch(userActions.initAuthData(json));
         }
     }, [dispatch]);
 
