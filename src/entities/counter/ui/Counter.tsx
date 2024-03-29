@@ -22,13 +22,17 @@ export const Counter = () => {
                 type="button"
                 data-testid="increment-btn"
                 onClick={increment}
-            />
+            >
+                +
+            </button>
             {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
             <button
                 type="button"
                 data-testid="decrement-btn"
                 onClick={decrement}
-            />
+            >
+                -
+            </button>
         </div>
     );
 };
