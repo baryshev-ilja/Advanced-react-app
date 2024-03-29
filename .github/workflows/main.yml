@@ -113,19 +113,4 @@ jobs:
               with:
                 projectToken: chpt_025e1e413343d56
 
-    deploy:
-        needs: ui_test
-        runs-on: ubuntu-latest
-
-        steps:
-            - name: Executing remote ssh commands using password
-              uses: appleboy/ssh-action@v1.0.3
-              with:
-                host: ${{ secrets.HOST }}
-                username: ${{ secrets.USERNAME }}
-                key: ${{ secrets.PASSWORD }}
-                script: |
-                    export NVM_DIR=~/.nvm
-                    source ~/.nvm/nvm.sh
-                    bash ~/Advanced-react-app/.deploy/deploy.sh
 
