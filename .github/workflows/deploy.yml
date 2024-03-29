@@ -1,0 +1,24 @@
+name: CD_Pipeline
+run-name: ${{ github.actor }} launched the CD pipeline! 🚀
+on:
+  pull_request:
+      branches:
+          - 'master'
+      types: ['closed']
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Executing remote ssh commands using password
+              uses: appleboy/ssh-action@v1.0.3
+              with:
+                host: ${{ secrets.HOST }}
+                username: ${{ secrets.USERNAME }}
+                key: ${{ secrets.PASSWORD }}
+                script: |
+                    export NVM_DIR=~/.nvm
+                    source ~/.nvm/nvm.sh
+                    bash ~/Advanced-react-app/.deploy/deploy.sh
+
