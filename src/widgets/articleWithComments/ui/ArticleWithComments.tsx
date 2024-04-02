@@ -5,7 +5,7 @@ import { Counter } from '@/entities/counter';
 import { AddCommentsForArticle } from '@/features/addComments';
 import { ArticleRating } from '@/features/articleRating';
 import { ArticleRecommendationList } from '@/features/articleRecommendationList';
-import { getFeatureFlag } from '@/shared/lib/features';
+import { getFeatureFlag, toggleFeature } from '@/shared/lib/features';
 import { VStack } from '@/shared/ui/Stack';
 
 interface ArticleWithCommentsProps {
@@ -18,13 +18,18 @@ export const ArticleWithComments = (props: ArticleWithCommentsProps) => {
     const article = useSelector(getArticleDetailsData);
 
     const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled');
-    const isCounterEnabled = getFeatureFlag('isCounterEnabled');
+
+    const counter = toggleFeature({
+        name: 'isCounterEnabled',
+        on: () => <Counter />,
+        off: () => null,
+    });
 
     return (
         <VStack gap="32">
             <ArticleDetails id={id} isLoading={isLoading} data={article} />
             {article && isArticleRatingEnabled && <ArticleRating articleId={id} />}
-            {isCounterEnabled && <Counter />}
+            {counter}
             {article && <ArticleRecommendationList />}
             {article && <AddCommentsForArticle id={id} />}
         </VStack>
