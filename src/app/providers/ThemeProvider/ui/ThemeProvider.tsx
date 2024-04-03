@@ -13,17 +13,17 @@ interface ThemeProviderProps {
 
 const ThemeProvider = (props: ThemeProviderProps) => {
     const { children, initialTheme } = props;
-    const { theme: defaultTheme = Theme.GRAY } = useUserJsonSettings();
+    const { theme: defaultTheme } = useUserJsonSettings();
     const [isThemeInited, setIsThemeInited] = useState(false);
 
-    const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme);
+    const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme || Theme.GRAY);
 
     useEffect(() => {
-        if (!isThemeInited) {
+        if (!isThemeInited && defaultTheme) {
             setTheme(defaultTheme);
             setIsThemeInited(true);
         }
-    }, [defaultTheme, isThemeInited]);
+    }, [defaultTheme, isThemeInited, theme]);
 
     const defaultProps = useMemo(() => ({
         theme,

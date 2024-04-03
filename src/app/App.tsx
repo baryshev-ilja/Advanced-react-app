@@ -1,27 +1,28 @@
 import { Suspense, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import AppRouter from './providers/Router/ui/AppRouter';
 
-import { User, userActions } from '@/entities/user';
-import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localStorage';
+import { getUserInited, initAuthData } from '@/entities/user';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
+import { PageLoader } from '@/shared/ui/PageLoader';
 import { Navbar } from '@/widgets/navbar';
 import { Sidebar } from '@/widgets/sidebar';
 
 function App() {
     const { theme } = useTheme();
-    const dispatch = useDispatch();
-    // const inited = useSelector(getUserInited);
+    const dispatch = useAppDispatch();
+    const inited = useSelector(getUserInited);
 
     useEffect(() => {
-        const user = localStorage.getItem(USER_LOCALSTORAGE_KEY);
-        if (user) {
-            const json = JSON.parse(user) as User;
-            dispatch(userActions.initAuthData(json));
-        }
+        dispatch(initAuthData());
     }, [dispatch]);
+
+    if (!inited) {
+        return <PageLoader />;
+    }
 
     return (
         <div className={classNames('app', {}, [theme])}>
