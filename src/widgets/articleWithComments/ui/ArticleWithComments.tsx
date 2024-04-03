@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import { ArticleDetails, getArticleDetailsData, getArticleDetailsIsLoading } from '@/entities/article';
@@ -5,7 +6,8 @@ import { Counter } from '@/entities/counter';
 import { AddCommentsForArticle } from '@/features/addComments';
 import { ArticleRating } from '@/features/articleRating';
 import { ArticleRecommendationList } from '@/features/articleRecommendationList';
-import { getFeatureFlag, toggleFeature } from '@/shared/lib/features';
+import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
+import { Card } from '@/shared/ui/Card';
 import { VStack } from '@/shared/ui/Stack';
 
 interface ArticleWithCommentsProps {
@@ -14,12 +16,11 @@ interface ArticleWithCommentsProps {
 
 export const ArticleWithComments = (props: ArticleWithCommentsProps) => {
     const { id } = props;
+    const { t } = useTranslation();
     const isLoading = useSelector(getArticleDetailsIsLoading);
     const article = useSelector(getArticleDetailsData);
 
-    const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled');
-
-    const counter = toggleFeature({
+    const counter = toggleFeatures({
         name: 'isCounterEnabled',
         on: () => <Counter />,
         off: () => null,
@@ -28,8 +29,13 @@ export const ArticleWithComments = (props: ArticleWithCommentsProps) => {
     return (
         <VStack gap="32">
             <ArticleDetails id={id} isLoading={isLoading} data={article} />
-            {article && isArticleRatingEnabled && <ArticleRating articleId={id} />}
-            {counter}
+            {article && (
+                <ToggleFeatures
+                    name="isArticleRatingEnabled"
+                    on={<ArticleRating articleId={id} />}
+                    off={<Card>{t('Оценка статьи скоро появится')}</Card>}
+                />
+            )}
             {article && <ArticleRecommendationList />}
             {article && <AddCommentsForArticle id={id} />}
         </VStack>
