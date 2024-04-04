@@ -18,6 +18,9 @@ export const scrollSaveSlice = createSlice({
         setScrollPosition: (state, { payload }: PayloadAction<ScrollSavePayload>) => {
             state.scroll[payload.path] = payload.position;
         },
+        resetScrollPosition: (state) => {
+            state.scroll = {};
+        },
     },
 });
 

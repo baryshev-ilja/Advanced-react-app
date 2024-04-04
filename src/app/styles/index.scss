@@ -1,4 +1,5 @@
 @import "reset";
+@import "fonts/fonts";
 @import "variables/global";
 @import "themes/normal";
 @import "themes/dark";
@@ -21,6 +22,15 @@ li {
     display: grid;
     grid-template-rows: var(--navbar-height) 1fr;
     grid-template-columns: minmax(0, 1fr);
+}
+
+.app-redesigned {
+    background: var(--bg-redesigned);
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    font: var(--font-m-gilroy-medium);
+    color: var(--font-ui-secondary-redesigned);
 }
 
 .content-page {

@@ -1,17 +1,15 @@
-import { useDispatch } from 'react-redux';
-
 import { useGetCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
-import { counterActions } from '../model/slice/counterSlice';
+import { useCounterActions } from '../model/slice/counterSlice';
 
 export const Counter = () => {
-    const dispatch = useDispatch();
     const counterValue = useGetCounterValue();
+    const { decrement, increment } = useCounterActions();
 
-    const decrement = () => {
-        dispatch(counterActions.decrement());
+    const handleDecrement = () => {
+        decrement();
     };
-    const increment = () => {
-        dispatch(counterActions.increment());
+    const handleIncrement = () => {
+        increment();
     };
 
     return (
@@ -21,7 +19,7 @@ export const Counter = () => {
             <button
                 type="button"
                 data-testid="increment-btn"
-                onClick={increment}
+                onClick={handleIncrement}
             >
                 +
             </button>
@@ -29,7 +27,7 @@ export const Counter = () => {
             <button
                 type="button"
                 data-testid="decrement-btn"
-                onClick={decrement}
+                onClick={handleDecrement}
             >
                 -
             </button>

@@ -1,38 +1,61 @@
 import { Suspense, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import AppRouter from './providers/Router/ui/AppRouter';
 
-import { userActions } from '@/entities/user';
-import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localStorage';
+import { getUserInited, initAuthData } from '@/entities/user';
+import { MainLayout } from '@/shared/layouts/MainLayout';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
-import { Navbar } from '@/widgets/navbar';
-import { Sidebar } from '@/widgets/sidebar';
+import { PageLoader } from '@/shared/ui/PageLoader';
+import { Navbar, NavbarRedesigned } from '@/widgets/navbar';
+import { Sidebar, SidebarRedesigned } from '@/widgets/sidebar';
+import { Toolbar } from '@/widgets/toolbar';
 
 function App() {
     const { theme } = useTheme();
-    const dispatch = useDispatch();
-    // const inited = useSelector(getUserInited);
+    const dispatch = useAppDispatch();
+    const inited = useSelector(getUserInited);
 
     useEffect(() => {
-        const user = localStorage.getItem(USER_LOCALSTORAGE_KEY);
-        if (user) {
-            dispatch(userActions.initAuthData(JSON.parse(user)));
-        }
+        dispatch(initAuthData());
     }, [dispatch]);
 
+    if (!inited) {
+        return <PageLoader />;
+    }
+
     return (
-        <div className={classNames('app', {}, [theme])}>
-            <Suspense fallback="">
-                <Navbar />
-                <div className="content-page">
-                    <Sidebar />
-                    {/* {inited && <AppRouter />} */}
-                    <AppRouter />
+        <ToggleFeatures
+            name="isAppRedesigned"
+            on={(
+                <div className={classNames('app-redesigned', {}, [theme])}>
+                    <Suspense fallback="">
+                        <MainLayout
+                            content={<AppRouter />}
+                            header={<NavbarRedesigned />}
+                            sidebar={<SidebarRedesigned />}
+                            rightbar={<div>1241234123432</div>}
+                            toolbar={<Toolbar />}
+                        />
+                    </Suspense>
                 </div>
-            </Suspense>
-        </div>
+            )}
+            off={(
+                <div className={classNames('app', {}, [theme])}>
+                    <Suspense fallback="">
+                        <Navbar />
+                        <div className="content-page">
+                            <Sidebar />
+                            {/* {inited && <AppRouter />} */}
+                            <AppRouter />
+                        </div>
+                    </Suspense>
+                </div>
+            )}
+        />
     );
 }
 

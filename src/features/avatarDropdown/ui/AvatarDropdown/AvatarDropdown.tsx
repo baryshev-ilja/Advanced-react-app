@@ -11,6 +11,8 @@ import {
 import { AppRoutePaths } from '@/shared/const/routerConsts';
 import { Avatar } from '@/shared/ui/Avatar';
 import { DropDown, MenuDropdownItem } from '@/shared/ui/Popups';
+// eslint-disable-next-line baryshewww/layers-import
+import { scrollSaveActions } from '@/widgets/page';
 
 interface AvatarDropdownProps {
     className?: string;
@@ -26,6 +28,7 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
 
     const onLogout = useCallback(() => {
         dispatch(userActions.logout());
+        dispatch(scrollSaveActions.resetScrollPosition());
     }, [dispatch]);
 
     const isAdminPanelAvailable = isAdmin || isManager;

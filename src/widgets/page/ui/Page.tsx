@@ -7,6 +7,7 @@ import { scrollSaveActions } from '../model/slice/scrollSaveSlice';
 
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { toggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInffinteScroll';
@@ -52,7 +53,11 @@ export const Page = (props: PageProps) => {
     return (
         <section
             ref={wrapperRef}
-            className={classNames(cls.page, {}, [className])}
+            className={classNames(toggleFeatures({
+                name: 'isAppRedesigned',
+                on: () => cls.pageRedesigned,
+                off: () => cls.page,
+            }), {}, [className])}
             onScroll={onScrollHandler}
             data-testid={dataTestId}
         >

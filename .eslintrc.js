@@ -66,6 +66,7 @@ module.exports = {
         'no-param-reassign': 'off',
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
+        'react/no-unstable-nested-components': 'warn',
         'arrow-body-style': 'off',
         'unused-imports/no-unused-imports': 'error',
         'baryshewww/path-checker': ['error', { alias: '@' }],
