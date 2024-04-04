@@ -1,6 +1,7 @@
 import { addDecorator } from '@storybook/react';
 
 import { RouterDecorator } from '../../src/shared/config/storybook/RouterDecorator';
+import { StoreDecorator } from '../../src/shared/config/storybook/StoreDecorator';
 import { StyleDecorator } from '../../src/shared/config/storybook/StyleDecorator';
 import { SuspenseDecorator } from '../../src/shared/config/storybook/SuspenseDecorator';
 import { WrapperDecorator } from '../../src/shared/config/storybook/WrapperDecorator';
@@ -28,3 +29,4 @@ addDecorator(StyleDecorator);
 addDecorator(RouterDecorator);
 addDecorator(SuspenseDecorator);
 addDecorator(WrapperDecorator());
+addDecorator(StoreDecorator({ user: {} }));
