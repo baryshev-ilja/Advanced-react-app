@@ -941,14 +941,15 @@
       "password": "123",
       "features": {
         "isArticleRatingEnabled": true,
-        "isCounterEnabled": false
+        "isCounterEnabled": false,
+        "isAppRedesigned": true
       },
       "roles": [
         "ADMIN"
       ],
       "avatar": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "jsonSettings": {
-        "theme": "app-gray-theme",
+        "theme": "app-dark-theme",
         "isFirstVisit": false,
         "isArticlesPageWasOpened": true
       }
@@ -966,7 +967,7 @@
       ],
       "avatar": "https://www.pavilionweb.com/wp-content/uploads/2017/03/man.png",
       "jsonSettings": {
-        "theme": "app-dark-theme",
+        "theme": "app-light-theme",
         "isFirstVisit": false,
         "isArticlesPageWasOpened": true
       }

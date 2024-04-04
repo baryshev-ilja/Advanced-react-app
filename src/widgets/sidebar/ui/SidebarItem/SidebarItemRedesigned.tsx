@@ -8,17 +8,15 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink } from '@/shared/ui/AppLink/AppLink';
 import { HStack } from '@/shared/ui/Stack';
 
-import cls from './SidebarItem.module.scss';
+import cls from './SidebarItemRedesigned.module.scss';
 
-interface SidebarItemProps {
+interface SidebarItemRedesignedProps {
     item: SidebarItemType;
-    collapsed?: boolean
 }
 
-export const SidebarItem = (props: SidebarItemProps) => {
+export const SidebarItemRedesigned = (props: SidebarItemRedesignedProps) => {
     const {
         item,
-        collapsed,
     } = props;
     const { t } = useTranslation();
 
@@ -30,7 +28,7 @@ export const SidebarItem = (props: SidebarItemProps) => {
 
     return (
         <AppLink
-            className={classNames('', { [cls.sidebarCollapsed]: collapsed })}
+            className={classNames('', {}, [])}
             to={item.path}
 
         >
