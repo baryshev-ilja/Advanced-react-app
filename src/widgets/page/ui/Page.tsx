@@ -55,8 +55,8 @@ export const Page = (props: PageProps) => {
             ref={wrapperRef}
             className={classNames(toggleFeatures({
                 name: 'isAppRedesigned',
-                on: () => cls.pageRedesigned,
-                off: () => cls.page,
+                on: () => `${cls.pageRedesigned}`,
+                off: () => `${cls.page}`,
             }), {}, [className])}
             onScroll={onScrollHandler}
             data-testid={dataTestId}
