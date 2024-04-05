@@ -30,7 +30,7 @@ export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
             onClick={toggleThemeHandler}
             className={classNames('', {}, [className])}
         >
-            <Icon />
+            <Icon width={40} height={40} />
         </Button>
     );
 });

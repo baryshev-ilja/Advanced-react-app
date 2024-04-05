@@ -967,7 +967,7 @@
       ],
       "avatar": "https://www.pavilionweb.com/wp-content/uploads/2017/03/man.png",
       "jsonSettings": {
-        "theme": "app-light-theme",
+        "theme": "app-dark-theme",
         "isFirstVisit": false,
         "isArticlesPageWasOpened": true
       }
