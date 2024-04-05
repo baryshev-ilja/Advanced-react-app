@@ -949,7 +949,7 @@
       ],
       "avatar": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "jsonSettings": {
-        "theme": "app-dark-theme",
+        "theme": "app-light-theme",
         "isFirstVisit": false,
         "isArticlesPageWasOpened": true
       }

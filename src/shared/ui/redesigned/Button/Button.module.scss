@@ -1,0 +1,42 @@
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 16px;
+    height: 40px;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.clear {
+    margin: 0;
+    padding: 0;
+    background: none;
+}
+
+.primary {
+    background: var(--button-redesigned);
+}
+
+.auth {
+    background: var(--bg-select-redesigned);
+    color: var(--font-ui-secondary-redesigned);
+}
+
+.theme-switcher {
+    background: var(--bg-input-redesigned);
+}
+
+.view-switcher {
+    background: var(--bg-select-redesigned);
+}
+
+.disabled {
+    opacity: 0.5;
+}
+
+.full-width {
+    width: 100%;
+}

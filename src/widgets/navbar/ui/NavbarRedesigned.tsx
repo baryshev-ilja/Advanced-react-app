@@ -4,11 +4,13 @@ import { useSelector } from 'react-redux';
 
 import { getUserAuthData, userActions } from '@/entities/user';
 import { LoginModal } from '@/features/authByUsername';
-import clsContainer from '@/shared/layouts/container.module.scss';
+import LoginIcon from '@/shared/assets/newIcons/login-icon.svg';
+import LogoutIcon from '@/shared/assets/newIcons/logout-icon.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { HStack } from '@/shared/ui/deprecated/Stack';
+import { Button } from '@/shared/ui/redesigned/Button';
+import { Icon } from '@/shared/ui/redesigned/Icon';
 // eslint-disable-next-line baryshewww/layers-import
 import { scrollSaveActions } from '@/widgets/page';
 
@@ -41,42 +43,54 @@ export const NavbarRedesigned = memo((props: NavbarRedesignedProps) => {
     if (authData) {
         return (
             <header className={classNames(cls.navbarRedesigned, {}, [className])}>
-                <div className={clsContainer.container}>
-                    <HStack justify="end" className={cls.navbarInner}>
-                        <Button
-                            theme={ButtonTheme.CLEAR_INVERTED}
-                            onClick={onLogout}
-                        >
-                            {t('Выйти')}
-                        </Button>
-                        <LoginModal
-                            isOpen={isAuthModal}
-                            onClose={onCloseModal}
-                            isSuccessAuth={Boolean(authData)}
+                <HStack
+                    justify="end"
+                    align="center"
+                    className={classNames(cls.navbarInner, {}, [])}
+                >
+                    <Button
+                        variant="auth"
+                        onClick={onLogout}
+                    >
+                        <Icon
+                            Svg={LogoutIcon}
+                            className={cls.iconAuth}
+                            width={22}
+                            height={22}
                         />
-                    </HStack>
-                </div>
+                        {t('Выйти')}
+                    </Button>
+                    <LoginModal
+                        isOpen={isAuthModal}
+                        onClose={onCloseModal}
+                        isSuccessAuth={Boolean(authData)}
+                    />
+                </HStack>
             </header>
         );
     }
 
     return (
         <header className={classNames(cls.navbarRedesigned, {}, [className])}>
-            <div className={clsContainer.container}>
-                <HStack justify="end" className={cls.navbarInner}>
-                    <Button
-                        theme={ButtonTheme.CLEAR_INVERTED}
-                        onClick={onOpenModal}
-                    >
-                        {t('Войти')}
-                    </Button>
-                    <LoginModal
-                        isOpen={isAuthModal}
-                        onClose={onCloseModal}
-                        isSuccessAuth={authData}
+            <HStack justify="end" align="center" className={cls.navbarInner}>
+                <Button
+                    variant="auth"
+                    onClick={onOpenModal}
+                >
+                    <Icon
+                        Svg={LoginIcon}
+                        className={cls.iconAuth}
+                        width={22}
+                        height={22}
                     />
-                </HStack>
-            </div>
+                    {t('Войти')}
+                </Button>
+                <LoginModal
+                    isOpen={isAuthModal}
+                    onClose={onCloseModal}
+                    isSuccessAuth={authData}
+                />
+            </HStack>
         </header>
     );
 });

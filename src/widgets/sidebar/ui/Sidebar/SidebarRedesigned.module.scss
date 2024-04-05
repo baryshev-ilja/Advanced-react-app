@@ -1,6 +1,4 @@
 .sidebar-redesigned {
-    display: grid;
-    gap: 32px;
     position: sticky;
     top: 105px;
 }
@@ -9,4 +7,9 @@
     width: 218px;
     height: 182px;
     background: var(--bg-light-redesigned);
+}
+
+.icon-add {
+    color: #fff;
+    margin-left: 8px;
 }
