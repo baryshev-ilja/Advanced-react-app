@@ -7,8 +7,8 @@ import { AddCommentsForArticle } from '@/features/addComments';
 import { ArticleRating } from '@/features/articleRating';
 import { ArticleRecommendationList } from '@/features/articleRecommendationList';
 import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
-import { Card } from '@/shared/ui/Card';
-import { VStack } from '@/shared/ui/Stack';
+import { Card } from '@/shared/ui/deprecated/Card';
+import { VStack } from '@/shared/ui/deprecated/Stack';
 
 interface ArticleWithCommentsProps {
     id: string;

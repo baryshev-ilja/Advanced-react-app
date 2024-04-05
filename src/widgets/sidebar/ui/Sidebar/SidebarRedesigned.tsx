@@ -6,9 +6,9 @@ import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import { SidebarItemRedesigned } from '../SidebarItem/SidebarItemRedesigned';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { CardUI } from '@/shared/ui/CardUI';
-import { VStack } from '@/shared/ui/Stack';
-import { ThemeSwitcher } from '@/shared/ui/ThemeSwitcher';
+import { VStack } from '@/shared/ui/deprecated/Stack';
+import { ThemeSwitcher } from '@/shared/ui/deprecated/ThemeSwitcher';
+import { CardUI } from '@/shared/ui/redesigned/CardUI';
 
 import cls from './SidebarRedesigned.module.scss';
 

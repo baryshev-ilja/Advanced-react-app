@@ -5,10 +5,10 @@ import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
-import { LangSwitcher } from '@/shared/ui/LangSwitcher/LangSwitcher';
-import { VStack } from '@/shared/ui/Stack';
-import { ThemeSwitcher } from '@/shared/ui/ThemeSwitcher';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button/Button';
+import { LangSwitcher } from '@/shared/ui/deprecated/LangSwitcher/LangSwitcher';
+import { VStack } from '@/shared/ui/deprecated/Stack';
+import { ThemeSwitcher } from '@/shared/ui/deprecated/ThemeSwitcher';
 
 import cls from './Sidebar.module.scss';
 

@@ -6,9 +6,9 @@ import { useTranslation } from 'react-i18next';
 import { saveUserJsonSettings, useUserJsonSettings } from '@/entities/user';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice';
-import { Drawer } from '@/shared/ui/Drawer';
-import { Modal } from '@/shared/ui/Modal';
-import { Text } from '@/shared/ui/Text';
+import { Drawer } from '@/shared/ui/deprecated/Drawer';
+import { Modal } from '@/shared/ui/deprecated/Modal';
+import { Text } from '@/shared/ui/deprecated/Text';
 
 export const ArticlesPageGreeting = memo(() => {
     const { t } = useTranslation();

@@ -12,7 +12,7 @@ import { DynamicReducerLoad, ReducersList } from '@/shared/lib/HOC/DynamicReduce
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { VStack } from '@/shared/ui/Stack';
+import { VStack } from '@/shared/ui/deprecated/Stack';
 import { Page } from '@/widgets/page';
 
 interface ArticlesPageProps {

@@ -9,8 +9,8 @@ import {
     userActions,
 } from '@/entities/user';
 import { AppRoutePaths } from '@/shared/const/routerConsts';
-import { Avatar } from '@/shared/ui/Avatar';
-import { DropDown, MenuDropdownItem } from '@/shared/ui/Popups';
+import { Avatar } from '@/shared/ui/deprecated/Avatar';
+import { DropDown, MenuDropdownItem } from '@/shared/ui/deprecated/Popups';
 // eslint-disable-next-line baryshewww/layers-import
 import { scrollSaveActions } from '@/widgets/page';
 
