@@ -20,10 +20,6 @@ interface OverlayProps {
     style?: StyleAttrForSpringLib;
 }
 
-/**
- * Устарел, используем новые компоненты из папки redesigned
- * @deprecated
- */
 export const Overlay = memo((props: OverlayProps) => {
     const {
         className,

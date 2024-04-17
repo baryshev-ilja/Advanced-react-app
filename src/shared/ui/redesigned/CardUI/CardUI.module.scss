@@ -1,7 +1,68 @@
 .card-ui {
     display: grid;
-    gap: 16px;
-    border-radius: 16px;
-    padding: 16px;
     overflow: hidden;
+}
+
+.p-0 {
+    padding: 0;
+}
+
+.p-4 {
+    padding: 4px;
+}
+
+.p-8 {
+    padding: 8px;
+}
+
+.p-16 {
+    padding: 16px;
+}
+
+.p-24 {
+    padding: 24px;
+}
+
+.gap-0 {
+    gap: 0;
+}
+
+.gap-4 {
+    gap: 4px;
+}
+
+.gap-8 {
+    gap: 8px;
+}
+
+.gap-16 {
+    gap: 16px;
+}
+
+.gap-24 {
+    gap: 24px;
+}
+
+.b-0 {
+    border-radius: 0;
+}
+
+.b-4 {
+    border-radius: 4px;
+}
+
+.b-8 {
+    border-radius: 8px;
+}
+
+.b-16 {
+    border-radius: 16px;
+}
+
+.b-24 {
+    border-radius: 24px;
+}
+
+.b-32 {
+    border-radius: 32px;
 }

@@ -1,8 +1,8 @@
 import { Listbox as HListBox } from '@headlessui/react';
 import { Fragment, ReactNode } from 'react';
 
+import { HStack } from '../../../../redesigned/Stack';
 import { Button, ButtonTheme } from '../../../Button/Button';
-import { HStack } from '../../../Stack';
 import clsPopup from '../../styles/popup.module.scss';
 
 import { classNames } from '@/shared/lib/classNames/classNames';

@@ -1,7 +1,7 @@
 import { ReactNode, useCallback } from 'react';
 
+import { HStack } from '../../redesigned/Stack';
 import { Card, CardTheme } from '../Card/Card';
-import { HStack } from '../Stack';
 
 import { typedMemo } from '@/shared/const/typedMemo';
 

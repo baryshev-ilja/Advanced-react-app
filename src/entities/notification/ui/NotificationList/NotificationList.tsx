@@ -4,8 +4,9 @@ import { useNotifications } from '../../api/notificationApi';
 import { NotificationItem } from '../NotificationItem/NotificationItem';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 
 import cls from './NotificationList.module.scss';
 
@@ -30,10 +31,22 @@ export const NotificationList = memo((props: NotificationListProps) => {
     }
 
     return (
-        <VStack gap="8" className={classNames(cls.notificationList, {}, [className])}>
-            {notifications?.map((item) => (
-                <NotificationItem key={item.id} item={item} />
-            ))}
-        </VStack>
+        <ToggleFeatures
+            name="isAppRedesigned"
+            on={(
+                <VStack gap="24" className={classNames(cls.notificationList, {}, [className])}>
+                    {notifications?.map((item) => (
+                        <NotificationItem key={item.id} item={item} />
+                    ))}
+                </VStack>
+            )}
+            off={(
+                <VStack gap="8" className={classNames(cls.notificationList, {}, [className])}>
+                    {notifications?.map((item) => (
+                        <NotificationItem key={item.id} item={item} />
+                    ))}
+                </VStack>
+            )}
+        />
     );
 });

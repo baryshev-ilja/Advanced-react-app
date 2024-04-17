@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { ArticleSortTypes } from '@/entities/article';
 import { TypesOfOrders } from '@/shared/types/orderTypes';
 import { OptionsList, Select } from '@/shared/ui/deprecated/Select';
-import { HStack } from '@/shared/ui/deprecated/Stack';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 interface SortArticleListProps {
     sortValue: ArticleSortTypes;

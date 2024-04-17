@@ -1,0 +1,23 @@
+.popup {
+    position: relative;
+}
+
+.btn-trigger {
+    background: none;
+    padding: 0;
+    border: none;
+    outline: none;
+}
+
+.item-bg {
+    background: none;
+}
+
+.hovered {
+    color: var(--font-ui-primary-redesigned);
+    background: var(--bg-select-redesigned);
+}
+
+.disabled {
+    opacity: 0.5;
+}

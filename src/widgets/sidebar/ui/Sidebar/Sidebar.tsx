@@ -7,8 +7,8 @@ import { SidebarItem } from '../SidebarItem/SidebarItem';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button/Button';
 import { LangSwitcher } from '@/shared/ui/deprecated/LangSwitcher/LangSwitcher';
-import { VStack } from '@/shared/ui/deprecated/Stack';
 import { ThemeSwitcher } from '@/shared/ui/deprecated/ThemeSwitcher';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 
 import cls from './Sidebar.module.scss';
 

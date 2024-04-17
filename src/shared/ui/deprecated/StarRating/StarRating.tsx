@@ -1,7 +1,7 @@
 import { memo, useState } from 'react';
 
 import StarIcon from '../../../assets/icons/star.svg';
-import { HStack } from '../Stack';
+import { HStack } from '../../redesigned/Stack';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 

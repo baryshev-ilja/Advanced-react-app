@@ -5,8 +5,8 @@ import React, {
     useEffect,
 } from 'react';
 
-import { Overlay } from '../Overlay/Overlay';
-import { Portal } from '../Portal/Portal';
+import { Overlay } from '../../redesigned/Overlay/Overlay';
+import { Portal } from '../../redesigned/Portal/Portal';
 
 import { AnimationProvider, useAnimationLibs } from '@/shared/lib/HOC/AnimationProvider/AnimationProvider';
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';

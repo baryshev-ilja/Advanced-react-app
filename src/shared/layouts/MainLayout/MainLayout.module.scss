@@ -28,7 +28,8 @@
     width: 100%;
     max-width: 1294px;
     margin: 0 auto;
-    padding-right: 118px;
+    padding-right: 134px;
+    padding-left: 16px;
     grid-template-areas: "sidebar main-content rightbar";
     grid-template-columns: 218px minmax(20px, 1fr) 264px;
     grid-column-gap: 16px;
@@ -60,5 +61,8 @@
     position: fixed;
     top: 105px;
     right: 0;
-    width: 96px;
+    width: 118px;
+    padding-right: 16px;
+    display: flex;
+    justify-content: flex-end;
 }

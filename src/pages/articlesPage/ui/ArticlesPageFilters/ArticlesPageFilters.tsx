@@ -20,8 +20,8 @@ import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
 import { TypesOfOrders } from '@/shared/types/orderTypes';
 import { Card } from '@/shared/ui/deprecated/Card';
 import { Input } from '@/shared/ui/deprecated/Input';
-import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
 import { Tabs, TabsItem } from '@/shared/ui/deprecated/Tabs';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 
 import cls from './ArticlesPageFilters.module.scss';
 

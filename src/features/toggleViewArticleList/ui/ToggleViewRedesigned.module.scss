@@ -1,0 +1,43 @@
+.toggle-view {
+    display: flex;
+    width: 70px;
+    border-radius: 50px;
+    padding: 5px;
+    position: relative;
+
+    &::before {
+        position: absolute;
+        content: "";
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: var(--bg-light-redesigned);
+        transition: transform 0.15s ease-in-out;
+    }
+}
+
+.grid-icon {
+    display: flex;
+    position: absolute;
+    right: 11px;
+    color: var(--toggle-icon-redesigned);
+}
+
+.list-icon {
+    display: flex;
+    position: absolute;
+    left: 11px;
+    color: var(--toggle-icon-redesigned);
+}
+
+.list-view {
+    &::before {
+        transform: translateX(-14px);
+    }
+}
+
+.grid-view {
+    &::before {
+        transform: translateX(14px);
+    }
+}

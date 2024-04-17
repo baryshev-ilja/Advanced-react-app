@@ -1133,6 +1133,12 @@
       "profileId": "2",
       "rate": 4,
       "id": 1
+    },
+    {
+      "userId": "1",
+      "profileId": "1",
+      "rate": 4,
+      "id": 2
     }
   ]
 }

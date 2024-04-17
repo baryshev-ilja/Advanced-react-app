@@ -6,7 +6,7 @@ import { SidebarItemType } from '../../model/types/sidebar';
 import { getUserAuthData } from '@/entities/user';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppLink } from '@/shared/ui/deprecated/AppLink/AppLink';
-import { HStack } from '@/shared/ui/deprecated/Stack';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 import cls from './SidebarItem.module.scss';
 

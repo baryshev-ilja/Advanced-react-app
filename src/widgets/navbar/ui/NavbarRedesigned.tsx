@@ -4,13 +4,14 @@ import { useSelector } from 'react-redux';
 
 import { getUserAuthData, userActions } from '@/entities/user';
 import { LoginModal } from '@/features/authByUsername';
+import AppLogoLight from '@/shared/assets/newIcons/app-logo-light.svg';
 import LoginIcon from '@/shared/assets/newIcons/login-icon.svg';
 import LogoutIcon from '@/shared/assets/newIcons/logout-icon.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { HStack } from '@/shared/ui/deprecated/Stack';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { Icon } from '@/shared/ui/redesigned/Icon';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 // eslint-disable-next-line baryshewww/layers-import
 import { scrollSaveActions } from '@/widgets/page';
 
@@ -44,10 +45,11 @@ export const NavbarRedesigned = memo((props: NavbarRedesignedProps) => {
         return (
             <header className={classNames(cls.navbarRedesigned, {}, [className])}>
                 <HStack
-                    justify="end"
+                    justify="between"
                     align="center"
                     className={classNames(cls.navbarInner, {}, [])}
                 >
+                    <Icon Svg={AppLogoLight} width={359} height={45} />
                     <Button
                         variant="auth"
                         onClick={onLogout}
