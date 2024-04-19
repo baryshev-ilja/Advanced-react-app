@@ -1,0 +1,31 @@
+.skeleton {
+    width: 100%;
+    height: 50px;
+    position: relative;
+    background:
+        linear-gradient(
+            90deg,
+            var(--bg-menu-active-redesigned) 25%,
+            var(--skeleton-light-redesigned) 50%,
+            var(--bg-menu-active-redesigned) 85%
+        ) var(--bg-menu-active-redesigned);
+    background-size: 200% 100%;
+    background-color: var(--bg-menu-active-redesigned);
+    background-position-x: 165%;
+    animation: 1s load cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    overflow: hidden;
+}
+
+.skeleton.delay {
+    animation-delay: 0.04s;
+}
+
+.skeleton.delay-slow {
+    animation-delay: 0.08s;
+}
+
+@keyframes load {
+    to {
+        background-position-x: -35%;
+    }
+}

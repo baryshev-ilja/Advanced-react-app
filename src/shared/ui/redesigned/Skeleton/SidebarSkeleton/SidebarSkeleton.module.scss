@@ -1,0 +1,19 @@
+.sidebar-redesigned {
+    position: sticky;
+    top: 105px;
+}
+
+.ui-block {
+    width: 218px;
+    height: 182px;
+    background: var(--bg-light-redesigned);
+}
+
+.navLink {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 40px;
+    width: 100%;
+    padding: 0 8px;
+}
