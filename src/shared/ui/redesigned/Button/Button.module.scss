@@ -33,6 +33,12 @@
     background: var(--bg-select-redesigned);
 }
 
+.select {
+    color: var(--font-ui-select-redesigned);
+    background: var(--bg-select-redesigned);
+    justify-content: flex-start;
+}
+
 .disabled {
     opacity: 0.5;
 }

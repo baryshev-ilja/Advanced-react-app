@@ -4,7 +4,7 @@ import { AdditionalCls, classNames, Mods } from '@/shared/lib/classNames/classNa
 
 import cls from './Button.module.scss';
 
-export type ButtonVariant = 'clear' | 'primary' | 'auth' | 'themeSwitcher' | 'viewSwitcher';
+export type ButtonVariant = 'clear' | 'primary' | 'auth' | 'themeSwitcher' | 'viewSwitcher' | 'select';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
     className?: string;

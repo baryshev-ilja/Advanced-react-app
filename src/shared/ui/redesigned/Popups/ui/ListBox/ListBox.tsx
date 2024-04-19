@@ -1,5 +1,5 @@
 import { Listbox as HListBox } from '@headlessui/react';
-import { Fragment, ReactNode } from 'react';
+import { Fragment, ReactNode, useMemo } from 'react';
 
 import { Button } from '../../../Button/Button';
 import { HStack } from '../../../Stack';
@@ -10,28 +10,24 @@ import { DropdownDirection } from '@/shared/types/ui';
 
 import cls from './ListBox.module.scss';
 
-export interface ListBoxItem {
-    value: string;
+export interface ListBoxItem<T extends string> {
+    value: T;
     content: ReactNode;
     disabled?: boolean;
 }
 
-interface ListBoxProps {
+interface ListBoxProps<T extends string> {
     className?: string;
-    items?: ListBoxItem[];
+    items?: ListBoxItem<T>[];
     currentValue?: string;
     defaultValue?: string;
-    onChange: (value: string) => void;
+    onChange: (value: T) => void;
     readonly?: boolean;
     label?: string;
     direction?: DropdownDirection;
 }
 
-/**
- * Устарел, используем новые компоненты из папки redesigned
- * @deprecated
- */
-export function ListBox(props: ListBoxProps) {
+export function ListBox<T extends string>(props: ListBoxProps<T>) {
     const {
         className,
         items,
@@ -42,6 +38,10 @@ export function ListBox(props: ListBoxProps) {
         label,
         direction = 'topRight',
     } = props;
+
+    const selectedItem = useMemo(() => {
+        return items?.find((item) => item.value === currentValue);
+    }, [currentValue, items]);
 
     return (
         <HStack gap="8">
@@ -57,9 +57,11 @@ export function ListBox(props: ListBoxProps) {
                     as="div"
                 >
                     <Button
+                        className={className}
                         disabled={readonly}
+                        variant="select"
                     >
-                        {currentValue ?? defaultValue}
+                        {selectedItem?.content ?? defaultValue}
                     </Button>
                 </HListBox.Button>
 
@@ -75,9 +77,9 @@ export function ListBox(props: ListBoxProps) {
                                 <li className={classNames(cls.item, {
                                     [clsPopup.hovered]: active,
                                     [clsPopup.disabled]: item.disabled,
+                                    [clsPopup.current]: selected,
                                 }, [])}
                                 >
-                                    {selected && '!!'}
                                     {item.content}
                                 </li>
                             )}
