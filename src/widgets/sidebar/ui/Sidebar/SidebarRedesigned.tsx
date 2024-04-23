@@ -6,6 +6,7 @@ import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import { SidebarItemRedesigned } from '../SidebarItem/SidebarItemRedesigned';
 
 import { getUserAuthData } from '@/entities/user';
+import { LangSwitcher } from '@/features/toggleLanguage';
 import AddIcon from '@/shared/assets/newIcons/add-icon.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button } from '@/shared/ui/redesigned/Button';
@@ -43,6 +44,7 @@ export const SidebarRedesigned = memo((props: SidebarRedesignedProps) => {
                 </VStack>
                 <VStack gap="8">
                     <Text ui={t('Перевести на')} variant="ui" />
+                    <LangSwitcher />
                 </VStack>
             </CardUI>
             <VStack align="start" tagName="nav">
