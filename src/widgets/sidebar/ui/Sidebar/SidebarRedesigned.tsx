@@ -12,6 +12,7 @@ import { Button } from '@/shared/ui/redesigned/Button';
 import { CardUI } from '@/shared/ui/redesigned/CardUI';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import { VStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
 import { ThemeSwitcher } from '@/shared/ui/redesigned/ThemeSwitcher';
 
 import cls from './SidebarRedesigned.module.scss';
@@ -35,11 +36,13 @@ export const SidebarRedesigned = memo((props: SidebarRedesignedProps) => {
 
     return (
         <VStack gap="32" className={classNames(cls.sidebarRedesigned, {}, [className])}>
-            <CardUI className={cls.uiBlock} padding="16" borderRadius="16">
+            <CardUI className={cls.uiBlock} padding="16" gap="16" borderRadius="16">
                 <VStack gap="8">
-                    <span className={cls.titleSidebarBlock}>{t('Выбор темы')}</span>
+                    <Text ui={t('Выбор темы')} variant="ui" />
                     <ThemeSwitcher />
-                    <span style={{ marginTop: '8px' }} className={cls.titleSidebarBlock}>{t('Перевести на')}</span>
+                </VStack>
+                <VStack gap="8">
+                    <Text ui={t('Перевести на')} variant="ui" />
                 </VStack>
             </CardUI>
             <VStack align="start" tagName="nav">

@@ -3,13 +3,16 @@ import { useTranslation } from 'react-i18next';
 import { ArticleSortTypes, ArticleView } from '@/entities/article';
 import { SortByFiltersArticleList } from '@/features/sortArticleList';
 import { ToggleViewRedesigned } from '@/features/toggleViewArticleList';
+import SearchIcon from '@/shared/assets/newIcons/search-icon.svg';
 import { typedMemo } from '@/shared/const/typedMemo';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { TypesOfOrders } from '@/shared/types/orderTypes';
-import { Input } from '@/shared/ui/deprecated/Input';
 import { CardUI } from '@/shared/ui/redesigned/CardUI';
+import { Icon } from '@/shared/ui/redesigned/Icon';
+import { Input } from '@/shared/ui/redesigned/Input';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Tabs, TabsItem } from '@/shared/ui/redesigned/Tabs';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 import cls from './ArticlesFilters.module.scss';
 
@@ -47,19 +50,25 @@ export const ArticlesFilters = typedMemo(<T extends string>(props: ArticlesFilte
     return (
         <VStack gap="16" className={classNames(cls.articlesFilters, {}, [className])}>
             <CardUI gap="16" padding="16" borderRadius="16" className={cls.uiBlock}>
+                <Input
+                    labelElement={t('Поиск')}
+                    value={search}
+                    onChange={onChangeSearch}
+                    placeholder={t('Найти')}
+                    iconInput={(
+                        <Icon
+                            Svg={SearchIcon}
+                            width={22}
+                            height={22}
+                        />
+                    )}
+                />
                 <VStack gap="8">
-                    <span>{t('Поиск')}</span>
-                    <Input
-                        value={search}
-                        onChange={onChangeSearch}
-                    />
-                </VStack>
-                <VStack gap="8">
-                    <span>{t('Выбор отображения')}</span>
+                    <Text ui={t('Выбор отображения')} variant="ui" />
                     <ToggleViewRedesigned view={view} onClickView={onClickView} />
                 </VStack>
                 <VStack gap="8">
-                    <span>{t('Сортировать по')}</span>
+                    <Text ui={t('Сортировать по')} variant="ui" />
                     <SortByFiltersArticleList
                         orderValue={order}
                         sortValue={sort}
