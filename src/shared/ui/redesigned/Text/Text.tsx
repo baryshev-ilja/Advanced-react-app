@@ -4,7 +4,7 @@ import { AdditionalCls, classNames } from '@/shared/lib/classNames/classNames';
 
 import cls from './Text.module.scss';
 
-export type VariantText = 'primary' | 'error';
+export type VariantText = 'primary' | 'error' | 'ui';
 export type TextAlign = 'left' | 'center' | 'right';
 export type TextSize = 'sizeS' | 'sizeM' | 'sizeL';
 export type TextWeight = 'medium' | 'semiBold';
@@ -20,6 +20,7 @@ interface TextProps {
     className?: string;
     title?: string;
     description?: string;
+    ui?: string;
     variant?: VariantText;
     align?: string;
     size?: TextSize;
@@ -32,6 +33,7 @@ export const Text = memo((props: TextProps) => {
         className,
         title,
         description,
+        ui,
         variant = 'primary',
         align = 'left',
         size = 'sizeM',
@@ -66,6 +68,14 @@ export const Text = memo((props: TextProps) => {
                 >
                     {description}
                 </p>
+            )}
+            {ui && (
+                <span
+                    className={cls.ui}
+                    data-testid={`${dataTestId}.UI`}
+                >
+                    {ui}
+                </span>
             )}
         </div>
     );
