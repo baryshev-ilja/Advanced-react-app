@@ -6,12 +6,19 @@ import { routeConfig } from '../config/routerConfig';
 import { RequireAuth } from './RequireAuth';
 
 import { AppRouteProps } from '@/shared/types/router';
-import { PageLoader } from '@/shared/ui/deprecated/PageLoader';
+import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 
 const AppRouter = () => {
     const renderWithWrapper = useCallback((route: AppRouteProps) => {
         const element = (
-            <Suspense fallback={<PageLoader />}>
+            <Suspense fallback={(
+                <Skeleton
+                    width={100}
+                    height={30}
+                    borderRadius="8px"
+                />
+            )}
+            >
                 {route.element}
             </Suspense>
         );

@@ -38,12 +38,19 @@ export const NotificationButton = (props: NotificationButtonProps) => {
             name="isAppRedesigned"
             on={(
                 <ButtonRedesigned
-                    variant="clear"
+                    variant="auth"
+                    buttonPadding="8"
+                    buttonWidth={40}
                     className={cls.buttonNotifications}
                     onClick={onOpenDrawer}
                     tagName={tagName || undefined}
                 >
-                    <Icon Svg={NotificationIconNew} width={22} height={22} />
+                    <Icon
+                        className={cls.notificationIcon}
+                        Svg={NotificationIconNew}
+                        width={22}
+                        height={22}
+                    />
                 </ButtonRedesigned>
             )}
             off={(
@@ -76,7 +83,7 @@ export const NotificationButton = (props: NotificationButtonProps) => {
             name="isAppRedesigned"
             on={(
                 <PopoverRedesigned
-                    className={classNames(cls.notificationButton, {}, [className])}
+                    className={classNames('', {}, [className])}
                     direction="bottomLeft"
                     trigger={returnTriggerBtn('span')}
                 >
@@ -85,7 +92,7 @@ export const NotificationButton = (props: NotificationButtonProps) => {
             )}
             off={(
                 <PopoverDeprecated
-                    className={classNames(cls.notificationButton, {}, [className])}
+                    className={classNames('', {}, [className])}
                     direction="bottomLeft"
                     trigger={returnTriggerBtn('span')}
                 >

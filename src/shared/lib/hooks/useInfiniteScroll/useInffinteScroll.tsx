@@ -1,9 +1,10 @@
 import { MutableRefObject, useLayoutEffect } from 'react';
 
 interface useInfiniteScrollOptions {
-    wrapperRef: MutableRefObject<HTMLElement>;
+    wrapperRef?: MutableRefObject<HTMLElement>;
     triggerRef: MutableRefObject<HTMLElement>;
     callback?: () => void;
+    onScrollForWindow: () => void;
     scrollPositionForWrapper?: number;
 }
 
@@ -12,13 +13,22 @@ export function useInfiniteScroll(props: useInfiniteScrollOptions) {
         triggerRef,
         wrapperRef,
         callback,
+        onScrollForWindow,
         scrollPositionForWrapper = 0,
     } = props;
 
     useLayoutEffect(() => {
-        const wrapperElement = wrapperRef.current;
+        const wrapperElement = wrapperRef?.current || null;
         const triggerElement = triggerRef.current;
-        wrapperElement.scrollTop = scrollPositionForWrapper;
+
+        if (wrapperElement) {
+            wrapperElement.scrollTop = scrollPositionForWrapper;
+        }
+
+        if (!wrapperElement) {
+            window.addEventListener('scroll', onScrollForWindow);
+            window.scrollTo(0, scrollPositionForWrapper);
+        }
 
         let observer: IntersectionObserver | null = null;
 
@@ -41,6 +51,7 @@ export function useInfiniteScroll(props: useInfiniteScrollOptions) {
                 // eslint-disable-next-line
                 observer.unobserve(triggerElement);
             }
+            window.removeEventListener('scroll', onScrollForWindow);
         };
-    }, [callback, scrollPositionForWrapper, triggerRef, wrapperRef]);
+    }, [callback, onScrollForWindow, scrollPositionForWrapper, triggerRef, wrapperRef]);
 }

@@ -5,7 +5,8 @@ import { NotificationItem } from '../NotificationItem/NotificationItem';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
+import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 
 import cls from './NotificationList.module.scss';
@@ -22,11 +23,23 @@ export const NotificationList = memo((props: NotificationListProps) => {
 
     if (isLoading) {
         return (
-            <VStack gap="8" className={classNames(cls.notificationList, {}, [className])}>
-                <Skeleton width="100%" borderRadius="8px" height="100px" />
-                <Skeleton width="100%" borderRadius="8px" height="100px" />
-                <Skeleton width="100%" borderRadius="8px" height="100px" />
-            </VStack>
+            <ToggleFeatures
+                name="isAppRedesigned"
+                on={(
+                    <VStack gap="8" className={classNames(cls.notificationList, {}, [className])}>
+                        <SkeletonRedesigned width="100%" borderRadius="8px" height="100px" />
+                        <SkeletonRedesigned width="100%" borderRadius="8px" height="100px" />
+                        <SkeletonRedesigned width="100%" borderRadius="8px" height="100px" />
+                    </VStack>
+                )}
+                off={(
+                    <VStack gap="8" className={classNames(cls.notificationList, {}, [className])}>
+                        <SkeletonDeprecated width="100%" borderRadius="8px" height="100px" />
+                        <SkeletonDeprecated width="100%" borderRadius="8px" height="100px" />
+                        <SkeletonDeprecated width="100%" borderRadius="8px" height="100px" />
+                    </VStack>
+                )}
+            />
         );
     }
 

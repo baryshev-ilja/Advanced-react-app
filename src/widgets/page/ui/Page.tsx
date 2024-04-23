@@ -1,4 +1,6 @@
-import { MutableRefObject, ReactNode, useRef } from 'react';
+import {
+    MutableRefObject, ReactNode, useRef,
+} from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
@@ -30,6 +32,7 @@ export const Page = (props: PageProps) => {
     } = props;
     const wrapperRef = useRef() as MutableRefObject<HTMLElement>;
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
+
     const dispatch = useAppDispatch();
     const { pathname } = useLocation();
     const scrollPosition = useSelector(
@@ -43,10 +46,22 @@ export const Page = (props: PageProps) => {
         }));
     }, 300, true);
 
+    const onScrollHandlerForWindow = useDebounce(() => {
+        dispatch(scrollSaveActions.setScrollPosition({
+            path: pathname,
+            position: window.scrollY,
+        }));
+    }, 300, true);
+
     useInfiniteScroll({
-        wrapperRef,
+        wrapperRef: toggleFeatures({
+            name: 'isAppRedesigned',
+            on: () => undefined,
+            off: () => wrapperRef,
+        }),
         triggerRef,
         callback: onEndScroll,
+        onScrollForWindow: onScrollHandlerForWindow,
         scrollPositionForWrapper: scrollPosition,
     });
 

@@ -1,0 +1,16 @@
+.content-layout {
+    display: grid;
+    grid-template-columns: 1fr 264px;
+    grid-template-areas: "content rightbar";
+    column-gap: 16px;
+}
+
+.content {
+    grid-area: content;
+    width: 100%;
+    max-width: 780px;
+}
+
+.rightbar {
+    grid-area: rightbar;
+}

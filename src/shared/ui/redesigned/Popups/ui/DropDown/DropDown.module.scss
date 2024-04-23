@@ -10,22 +10,22 @@
     box-shadow: var(--popup-shadow-redesigned);
 
     &.top-left {
-        bottom: 100%;
+        bottom: calc(100% + 8px);
         right: 0;
     }
 
     &.top-right {
-        bottom: 100%;
+        bottom: calc(100% + 8px);
         left: 0;
     }
 
     &.bottom-left {
-        top: 100%;
+        top: calc(100% + 8px);
         right: 0;
     }
 
     &.bottom-right {
-        top: 100%;
+        top: calc(100% + 8px);
         left: 0;
     }
 }
@@ -38,11 +38,7 @@
     width: 100%;
     border: none;
     outline: none;
-    color: var(--font-ui-secondary-redesigned);
+    color: var(--font-ui-primary-redesigned);
     font-weight: 500;
     cursor: pointer;
-
-    &:hover {
-        color: var(--font-ui-primary-redesigned);
-    }
 }

@@ -1,3 +1,5 @@
+import React, { Suspense } from 'react';
+
 import { UserRole } from '@/entities/user';
 import { AboutPage } from '@/pages/aboutPage';
 import { AdminPanelPage } from '@/pages/adminPanelPage';
@@ -10,6 +12,7 @@ import { NotFoundPage } from '@/pages/notFoundPage';
 import { ProfilePage } from '@/pages/profilePage';
 import { AppRoutes, AppRoutePaths } from '@/shared/const/routerConsts';
 import { AppRouteProps } from '@/shared/types/router';
+import { PageLoader } from '@/shared/ui/deprecated/PageLoader';
 
 export const routeConfig: Record<AppRoutes, AppRouteProps> = {
     [AppRoutes.MAIN]: {
@@ -18,7 +21,7 @@ export const routeConfig: Record<AppRoutes, AppRouteProps> = {
     },
     [AppRoutes.ABOUT]: {
         path: AppRoutePaths.about(),
-        element: <AboutPage />,
+        element: <Suspense fallback={<PageLoader />}><AboutPage /></Suspense>,
     },
     [AppRoutes.PROFILE]: {
         path: AppRoutePaths.profile(':id'),

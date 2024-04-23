@@ -11,6 +11,10 @@ interface ScrollSavePayload {
     position: number;
 }
 
+interface ScrollResetPayload {
+    path: string;
+}
+
 export const scrollSaveSlice = createSlice({
     name: 'scrollSave',
     initialState,
@@ -20,6 +24,9 @@ export const scrollSaveSlice = createSlice({
         },
         resetScrollPosition: (state) => {
             state.scroll = {};
+        },
+        resetScrollPositionForPage: (state, { payload }: PayloadAction<ScrollResetPayload>) => {
+            state.scroll[payload.path] = 0;
         },
     },
 });

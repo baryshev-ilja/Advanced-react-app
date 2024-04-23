@@ -5,14 +5,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
     getUserAuthData, isUserAdmin, isUserManager, userActions,
 } from '@/entities/user';
+import ProfileIcon from '@/shared/assets/newIcons/profile-icon.svg';
 import { AppRoutePaths } from '@/shared/const/routerConsts';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar';
 import { DropDown as DropDownDeprecated, MenuDropdownItem } from '@/shared/ui/deprecated/Popups';
-import { Avatar as AvatarRedesigned } from '@/shared/ui/redesigned/Avatar';
+import { Button as ButtonRedesigned } from '@/shared/ui/redesigned/Button';
+import { Icon } from '@/shared/ui/redesigned/Icon';
 import { DropDown as DropDownRedesigned } from '@/shared/ui/redesigned/Popups';
 // eslint-disable-next-line baryshewww/layers-import
 import { scrollSaveActions } from '@/widgets/page';
+
+import cls from './AvatarDropdown.module.scss';
 
 interface AvatarDropdownProps {
     className?: string;
@@ -61,7 +65,22 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
                             onClick: onLogout,
                         },
                     ]}
-                    trigger={<AvatarRedesigned size={40} src={authData.avatar} />}
+                    trigger={(
+                        <ButtonRedesigned
+                            variant="auth"
+                            buttonPadding="8"
+                            buttonWidth={40}
+                            className={cls.buttonAvatar}
+                            tagName="span"
+                        >
+                            <Icon
+                                className={cls.buttonAvatarIcon}
+                                Svg={ProfileIcon}
+                                width={22}
+                                height={22}
+                            />
+                        </ButtonRedesigned>
+                    )}
                 />
             )}
             off={(

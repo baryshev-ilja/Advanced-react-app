@@ -1,11 +1,4 @@
-.notifications {
-    min-height: 150px;
-    max-height: 300px;
-    width: 500px;
-    overflow-y: auto;
-}
-
-.notification-button {
+.button-avatar {
     outline: none;
     display: flex;
     align-items: center;
@@ -13,9 +6,8 @@
     width: 40px;
     height: 40px;
     border-radius: 8px;
-    background: var(--bg-light-redesigned);
 }
 
-.notification-icon {
+.button-avatar-icon {
     color: var(--font-ui-secondary-redesigned);
 }

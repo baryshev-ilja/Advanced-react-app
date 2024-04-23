@@ -14,8 +14,23 @@
 }
 
 .hovered {
-    color: var(--font-ui-primary-redesigned);
     background: var(--bg-select-redesigned);
+    cursor: pointer;
+}
+
+.current {
+    background: var(--bg-select-redesigned);
+    pointer-events: none;
+    color: var(--font-ui-secondary-redesigned);
+
+    &::after {
+        content: "";
+        margin-left: auto;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: var(--font-ui-secondary-redesigned);
+    }
 }
 
 .disabled {

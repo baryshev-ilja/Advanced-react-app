@@ -1,5 +1,7 @@
 import { memo } from 'react';
 
+import { StickyContentLayout } from '../StickyContentLayout';
+
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
     ContentPageSkeleton,
@@ -29,13 +31,13 @@ export const MainLayoutSkeletons = memo(() => {
             <div className={classNames(cls.contentWrapper, {}, [clsSkeletons.contentWrapper])}>
                 <div className={cls.contentInner}>
                     <div className={cls.content}>
-                        <ContentPageSkeleton />
+                        <StickyContentLayout
+                            content={<ContentPageSkeleton />}
+                            rightbar={<RightbarSkeleton />}
+                        />
                     </div>
                     <div className={classNames(cls.sidebar, {}, [clsSkeletons.sidebarSkeleton])}>
                         <SidebarSkeleton />
-                    </div>
-                    <div className={classNames(cls.rightbar, {}, [clsSkeletons.rightbarSkeleton])}>
-                        <RightbarSkeleton />
                     </div>
                     <div className={cls.toolbar}>
                         <Skeleton width={40} height={40} borderRadius="50%" />

@@ -9,8 +9,6 @@ interface MainLayoutProps {
     content: ReactElement;
     header: ReactElement;
     sidebar: ReactElement;
-    rightbar: ReactElement;
-    toolbar: ReactElement;
 }
 
 export const MainLayout = memo((props: MainLayoutProps) => {
@@ -18,8 +16,6 @@ export const MainLayout = memo((props: MainLayoutProps) => {
         className,
         content,
         header,
-        toolbar,
-        rightbar,
         sidebar,
     } = props;
     return (
@@ -31,8 +27,6 @@ export const MainLayout = memo((props: MainLayoutProps) => {
                 <div className={cls.contentInner}>
                     <div className={cls.content}>{content}</div>
                     <div className={cls.sidebar}>{sidebar}</div>
-                    <div className={cls.rightbar}>{rightbar}</div>
-                    <div className={cls.toolbar}>{toolbar}</div>
                 </div>
             </div>
         </div>
