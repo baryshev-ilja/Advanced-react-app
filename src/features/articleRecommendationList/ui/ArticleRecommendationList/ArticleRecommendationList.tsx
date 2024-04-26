@@ -7,8 +7,8 @@ import { articleRecommendationsReducer } from '../../model/slice/ArticleDetailsR
 import { ArticleList, ArticleListItemSkeleton } from '@/entities/article';
 import { DynamicReducerLoad, ReducersList } from '@/shared/lib/HOC/DynamicReducerLoad';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { VStack } from '@/shared/ui/Stack';
-import { Text, TextSize } from '@/shared/ui/Text';
+import { Text, TextSize } from '@/shared/ui/deprecated/Text';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 
 import cls from './ArticleRecommendationList.module.scss';
 

@@ -19,13 +19,10 @@ export function useTheme(): IUseThemeResult {
             newTheme = Theme.DARK;
             break;
         case Theme.DARK:
-            newTheme = Theme.GRAY;
-            break;
-        case Theme.GRAY:
             newTheme = Theme.LIGHT;
             break;
         default:
-            newTheme = Theme.GRAY;
+            newTheme = Theme.LIGHT;
         }
 
         setTheme?.(newTheme);

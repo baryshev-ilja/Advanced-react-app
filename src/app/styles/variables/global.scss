@@ -29,30 +29,25 @@
     // Редизайн
     --font-family-gilroy-medium: "Gilroy Medium", sans-serif;
     --font-family-gilroy-semibold: "Gilroy SemiBold", sans-serif;
-    --font-family-gilroy-bold: "Gilroy Bold", sans-serif;
     --font-family-manrope: "Manrope Regular", sans-serif;
 
     // S
     --font-s-gilroy-medium: var(--font-size-s) / var(--font-line-s) var(--font-family-gilroy-medium);
     --font-s-gilroy-semibold: var(--font-size-s) / var(--font-line-s) var(--font-family-gilroy-semibold);
-    --font-s-gilroy-bold: var(--font-size-s) / var(--font-line-s) var(--font-family-gilroy-bold);
     --font-s-manrope: var(--font-size-s) / var(--font-line-s) var(--font-family-manrope);
 
     // M
     --font-m-gilroy-medium: var(--font-size-m) / var(--font-line-m) var(--font-family-gilroy-medium);
     --font-m-gilroy-semibold: var(--font-size-m) / var(--font-line-m) var(--font-family-gilroy-semibold);
-    --font-m-gilroy-bold: var(--font-size-m) / var(--font-line-m) var(--font-family-gilroy-bold);
     --font-m-manrope: var(--font-size-m) / var(--font-line-m) var(--font-family-manrope);
 
     // L
     --font-l-gilroy-medium: var(--font-size-l) / var(--font-line-l) var(--font-family-gilroy-medium);
     --font-l-gilroy-semibold: var(--font-size-l) / var(--font-line-l) var(--font-family-gilroy-semibold);
-    --font-l-gilroy-bold: var(--font-size-l) / var(--font-line-l) var(--font-family-gilroy-bold);
     --font-l-manrope: var(--font-size-l) / var(--font-line-l) var(--font-family-manrope);
 
     // XL
     --font-xl-gilroy-medium: var(--font-size-xl) / var(--font-line-xl) var(--font-family-gilroy-medium);
     --font-xl-gilroy-semibold: var(--font-size-xl) / var(--font-line-xl) var(--font-family-gilroy-semibold);
-    --font-xl-gilroy-bold: var(--font-size-xl) / var(--font-line-xl) var(--font-family-gilroy-bold);
     --font-xl-manrope: var(--font-size-xl) / var(--font-line-xl) var(--font-family-manrope);
 }

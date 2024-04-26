@@ -1,0 +1,30 @@
+.panel {
+    position: absolute;
+    z-index: 1000;
+    background: var(--bg-select-open-redesigned);
+    border: 1px solid var(--popup-border-redesigned);
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 16px;
+    box-shadow: var(--popup-shadow-redesigned);
+
+    &.top-left {
+        bottom: calc(100% + 8px);
+        right: 0;
+    }
+
+    &.top-right {
+        bottom: calc(100% + 8px);
+        left: 0;
+    }
+
+    &.bottom-left {
+        top: calc(100% + 8px);
+        right: 0;
+    }
+
+    &.bottom-right {
+        top: calc(100% + 8px);
+        left: 0;
+    }
+}

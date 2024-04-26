@@ -5,8 +5,8 @@ import { SidebarItemType } from '../../model/types/sidebar';
 
 import { getUserAuthData } from '@/entities/user';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { AppLink } from '@/shared/ui/AppLink/AppLink';
-import { HStack } from '@/shared/ui/Stack';
+import { AppLink } from '@/shared/ui/redesigned/AppLink/AppLink';
+import { Icon } from '@/shared/ui/redesigned/Icon';
 
 import cls from './SidebarItemRedesigned.module.scss';
 
@@ -30,12 +30,13 @@ export const SidebarItemRedesigned = (props: SidebarItemRedesignedProps) => {
         <AppLink
             className={classNames('', {}, [])}
             to={item.path}
+            activeClassName={cls.activeItem}
 
         >
-            <HStack gap="12">
-                <item.Icon className={cls.icon} />
+            <div className={cls.item}>
+                <Icon Svg={item.Icon} width={22} height={22} />
                 <span className={cls.link}>{t(item.text)}</span>
-            </HStack>
+            </div>
         </AppLink>
     );
 };

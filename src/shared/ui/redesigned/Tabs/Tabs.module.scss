@@ -1,0 +1,15 @@
+.tab {
+    margin-right: auto;
+    justify-content: flex-start;
+    cursor: pointer;
+    color: var(--font-ui-secondary-redesigned);
+
+    &:hover {
+        color: var(--font-ui-primary-redesigned);
+    }
+}
+
+.active-tab {
+    color: var(--font-ui-primary-redesigned);
+    pointer-events: none;
+}

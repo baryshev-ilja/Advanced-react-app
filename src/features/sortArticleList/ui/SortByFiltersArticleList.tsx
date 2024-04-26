@@ -2,9 +2,13 @@ import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { ArticleSortTypes } from '@/entities/article';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { TypesOfOrders } from '@/shared/types/orderTypes';
-import { OptionsList, Select } from '@/shared/ui/Select';
-import { HStack } from '@/shared/ui/Stack';
+import { OptionsList, Select } from '@/shared/ui/deprecated/Select';
+import { ListBox } from '@/shared/ui/redesigned/Popups';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
+
+import cls from './SortByFiltersArticleList.module.scss';
 
 interface SortArticleListProps {
     sortValue: ArticleSortTypes;
@@ -25,43 +29,66 @@ export const SortByFiltersArticleList = (props: SortArticleListProps) => {
     const optionsForOrderSelect = useMemo<OptionsList<TypesOfOrders>[]>(() => [
         {
             value: 'asc',
-            content: t('возрастанию'),
+            content: t('Возрастанию'),
         },
         {
             value: 'desc',
-            content: t('убыванию'),
+            content: t('Убыванию'),
         },
     ], [t]);
 
     const optionsForSortSelect = useMemo<OptionsList<ArticleSortTypes>[]>(() => [
         {
             value: ArticleSortTypes.CREATED,
-            content: t('дате создания'),
+            content: t('Дате создания'),
         },
         {
             value: ArticleSortTypes.TITLE,
-            content: t('названию'),
+            content: t('Названию'),
         },
         {
             value: ArticleSortTypes.VIEWS,
-            content: t('просмотрам'),
+            content: t('Просмотрам'),
         },
     ], [t]);
 
     return (
-        <HStack gap="16">
-            <Select
-                value={sortValue}
-                options={optionsForSortSelect}
-                label={t('Сортировать по')}
-                onChange={onChangeSort}
-            />
-            <Select
-                value={orderValue}
-                options={optionsForOrderSelect}
-                label={t('по')}
-                onChange={onChangeOrder}
-            />
-        </HStack>
+        <ToggleFeatures
+            name="isAppRedesigned"
+            on={(
+                <VStack gap="8">
+                    <ListBox
+                        className={cls.fullWidth}
+                        currentValue={sortValue}
+                        items={optionsForSortSelect}
+                        onChange={onChangeSort}
+                        direction="bottomLeft"
+                    />
+                    <ListBox
+                        className={cls.fullWidth}
+                        currentValue={orderValue}
+                        items={optionsForOrderSelect}
+                        onChange={onChangeOrder}
+                        direction="bottomLeft"
+                    />
+                </VStack>
+            )}
+            off={(
+                <HStack gap="16">
+                    <Select
+                        value={sortValue}
+                        options={optionsForSortSelect}
+                        label={t('Сортировать по')}
+                        onChange={onChangeSort}
+                    />
+                    <Select
+                        value={orderValue}
+                        options={optionsForOrderSelect}
+                        label={t('по')}
+                        onChange={onChangeOrder}
+                    />
+                </HStack>
+            )}
+        />
     );
 };

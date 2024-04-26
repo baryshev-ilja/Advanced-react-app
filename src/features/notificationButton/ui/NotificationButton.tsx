@@ -2,11 +2,16 @@ import { useCallback, useState } from 'react';
 
 import { NotificationList } from '@/entities/notification';
 import NotificationIcon from '@/shared/assets/icons/notification.svg';
+import NotificationIconNew from '@/shared/assets/newIcons/notification-icon.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice';
-import { Button, ButtonTheme } from '@/shared/ui/Button';
-import { Drawer } from '@/shared/ui/Drawer';
-import { Popover } from '@/shared/ui/Popups';
+import { Button as ButtonDeprecated, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import { Drawer } from '@/shared/ui/deprecated/Drawer';
+import { Popover as PopoverDeprecated } from '@/shared/ui/deprecated/Popups';
+import { Button as ButtonRedesigned } from '@/shared/ui/redesigned/Button';
+import { Icon } from '@/shared/ui/redesigned/Icon';
+import { Popover as PopoverRedesigned } from '@/shared/ui/redesigned/Popups';
 
 import cls from './NotificationButton.module.scss';
 
@@ -29,13 +34,36 @@ export const NotificationButton = (props: NotificationButtonProps) => {
     }, []);
 
     const returnTriggerBtn = (tagName?: keyof HTMLElementTagNameMap) => (
-        <Button
-            theme={ButtonTheme.CLEAR}
-            onClick={onOpenDrawer}
-            tagName={tagName || undefined}
-        >
-            <NotificationIcon />
-        </Button>
+        <ToggleFeatures
+            name="isAppRedesigned"
+            on={(
+                <ButtonRedesigned
+                    variant="auth"
+                    buttonPadding="8"
+                    buttonWidth={40}
+                    className={cls.buttonNotifications}
+                    onClick={onOpenDrawer}
+                    tagName={tagName || undefined}
+                >
+                    <Icon
+                        className={cls.notificationIcon}
+                        Svg={NotificationIconNew}
+                        width={22}
+                        height={22}
+                    />
+                </ButtonRedesigned>
+            )}
+            off={(
+                <ButtonDeprecated
+                    theme={ButtonTheme.CLEAR}
+                    onClick={onOpenDrawer}
+                    tagName={tagName || undefined}
+                >
+                    <NotificationIcon />
+                </ButtonDeprecated>
+            )}
+        />
+
     );
 
     if (isMobile) {
@@ -51,12 +79,26 @@ export const NotificationButton = (props: NotificationButtonProps) => {
     }
 
     return (
-        <Popover
-            className={classNames(cls.notificationButton, {}, [className])}
-            direction="bottomLeft"
-            trigger={returnTriggerBtn('span')}
-        >
-            <NotificationList className={cls.notifications} />
-        </Popover>
+        <ToggleFeatures
+            name="isAppRedesigned"
+            on={(
+                <PopoverRedesigned
+                    className={classNames('', {}, [className])}
+                    direction="bottomLeft"
+                    trigger={returnTriggerBtn('span')}
+                >
+                    <NotificationList className={cls.notifications} />
+                </PopoverRedesigned>
+            )}
+            off={(
+                <PopoverDeprecated
+                    className={classNames('', {}, [className])}
+                    direction="bottomLeft"
+                    trigger={returnTriggerBtn('span')}
+                >
+                    <NotificationList className={cls.notifications} />
+                </PopoverDeprecated>
+            )}
+        />
     );
 };

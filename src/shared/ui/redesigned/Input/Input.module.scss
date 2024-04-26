@@ -1,0 +1,54 @@
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+}
+
+.input-inner {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    flex-grow: 2;
+    border-radius: 8px;
+    padding: 0 16px;
+    background: var(--bg-input-redesigned);
+}
+
+.icon-input {
+    display: flex;
+    align-items: center;
+
+    svg {
+        color: var(--input-placeholder-redesigned);
+        transition: color 0.3s ease-in-out;
+    }
+}
+
+.input-element {
+    outline: none;
+    border: none;
+    height: 40px;
+    width: 100%;
+    color: var(--input-text-active-redesigned);
+    background: none;
+
+    &:focus {
+        outline: none;
+    }
+
+    &::placeholder {
+        color: var(--input-placeholder-redesigned);
+    }
+}
+
+.focused {
+    .icon-input svg {
+        color: var(--input-text-active-redesigned);
+    }
+}
+
+.readonly {
+    opacity: 0.7;
+}

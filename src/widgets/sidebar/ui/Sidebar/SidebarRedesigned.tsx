@@ -5,10 +5,16 @@ import { useSelector } from 'react-redux';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 import { SidebarItemRedesigned } from '../SidebarItem/SidebarItemRedesigned';
 
+import { getUserAuthData } from '@/entities/user';
+import { LangSwitcher } from '@/features/toggleLanguage';
+import AddIcon from '@/shared/assets/newIcons/add-icon.svg';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { CardUI } from '@/shared/ui/CardUI';
-import { VStack } from '@/shared/ui/Stack';
-import { ThemeSwitcher } from '@/shared/ui/ThemeSwitcher';
+import { Button } from '@/shared/ui/redesigned/Button';
+import { CardUI } from '@/shared/ui/redesigned/CardUI';
+import { Icon } from '@/shared/ui/redesigned/Icon';
+import { VStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
+import { ThemeSwitcher } from '@/shared/ui/redesigned/ThemeSwitcher';
 
 import cls from './SidebarRedesigned.module.scss';
 
@@ -20,6 +26,7 @@ export const SidebarRedesigned = memo((props: SidebarRedesignedProps) => {
     const { className } = props;
     const { t } = useTranslation();
     const sidebarItemsList = useSelector(getSidebarItems);
+    const isAuth = useSelector(getUserAuthData);
 
     const itemsList = useMemo(() => (sidebarItemsList.map((item) => (
         <SidebarItemRedesigned
@@ -29,14 +36,27 @@ export const SidebarRedesigned = memo((props: SidebarRedesignedProps) => {
     ))), [sidebarItemsList]);
 
     return (
-        <div className={classNames(cls.sidebarRedesigned, {}, [className])}>
-            <CardUI className={cls.uiBlock}>
-                <ThemeSwitcher />
+        <VStack gap="32" className={classNames(cls.sidebarRedesigned, {}, [className])}>
+            <CardUI className={cls.uiBlock} padding="16" gap="16" borderRadius="16">
+                <VStack gap="8">
+                    <Text ui={t('Выбор темы')} variant="ui" />
+                    <ThemeSwitcher />
+                </VStack>
+                <VStack gap="8">
+                    <Text ui={t('Перевести на')} variant="ui" />
+                    <LangSwitcher />
+                </VStack>
             </CardUI>
-            <VStack align="start" gap="4" tagName="nav">
+            <VStack align="start" tagName="nav">
                 {itemsList}
             </VStack>
-        </div>
+            {isAuth && (
+                <Button fullWidth>
+                    {t('Создать статью')}
+                    <Icon className={cls.iconAdd} Svg={AddIcon} width={12} height={12} />
+                </Button>
+            )}
+        </VStack>
 
     );
 });

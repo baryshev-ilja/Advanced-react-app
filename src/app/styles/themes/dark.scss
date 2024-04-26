@@ -16,11 +16,11 @@
 
     // redesigned
 
-    --bg-redesigned: #191228;
-    --bg-light-redesigned: #261f38;
+    --bg-redesigned: #070e33;
+    --bg-light-redesigned: #171c44;
     --bg-menu-active-redesigned: #25214a;
-    --bg-input-redesigned: #4a3c67;
-    --bg-select-redesigned: #2f2c52;
+    --bg-input-redesigned: #433770;
+    --bg-select-redesigned: #2d2864;
     --font-ui-primary-redesigned: #e1e1ee;
     --font-ui-select-redesigned: #bfd9f0;
     --font-ui-secondary-redesigned: #6e5d9d;
@@ -30,4 +30,18 @@
     --icon-redesigned: #9f91ef;
     --toggle-icon-redesigned: #cba4ff;
     --button-redesigned: #5e2ec3;
+    --error-redesigned: #d95757;
+    --bg-select-open-redesigned: #342e70;
+    --popup-border-redesigned: #3e3883;
+    --popup-shadow-redesigned:
+        0 14px 31px 0 rgb(172 0 219 / 10%),
+        0 56px 56px 0 rgb(172 0 219 / 9%),
+        0 125px 75px 0 rgb(172 0 219 / 5%),
+        0 222px 89px 0 rgb(172 0 219 / 1%),
+        0 347px 97px 0 rgb(172 0 219 / 0%);
+    --bg-scrollbar-redesigned: #29214e;
+    --skeleton-dark-redesigned: #25214a;
+    --skeleton-light-redesigned: #363071;
+    --bg-error-notification-redesigned: #4a3600;
+    --error-notification-text-redesigned: #ffaf51;
 }

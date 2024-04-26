@@ -1,10 +1,12 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { ArticleView, Article } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { Text } from '@/shared/ui/deprecated/Text';
 
 import cls from './ArticleList.module.scss';
 
@@ -31,6 +33,8 @@ export const ArticleList = memo((props: ArticleListProps) => {
         target,
     } = props;
 
+    const { t } = useTranslation();
+
     const renderArticle = (item: Article) => {
         return (
             <ArticleListItem
@@ -41,6 +45,19 @@ export const ArticleList = memo((props: ArticleListProps) => {
             />
         );
     };
+
+    if (!isLoading && !articles.length) {
+        return (
+            <div
+                className={classNames(cls.ArticleList, {}, [
+                    className,
+                    cls[view],
+                ])}
+            >
+                <Text title={t('Статьи не найдены')} />
+            </div>
+        );
+    }
 
     return (
         <div

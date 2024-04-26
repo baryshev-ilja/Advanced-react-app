@@ -1,0 +1,49 @@
+.toggle-theme {
+    display: flex;
+    width: 70px;
+    border-radius: 50px;
+    padding: 5px;
+    position: relative;
+
+    &::before {
+        position: absolute;
+        content: "";
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: var(--toggle-icon-redesigned);
+        transition: transform 0.15s ease-in-out;
+    }
+}
+
+.dark-icon {
+    position: absolute;
+    right: 11px;
+    color: var(--toggle-icon-redesigned);
+}
+
+.light-icon {
+    position: absolute;
+    left: 11px;
+    color: var(--toggle-icon-redesigned);
+}
+
+.light-theme {
+    &::before {
+        transform: translateX(-14px);
+    }
+
+    .light-icon {
+        color: var(--bg-light-redesigned);
+    }
+}
+
+.dark-theme {
+    &::before {
+        transform: translateX(14px);
+    }
+
+    .dark-icon {
+        color: var(--bg-input-redesigned);
+    }
+}

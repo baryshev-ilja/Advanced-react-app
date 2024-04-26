@@ -1,0 +1,13 @@
+.button-avatar {
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+}
+
+.button-avatar-icon {
+    color: var(--font-ui-secondary-redesigned);
+}

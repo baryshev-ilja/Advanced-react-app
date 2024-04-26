@@ -4,15 +4,13 @@ import { useSelector } from 'react-redux';
 import AppRouter from './providers/Router/ui/AppRouter';
 
 import { getUserInited, initAuthData } from '@/entities/user';
-import { MainLayout } from '@/shared/layouts/MainLayout';
+import { MainLayout, MainLayoutSkeletons } from '@/shared/layouts/MainLayout';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
-import { PageLoader } from '@/shared/ui/PageLoader';
 import { Navbar, NavbarRedesigned } from '@/widgets/navbar';
 import { Sidebar, SidebarRedesigned } from '@/widgets/sidebar';
-import { Toolbar } from '@/widgets/toolbar';
 
 function App() {
     const { theme } = useTheme();
@@ -24,7 +22,9 @@ function App() {
     }, [dispatch]);
 
     if (!inited) {
-        return <PageLoader />;
+        return (
+            <MainLayoutSkeletons />
+        );
     }
 
     return (
@@ -37,8 +37,6 @@ function App() {
                             content={<AppRouter />}
                             header={<NavbarRedesigned />}
                             sidebar={<SidebarRedesigned />}
-                            rightbar={<div>1241234123432</div>}
-                            toolbar={<Toolbar />}
                         />
                     </Suspense>
                 </div>

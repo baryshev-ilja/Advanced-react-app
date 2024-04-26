@@ -7,8 +7,8 @@ import { getCanEditArticle } from '../../model/selectors/getCanEditArticle';
 
 import { getArticleDetailsData } from '@/entities/article';
 import { AppRoutePaths } from '@/shared/const/routerConsts';
-import { Button, ButtonTheme } from '@/shared/ui/Button';
-import { HStack } from '@/shared/ui/Stack';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 import cls from './ArticleDetailsPageHeader.module.scss';
 
