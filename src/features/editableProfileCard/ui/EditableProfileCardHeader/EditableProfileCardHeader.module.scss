@@ -1,0 +1,17 @@
+.btn-cancel-readonly,
+.btn-cancel-disabled,
+.btn-edit-disabled {
+    color: var(--bg-menu-active-redesigned);
+    background: var(--bg-redesigned);
+    pointer-events: none;
+}
+
+.btns-block-wrapper {
+    position: sticky;
+    top: 105px;
+}
+
+.btns-block {
+    width: 264px;
+    background: var(--bg-light-redesigned);
+}

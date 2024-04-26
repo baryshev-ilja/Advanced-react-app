@@ -1,39 +1,29 @@
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Profile } from '../../model/types/profile';
+import { ProfileCardDeprecated } from '../ProfileCardDeprecated/ProfileCardDeprecated';
+import cls from '../ProfileCardDeprecated/ProfileCardDeprecated.module.scss';
+import type { ProfileCardProps } from '../ProfileCardProps/ProfileCardProps';
+import { ProfileCardRedesigned } from '../ProfileCardRedesigned/ProfileCardRedesigned';
+import clsRedesigned from '../ProfileCardRedesigned/ProfileCardRedesigned.module.scss';
+import { ProfileCardSkeleton } from '../ProfileCardRedesigned/ProfileCardSkeleton';
 
-import { Country, CountrySelect } from '@/entities/country';
-import { Currency, CurrencySelect } from '@/entities/currency';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { Avatar } from '@/shared/ui/deprecated/Avatar';
-import { Input } from '@/shared/ui/deprecated/Input';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { Loader } from '@/shared/ui/deprecated/Loader';
-import { Text, TextAlign, ThemeText } from '@/shared/ui/deprecated/Text';
-import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
+import { Text as TextDeprecated, TextAlign, ThemeText } from '@/shared/ui/deprecated/Text';
+import { CardUI } from '@/shared/ui/redesigned/CardUI';
+import { HStack } from '@/shared/ui/redesigned/Stack';
+import { Text as TextRedesigned } from '@/shared/ui/redesigned/Text';
 
-import cls from './ProfileCard.module.scss';
-
-interface ProfileCardProps {
-    className?: string;
-    data?: Profile;
-    isLoading?: boolean;
-    error?: string;
-    readonly?: boolean;
-    onChangeFirst?: (value: string) => void;
-    onChangeLastname?: (value: string) => void;
-    onChangeAge?: (value: string) => void;
-    onChangeUsername?: (value: string) => void;
-    onChangeAvatar?: (value: string) => void;
-    onChangeCurrency?: (currency: Currency) => void;
-    onChangeCountry?: (country: Country) => void;
-}
-
-export const ProfileCard = (props: ProfileCardProps) => {
+export const ProfileCard = memo((props: ProfileCardProps) => {
     const {
         className,
         data,
         isLoading,
         error,
+        validateErrors,
+        validateErrorsTranslateDictionary,
         readonly,
         onChangeFirst,
         onChangeLastname,
@@ -47,88 +37,83 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
     if (isLoading) {
         return (
-            <HStack max className={classNames(cls.profileCard, {}, [className, cls.loading])}>
-                <Loader />
-            </HStack>
+            <ToggleFeatures
+                name="isAppRedesigned"
+                on={<ProfileCardSkeleton />}
+                off={(
+                    <HStack max className={classNames(cls.profileCard, {}, [className, cls.loading])}>
+                        <Loader />
+                    </HStack>
+                )}
+            />
         );
     }
 
     if (error) {
         return (
-            <div className={classNames(cls.profileCard, {}, [className])}>
-                <Text
-                    theme={ThemeText.ERROR}
-                    title={t('Произошла ошибка')}
-                    description={t('Попробуйте перезагрузить страницу')}
-                    align={TextAlign.CENTER}
-                />
-            </div>
+            <ToggleFeatures
+                name="isAppRedesigned"
+                on={(
+                    <CardUI padding="16" borderRadius="16" className={clsRedesigned.cardError}>
+                        <TextRedesigned
+                            variant="error"
+                            align="center"
+                            title={t('Произошла ошибка')}
+                            description={t('Попробуйте перезагрузить страницу')}
+                        />
+                    </CardUI>
+                )}
+                off={(
+                    <div className={classNames(cls.profileCard, {}, [className])}>
+                        <TextDeprecated
+                            theme={ThemeText.ERROR}
+                            title={t('Произошла ошибка')}
+                            description={t('Попробуйте перезагрузить страницу')}
+                            align={TextAlign.CENTER}
+                        />
+                    </div>
+                )}
+            />
         );
     }
 
     return (
-        <VStack gap="8" align="start" max className={classNames(cls.profileCard, {}, [className])}>
-            <HStack justify="center" max>
-                {data?.avatar && (
-                    <Avatar
-                        src={data?.avatar}
-                        alt={t('Фото пользователя')}
-                        size={250}
-                    />
-                )}
-            </HStack>
-            <VStack gap="8" align="start">
-                <Input
-                    className={cls.input}
-                    value={data?.first}
-                    labelElement={t('Ваше имя')}
+        <ToggleFeatures
+            name="isAppRedesigned"
+            on={(
+                <ProfileCardRedesigned
+                    className={className}
+                    data={data}
+                    isLoading={isLoading}
+                    error={error}
+                    validateErrors={validateErrors}
+                    validateErrorsTranslateDictionary={validateErrorsTranslateDictionary}
                     readonly={readonly}
-                    onChange={onChangeFirst}
-                    data-testid="ProfileCard.firstname"
+                    onChangeFirst={onChangeFirst}
+                    onChangeLastname={onChangeLastname}
+                    onChangeAge={onChangeAge}
+                    onChangeUsername={onChangeUsername}
+                    onChangeAvatar={onChangeAvatar}
+                    onChangeCurrency={onChangeCurrency}
+                    onChangeCountry={onChangeCountry}
                 />
-                <Input
-                    className={cls.input}
-                    value={data?.lastname}
-                    labelElement={t('Ваша фамилия')}
+            )}
+            off={(
+                <ProfileCardDeprecated
+                    className={className}
+                    data={data}
+                    isLoading={isLoading}
+                    error={error}
                     readonly={readonly}
-                    onChange={onChangeLastname}
-                    data-testid="ProfileCard.lastname"
+                    onChangeFirst={onChangeFirst}
+                    onChangeLastname={onChangeLastname}
+                    onChangeAge={onChangeAge}
+                    onChangeUsername={onChangeUsername}
+                    onChangeAvatar={onChangeAvatar}
+                    onChangeCurrency={onChangeCurrency}
+                    onChangeCountry={onChangeCountry}
                 />
-                <Input
-                    className={cls.input}
-                    value={data?.age}
-                    labelElement={t('Ваш возраст')}
-                    readonly={readonly}
-                    onChange={onChangeAge}
-                />
-                <Input
-                    className={cls.input}
-                    value={data?.username}
-                    labelElement={t('Ваш никнейм')}
-                    readonly={readonly}
-                    onChange={onChangeUsername}
-                />
-                <Input
-                    className={cls.input}
-                    value={data?.avatar}
-                    labelElement={t('Ссылка на фото профиля')}
-                    readonly={readonly}
-                    onChange={onChangeAvatar}
-                />
-                <CurrencySelect
-                    className={cls.input}
-                    value={data?.currency}
-                    readonly={readonly}
-                    onChange={onChangeCurrency}
-                />
-                <CountrySelect
-                    className={cls.input}
-                    value={data?.country}
-                    readonly={readonly}
-                    onChange={onChangeCountry}
-                />
-            </VStack>
-
-        </VStack>
+            )}
+        />
     );
-};
+});

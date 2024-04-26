@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
@@ -14,11 +14,8 @@ import { EditableProfileCardHeader } from '../EditableProfileCardHeader/Editable
 import { Country } from '@/entities/country';
 import { Currency } from '@/entities/currency';
 import { ProfileCard, ValidateProfileError } from '@/entities/profile';
-// TODO
-// нужно будеть сделать виджет из этих двух фич
-// eslint-disable-next-line baryshewww/layers-import
-import { ProfileRating } from '@/features/profileRating';
 import { DynamicReducerLoad, ReducersList } from '@/shared/lib/HOC/DynamicReducerLoad';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Text, ThemeText } from '@/shared/ui/deprecated/Text';
@@ -33,7 +30,7 @@ const reducers: ReducersList = {
     profile: profileReducer,
 };
 
-export const EditableProfileCard = (props: EditableProfileCardProps) => {
+export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     const { className, id } = props;
 
     const dispatch = useAppDispatch();
@@ -51,13 +48,13 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
         }
     });
 
-    const validateErrorsTranslate = {
+    const validateErrorsTranslate = useMemo(() => ({
         [ValidateProfileError.INCORRECT_FIRST_LASTNAME]: t('Имя и фамилия обязательны!'),
         [ValidateProfileError.INCORRECT_AGE]: t('Возраст обязателен и должен быть целым числом!'),
         [ValidateProfileError.NO_DATA]: t('Нельзя отправить форму пустой!'),
         [ValidateProfileError.NO_COUNTRY]: t('Выберите страну!'),
         [ValidateProfileError.SERVER_ERROR]: t('Ошибка на сервере'),
-    };
+    }), [t]);
 
     const firstChangeHandler = useCallback((value?: string) => {
         dispatch(profileActions.updateProfile({ first: value || '' }));
@@ -89,31 +86,52 @@ export const EditableProfileCard = (props: EditableProfileCardProps) => {
 
     return (
         <DynamicReducerLoad reducers={reducers}>
-            <VStack gap="16">
-                <EditableProfileCardHeader />
-                {validateErrors?.length && validateErrors.map((err) => (
-                    <Text
-                        theme={ThemeText.ERROR}
-                        description={validateErrorsTranslate[err]}
-                        key={err}
-                        data-testid="EditableProfileCard.Error"
+            <ToggleFeatures
+                name="isAppRedesigned"
+                on={(
+                    <ProfileCard
+                        data={formData}
+                        isLoading={isLoading}
+                        error={error}
+                        validateErrors={validateErrors}
+                        validateErrorsTranslateDictionary={validateErrorsTranslate}
+                        readonly={readonly}
+                        onChangeFirst={firstChangeHandler}
+                        onChangeLastname={lastnameChangeHandler}
+                        onChangeAge={ageChangeHandler}
+                        onChangeUsername={usernameChangeHandler}
+                        onChangeAvatar={avatarChangeHandler}
+                        onChangeCurrency={currencyChangeHandler}
+                        onChangeCountry={countryChangeHandler}
                     />
-                ))}
-                <ProfileCard
-                    data={formData}
-                    isLoading={isLoading}
-                    error={error}
-                    readonly={readonly}
-                    onChangeFirst={firstChangeHandler}
-                    onChangeLastname={lastnameChangeHandler}
-                    onChangeAge={ageChangeHandler}
-                    onChangeUsername={usernameChangeHandler}
-                    onChangeAvatar={avatarChangeHandler}
-                    onChangeCurrency={currencyChangeHandler}
-                    onChangeCountry={countryChangeHandler}
-                />
-                <ProfileRating profileId={id!} />
-            </VStack>
+                )}
+                off={(
+                    <VStack gap="16">
+                        <EditableProfileCardHeader />
+                        {validateErrors?.length && validateErrors.map((err) => (
+                            <Text
+                                theme={ThemeText.ERROR}
+                                description={validateErrorsTranslate[err]}
+                                key={err}
+                                data-testid="EditableProfileCard.Error"
+                            />
+                        ))}
+                        <ProfileCard
+                            data={formData}
+                            isLoading={isLoading}
+                            error={error}
+                            readonly={readonly}
+                            onChangeFirst={firstChangeHandler}
+                            onChangeLastname={lastnameChangeHandler}
+                            onChangeAge={ageChangeHandler}
+                            onChangeUsername={usernameChangeHandler}
+                            onChangeAvatar={avatarChangeHandler}
+                            onChangeCurrency={currencyChangeHandler}
+                            onChangeCountry={countryChangeHandler}
+                        />
+                    </VStack>
+                )}
+            />
         </DynamicReducerLoad>
     );
-};
+});

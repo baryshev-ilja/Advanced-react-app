@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react';
 
+import { ProfilePageSkeleton } from '@/entities/profile';
 import { UserRole } from '@/entities/user';
 import { AboutPage } from '@/pages/aboutPage';
 import { AdminPanelPage } from '@/pages/adminPanelPage';
@@ -25,7 +26,7 @@ export const routeConfig: Record<AppRoutes, AppRouteProps> = {
     },
     [AppRoutes.PROFILE]: {
         path: AppRoutePaths.profile(':id'),
-        element: <ProfilePage />,
+        element: <Suspense fallback={<ProfilePageSkeleton />}><ProfilePage /></Suspense>,
         authOnly: true,
     },
     [AppRoutes.ARTICLES]: {

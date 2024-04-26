@@ -1,5 +1,4 @@
 import { useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
@@ -7,20 +6,18 @@ import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/get
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { profileActions } from '../../model/slice/profileSlice';
 
+import {
+    EditableProfileCardHeaderDeprecated,
+} from './EditableProfileCardHeaderDeprecated';
+import {
+    EditableProfileCardHeaderRedesigned,
+} from './EditableProfileCardHeaderRedesigned';
+
 import { getUserAuthData } from '@/entities/user';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
-import { Text } from '@/shared/ui/deprecated/Text';
-import { HStack } from '@/shared/ui/redesigned/Stack';
 
-interface ProfilePageHeaderProps {
-    className?: string;
-}
-
-export const EditableProfileCardHeader = (props: ProfilePageHeaderProps) => {
-    const { className } = props;
-    const { t } = useTranslation('profile');
-
+export const EditableProfileCardHeader = () => {
     const dispatch = useAppDispatch();
     const readonly = useSelector(getProfileReadonly);
     const userData = useSelector(getUserAuthData);
@@ -41,41 +38,26 @@ export const EditableProfileCardHeader = (props: ProfilePageHeaderProps) => {
     }, [dispatch]);
 
     return (
-        <HStack justify="between" max>
-            <Text
-                title={t('Профиль')}
-            />
-            {canEdit && (
-                <HStack gap="16">
-                    {readonly ? (
-                        <Button
-                            theme={ButtonTheme.OUTLINE}
-                            onClick={btnEditHandler}
-                            data-testid="EditableProfileCardHeader.EditBtn"
-                        >
-                            {t('Редактировать')}
-                        </Button>
-                    )
-                        : (
-                            <>
-                                <Button
-                                    theme={ButtonTheme.OUTLINE_ERROR}
-                                    onClick={btnCancelEditHandler}
-                                    data-testid="EditableProfileCardHeader.CancelBtn"
-                                >
-                                    {t('Отменить')}
-                                </Button>
-                                <Button
-                                    theme={ButtonTheme.OUTLINE}
-                                    onClick={btnSaveHandler}
-                                    data-testid="EditableProfileCardHeader.SaveBtn"
-                                >
-                                    {t('Сохранить')}
-                                </Button>
-                            </>
-                        )}
-                </HStack>
+        <ToggleFeatures
+            name="isAppRedesigned"
+            on={(
+                <EditableProfileCardHeaderRedesigned
+                    canEdit={canEdit}
+                    readonly={readonly}
+                    btnEditHandler={btnEditHandler}
+                    btnCancelEditHandler={btnCancelEditHandler}
+                    btnSaveHandler={btnSaveHandler}
+                />
             )}
-        </HStack>
+            off={(
+                <EditableProfileCardHeaderDeprecated
+                    canEdit={canEdit}
+                    readonly={readonly}
+                    btnEditHandler={btnEditHandler}
+                    btnCancelEditHandler={btnCancelEditHandler}
+                    btnSaveHandler={btnSaveHandler}
+                />
+            )}
+        />
     );
 };

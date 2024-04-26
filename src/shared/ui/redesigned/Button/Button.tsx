@@ -6,7 +6,15 @@ import { AdditionalCls, classNames, Mods } from '@/shared/lib/classNames/classNa
 
 import cls from './Button.module.scss';
 
-export type ButtonVariant = 'clear' | 'primary' | 'auth' | 'themeSwitcher' | 'viewSwitcher' | 'select';
+export type ButtonVariant =
+    'clear'
+    | 'primary'
+    | 'auth'
+    | 'themeSwitcher'
+    | 'viewSwitcher'
+    | 'select'
+    | 'errorValidation';
+
 type ButtonPadding = 'default' | '2' | '4' | '8' | '12' | '16';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{

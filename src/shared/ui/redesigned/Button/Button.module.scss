@@ -38,6 +38,13 @@
     justify-content: space-between;
 }
 
+.error-validation {
+    justify-content: flex-start;
+    gap: 16px;
+    color: var(--error-notification-text-redesigned);
+    background: var(--bg-error-notification-redesigned);
+}
+
 .disabled {
     opacity: 0.5;
 }
