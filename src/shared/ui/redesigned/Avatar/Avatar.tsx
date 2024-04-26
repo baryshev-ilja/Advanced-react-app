@@ -1,7 +1,7 @@
-import { CSSProperties, useMemo } from 'react';
+import { CSSProperties, memo, useMemo } from 'react';
 
 import UserIcon from '../../../assets/icons/user-filled.svg';
-import { Skeleton } from '../../deprecated/Skeleton';
+import { Skeleton } from '../../redesigned/Skeleton';
 import { AppImage } from '../AppImage';
 import { Icon } from '../Icon';
 
@@ -12,14 +12,16 @@ import cls from './Avatar.module.scss';
 interface AvatarProps {
     className?: string;
     src?: string;
+    isLoading?: boolean;
     size?: number;
     alt?: string;
 }
 
-export const Avatar = (props: AvatarProps) => {
+export const Avatar = memo((props: AvatarProps) => {
     const {
         className,
         src,
+        isLoading,
         size = 100,
         alt,
     } = props;
@@ -46,8 +48,9 @@ export const Avatar = (props: AvatarProps) => {
             src={src}
             fallback={loadingFallbackElement}
             errorFallback={errorFallbackElement}
+            isLoading={isLoading}
             style={styles}
             alt={alt}
         />
     );
-};
+});
