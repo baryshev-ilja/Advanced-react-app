@@ -1,0 +1,65 @@
+.profile-card-redesigned {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+        "avatar validateBlock validateBlock"
+        "firstName lastName age"
+        "linkAvatar linkAvatar linkAvatar"
+        "username country currency";
+    background: var(--bg-light-redesigned);
+}
+
+.card-error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 424px;
+    background: var(--bg-light-redesigned);
+}
+
+.card-skeleton {
+    background: var(--bg-light-redesigned);
+}
+
+.avatar {
+    grid-area: avatar;
+}
+
+.errors-validate {
+    grid-area: validateBlock;
+    margin-left: auto;
+}
+
+.notification-validate {
+    svg {
+        color: var(--error-notification-text-redesigned);
+    }
+}
+
+.input-firstname {
+    grid-area: firstName;
+}
+
+.input-lastname {
+    grid-area: lastName;
+}
+
+.input-age {
+    grid-area: age;
+}
+
+.input-link-avatar {
+    grid-area: linkAvatar;
+}
+
+.input-username {
+    grid-area: username;
+}
+
+.input-country {
+    grid-area: country;
+}
+
+.input-currency {
+    grid-area: currency;
+}
