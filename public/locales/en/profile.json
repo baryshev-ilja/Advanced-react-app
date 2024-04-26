@@ -15,5 +15,6 @@
     "Возраст обязателен и должен быть целым числом!": "Age is required and must be a whole number!",
     "Нельзя отправить форму пустой!": "You cannot submit the form empty!",
     "Выберите страну!": "Choose a country!",
-    "Ошибка на сервере": "Server error"
+    "Ошибка на сервере": "Server error",
+  "Иван": "Иван"
 }
