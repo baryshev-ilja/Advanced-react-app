@@ -3,7 +3,8 @@ import { Fragment, ReactNode, useMemo } from 'react';
 
 import { Button } from '../../../Button/Button';
 import { Icon } from '../../../Icon';
-import { HStack } from '../../../Stack';
+import { VStack } from '../../../Stack';
+import { Text } from '../../../Text';
 import clsPopup from '../../styles/popup.module.scss';
 
 import ArrowIcon from '@/shared/assets/newIcons/select-arrow-icon.svg';
@@ -46,8 +47,8 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
     }, [currentValue, items]);
 
     return (
-        <HStack gap="8">
-            {label && <span>{`${label}>`}</span>}
+        <VStack gap="8" max>
+            {label && <Text ui={label} variant="ui" />}
             <HListBox
                 as="div"
                 className={classNames(clsPopup.popup, {}, [className])}
@@ -62,6 +63,7 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
                         className={className}
                         disabled={readonly}
                         variant="select"
+                        fullWidth
                     >
                         {selectedItem?.content ?? defaultValue}
                         <Icon
@@ -95,6 +97,6 @@ export function ListBox<T extends string>(props: ListBoxProps<T>) {
                     ))}
                 </HListBox.Options>
             </HListBox>
-        </HStack>
+        </VStack>
     );
 }

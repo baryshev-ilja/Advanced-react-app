@@ -50,5 +50,7 @@
 }
 
 .readonly {
-    opacity: 0.7;
+    input {
+        color: var(--input-placeholder-redesigned);
+    }
 }
