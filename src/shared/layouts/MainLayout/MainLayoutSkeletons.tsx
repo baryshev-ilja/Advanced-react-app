@@ -4,7 +4,7 @@ import { StickyContentLayout } from '../StickyContentLayout';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
 import {
-    ContentPageSkeleton,
+    ArticleListItemRedesignedSkeleton,
     RightbarSkeleton,
     SidebarSkeleton,
     Skeleton,
@@ -32,15 +32,17 @@ export const MainLayoutSkeletons = memo(() => {
                 <div className={cls.contentInner}>
                     <div className={cls.content}>
                         <StickyContentLayout
-                            content={<ContentPageSkeleton />}
+                            content={(
+                                <ArticleListItemRedesignedSkeleton
+                                    className={clsSkeletons.sidebarSkeleton}
+                                    view="LIST"
+                                />
+                            )}
                             rightbar={<RightbarSkeleton />}
                         />
                     </div>
                     <div className={classNames(cls.sidebar, {}, [clsSkeletons.sidebarSkeleton])}>
                         <SidebarSkeleton />
-                    </div>
-                    <div className={cls.toolbar}>
-                        <Skeleton width={40} height={40} borderRadius="50%" />
                     </div>
                 </div>
             </div>

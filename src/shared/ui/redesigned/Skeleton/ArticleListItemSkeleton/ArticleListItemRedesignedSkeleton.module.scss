@@ -1,0 +1,30 @@
+.LIST {
+    .ui-block {
+        width: 100%;
+        background: var(--bg-light-redesigned);
+    }
+}
+
+.GRID {
+    &.ui-block {
+        display: grid;
+        height: 377px;
+        grid-template-columns: minmax(233px, 481px);
+        grid-template-rows: 141px 1fr;
+        background: var(--bg-light-redesigned);
+        overflow: hidden;
+    }
+
+    .content-block {
+        margin-top: 6px;
+        padding: 16px;
+    }
+
+    .meta-block {
+        margin-top: 22px;
+    }
+
+    .footer {
+        padding: 16px;
+    }
+}
