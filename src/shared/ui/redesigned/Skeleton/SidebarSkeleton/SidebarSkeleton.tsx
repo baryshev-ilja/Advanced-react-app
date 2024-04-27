@@ -15,11 +15,11 @@ export const SidebarSkeleton = memo(() => {
         <VStack gap="32" className={classNames(cls.sidebarRedesigned)}>
             <CardUI className={cls.uiBlock} padding="16" gap="16" borderRadius="16">
                 <VStack gap="8">
-                    <Skeleton width={95} height={19} borderRadius="16px" />
+                    <Skeleton width={95} height={24} borderRadius="16px" />
                     <Skeleton width={70} height={40} borderRadius="32px" />
                 </VStack>
                 <VStack gap="8">
-                    <Skeleton width={109} height={19} borderRadius="16px" />
+                    <Skeleton width={109} height={24} borderRadius="16px" />
                     <Skeleton width="100%" height={40} borderRadius="8px" />
                 </VStack>
             </CardUI>
