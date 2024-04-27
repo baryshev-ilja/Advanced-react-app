@@ -38,6 +38,13 @@
     justify-content: space-between;
 }
 
+.user-name {
+    height: 36px;
+    color: var(--input-placeholder-redesigned);
+    background: var(--bg-input-redesigned);
+    pointer-events: none;
+}
+
 .error-validation {
     justify-content: flex-start;
     gap: 16px;

@@ -13,7 +13,8 @@ export type ButtonVariant =
     | 'themeSwitcher'
     | 'viewSwitcher'
     | 'select'
-    | 'errorValidation';
+    | 'errorValidation'
+    | 'userName';
 
 type ButtonPadding = 'default' | '2' | '4' | '8' | '12' | '16';
 

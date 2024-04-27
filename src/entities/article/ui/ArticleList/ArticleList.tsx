@@ -6,7 +6,9 @@ import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { toggleFeatures, ToggleFeatures } from '@/shared/lib/features';
 import { Text } from '@/shared/ui/deprecated/Text';
+import { ArticleListItemRedesignedSkeleton } from '@/shared/ui/redesigned/Skeleton';
 
 import cls from './ArticleList.module.scss';
 
@@ -18,10 +20,14 @@ interface ArticleListProps {
     target?: HTMLAttributeAnchorTarget;
 }
 
-const getArticleSkeletons = (view: ArticleView) => new Array(view === 'LIST' ? 3 : 5)
+const getArticleSkeletons = (view: ArticleView) => new Array(view === 'LIST' ? 1 : 5)
     .fill(0)
     .map((item, index) => (
-        <ArticleListItemSkeleton view={view} key={index} />
+        <ToggleFeatures
+            name="isAppRedesigned"
+            on={<ArticleListItemRedesignedSkeleton view={view} />}
+            off={<ArticleListItemSkeleton view={view} key={index} />}
+        />
     ));
 
 export const ArticleList = memo((props: ArticleListProps) => {
@@ -59,9 +65,15 @@ export const ArticleList = memo((props: ArticleListProps) => {
         );
     }
 
+    const clsGridRedesigned = toggleFeatures({
+        name: 'isAppRedesigned',
+        on: () => `${cls.gridRedesigned}`,
+        off: () => '',
+    });
+
     return (
         <div
-            className={classNames('', {}, [className, cls[view]])}
+            className={classNames(clsGridRedesigned, {}, [className, cls[view]])}
             data-testid="Article-list"
         >
             {

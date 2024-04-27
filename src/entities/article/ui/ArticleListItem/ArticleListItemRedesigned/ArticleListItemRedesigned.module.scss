@@ -1,0 +1,84 @@
+.uiBlock {
+    background: var(--bg-light-redesigned);
+}
+
+.image-wrapper {
+    display: grid;
+    grid-template-rows: auto;
+    position: relative;
+    background-color: var(--bg-card-image);
+}
+
+.img {
+    width: 100%;
+    height: auto;
+    max-height: 420px;
+    object-fit: cover;
+}
+
+.text-block {
+    height: 82px;
+    display: -webkit-box; /* stylelint-disable-line */
+    -webkit-line-clamp: 3; // количество строк
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.btn-to-read {
+    width: auto;
+}
+
+.GRID {
+    &.article-list-item-redesigned {
+        display: grid;
+        height: 377px;
+        grid-template-columns: minmax(233px, 481px);
+    }
+
+    .uiBlock {
+        display: grid;
+        grid-template-rows: 141px 1fr;
+        overflow: hidden;
+    }
+
+    .image-wrapper {
+        display: grid;
+        grid-template-rows: 141px;
+        position: relative;
+        background-color: var(--bg-card-image);
+    }
+
+    .img {
+        width: 100%;
+        height: 141px;
+        max-height: unset;
+        object-fit: cover;
+    }
+
+    .content-block {
+        height: 182px;
+        padding: 16px;
+    }
+
+    .text-block {
+        height: 100px;
+        display: -webkit-box; /* stylelint-disable-line */
+        -webkit-line-clamp: 3; // количество строк
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .footer {
+        padding: 0 16px;
+        height: 54px;
+        background: var(--bg-select-open-redesigned);
+
+        svg {
+            color: var(--font-ui-secondary-redesigned);
+        }
+    }
+
+    .author {
+        margin-top: 2px;
+    }
+}
