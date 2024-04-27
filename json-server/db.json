@@ -1010,7 +1010,7 @@
       "lastname": "Барышев",
       "age": 27,
       "currency": "RUB",
-      "country": "Russia",
+      "country": "Armenia",
       "city": "Naberezhnye Chelny",
       "username": "admin",
       "avatar": "https://teknotower.com/wp-content/uploads/2020/11/js.png"
@@ -1139,6 +1139,12 @@
       "profileId": "1",
       "rate": 4,
       "id": 2
+    },
+    {
+      "userId": "1",
+      "profileId": "2",
+      "rate": 3,
+      "id": 3
     }
   ]
 }

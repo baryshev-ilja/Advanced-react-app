@@ -61,7 +61,7 @@ const articlesPageSlice = createSlice({
         initState: (state) => {
             const viewFromLocalSt = localStorage.getItem(LIST_VIEW_ARTICLES_LOCALSTORAGE_KEY) as ArticleView;
             state.view = viewFromLocalSt || 'GRID';
-            state.limit = (state.view === 'GRID') ? 10 : 4;
+            state.limit = (state.view === 'GRID') ? 10 : 3;
             state._inited = true;
         },
     },

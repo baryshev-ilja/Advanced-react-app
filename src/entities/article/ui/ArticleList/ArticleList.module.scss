@@ -12,3 +12,22 @@
     row-gap: 20px;
     width: 100%;
 }
+
+.grid-redesigned {
+    &.GRID {
+        display: grid;
+        gap: 16px;
+
+        @media (min-width: 779px) {
+            grid-template-columns: 1fr;
+        }
+
+        @media (min-width: 1028px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (min-width: 1326px) {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+}
