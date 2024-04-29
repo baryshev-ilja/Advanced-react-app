@@ -8,6 +8,7 @@ export enum AppRoutes {
     ARTICLE_EDIT = 'articleEdit',
     ADMIN_PANEL = 'adminPanel',
     FORBIDDEN = 'forbidden',
+    SETTINGS = 'settings',
 
     // last
     NOT_FOUND = 'not_found'
@@ -25,6 +26,7 @@ export type AppRouteType =
     | 'articleEdit'
     | 'adminPanel'
     | 'forbidden'
+    | 'settings'
     | 'notFound';
 
 export interface AppRouteParams {
@@ -37,6 +39,7 @@ export interface AppRouteParams {
     articleEdit: [string],
     adminPanel: [],
     forbidden: [],
+    settings: [],
     notFound: [],
 }
 
@@ -54,5 +57,6 @@ export const AppRoutePaths: Routes = {
     articleCreate: () => '/articles/new',
     adminPanel: () => '/admin',
     forbidden: () => '/forbidden',
+    settings: () => '/settings',
     notFound: () => '*',
 };
