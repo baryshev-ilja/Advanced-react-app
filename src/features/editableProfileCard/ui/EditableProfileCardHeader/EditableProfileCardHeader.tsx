@@ -1,7 +1,6 @@
 import { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 
-import { getProfileData } from '../../model/selectors/getProfileData/getProfileData';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { profileActions } from '../../model/slice/profileSlice';
@@ -13,15 +12,21 @@ import {
     EditableProfileCardHeaderRedesigned,
 } from './EditableProfileCardHeaderRedesigned';
 
+import { Profile } from '@/entities/profile';
 import { getUserAuthData } from '@/entities/user';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
-export const EditableProfileCardHeader = () => {
+interface EditableProfileCardHeaderProps {
+    profileData?: Profile;
+}
+
+export const EditableProfileCardHeader = (props: EditableProfileCardHeaderProps) => {
+    const { profileData } = props;
+
     const dispatch = useAppDispatch();
     const readonly = useSelector(getProfileReadonly);
     const userData = useSelector(getUserAuthData);
-    const profileData = useSelector(getProfileData);
 
     const canEdit = userData?.id === profileData?.id;
 

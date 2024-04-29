@@ -1,11 +1,11 @@
 import { memo } from 'react';
 import { useParams } from 'react-router-dom';
 
-import { EditableProfileCardHeader } from '@/features/editableProfileCard';
 import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { Page } from '@/widgets/page';
+import { ProfileCardControlBlock } from '@/widgets/profileCardControlBlock';
 import { ProfileCardWidget } from '@/widgets/profileCardWidget';
 
 interface ProfilePageProps {
@@ -28,7 +28,7 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
                             <ProfileCardWidget id={id} />
                         </Page>
                     )}
-                    rightbar={<EditableProfileCardHeader />}
+                    rightbar={<ProfileCardControlBlock />}
                 />
             )}
             off={(
