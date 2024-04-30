@@ -23,7 +23,7 @@ export const ArticleTextBlockComponent = (props: ArticleTextBlockComponentProps)
         <ToggleFeatures
             name="isAppRedesigned"
             on={(
-                <VStack gap="16" className={classNames('', {}, [className])}>
+                <VStack className={classNames('', {}, [className])}>
                     {titleIsVisible && <TextRedesigned title={block.title} />}
                     {block.paragraphs.map((paragraph, index) => (
                         <TextRedesigned

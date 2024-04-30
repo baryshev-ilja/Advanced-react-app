@@ -10,16 +10,27 @@ import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleC
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 
-import CalendarIcon from '@/shared/assets/icons/calendar_icon.svg';
-import EyeIcon from '@/shared/assets/icons/eye_icon.svg';
+import {
+    ArticleDetailsDeprecated,
+} from './ArticleDetailsDeprecated/ArticleDetailsDeprecated';
+import {
+    ArticleDetailsSkeletonDeprecated,
+} from './ArticleDetailsDeprecated/ArticleDetailsSkeletonDeprecated';
+import {
+    ArticleDetailsRedesigned,
+} from './ArticleDetailsRedesigned/ArticleDetailsRedesigned';
+import {
+    ArticleDetailsSkeletonRedesigned,
+} from './ArticleDetailsRedesigned/ArticleDetailsSkeletonRedesigned';
+
 import { DynamicReducerLoad, ReducersList } from '@/shared/lib/HOC/DynamicReducerLoad';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Avatar } from '@/shared/ui/deprecated/Avatar';
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
-import { Text, TextSize, TextAlign } from '@/shared/ui/deprecated/Text';
+import { Text as TextDeprecated, TextAlign } from '@/shared/ui/deprecated/Text';
 import { VStack } from '@/shared/ui/redesigned/Stack';
+import { Text as TextRedesigned } from '@/shared/ui/redesigned/Text';
 
 import cls from './ArticleDetails.module.scss';
 
@@ -41,7 +52,13 @@ const renderBlock = (block: ArticleBlocks) => {
             <ArticleTextBlockComponent
                 key={block.id}
                 block={block}
-                className={cls.block}
+                className={
+                    toggleFeatures({
+                        name: 'isAppRedesigned',
+                        on: () => undefined,
+                        off: () => `${cls.block}`,
+                    })
+                }
             />
         );
     case 'IMAGE':
@@ -49,7 +66,13 @@ const renderBlock = (block: ArticleBlocks) => {
             <ArticleImageBlockComponent
                 key={block.id}
                 block={block}
-                className={cls.block}
+                className={
+                    toggleFeatures({
+                        name: 'isAppRedesigned',
+                        on: () => undefined,
+                        off: () => `${cls.block}`,
+                    })
+                }
             />
         );
     case 'CODE':
@@ -57,7 +80,13 @@ const renderBlock = (block: ArticleBlocks) => {
             <ArticleCodeBlockComponent
                 key={block.id}
                 block={block}
-                className={cls.block}
+                className={
+                    toggleFeatures({
+                        name: 'isAppRedesigned',
+                        on: () => undefined,
+                        off: () => `${cls.block}`,
+                    })
+                }
             />
         );
     default:
@@ -72,6 +101,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         isLoading,
         data,
     } = props;
+
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const error = useSelector(getArticleDetailsError);
@@ -83,73 +113,37 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     let content;
     if (isLoading) {
         content = (
-            <>
-                <Skeleton
-                    className={cls.avatar}
-                    width={200}
-                    height={200}
-                    borderRadius="50%"
-                />
-                <Skeleton
-                    className={cls.title}
-                    width={700}
-                    height={30}
-                    borderRadius="8px"
-                />
-                <Skeleton
-                    className={cls.meta}
-                    width={400}
-                    height={30}
-                    borderRadius="8px"
-                />
-                <Skeleton className={cls.title} height={200} borderRadius="15px" />
-                <Skeleton className={cls.title} height={200} borderRadius="15px" />
-            </>
-
+            <ToggleFeatures
+                name="isAppRedesigned"
+                on={<ArticleDetailsSkeletonRedesigned />}
+                off={<ArticleDetailsSkeletonDeprecated />}
+            />
         );
     } else if (error) {
         content = (
-            <Text
-                align={TextAlign.CENTER}
-                title={t('Произошла ошибка')}
+            <ToggleFeatures
+                name="isAppRedesigned"
+                on={(
+                    <TextRedesigned
+                        align="center"
+                        title={t('Произошла ошибка')}
+                    />
+                )}
+                off={(
+                    <TextDeprecated
+                        align={TextAlign.CENTER}
+                        title={t('Произошла ошибка')}
+                    />
+                )}
             />
         );
     } else if (data) {
         content = (
-            <>
-                <Avatar
-                    className={cls.avatar}
-                    src={data?.img}
-                    size={200}
-                    alt={data?.title}
-                />
-
-                <div
-                    className={cls.title}
-                    data-testid="ArticleDetails.Info"
-                >
-                    <Text
-                        size={TextSize.L}
-                        title={data?.title}
-                        description={data?.subtitle}
-                    />
-                </div>
-
-                <div className={cls.metaWrapper}>
-                    <div className={cls.metaInner}>
-                        <EyeIcon className={cls.icon} />
-                        <span>{data?.views}</span>
-                    </div>
-                    <div className={cls.metaInner}>
-                        <CalendarIcon className={cls.icon} />
-                        <span>{data?.createdAt}</span>
-                    </div>
-                </div>
-
-                <div className={cls.blocks}>
-                    {data?.blocks.map(renderBlock)}
-                </div>
-            </>
+            <ToggleFeatures
+                name="isAppRedesigned"
+                on={<ArticleDetailsRedesigned data={data} renderBlock={renderBlock} />}
+                off={<ArticleDetailsDeprecated data={data} renderBlock={renderBlock} />}
+            />
         );
     }
 
