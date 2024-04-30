@@ -1,3 +1,3 @@
-.paragraph {
-    margin-top: 15px;
+.paragraph:not(:first-child) {
+    margin-top: 16px;
 }
