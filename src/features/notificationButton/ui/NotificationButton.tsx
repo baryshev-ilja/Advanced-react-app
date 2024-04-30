@@ -7,9 +7,10 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice';
 import { Button as ButtonDeprecated, ButtonTheme } from '@/shared/ui/deprecated/Button';
-import { Drawer } from '@/shared/ui/deprecated/Drawer';
+import { Drawer as DrawerDeprecated } from '@/shared/ui/deprecated/Drawer';
 import { Popover as PopoverDeprecated } from '@/shared/ui/deprecated/Popups';
 import { Button as ButtonRedesigned } from '@/shared/ui/redesigned/Button';
+import { Drawer as DrawerRedesigned } from '@/shared/ui/redesigned/Drawer';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import { Popover as PopoverRedesigned } from '@/shared/ui/redesigned/Popups';
 
@@ -68,13 +69,27 @@ export const NotificationButton = (props: NotificationButtonProps) => {
 
     if (isMobile) {
         return (
-            <div>
-                {returnTriggerBtn()}
-                <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
-                    <NotificationList />
-                </Drawer>
+            <ToggleFeatures
+                name="isAppRedesigned"
+                on={(
+                    <div>
+                        {returnTriggerBtn()}
+                        <DrawerRedesigned isOpen={isOpen} onClose={onCloseDrawer}>
+                            <NotificationList />
+                        </DrawerRedesigned>
 
-            </div>
+                    </div>
+                )}
+                off={(
+                    <div>
+                        {returnTriggerBtn()}
+                        <DrawerDeprecated isOpen={isOpen} onClose={onCloseDrawer}>
+                            <NotificationList />
+                        </DrawerDeprecated>
+
+                    </div>
+                )}
+            />
         );
     }
 
