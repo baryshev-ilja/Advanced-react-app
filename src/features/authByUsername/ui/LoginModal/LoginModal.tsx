@@ -1,10 +1,7 @@
-import { Suspense } from 'react';
+import { LoginModalDeprecated } from './LoginModalDeprecated/LoginModalDeprecated';
+import { LoginModalRedesigned } from './LoginModalRedesigned/LoginModalRedesigned';
 
-import { LoginFormAsync } from '../LoginForm/LooginForm.async';
-
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { Loader } from '@/shared/ui/deprecated/Loader';
-import { Modal } from '@/shared/ui/deprecated/Modal';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 interface LoginModalProps {
     className?: string;
@@ -22,16 +19,24 @@ export const LoginModal = (props: LoginModalProps) => {
         isSuccessAuth,
     } = props;
     return (
-        <Modal
-            className={classNames('', {}, [className])}
-            isOpen={isOpen}
-            onClose={onClose}
-            isUserSuccessAuth={isSuccessAuth}
-            lazy
-        >
-            <Suspense fallback={<Loader />}>
-                <LoginFormAsync />
-            </Suspense>
-        </Modal>
+        <ToggleFeatures
+            name="isAppRedesigned"
+            on={(
+                <LoginModalRedesigned
+                    className={className}
+                    isOpen={isOpen}
+                    onClose={onClose}
+                    isSuccessAuth={isSuccessAuth}
+                />
+            )}
+            off={(
+                <LoginModalDeprecated
+                    className={className}
+                    isOpen={isOpen}
+                    onClose={onClose}
+                    isSuccessAuth={isSuccessAuth}
+                />
+            )}
+        />
     );
 };

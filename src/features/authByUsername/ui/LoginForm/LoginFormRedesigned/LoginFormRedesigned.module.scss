@@ -1,0 +1,17 @@
+.login-form-redesigned {
+    min-width: 420px;
+}
+
+.header-form-login {
+    height: 40px;
+}
+
+.notification-validate {
+    svg {
+        color: var(--error-notification-text-redesigned);
+    }
+}
+
+.btn-login {
+    margin-left: auto;
+}

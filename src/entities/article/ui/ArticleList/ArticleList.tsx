@@ -25,7 +25,7 @@ const getArticleSkeletons = (view: ArticleView) => new Array(view === 'LIST' ? 1
     .map((item, index) => (
         <ToggleFeatures
             name="isAppRedesigned"
-            on={<ArticleListItemRedesignedSkeleton view={view} />}
+            on={<ArticleListItemRedesignedSkeleton view={view} key={index} />}
             off={<ArticleListItemSkeleton view={view} key={index} />}
         />
     ));
