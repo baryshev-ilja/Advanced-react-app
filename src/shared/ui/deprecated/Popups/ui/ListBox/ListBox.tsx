@@ -1,5 +1,5 @@
 import { Listbox as HListBox } from '@headlessui/react';
-import { Fragment, ReactNode } from 'react';
+import { Fragment, ReactNode, useMemo } from 'react';
 
 import { HStack } from '../../../../redesigned/Stack';
 import { Button, ButtonTheme } from '../../../Button/Button';
@@ -43,6 +43,10 @@ export function ListBox(props: ListBoxProps) {
         direction = 'topRight',
     } = props;
 
+    const selectedItem = useMemo(() => {
+        return items?.find((item) => item.value === currentValue);
+    }, [currentValue, items]);
+
     return (
         <HStack gap="8">
             {label && <span>{`${label}>`}</span>}
@@ -60,7 +64,7 @@ export function ListBox(props: ListBoxProps) {
                         theme={ButtonTheme.OUTLINE}
                         disabled={readonly}
                     >
-                        {currentValue ?? defaultValue}
+                        {selectedItem?.content ?? defaultValue}
                     </Button>
                 </HListBox.Button>
 

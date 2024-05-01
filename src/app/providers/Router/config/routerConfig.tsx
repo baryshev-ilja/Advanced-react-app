@@ -11,6 +11,7 @@ import { ForbiddenPage } from '@/pages/forbiddenPage';
 import { MainPage } from '@/pages/mainPage';
 import { NotFoundPage } from '@/pages/notFoundPage';
 import { ProfilePage } from '@/pages/profilePage';
+import { SettingsPage } from '@/pages/settingsPage';
 import { AppRoutes, AppRoutePaths } from '@/shared/const/routerConsts';
 import { AppRouteProps } from '@/shared/types/router';
 import { PageLoader } from '@/shared/ui/deprecated/PageLoader';
@@ -58,6 +59,10 @@ export const routeConfig: Record<AppRoutes, AppRouteProps> = {
     [AppRoutes.FORBIDDEN]: {
         path: AppRoutePaths.forbidden(),
         element: <ForbiddenPage />,
+    },
+    [AppRoutes.SETTINGS]: {
+        path: AppRoutePaths.settings(),
+        element: <SettingsPage />,
     },
     [AppRoutes.NOT_FOUND]: {
         path: AppRoutePaths.notFound(),

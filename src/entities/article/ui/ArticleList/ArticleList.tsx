@@ -5,7 +5,7 @@ import { ArticleView, Article } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { classNames, Mods } from '@/shared/lib/classNames/classNames';
 import { toggleFeatures, ToggleFeatures } from '@/shared/lib/features';
 import { Text } from '@/shared/ui/deprecated/Text';
 import { ArticleListItemRedesignedSkeleton } from '@/shared/ui/redesigned/Skeleton';
@@ -17,6 +17,7 @@ interface ArticleListProps {
     articles: Article[];
     view: ArticleView;
     isLoading?: boolean;
+    isRecommendationsBlock?: boolean;
     target?: HTMLAttributeAnchorTarget;
 }
 
@@ -25,7 +26,7 @@ const getArticleSkeletons = (view: ArticleView) => new Array(view === 'LIST' ? 1
     .map((item, index) => (
         <ToggleFeatures
             name="isAppRedesigned"
-            on={<ArticleListItemRedesignedSkeleton view={view} />}
+            on={<ArticleListItemRedesignedSkeleton view={view} key={index} />}
             off={<ArticleListItemSkeleton view={view} key={index} />}
         />
     ));
@@ -36,10 +37,15 @@ export const ArticleList = memo((props: ArticleListProps) => {
         articles,
         view,
         isLoading,
+        isRecommendationsBlock,
         target,
     } = props;
 
     const { t } = useTranslation();
+
+    const isRecommendationsCls: Mods = {
+        [cls.recommendationsBlock]: isRecommendationsBlock,
+    };
 
     const renderArticle = (item: Article) => {
         return (
@@ -73,7 +79,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
 
     return (
         <div
-            className={classNames(clsGridRedesigned, {}, [className, cls[view]])}
+            className={classNames(clsGridRedesigned, isRecommendationsCls, [className, cls[view]])}
             data-testid="Article-list"
         >
             {

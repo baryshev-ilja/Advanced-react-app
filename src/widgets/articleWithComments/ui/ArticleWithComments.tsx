@@ -2,13 +2,14 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import { ArticleDetails, getArticleDetailsData, getArticleDetailsIsLoading } from '@/entities/article';
-import { Counter } from '@/entities/counter';
 import { AddCommentsForArticle } from '@/features/addComments';
 import { ArticleRating } from '@/features/articleRating';
 import { ArticleRecommendationList } from '@/features/articleRecommendationList';
-import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
+import { toggleFeatures, ToggleFeatures } from '@/shared/lib/features';
 import { Card } from '@/shared/ui/deprecated/Card';
 import { VStack } from '@/shared/ui/redesigned/Stack';
+
+import cls from './ArticleWithComments.module.scss';
 
 interface ArticleWithCommentsProps {
     id: string;
@@ -20,14 +21,18 @@ export const ArticleWithComments = (props: ArticleWithCommentsProps) => {
     const isLoading = useSelector(getArticleDetailsIsLoading);
     const article = useSelector(getArticleDetailsData);
 
-    const counter = toggleFeatures({
-        name: 'isCounterEnabled',
-        on: () => <Counter />,
-        off: () => null,
-    });
-
     return (
-        <VStack gap="32">
+        <VStack
+            gap="32"
+            max
+            className={
+                toggleFeatures({
+                    name: 'isAppRedesigned',
+                    on: () => `${cls.cardUi}`,
+                    off: () => undefined,
+                })
+            }
+        >
             <ArticleDetails id={id} isLoading={isLoading} data={article} />
             {article && (
                 <ToggleFeatures

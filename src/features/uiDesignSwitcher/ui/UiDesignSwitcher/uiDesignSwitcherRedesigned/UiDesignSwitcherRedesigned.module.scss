@@ -1,0 +1,9 @@
+.btns-block {
+    background: var(--bg-light-redesigned);
+}
+
+.disabled {
+    color: var(--bg-menu-active-redesigned);
+    background: var(--bg-redesigned);
+    pointer-events: none;
+}

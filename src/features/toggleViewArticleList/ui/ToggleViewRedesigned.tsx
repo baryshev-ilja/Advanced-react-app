@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import { ArticleView } from '@/entities/article';
 import ListIcon from '@/shared/assets/newIcons/toggle-list-icon.svg';
 import GridIcon from '@/shared/assets/newIcons/toggle-table-icon.svg';
@@ -17,16 +15,14 @@ interface ToggleViewRedesignedProps {
 
 export const ToggleViewRedesigned = (props: ToggleViewRedesignedProps) => {
     const { className, view, onClickView } = props;
-    const [currentView, setCurrentView] = useState(view);
 
     const onClickHandler = (newView: ArticleView) => () => {
         onClickView?.(newView);
-        setCurrentView(newView);
     };
 
     const mods: Mods = {
-        [cls.listView]: currentView === 'LIST',
-        [cls.gridView]: currentView === 'GRID',
+        [cls.listView]: view === 'LIST',
+        [cls.gridView]: view === 'GRID',
     };
 
     return (

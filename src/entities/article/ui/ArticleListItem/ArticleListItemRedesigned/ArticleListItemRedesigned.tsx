@@ -84,7 +84,13 @@ export const ArticleListItemRedesigned = (props: ArticleListItemProps) => {
                         />
                     </div>
 
-                    {textBlock && <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} /> }
+                    {textBlock && (
+                        <ArticleTextBlockComponent
+                            block={textBlock}
+                            className={cls.textBlock}
+                            withoutTitle
+                        />
+                    )}
 
                     <HStack justify="between" className={cls.footer}>
                         {views}

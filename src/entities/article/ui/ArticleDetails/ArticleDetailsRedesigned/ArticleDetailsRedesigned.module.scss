@@ -1,0 +1,22 @@
+.image-wrapper {
+    display: grid;
+    grid-template-rows: auto;
+    position: relative;
+    background-color: var(--bg-card-image);
+}
+
+.img {
+    width: 100%;
+    height: auto;
+    max-height: 420px;
+    object-fit: cover;
+}
+
+.ui-block {
+    background: var(--bg-light-redesigned);
+}
+
+.blocks-content {
+    display: grid;
+    grid-template-rows: auto;
+}

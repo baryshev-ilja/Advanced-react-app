@@ -13,7 +13,7 @@ import { EditableProfileCardHeader } from '../EditableProfileCardHeader/Editable
 
 import { Country } from '@/entities/country';
 import { Currency } from '@/entities/currency';
-import { ProfileCard, ValidateProfileError } from '@/entities/profile';
+import { Profile, ProfileCard, ValidateProfileError } from '@/entities/profile';
 import { DynamicReducerLoad, ReducersList } from '@/shared/lib/HOC/DynamicReducerLoad';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
@@ -24,6 +24,7 @@ import { VStack } from '@/shared/ui/redesigned/Stack';
 interface EditableProfileCardProps {
     className?: string;
     id?: string;
+    profileData?: Profile | undefined;
 }
 
 const reducers: ReducersList = {
@@ -31,7 +32,7 @@ const reducers: ReducersList = {
 };
 
 export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
-    const { className, id } = props;
+    const { className, id, profileData } = props;
 
     const dispatch = useAppDispatch();
     const { t } = useTranslation('profile');
@@ -107,7 +108,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
                 )}
                 off={(
                     <VStack gap="16">
-                        <EditableProfileCardHeader />
+                        <EditableProfileCardHeader profileData={profileData} />
                         {validateErrors?.length && validateErrors.map((err) => (
                             <Text
                                 theme={ThemeText.ERROR}

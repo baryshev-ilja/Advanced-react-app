@@ -29,7 +29,7 @@ export const ArticleDetailsPageHeader = (props: ArticleDetailsPageHeaderProps) =
 
     const onButtonEditHandler = useCallback(() => {
         if (article) {
-            navigate(`${AppRoutePaths.articlesDetails(article.id)}`);
+            navigate(`${AppRoutePaths.articleEdit(article.id)}`);
         }
     }, [article, navigate]);
 

@@ -2,8 +2,11 @@ import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import { ControlContentContainer } from '../ControlContentContainer/ControlContentContainer';
 
+import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { ArticleWithComments } from '@/widgets/articleWithComments';
 import { Page } from '@/widgets/page';
 
@@ -27,10 +30,25 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     // }
 
     return (
-        <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
-            <ArticleDetailsPageHeader />
-            <ArticleWithComments id={id!} />
-        </Page>
+        <ToggleFeatures
+            name="isAppRedesigned"
+            on={(
+                <StickyContentLayout
+                    content={(
+                        <Page className={classNames('', {}, [className])}>
+                            <ArticleWithComments id={id!} />
+                        </Page>
+                    )}
+                    rightbar={<ControlContentContainer />}
+                />
+            )}
+            off={(
+                <Page className={classNames(cls.articleDetailsPage, {}, [className])}>
+                    <ArticleDetailsPageHeader />
+                    <ArticleWithComments id={id!} />
+                </Page>
+            )}
+        />
     );
 };
 
