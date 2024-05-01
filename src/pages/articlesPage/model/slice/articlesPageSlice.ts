@@ -26,12 +26,12 @@ const articlesPageSlice = createSlice({
     initialState: articlesAdapter.getInitialState<ArticlesPageSchema>({
         isLoading: false,
         error: undefined,
-        view: 'GRID',
+        view: 'LIST',
         ids: [],
         entities: {},
         page: 1,
         hasMore: true,
-        limit: 10,
+        limit: 3,
         order: 'asc',
         sort: ArticleSortTypes.CREATED,
         search: '',
@@ -42,6 +42,7 @@ const articlesPageSlice = createSlice({
         setView: (state, action: PayloadAction<ArticleView>) => {
             state.view = action.payload;
             localStorage.setItem(LIST_VIEW_ARTICLES_LOCALSTORAGE_KEY, action.payload);
+            state.limit = (action.payload === 'GRID') ? 10 : 3;
         },
         setPage: (state, action: PayloadAction<number>) => {
             state.page = action.payload;
@@ -59,8 +60,12 @@ const articlesPageSlice = createSlice({
             state.type = action.payload;
         },
         initState: (state) => {
+            if (localStorage.getItem(LIST_VIEW_ARTICLES_LOCALSTORAGE_KEY) === null) {
+                localStorage.setItem(LIST_VIEW_ARTICLES_LOCALSTORAGE_KEY, 'LIST');
+            }
             const viewFromLocalSt = localStorage.getItem(LIST_VIEW_ARTICLES_LOCALSTORAGE_KEY) as ArticleView;
-            state.view = viewFromLocalSt || 'GRID';
+
+            state.view = viewFromLocalSt || 'LIST';
             state.limit = (state.view === 'GRID') ? 10 : 3;
             state._inited = true;
         },
