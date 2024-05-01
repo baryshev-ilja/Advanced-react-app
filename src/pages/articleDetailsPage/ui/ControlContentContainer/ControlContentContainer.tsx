@@ -6,19 +6,24 @@ import { useNavigate } from 'react-router-dom';
 import { getCanEditArticle } from '../../model/selectors/getCanEditArticle';
 
 import { getArticleDetailsData } from '@/entities/article';
+import EyeIconNew from '@/shared/assets/newIcons/views-icon.svg';
 import { AppRoutePaths } from '@/shared/const/routerConsts';
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import { Button } from '@/shared/ui/redesigned/Button';
+import { CardUI } from '@/shared/ui/redesigned/CardUI';
+import { Icon } from '@/shared/ui/redesigned/Icon';
 import { HStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
 
-import cls from './ArticleDetailsPageHeader.module.scss';
+import cls from './ControlContentContainer.module.scss';
 
-interface ArticleDetailsPageHeaderProps {
+interface ControlContentContainerProps {
     className?: string;
 }
 
-export const ArticleDetailsPageHeader = (props: ArticleDetailsPageHeaderProps) => {
-    const { className } = props;
+export const ControlContentContainer = ({ className }: ControlContentContainerProps) => {
     const { t } = useTranslation();
+
     const navigate = useNavigate();
     const canEdit = useSelector(getCanEditArticle);
     const article = useSelector(getArticleDetailsData);
@@ -34,23 +39,32 @@ export const ArticleDetailsPageHeader = (props: ArticleDetailsPageHeaderProps) =
     }, [article, navigate]);
 
     return (
-        <HStack className={className}>
+        <CardUI
+            className={classNames(cls.controlContentContainer, {}, [className])}
+            padding="16"
+            gap="16"
+            borderRadius="16"
+        >
             <Button
-                className={cls.toBackArticles}
+                variant="auth"
                 onClick={onButtonBackHandler}
-                theme={ButtonTheme.OUTLINE}
             >
-                {t('Вернуться к списку статей')}
+                {t('Вернуться назад к списку')}
             </Button>
             {canEdit && (
                 <Button
-                    className={cls.toEditArticles}
                     onClick={onButtonEditHandler}
-                    theme={ButtonTheme.OUTLINE}
                 >
                     {t('Редактировать')}
                 </Button>
             )}
-        </HStack>
+            {article && (
+                <HStack gap="4" align="center">
+                    <Icon Svg={EyeIconNew} width={22} height={22} style={{ marginBottom: '2px' }} />
+                    <Text variant="ui" ui={String(article?.views)} />
+                    <Text variant="ui" ui={t('просмотры', { count: article?.views })} />
+                </HStack>
+            )}
+        </CardUI>
     );
 };

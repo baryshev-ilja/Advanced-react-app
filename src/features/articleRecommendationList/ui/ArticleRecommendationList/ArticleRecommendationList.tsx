@@ -7,8 +7,10 @@ import { articleRecommendationsReducer } from '../../model/slice/ArticleDetailsR
 import { ArticleList, ArticleListItemSkeleton } from '@/entities/article';
 import { DynamicReducerLoad, ReducersList } from '@/shared/lib/HOC/DynamicReducerLoad';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { Text, TextSize } from '@/shared/ui/deprecated/Text';
-import { VStack } from '@/shared/ui/redesigned/Stack';
+import { ArticleListItemRedesignedSkeleton } from '@/shared/ui/redesigned/Skeleton';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 
 import cls from './ArticleRecommendationList.module.scss';
 
@@ -26,11 +28,24 @@ export const ArticleRecommendationList = memo((props: ArticleRecommendationListP
     const { data: articlesData, isLoading } = useRecommendationList(4);
 
     const articleRecommendationSkeletons = (
-        <div className={cls.skeletons}>
-            <ArticleListItemSkeleton view="GRID" />
-            <ArticleListItemSkeleton view="GRID" />
-            <ArticleListItemSkeleton view="GRID" />
-        </div>
+        <ToggleFeatures
+            name="isAppRedesigned"
+            on={(
+                <HStack gap="16" className={cls.skeletonsNew}>
+                    <ArticleListItemRedesignedSkeleton view="GRID" />
+                    <ArticleListItemRedesignedSkeleton view="GRID" />
+                    <ArticleListItemRedesignedSkeleton view="GRID" />
+                    <ArticleListItemRedesignedSkeleton view="GRID" />
+                </HStack>
+            )}
+            off={(
+                <div className={cls.skeletons}>
+                    <ArticleListItemSkeleton view="GRID" />
+                    <ArticleListItemSkeleton view="GRID" />
+                    <ArticleListItemSkeleton view="GRID" />
+                </div>
+            )}
+        />
     );
 
     return (
@@ -38,7 +53,7 @@ export const ArticleRecommendationList = memo((props: ArticleRecommendationListP
             <VStack
                 gap="8"
                 max
-                className={classNames(cls.recommendationList, {}, [className])}
+                className={classNames(cls.recommendationsWrapper, {}, [className])}
                 data-testid="ArticleRecommendationList"
             >
                 <Text title={t('Рекомендуем')} size={TextSize.L} />
@@ -46,6 +61,7 @@ export const ArticleRecommendationList = memo((props: ArticleRecommendationListP
                 {articlesData && (
                     <ArticleList
                         className={cls.recommendations}
+                        isRecommendationsBlock
                         articles={articlesData}
                         view="GRID"
                         target="_blank"

@@ -54,7 +54,7 @@ export const ArticleListItemRedesignedSkeleton = (props: ArticleListItemBigSkele
             className={classNames(cls.uiBlock, {}, [className, cls[view]])}
             borderRadius="16"
         >
-            <Skeleton width="100%" height={141} />
+            <Skeleton width="100%" height={141} className={cls.image} />
 
             <VStack className={cls.contentBlock}>
                 <VStack gap="8">

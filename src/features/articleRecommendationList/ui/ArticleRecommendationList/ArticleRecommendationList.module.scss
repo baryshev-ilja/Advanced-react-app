@@ -1,9 +1,11 @@
-.recommendation-list {
-    overflow-y: hidden;
-    overflow-x: auto;
+.recommendations-wrapper {
+    display: grid;
+    grid-template-columns: auto;
 }
 
 .recommendations {
+    overflow-y: hidden;
+    overflow-x: auto;
     flex-wrap: nowrap;
 }
 
@@ -11,4 +13,12 @@
     display: flex;
     gap: 20px;
     width: 100%;
+}
+
+.skeletons-new {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: auto;
 }

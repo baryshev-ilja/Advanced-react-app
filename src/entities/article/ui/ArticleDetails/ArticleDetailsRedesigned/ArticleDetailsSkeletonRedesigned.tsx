@@ -6,7 +6,7 @@ import cls from './ArticleDetailsRedesigned.module.scss';
 
 export const ArticleDetailsSkeletonRedesigned = () => {
     return (
-        <CardUI className={cls.uiBlock} padding="16" gap="16" borderRadius="16">
+        <CardUI className={cls.uiBlock} gap="16" borderRadius="16">
             <VStack gap="12">
                 <HStack justify="between" align="center">
                     <HStack gap="8">

@@ -30,4 +30,10 @@
             grid-template-columns: repeat(3, 1fr);
         }
     }
+
+    &.recommendations-block.GRID {
+        display: flex;
+        flex-wrap: nowrap;
+        width: 100%;
+    }
 }

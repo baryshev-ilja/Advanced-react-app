@@ -12,7 +12,11 @@
         grid-template-columns: minmax(233px, 481px);
         grid-template-rows: 141px 1fr;
         background: var(--bg-light-redesigned);
-        overflow: hidden;
+    }
+
+    .image {
+        border-top-left-radius: 16px;
+        border-top-right-radius: 16px;
     }
 
     .content-block {

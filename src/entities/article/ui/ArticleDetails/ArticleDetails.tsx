@@ -24,12 +24,10 @@ import {
 } from './ArticleDetailsRedesigned/ArticleDetailsSkeletonRedesigned';
 
 import { DynamicReducerLoad, ReducersList } from '@/shared/lib/HOC/DynamicReducerLoad';
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Text as TextDeprecated, TextAlign } from '@/shared/ui/deprecated/Text';
-import { VStack } from '@/shared/ui/redesigned/Stack';
 import { Text as TextRedesigned } from '@/shared/ui/redesigned/Text';
 
 import cls from './ArticleDetails.module.scss';
@@ -149,9 +147,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
 
     return (
         <DynamicReducerLoad reducers={reducers}>
-            <VStack max className={classNames(cls.articleDetails, {}, [className])}>
-                {content}
-            </VStack>
+            {content}
         </DynamicReducerLoad>
     );
 });

@@ -15,3 +15,8 @@
 .ui-block {
     background: var(--bg-light-redesigned);
 }
+
+.blocks-content {
+    display: grid;
+    grid-template-rows: auto;
+}

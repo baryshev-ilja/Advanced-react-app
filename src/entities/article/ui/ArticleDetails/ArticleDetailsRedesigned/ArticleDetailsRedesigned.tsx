@@ -28,7 +28,7 @@ export const ArticleDetailsRedesigned = (props: ArticleDetailsRedesignedProps) =
     );
 
     return (
-        <VStack gap="16">
+        <VStack gap="16" max>
             <VStack gap="12">
                 <HStack justify="between" align="center">
                     <HStack gap="8">
@@ -60,7 +60,7 @@ export const ArticleDetailsRedesigned = (props: ArticleDetailsRedesignedProps) =
                 />
             </div>
 
-            <VStack gap="16">
+            <VStack className={cls.blocksContent} gap="16" max>
                 {data?.blocks.map(renderBlock)}
             </VStack>
         </VStack>
