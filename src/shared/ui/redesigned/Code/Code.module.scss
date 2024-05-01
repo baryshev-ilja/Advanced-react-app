@@ -1,0 +1,20 @@
+.code {
+    border: 1px solid var(--popup-border-redesigned);
+    padding: 20px;
+    border-radius: 8px;
+    background-color: var(--bg-select-redesigned);
+    position: relative;
+    overflow: auto;
+    color: var(--font-ui-primary-redesigned);
+}
+
+.copy-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.copy-icon {
+    fill: transparent;
+    color: var(--font-ui-secondary-redesigned);
+}
