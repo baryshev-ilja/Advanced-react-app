@@ -4,7 +4,7 @@ import { getUserDataByIdQuery } from '../api/userApi';
 import { User } from '../types/userSchema';
 
 import { ThunkConfigApi } from '@/app/providers/StoreProvider';
-import { USER_LOCALSTORAGE_KEY } from '@/shared/const/localStorage';
+import { LOCAL_STORAGE_LAST_DESIGN_KEY, USER_LOCALSTORAGE_KEY } from '@/shared/const/localStorage';
 
 export const initAuthData = createAsyncThunk<User, void, ThunkConfigApi<string>>(
     'user/initAuthData',
@@ -27,6 +27,11 @@ export const initAuthData = createAsyncThunk<User, void, ThunkConfigApi<string>>
             if (!response) {
                 return rejectWithValue('Произошла ошибка в запросе к серверу: нет jsonSettings');
             }
+
+            localStorage.setItem(
+                LOCAL_STORAGE_LAST_DESIGN_KEY,
+                response.features?.isAppRedesigned ? 'new' : 'old',
+            );
 
             return response;
         } catch (err) {

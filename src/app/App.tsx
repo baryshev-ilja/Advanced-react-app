@@ -9,6 +9,7 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
+import { PageLoader } from '@/shared/ui/deprecated/PageLoader';
 import { Navbar, NavbarRedesigned } from '@/widgets/navbar';
 import { Sidebar, SidebarRedesigned } from '@/widgets/sidebar';
 
@@ -23,7 +24,15 @@ function App() {
 
     if (!inited) {
         return (
-            <MainLayoutSkeletons />
+            <ToggleFeatures
+                name="isAppRedesigned"
+                on={(
+                    <div id="app" className={classNames('app-redesigned', {}, [theme])}>
+                        <MainLayoutSkeletons />
+                    </div>
+                )}
+                off={<PageLoader />}
+            />
         );
     }
 
