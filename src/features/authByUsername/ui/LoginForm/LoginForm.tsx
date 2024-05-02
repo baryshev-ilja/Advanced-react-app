@@ -15,6 +15,7 @@ import { LoginFormRedesigned } from './LoginFormRedesigned/LoginFormRedesigned';
 import { DynamicReducerLoad, ReducersList } from '@/shared/lib/HOC/DynamicReducerLoad';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useForceUpdate } from '@/shared/render/forceUpdate';
 
 export interface LoginFormProps {
     className?: string;
@@ -27,6 +28,7 @@ const reducers: ReducersList = {
 const LoginForm = memo(({ className }: LoginFormProps) => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
+    const forceUpdate = useForceUpdate();
 
     const username = useSelector(getLoginUsername);
     const password = useSelector(getLoginPassword);
@@ -41,9 +43,12 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
         dispatch(loginActions.setPassword(value));
     }, [dispatch]);
 
-    const onLoginClick = useCallback(() => {
-        dispatch(loginByUsername({ username, password }));
-    }, [dispatch, password, username]);
+    const onLoginClick = useCallback(async () => {
+        const result = await dispatch(loginByUsername({ username, password }));
+        if (result.meta.requestStatus === 'fulfilled') {
+            forceUpdate();
+        }
+    }, [dispatch, forceUpdate, password, username]);
 
     return (
         <DynamicReducerLoad reducers={reducers}>

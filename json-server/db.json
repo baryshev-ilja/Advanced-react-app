@@ -996,14 +996,15 @@
       "password": "123",
       "features": {
         "isArticleRatingEnabled": false,
-        "isCounterEnabled": false
+        "isCounterEnabled": false,
+        "isAppRedesigned": false
       },
       "roles": [
         "USER"
       ],
       "avatar": "https://www.pavilionweb.com/wp-content/uploads/2017/03/man.png",
       "jsonSettings": {
-        "theme": "app-dark-theme",
+        "theme": "app-light-theme",
         "isFirstVisit": false,
         "isArticlesPageWasOpened": true
       }
