@@ -1,4 +1,9 @@
-.commentForm {
+.comment-form {
     padding: 20px;
     border: 1px solid var(--primary-color);
+}
+
+.comment-form-new {
+    display: flex;
+    gap: 16px;
 }

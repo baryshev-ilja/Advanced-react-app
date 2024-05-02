@@ -12,10 +12,12 @@ import { getArticleCommentsList } from '../../model/slice/articleCommentsSlice/a
 
 import { CommentForm, CommentList, CommentListSkeletons } from '@/entities/comment';
 import { DynamicReducerLoad, ReducersList } from '@/shared/lib/HOC/DynamicReducerLoad';
+import { ToggleFeatures } from '@/shared/lib/features';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Text, TextSize } from '@/shared/ui/deprecated/Text';
+import { Text as TextDeprecated, TextSize } from '@/shared/ui/deprecated/Text';
 import { VStack } from '@/shared/ui/redesigned/Stack';
+import { Text as TextRedesigned } from '@/shared/ui/redesigned/Text';
 
 interface AddCommentsForArticleProps {
     id: string;
@@ -50,7 +52,13 @@ const AddCommentsForArticle = memo((props: AddCommentsForArticleProps) => {
     let contentComments;
 
     if (comments?.length === 0) {
-        contentComments = <Text description={t('Комментарии не найдены')} />;
+        contentComments = (
+            <ToggleFeatures
+                name="isAppRedesigned"
+                on={<TextRedesigned ui={t('Комментарии не найдены')} variant="ui" />}
+                off={<TextDeprecated description={t('Комментарии не найдены')} />}
+            />
+        );
     }
 
     if (isLoading) {
@@ -63,15 +71,35 @@ const AddCommentsForArticle = memo((props: AddCommentsForArticleProps) => {
 
     return (
         <DynamicReducerLoad reducers={reducers}>
-            <VStack gap="16" max data-testid="ArticleCommentsForm">
-                <Text title={t('Комментарии')} size={TextSize.L} />
-                <CommentForm
-                    text={text}
-                    onChangeComment={changeCommentTextHandler}
-                    onSendComment={sendCommentFormHandler}
-                />
-                {contentComments}
-            </VStack>
+            <ToggleFeatures
+                name="isAppRedesigned"
+                on={(
+                    <VStack gap="16" max data-testid="ArticleCommentsForm">
+                        <TextRedesigned
+                            title={t('Комментарии')}
+                            size="sizeL"
+                            fontWeight="semiBold"
+                        />
+                        <CommentForm
+                            text={text}
+                            onChangeComment={changeCommentTextHandler}
+                            onSendComment={sendCommentFormHandler}
+                        />
+                        {contentComments}
+                    </VStack>
+                )}
+                off={(
+                    <VStack gap="16" max data-testid="ArticleCommentsForm">
+                        <TextDeprecated title={t('Комментарии')} size={TextSize.L} />
+                        <CommentForm
+                            text={text}
+                            onChangeComment={changeCommentTextHandler}
+                            onSendComment={sendCommentFormHandler}
+                        />
+                        {contentComments}
+                    </VStack>
+                )}
+            />
         </DynamicReducerLoad>
     );
 });

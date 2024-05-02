@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { ReactNode, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 
 import { getProfileReadonly } from '../../model/selectors/getProfileReadonly/getProfileReadonly';
@@ -19,10 +19,11 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 
 interface EditableProfileCardHeaderProps {
     profileData?: Profile;
+    additionalFeature?: ReactNode;
 }
 
 export const EditableProfileCardHeader = (props: EditableProfileCardHeaderProps) => {
-    const { profileData } = props;
+    const { profileData, additionalFeature } = props;
 
     const dispatch = useAppDispatch();
     const readonly = useSelector(getProfileReadonly);
@@ -50,6 +51,7 @@ export const EditableProfileCardHeader = (props: EditableProfileCardHeaderProps)
                     canEdit={canEdit}
                     readonly={readonly}
                     btnEditHandler={btnEditHandler}
+                    additionalFeatureSlot={additionalFeature}
                     btnCancelEditHandler={btnCancelEditHandler}
                     btnSaveHandler={btnSaveHandler}
                 />

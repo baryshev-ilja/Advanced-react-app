@@ -5,6 +5,13 @@
 @import "themes/dark";
 @import "themes/gray";
 
+html {
+    margin-left: calc(100vw - 100%);
+    margin-right: 0;
+    overflow: auto;
+    background: var(--bg-redesigned);
+}
+
 li {
     list-style-type: none;
 }
@@ -41,14 +48,29 @@ li {
 
 *::-webkit-scrollbar {
     width: 10px;
-    height: 8px;
+    height: 10px;
 }
 
 *::-webkit-scrollbar-track {
-    background: var(--bg-card);
+    background: var(--bg-menu-active-redesigned);
+    border-radius: 20px;
 }
 
 *::-webkit-scrollbar-thumb {
+    background-color: var(--button-redesigned);    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
+}
+
+.app *::-webkit-scrollbar {
+    width: 10px;
+    height: 8px;
+}
+
+.app *::-webkit-scrollbar-track {
+    background: var(--bg-card);
+}
+
+.app *::-webkit-scrollbar-thumb {
     background-color: var(--primary-color);    /* color of the scroll thumb */
     border-radius: 20px;       /* roundness of the scroll thumb */
 }

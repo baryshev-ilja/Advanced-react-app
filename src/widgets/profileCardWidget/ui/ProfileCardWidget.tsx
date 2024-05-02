@@ -24,7 +24,7 @@ export const ProfileCardWidget = memo((props: ProfileCardWidgetProps) => {
             on={(
                 <VStack gap="16">
                     <EditableProfileCard id={id} profileData={profileData} />
-                    {!errorLoadingServer && <ProfileRating profileId={id!} />}
+                    {/* {!errorLoadingServer && <ProfileRating profileId={id!} />} */}
                 </VStack>
             )}
             off={(

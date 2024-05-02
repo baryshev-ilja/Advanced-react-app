@@ -1,0 +1,31 @@
+.star-rating {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-select-redesigned);
+    width: 100%;
+    max-width: 232px;
+    height: 40px;
+    border-radius: 8px;
+}
+
+.star-icon {
+    cursor: pointer;
+}
+
+.star-icon-new {
+    cursor: pointer;
+    color: var(--button-redesigned);
+}
+
+.normal {
+    fill: none;
+}
+
+.hovered {
+    fill: currentcolor;
+}
+
+.selected {
+    cursor: auto;
+}
