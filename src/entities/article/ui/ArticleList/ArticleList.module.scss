@@ -9,7 +9,7 @@
 .LIST {
     display: flex;
     flex-direction: column;
-    row-gap: 20px;
+    row-gap: 16px;
     width: 100%;
 }
 
@@ -35,5 +35,6 @@
         display: flex;
         flex-wrap: nowrap;
         width: 100%;
+        padding-bottom: 16px;
     }
 }

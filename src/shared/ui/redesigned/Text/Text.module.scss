@@ -2,6 +2,12 @@
     font-family: var(--font-family-manrope);
 }
 
+.ui {
+    .description {
+        color: var(--font-ui-secondary-redesigned);
+    }
+}
+
 .primary {
     .title,
     .description,

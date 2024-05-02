@@ -1,3 +1,4 @@
+import { ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames, Mods } from '@/shared/lib/classNames/classNames';
@@ -12,12 +13,14 @@ interface EditableProfileCardHeaderRedesignedProps {
     btnEditHandler: () => void;
     btnCancelEditHandler: () => void;
     btnSaveHandler: () => void;
+    additionalFeatureSlot?: ReactNode;
 }
 
 export const EditableProfileCardHeaderRedesigned = (props: EditableProfileCardHeaderRedesignedProps) => {
     const {
         canEdit,
         readonly,
+        additionalFeatureSlot,
         btnEditHandler,
         btnCancelEditHandler,
         btnSaveHandler,
@@ -57,6 +60,7 @@ export const EditableProfileCardHeaderRedesigned = (props: EditableProfileCardHe
                         <Button variant="auth" onClick={btnCancelEditHandler}>{t('Отменить')}</Button>
                     </>
                 )}
+                {additionalFeatureSlot && additionalFeatureSlot}
             </CardUI>
         </div>
     );

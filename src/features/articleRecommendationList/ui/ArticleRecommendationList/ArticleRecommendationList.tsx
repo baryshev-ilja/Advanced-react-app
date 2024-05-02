@@ -8,9 +8,10 @@ import { ArticleList, ArticleListItemSkeleton } from '@/entities/article';
 import { DynamicReducerLoad, ReducersList } from '@/shared/lib/HOC/DynamicReducerLoad';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { ToggleFeatures } from '@/shared/lib/features';
-import { Text, TextSize } from '@/shared/ui/deprecated/Text';
+import { Text as TextDeprecated, TextSize } from '@/shared/ui/deprecated/Text';
 import { ArticleListItemRedesignedSkeleton } from '@/shared/ui/redesigned/Skeleton';
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
+import { Text as TextRedesigned } from '@/shared/ui/redesigned/Text';
 
 import cls from './ArticleRecommendationList.module.scss';
 
@@ -51,12 +52,22 @@ export const ArticleRecommendationList = memo((props: ArticleRecommendationListP
     return (
         <DynamicReducerLoad reducers={reducers}>
             <VStack
-                gap="8"
+                gap="16"
                 max
                 className={classNames(cls.recommendationsWrapper, {}, [className])}
                 data-testid="ArticleRecommendationList"
             >
-                <Text title={t('Рекомендуем')} size={TextSize.L} />
+                <ToggleFeatures
+                    name="isAppRedesigned"
+                    on={(
+                        <TextRedesigned
+                            title={t('Рекомендуем')}
+                            size="sizeL"
+                            fontWeight="semiBold"
+                        />
+                    )}
+                    off={<TextDeprecated title={t('Рекомендуем')} size={TextSize.L} />}
+                />
                 {isLoading && articleRecommendationSkeletons}
                 {articlesData && (
                     <ArticleList
