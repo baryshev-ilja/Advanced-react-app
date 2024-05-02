@@ -6,6 +6,5 @@ export const CommentListSkeletons = () => (
     <VStack gap="8" max>
         <CommentCardSkeleton />
         <CommentCardSkeleton />
-        <CommentCardSkeleton />
     </VStack>
 );

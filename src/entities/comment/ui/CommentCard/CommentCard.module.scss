@@ -1,4 +1,25 @@
-.commentCard {
+.comment-card {
     padding: 10px;
     border: 1px solid var(--primary-color);
+}
+
+.comment-card-new {
+    padding: 16px;
+    border-radius: 8px;
+    background: var(--bg-select-redesigned);
+}
+
+.comment-card-skeleton {
+    padding: 16px;
+    border-radius: 8px;
+    background: var(--bg-select-open-redesigned);
+}
+
+.link-avatar {
+    align-items: center;
+    width: auto;
+    height: 30px;
+    padding: 0 8px;
+    border-radius: 4px;
+    background: var(--bg-light-redesigned);
 }
