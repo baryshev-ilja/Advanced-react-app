@@ -1,5 +1,6 @@
 import { addDecorator } from '@storybook/react';
 
+import { FeatureFlagsDecorator } from '../../src/shared/config/storybook/FatureFlagsDecorator';
 import { RouterDecorator } from '../../src/shared/config/storybook/RouterDecorator';
 import { StoreDecorator } from '../../src/shared/config/storybook/StoreDecorator';
 import { StyleDecorator } from '../../src/shared/config/storybook/StyleDecorator';
@@ -32,3 +33,4 @@ addDecorator(RouterDecorator);
 addDecorator(SuspenseDecorator);
 addDecorator(WrapperDecorator());
 addDecorator(StoreDecorator({ user: {} }));
+addDecorator(FeatureFlagsDecorator({ }));
