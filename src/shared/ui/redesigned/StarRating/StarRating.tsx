@@ -61,13 +61,12 @@ export const StarRating = memo((props: StarRatingProps) => {
         off: () => `${cls.starIcon}`,
     });
 
-    const starIconProps = (starNumber: number, index: number) => ({
+    const starIconProps = (starNumber: number) => ({
         className: classNames(starIconClasses, {
             [cls.selected]: isSelected,
             [cls.hovered]: currentStarsCount >= starNumber,
             [cls.normal]: currentStarsCount <= starNumber,
         }, []),
-        key: index,
         width: size,
         height: size,
         onMouseEnter: onHoverStar(starNumber),
@@ -81,9 +80,10 @@ export const StarRating = memo((props: StarRatingProps) => {
         <HStack className={classNames(starClasses, {}, [className])}>
             {stars.map((starNumber, index) => (
                 <ToggleFeatures
+                    key={index}
                     name="isAppRedesigned"
-                    on={<StarIconNew {...starIconProps(starNumber, index)} />}
-                    off={<StarIcon {...starIconProps(starNumber, index)} />}
+                    on={<StarIconNew key={index} {...starIconProps(starNumber)} />}
+                    off={<StarIcon key={index} {...starIconProps(starNumber)} />}
                 />
             ))}
         </HStack>
