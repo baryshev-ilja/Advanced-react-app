@@ -8,7 +8,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 export default {
-    title: 'features/AddCommentsForArticle',
+    title: 'DEPRECATED/features/AddCommentsForArticle',
     component: AddCommentsForArticle,
     argTypes: {
         backgroundColor: { control: 'color' },

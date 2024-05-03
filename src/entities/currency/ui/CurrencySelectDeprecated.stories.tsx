@@ -7,7 +7,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 export default {
-    title: 'entities/CurrencySelect',
+    title: 'DEPRECATED/entities/CurrencySelect',
     component: CurrencySelect,
     argTypes: {
         backgroundColor: { control: 'color' },

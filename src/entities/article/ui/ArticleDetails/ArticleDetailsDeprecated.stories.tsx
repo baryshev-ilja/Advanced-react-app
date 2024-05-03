@@ -11,7 +11,7 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
 import './ArticleDetails.module.scss';
 
 export default {
-    title: 'entities/article/ArticleDetails',
+    title: 'DEPRECATED/entities/article/ArticleDetails',
     component: ArticleDetails,
     argTypes: {
         backgroundColor: { control: 'color' },

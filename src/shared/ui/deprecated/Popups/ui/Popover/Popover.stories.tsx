@@ -9,7 +9,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 export default {
-    title: 'shared/Popover',
+    title: 'DEPRECATED/shared/Popover',
     component: Popover,
     argTypes: {
         backgroundColor: { control: 'color' },

@@ -9,7 +9,7 @@ import { ThemeStory } from '@/shared/const/theme';
 import { articleMock } from '@/shared/mock/articleData';
 
 export default {
-    title: 'pages/ArticleDetailsPage',
+    title: 'DEPRECATED/pages/ArticleDetailsPage',
     component: ArticleDetailsPage,
     argTypes: {
         backgroundColor: { control: 'color' },

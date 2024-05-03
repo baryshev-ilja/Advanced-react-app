@@ -8,7 +8,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 export default {
-    title: 'features/LoginForm',
+    title: 'DEPRECATED/features/LoginForm',
     component: LoginForm,
     argTypes: {
         backgroundColor: { control: 'color' },

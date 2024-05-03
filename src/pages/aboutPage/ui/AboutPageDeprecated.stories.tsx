@@ -8,7 +8,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 export default {
-    title: 'pages/AboutPage',
+    title: 'DEPRECATED/pages/AboutPage',
     component: AboutPage,
     argTypes: {
         backgroundColor: { control: 'color' },

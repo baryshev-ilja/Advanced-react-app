@@ -9,7 +9,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 export default {
-    title: 'shared/DropDown',
+    title: 'DEPRECATED/shared/DropDown',
     component: DropDown,
     argTypes: {
         backgroundColor: { control: 'color' },

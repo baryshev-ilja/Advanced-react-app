@@ -8,7 +8,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 export default {
-    title: 'entities/Notification/NotificationList',
+    title: 'DEPRECATED/entities/Notification/NotificationList',
     component: NotificationList,
     argTypes: {
         backgroundColor: { control: 'color' },

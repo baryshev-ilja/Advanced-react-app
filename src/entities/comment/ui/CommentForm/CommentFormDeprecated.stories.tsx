@@ -7,7 +7,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 export default {
-    title: 'entities/Comment/CommentForm',
+    title: 'DEPRECATED/entities/Comment/CommentForm',
     component: CommentForm,
     argTypes: {
         backgroundColor: { control: 'color' },

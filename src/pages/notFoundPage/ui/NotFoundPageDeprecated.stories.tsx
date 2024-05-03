@@ -8,7 +8,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 export default {
-    title: 'pages/NotFoundPage',
+    title: 'DEPRECATED/pages/NotFoundPage',
     component: NotFoundPage,
     argTypes: {
         backgroundColor: { control: 'color' },

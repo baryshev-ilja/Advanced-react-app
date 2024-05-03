@@ -3,11 +3,12 @@ import React from 'react';
 
 import { CommentCard } from './CommentCard';
 
+import { FeatureFlagsDecorator } from '@/shared/config/storybook/FatureFlagsDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 export default {
-    title: 'entities/Comment/CommentCard',
+    title: 'DEPRECATED/entities/Comment/CommentCard',
     component: CommentCard,
     argTypes: {
         backgroundColor: { control: 'color' },
@@ -16,23 +17,25 @@ export default {
 
 const Template: ComponentStory<typeof CommentCard> = (args) => <CommentCard {...args} />;
 
-export const Normal = Template.bind({});
-Normal.args = {
+const args = {
     comment: {
         id: '1',
         text: 'hello world',
         user: { id: '1', username: 'Vasya' },
     },
 };
+
+export const Normal = Template.bind({});
+Normal.args = args;
 Normal.decorators = [ThemeDecorator(ThemeStory.LIGHT)];
 
+export const NormalRedesigned = Template.bind({});
+NormalRedesigned.args = args;
+NormalRedesigned.decorators = [
+    FeatureFlagsDecorator({ isAppRedesigned: true }),
+    ThemeDecorator(ThemeStory.LIGHT),
+];
+
 export const Dark = Template.bind({});
-Dark.args = {
-    comment: {
-        id: '1',
-        text: 'hello world',
-        user: { id: '1', username: 'Vasya' },
-    },
-    isLoading: true,
-};
+Dark.args = args;
 Dark.decorators = [ThemeDecorator(ThemeStory.DARK)];

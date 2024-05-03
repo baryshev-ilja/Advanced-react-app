@@ -7,7 +7,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 export default {
-    title: 'shared/PageLoader',
+    title: 'DEPRECATED/shared/PageLoader',
     component: PageLoader,
     argTypes: {
         backgroundColor: { control: 'color' },

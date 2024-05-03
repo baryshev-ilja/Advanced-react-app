@@ -11,7 +11,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 export default {
-    title: 'pages/ProfilePage',
+    title: 'DEPRECATED/pages/ProfilePage',
     component: ProfilePagePage,
     argTypes: {
         backgroundColor: { control: 'color' },

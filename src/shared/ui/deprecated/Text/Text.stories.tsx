@@ -7,7 +7,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 export default {
-    title: 'shared/Text',
+    title: 'DEPRECATED/shared/Text',
     component: Text,
     argTypes: {
         backgroundColor: { control: 'color' },

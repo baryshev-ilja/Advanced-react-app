@@ -25,7 +25,7 @@ const articleMock: Article = {
 };
 
 export default {
-    title: 'features/ArticleRecommendationList',
+    title: 'DEPRECATED/features/ArticleRecommendationList',
     component: ArticleRecommendationList,
     argTypes: {
         backgroundColor: { control: 'color' },

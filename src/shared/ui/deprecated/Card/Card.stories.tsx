@@ -9,7 +9,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 export default {
-    title: 'shared/Card',
+    title: 'DEPRECATED/shared/Card',
     component: Card,
     argTypes: {
         backgroundColor: { control: 'color' },

@@ -10,7 +10,7 @@ import { articleMock } from '@/shared/mock/articleData';
 import cls from './ArticleList.module.scss';
 
 export default {
-    title: 'entities/article/ArticleList',
+    title: 'DEPRECATED/entities/article/ArticleList',
     component: ArticleList,
     argTypes: {
         backgroundColor: { control: 'color' },

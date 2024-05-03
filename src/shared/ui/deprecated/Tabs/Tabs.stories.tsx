@@ -8,7 +8,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 export default {
-    title: 'shared/Tabs',
+    title: 'DEPRECATED/shared/Tabs',
     component: Tabs,
     argTypes: {
         backgroundColor: { control: 'color' },
