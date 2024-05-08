@@ -3,7 +3,7 @@ import React from 'react';
 
 import { CurrencySelect } from './CurrencySelect';
 
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { ThemeOldDecorator } from '@/shared/config/storybook/ThemeOldDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 export default {
@@ -12,7 +12,7 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    decorators: [ThemeDecorator(ThemeStory.LIGHT)],
+    decorators: [ThemeOldDecorator(ThemeStory.LIGHT)],
 } as ComponentMeta<typeof CurrencySelect>;
 
 const Template: ComponentStory<typeof CurrencySelect> = (args) => <CurrencySelect {...args} />;

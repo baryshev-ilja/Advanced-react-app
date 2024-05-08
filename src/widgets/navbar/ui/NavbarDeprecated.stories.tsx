@@ -4,7 +4,7 @@ import React from 'react';
 import { Navbar } from './Navbar';
 
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { ThemeOldDecorator } from '@/shared/config/storybook/ThemeOldDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 export default {
@@ -19,7 +19,7 @@ const Template: ComponentStory<typeof Navbar> = (args) => <Navbar {...args} />;
 
 export const Light = Template.bind({});
 Light.args = {};
-Light.decorators = [ThemeDecorator(ThemeStory.LIGHT), StoreDecorator({
+Light.decorators = [ThemeOldDecorator(ThemeStory.LIGHT), StoreDecorator({
     loginForm: {
         username: 'admin',
         password: '123',
@@ -28,7 +28,7 @@ Light.decorators = [ThemeDecorator(ThemeStory.LIGHT), StoreDecorator({
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [ThemeDecorator(ThemeStory.DARK), StoreDecorator({
+Dark.decorators = [ThemeOldDecorator(ThemeStory.DARK), StoreDecorator({
     loginForm: {
         username: 'admin',
         password: '123',

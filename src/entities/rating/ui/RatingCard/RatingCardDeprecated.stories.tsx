@@ -3,7 +3,7 @@ import React from 'react';
 
 import { RatingCard } from './RatingCard';
 
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { ThemeOldDecorator } from '@/shared/config/storybook/ThemeOldDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 export default {
@@ -20,10 +20,10 @@ export const NormalWithoutRate = Template.bind({});
 NormalWithoutRate.args = {
     title: 'Ну как вам статья?',
 };
-NormalWithoutRate.decorators = [ThemeDecorator(ThemeStory.LIGHT)];
+NormalWithoutRate.decorators = [ThemeOldDecorator(ThemeStory.LIGHT)];
 
 export const DarkWithRate = Template.bind({});
 DarkWithRate.args = {
     rate: 4,
 };
-DarkWithRate.decorators = [ThemeDecorator(ThemeStory.DARK)];
+DarkWithRate.decorators = [ThemeOldDecorator(ThemeStory.DARK)];

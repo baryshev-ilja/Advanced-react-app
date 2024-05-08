@@ -3,7 +3,7 @@ import React from 'react';
 
 import { Text, TextSize, ThemeText } from './Text';
 
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { ThemeOldDecorator } from '@/shared/config/storybook/ThemeOldDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 export default {
@@ -21,7 +21,7 @@ TitleWithDescription.args = {
     title: 'Title',
     description: 'It is just description',
 };
-TitleWithDescription.decorators = [ThemeDecorator(ThemeStory.LIGHT)];
+TitleWithDescription.decorators = [ThemeOldDecorator(ThemeStory.LIGHT)];
 
 export const TitleWithDescriptionError = Template.bind({});
 TitleWithDescriptionError.args = {
@@ -29,21 +29,21 @@ TitleWithDescriptionError.args = {
     description: 'Unfortunately an error occurred',
     theme: ThemeText.ERROR,
 };
-TitleWithDescriptionError.decorators = [ThemeDecorator(ThemeStory.DARK)];
+TitleWithDescriptionError.decorators = [ThemeOldDecorator(ThemeStory.DARK)];
 
 export const OnlyTitle = Template.bind({});
 OnlyTitle.args = {
     title: 'Error',
     theme: ThemeText.ERROR,
 };
-OnlyTitle.decorators = [ThemeDecorator(ThemeStory.DARK)];
+OnlyTitle.decorators = [ThemeOldDecorator(ThemeStory.DARK)];
 
 export const OnlyDescription = Template.bind({});
 OnlyDescription.args = {
     description: 'Unfortunately an error occurred',
     theme: ThemeText.ERROR,
 };
-OnlyDescription.decorators = [ThemeDecorator(ThemeStory.DARK)];
+OnlyDescription.decorators = [ThemeOldDecorator(ThemeStory.DARK)];
 
 export const H1 = Template.bind({});
 H1.args = {
@@ -51,7 +51,7 @@ H1.args = {
     title: 'Title',
     description: 'It is just description',
 };
-H1.decorators = [ThemeDecorator(ThemeStory.LIGHT)];
+H1.decorators = [ThemeOldDecorator(ThemeStory.LIGHT)];
 
 export const H2 = Template.bind({});
 H2.args = {
@@ -59,7 +59,7 @@ H2.args = {
     title: 'Title',
     description: 'It is just description',
 };
-H2.decorators = [ThemeDecorator(ThemeStory.LIGHT)];
+H2.decorators = [ThemeOldDecorator(ThemeStory.LIGHT)];
 
 export const H3 = Template.bind({});
 H3.args = {
@@ -67,4 +67,4 @@ H3.args = {
     title: 'Title',
     description: 'It is just description',
 };
-H3.decorators = [ThemeDecorator(ThemeStory.LIGHT)];
+H3.decorators = [ThemeOldDecorator(ThemeStory.LIGHT)];

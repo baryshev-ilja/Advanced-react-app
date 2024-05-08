@@ -4,7 +4,7 @@ import React from 'react';
 import { NotificationList } from './NotificationList';
 
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { ThemeOldDecorator } from '@/shared/config/storybook/ThemeOldDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 export default {
@@ -20,7 +20,7 @@ const Template: ComponentStory<typeof NotificationList> = (args) => <Notificatio
 
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [ThemeDecorator(ThemeStory.LIGHT)];
+Normal.decorators = [ThemeOldDecorator(ThemeStory.LIGHT)];
 Normal.parameters = {
     mockData: [
         {
@@ -51,7 +51,7 @@ Normal.parameters = {
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [ThemeDecorator(ThemeStory.DARK)];
+Dark.decorators = [ThemeOldDecorator(ThemeStory.DARK)];
 Dark.parameters = {
     mockData: [
         {

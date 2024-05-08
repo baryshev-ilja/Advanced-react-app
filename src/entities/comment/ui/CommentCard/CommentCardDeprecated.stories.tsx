@@ -1,11 +1,12 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
 import { CommentCard } from './CommentCard';
 
 import { FeatureFlagsDecorator } from '@/shared/config/storybook/FatureFlagsDecorator';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { ThemeStory } from '@/shared/const/theme';
+import { ThemeNewDecorator } from '@/shared/config/storybook/ThemeNewDecorator';
+import { ThemeOldDecorator } from '@/shared/config/storybook/ThemeOldDecorator';
+import { ThemeNewStory, ThemeStory } from '@/shared/const/theme';
 
 export default {
     title: 'DEPRECATED/entities/Comment/CommentCard',
@@ -27,15 +28,15 @@ const args = {
 
 export const Normal = Template.bind({});
 Normal.args = args;
-Normal.decorators = [ThemeDecorator(ThemeStory.LIGHT)];
+Normal.decorators = [ThemeOldDecorator(ThemeStory.LIGHT)];
 
 export const NormalRedesigned = Template.bind({});
 NormalRedesigned.args = args;
 NormalRedesigned.decorators = [
     FeatureFlagsDecorator({ isAppRedesigned: true }),
-    ThemeDecorator(ThemeStory.LIGHT),
+    ThemeNewDecorator(ThemeNewStory.WHITE),
 ];
 
 export const Dark = Template.bind({});
 Dark.args = args;
-Dark.decorators = [ThemeDecorator(ThemeStory.DARK)];
+Dark.decorators = [ThemeOldDecorator(ThemeStory.DARK)];

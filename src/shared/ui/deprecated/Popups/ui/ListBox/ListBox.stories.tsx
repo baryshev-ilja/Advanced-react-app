@@ -3,7 +3,7 @@ import React from 'react';
 
 import { ListBox } from './ListBox';
 
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { ThemeOldDecorator } from '@/shared/config/storybook/ThemeOldDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 export default {
@@ -14,7 +14,7 @@ export default {
     },
     decorators: [
         (Story) => <div style={{ padding: 150 }}><Story /></div>,
-        ThemeDecorator(ThemeStory.LIGHT),
+        ThemeOldDecorator(ThemeStory.LIGHT),
     ],
 } as ComponentMeta<typeof ListBox>;
 

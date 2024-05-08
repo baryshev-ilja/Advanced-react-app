@@ -5,7 +5,7 @@ import AvatarImg from '../../../assets/storybook.jpg';
 
 import { Avatar } from './Avatar';
 
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { ThemeOldDecorator } from '@/shared/config/storybook/ThemeOldDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 export default {
@@ -14,7 +14,7 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    decorators: [ThemeDecorator(ThemeStory.LIGHT)],
+    decorators: [ThemeOldDecorator(ThemeStory.LIGHT)],
 } as ComponentMeta<typeof Avatar>;
 
 const Template: ComponentStory<typeof Avatar> = (args) => <Avatar {...args} />;

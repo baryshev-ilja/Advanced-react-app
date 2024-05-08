@@ -3,7 +3,7 @@ import React from 'react';
 
 import { CommentList } from './CommentList';
 
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { ThemeOldDecorator } from '@/shared/config/storybook/ThemeOldDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 export default {
@@ -31,7 +31,7 @@ Normal.args = {
         },
     ],
 };
-Normal.decorators = [ThemeDecorator(ThemeStory.LIGHT)];
+Normal.decorators = [ThemeOldDecorator(ThemeStory.LIGHT)];
 
 export const DarkLoading = Template.bind({});
 DarkLoading.args = {
@@ -49,4 +49,4 @@ DarkLoading.args = {
     ],
     loading: true,
 };
-DarkLoading.decorators = [ThemeDecorator(ThemeStory.DARK)];
+DarkLoading.decorators = [ThemeOldDecorator(ThemeStory.DARK)];

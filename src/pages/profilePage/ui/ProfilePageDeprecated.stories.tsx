@@ -7,7 +7,7 @@ import { Country } from '@/entities/country';
 import { Currency } from '@/entities/currency';
 import AvatarImg from '@/shared/assets/storybook.jpg';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { ThemeOldDecorator } from '@/shared/config/storybook/ThemeOldDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 export default {
@@ -23,7 +23,7 @@ const Template: ComponentStory<typeof ProfilePagePage> = () => <ProfilePagePage 
 export const Light = Template.bind({});
 Light.args = {
 };
-Light.decorators = [ThemeDecorator(ThemeStory.LIGHT), StoreDecorator({
+Light.decorators = [ThemeOldDecorator(ThemeStory.LIGHT), StoreDecorator({
     profile: {
         data: {
             first: 'Илья',
@@ -50,7 +50,7 @@ Light.decorators = [ThemeDecorator(ThemeStory.LIGHT), StoreDecorator({
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [ThemeDecorator(ThemeStory.DARK), StoreDecorator({
+Dark.decorators = [ThemeOldDecorator(ThemeStory.DARK), StoreDecorator({
     profile: {
         data: {
             first: 'Илья',

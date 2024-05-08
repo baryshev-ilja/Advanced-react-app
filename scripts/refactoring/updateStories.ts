@@ -9,7 +9,7 @@ const files = project.getSourceFiles();
 const THEME_STORY = 'ThemeStory';
 
 const isTheme = (value?: string) => value === 'Theme';
-const isThemeDecorator = (value: string) => value === 'ThemeDecorator';
+const isThemeDecorator = (value: string) => value === 'ThemeOldDecorator';
 const isDecoratorsProperty = (value: string) => value === 'decorators';
 
 files.forEach((sourceFile) => {

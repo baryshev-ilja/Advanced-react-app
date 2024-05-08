@@ -4,7 +4,7 @@ import React from 'react';
 import AddCommentsForArticle from './AddCommentsForArticle';
 
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { ThemeOldDecorator } from '@/shared/config/storybook/ThemeOldDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 export default {
@@ -13,7 +13,7 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    decorators: [ThemeDecorator(ThemeStory.LIGHT)],
+    decorators: [ThemeOldDecorator(ThemeStory.LIGHT)],
 } as ComponentMeta<typeof AddCommentsForArticle>;
 
 const Template: ComponentStory<typeof AddCommentsForArticle> = (args) => <AddCommentsForArticle {...args} />;

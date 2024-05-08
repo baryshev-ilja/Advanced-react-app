@@ -5,7 +5,7 @@ import { Light } from '../../../PageLoader/PageLoader.stories';
 
 import { Popover } from './Popover';
 
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { ThemeOldDecorator } from '@/shared/config/storybook/ThemeOldDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 export default {
@@ -20,8 +20,8 @@ const Template: ComponentStory<typeof Popover> = (args) => <Popover {...args} />
 
 export const Normal = Template.bind({});
 Normal.args = {};
-Light.decorators = [ThemeDecorator(ThemeStory.LIGHT)];
+Light.decorators = [ThemeOldDecorator(ThemeStory.LIGHT)];
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [ThemeDecorator(ThemeStory.DARK)];
+Dark.decorators = [ThemeOldDecorator(ThemeStory.DARK)];

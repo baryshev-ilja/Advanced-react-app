@@ -4,7 +4,7 @@ import React from 'react';
 import ArticleDetailsPage from './ArticleDetailsPage';
 
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { ThemeOldDecorator } from '@/shared/config/storybook/ThemeOldDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 import { articleMock } from '@/shared/mock/articleData';
 
@@ -25,8 +25,8 @@ const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => <ArticleDe
 
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [ThemeDecorator(ThemeStory.LIGHT)];
+Normal.decorators = [ThemeOldDecorator(ThemeStory.LIGHT)];
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [ThemeDecorator(ThemeStory.DARK)];
+Dark.decorators = [ThemeOldDecorator(ThemeStory.DARK)];

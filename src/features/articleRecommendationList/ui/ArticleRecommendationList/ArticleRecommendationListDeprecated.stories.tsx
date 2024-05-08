@@ -5,7 +5,7 @@ import { ArticleRecommendationList } from './ArticleRecommendationList';
 
 import { Article, ArticleTypes } from '@/entities/article';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { ThemeOldDecorator } from '@/shared/config/storybook/ThemeOldDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 const articleMock: Article = {
@@ -32,7 +32,7 @@ export default {
     },
     decorators: [
         StoreDecorator({}),
-        ThemeDecorator(ThemeStory.LIGHT),
+        ThemeOldDecorator(ThemeStory.LIGHT),
     ],
 } as ComponentMeta<typeof ArticleRecommendationList>;
 

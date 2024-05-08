@@ -3,7 +3,7 @@ import React from 'react';
 
 import { Skeleton } from './Skeleton';
 
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { ThemeOldDecorator } from '@/shared/config/storybook/ThemeOldDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 export default {
@@ -21,7 +21,7 @@ Normal.args = {
     width: '100%',
     height: 50,
 };
-Normal.decorators = [ThemeDecorator(ThemeStory.LIGHT)];
+Normal.decorators = [ThemeOldDecorator(ThemeStory.LIGHT)];
 
 export const Circle = Template.bind({});
 Circle.args = {
@@ -29,14 +29,14 @@ Circle.args = {
     height: 300,
     borderRadius: '50%',
 };
-Circle.decorators = [ThemeDecorator(ThemeStory.LIGHT)];
+Circle.decorators = [ThemeOldDecorator(ThemeStory.LIGHT)];
 
 export const NormalDark = Template.bind({});
 NormalDark.args = {
     width: '100%',
     height: 50,
 };
-NormalDark.decorators = [ThemeDecorator(ThemeStory.DARK)];
+NormalDark.decorators = [ThemeOldDecorator(ThemeStory.DARK)];
 
 export const CircleDark = Template.bind({});
 CircleDark.args = {
@@ -44,4 +44,4 @@ CircleDark.args = {
     height: 300,
     borderRadius: '50%',
 };
-CircleDark.decorators = [ThemeDecorator(ThemeStory.DARK)];
+CircleDark.decorators = [ThemeOldDecorator(ThemeStory.DARK)];

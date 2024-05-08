@@ -4,15 +4,11 @@ import { Story } from '@storybook/react';
 import { ThemeProvider } from '@/app/providers/ThemeProvider';
 import { Theme, ThemeStory } from '@/shared/const/theme';
 
-export function ThemeDecorator(theme: ThemeStory) {
+export function ThemeOldDecorator(theme: ThemeStory) {
     let themeForProvider: Theme;
     let colorTextForStory: string;
 
     switch (theme) {
-    case ThemeStory.GRAY:
-        themeForProvider = Theme.GRAY;
-        colorTextForStory = '#687a90';
-        break;
     case ThemeStory.DARK:
         themeForProvider = Theme.DARK;
         colorTextForStory = '#78f078';
@@ -36,7 +32,7 @@ export function ThemeDecorator(theme: ThemeStory) {
                     background: `${theme}`,
                     minHeight: '100vh',
                     padding: '25px 40px',
-                    color: `${colorTextForStory}`,
+                    // color: `${colorTextForStory}`,
                 }}
             >
                 <StoryComponent />

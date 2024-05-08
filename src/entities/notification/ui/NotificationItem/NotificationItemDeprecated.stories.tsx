@@ -3,7 +3,7 @@ import React from 'react';
 
 import { NotificationItem } from './NotificationItem';
 
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { ThemeOldDecorator } from '@/shared/config/storybook/ThemeOldDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 export default {
@@ -24,4 +24,4 @@ Dark.args = {
         description: 'Вы подписались на блог',
     },
 };
-Dark.decorators = [ThemeDecorator(ThemeStory.DARK)];
+Dark.decorators = [ThemeOldDecorator(ThemeStory.DARK)];

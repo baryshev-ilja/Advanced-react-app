@@ -7,8 +7,9 @@ import { Article } from '../../model/types/article';
 import { ArticleDetails } from './ArticleDetails';
 
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
-
 import './ArticleDetails.module.scss';
+import { ThemeOldDecorator } from '@/shared/config/storybook/ThemeOldDecorator';
+import { ThemeStory } from '@/shared/const/theme';
 
 export default {
     title: 'DEPRECATED/entities/article/ArticleDetails',
@@ -98,26 +99,35 @@ export const Normal = Template.bind({});
 Normal.args = {
     data: articleData,
 };
-Normal.decorators = [StoreDecorator({
-    articleDetails: {
-        data: articleData,
-    },
-})];
+Normal.decorators = [
+    StoreDecorator({
+        articleDetails: {
+            data: articleData,
+        },
+    }),
+    ThemeOldDecorator(ThemeStory.LIGHT),
+];
 
 export const Error = Template.bind({});
 Error.args = {};
-Error.decorators = [StoreDecorator({
-    articleDetails: {
-        error: 'error',
-    },
-})];
+Error.decorators = [
+    StoreDecorator({
+        articleDetails: {
+            error: 'error',
+        },
+    }),
+    ThemeOldDecorator(ThemeStory.LIGHT),
+];
 
 export const isLoading = Template.bind({});
 isLoading.args = {
     isLoading: true,
 };
-isLoading.decorators = [StoreDecorator({
-    articleDetails: {
-        isLoading: true,
-    },
-})];
+isLoading.decorators = [
+    StoreDecorator({
+        articleDetails: {
+            isLoading: true,
+        },
+    }),
+    ThemeOldDecorator(ThemeStory.LIGHT),
+];

@@ -3,23 +3,25 @@ import React from 'react';
 
 import { ThemeSwitcher } from './ThemeSwitcher';
 
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
-import { ThemeStory } from '@/shared/const/theme';
+import { NewDesignDecorator } from '@/shared/config/storybook/NewDesignDecorator';
+import { ThemeNewDecorator } from '@/shared/config/storybook/ThemeNewDecorator';
+import { ThemeNewStory } from '@/shared/const/theme';
 
 export default {
-    title: 'shared/ThemeSwitcher',
+    title: 'REDESIGNED/shared/ThemeSwitcher',
     component: ThemeSwitcher,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [NewDesignDecorator],
 } as ComponentMeta<typeof ThemeSwitcher>;
 
 const Template: ComponentStory<typeof ThemeSwitcher> = (args) => <ThemeSwitcher {...args} />;
 
 export const Light = Template.bind({});
 Light.args = {};
-Light.decorators = [ThemeDecorator(ThemeStory.LIGHT)];
+Light.decorators = [ThemeNewDecorator(ThemeNewStory.LIGHT)];
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [ThemeDecorator(ThemeStory.DARK)];
+Dark.decorators = [ThemeNewDecorator(ThemeNewStory.DARK)];
