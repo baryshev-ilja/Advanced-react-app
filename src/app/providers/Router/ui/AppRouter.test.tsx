@@ -23,7 +23,6 @@ describe('AppRouter test', () => {
 
     test('Не авторизован и хочет зайти на защищенный маршрут, должен произойти редирект на (main)', async () => {
         componentRender(<AppRouter />, { route: AppRoutePaths.profile('1') });
-
         const page = await screen.findByTestId('Main-page');
         expect(page).toBeInTheDocument();
     });

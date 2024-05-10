@@ -21,7 +21,7 @@ const MainPage = memo(() => {
             on={(
                 <StickyContentLayout
                     content={(
-                        <Page>
+                        <Page data-testid="Main-page">
                             <CardUI
                                 className={cls.content}
                                 padding="16"
