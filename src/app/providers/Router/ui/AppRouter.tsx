@@ -6,19 +6,11 @@ import { routeConfig } from '../config/routerConfig';
 import { RequireAuth } from './RequireAuth';
 
 import { AppRouteProps } from '@/shared/types/router';
-import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 
 const AppRouter = () => {
     const renderWithWrapper = useCallback((route: AppRouteProps) => {
         const element = (
-            <Suspense fallback={(
-                <Skeleton
-                    width={100}
-                    height={30}
-                    borderRadius="8px"
-                />
-            )}
-            >
+            <Suspense fallback={route.skeleton}>
                 {route.element}
             </Suspense>
         );
