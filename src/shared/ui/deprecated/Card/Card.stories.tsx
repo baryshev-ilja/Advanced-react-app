@@ -5,16 +5,16 @@ import { Text } from '../Text/Text';
 
 import { Card } from './Card';
 
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { ThemeOldDecorator } from '@/shared/config/storybook/ThemeOldDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 export default {
-    title: 'shared/Card',
+    title: 'DEPRECATED/shared/Card',
     component: Card,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    decorators: [ThemeDecorator(ThemeStory.LIGHT)],
+    decorators: [ThemeOldDecorator(ThemeStory.LIGHT)],
 } as ComponentMeta<typeof Card>;
 
 const Template: ComponentStory<typeof Card> = (args) => <Card {...args} />;

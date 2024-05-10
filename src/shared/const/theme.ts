@@ -9,3 +9,9 @@ export enum ThemeStory {
     DARK = '#161637',
     GRAY = '#f4f7fb',
 }
+
+export enum ThemeNewStory {
+    WHITE = '#fff',
+    LIGHT = '#e9f0f6',
+    DARK = '#070e33',
+}

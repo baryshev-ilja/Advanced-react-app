@@ -3,11 +3,11 @@ import React from 'react';
 
 import { StarRating } from './StarRating';
 
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { ThemeOldDecorator } from '@/shared/config/storybook/ThemeOldDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 export default {
-    title: 'shared/StarRating',
+    title: 'DEPRECATED/shared/StarRating',
     component: StarRating,
     argTypes: {
         backgroundColor: { control: 'color' },
@@ -18,8 +18,8 @@ const Template: ComponentStory<typeof StarRating> = (args) => <StarRating {...ar
 
 export const Normal = Template.bind({});
 Normal.args = {};
-Normal.decorators = [ThemeDecorator(ThemeStory.LIGHT)];
+Normal.decorators = [ThemeOldDecorator(ThemeStory.LIGHT)];
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [ThemeDecorator(ThemeStory.DARK)];
+Dark.decorators = [ThemeOldDecorator(ThemeStory.DARK)];

@@ -5,7 +5,6 @@ import { SortByFiltersArticleList } from '@/features/sortArticleList';
 import { ToggleViewRedesigned } from '@/features/toggleViewArticleList';
 import SearchIcon from '@/shared/assets/newIcons/search-icon.svg';
 import { typedMemo } from '@/shared/const/typedMemo';
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { TypesOfOrders } from '@/shared/types/orderTypes';
 import { CardUI } from '@/shared/ui/redesigned/CardUI';
 import { Icon } from '@/shared/ui/redesigned/Icon';
@@ -48,7 +47,7 @@ export const ArticlesFilters = typedMemo(<T extends string>(props: ArticlesFilte
     } = props;
     const { t } = useTranslation();
     return (
-        <VStack gap="16" className={classNames(cls.articlesFilters, {}, [className])}>
+        <>
             <CardUI gap="16" padding="16" borderRadius="16" className={cls.uiBlock}>
                 <Input
                     labelElement={t('Поиск')}
@@ -84,6 +83,6 @@ export const ArticlesFilters = typedMemo(<T extends string>(props: ArticlesFilte
                     onTabClick={onTabClick}
                 />
             </CardUI>
-        </VStack>
+        </>
     );
 });

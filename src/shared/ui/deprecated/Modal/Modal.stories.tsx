@@ -4,11 +4,11 @@ import React from 'react';
 import { Modal } from './Modal';
 
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { ThemeOldDecorator } from '@/shared/config/storybook/ThemeOldDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 export default {
-    title: 'widgets/Modal',
+    title: 'DEPRECATED/shared/Modal',
     component: Modal,
     argTypes: {
         backgroundColor: { control: 'color' },
@@ -23,7 +23,7 @@ Light.args = {
     isOpen: true,
     children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, expedita ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, expedita.',
 };
-Light.decorators = [ThemeDecorator(ThemeStory.LIGHT), StoreDecorator({
+Light.decorators = [ThemeOldDecorator(ThemeStory.LIGHT), StoreDecorator({
     loginForm: {
         username: 'admin',
         password: '123',
@@ -37,7 +37,7 @@ Dark.args = {
     children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, expedita ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, expedita.',
 };
 
-Dark.decorators = [ThemeDecorator(ThemeStory.DARK), StoreDecorator({
+Dark.decorators = [ThemeOldDecorator(ThemeStory.DARK), StoreDecorator({
     loginForm: {
         username: 'admin',
         password: '123',

@@ -3,11 +3,11 @@ import React from 'react';
 
 import { PageLoader } from './PageLoader';
 
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { ThemeOldDecorator } from '@/shared/config/storybook/ThemeOldDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 export default {
-    title: 'shared/PageLoader',
+    title: 'DEPRECATED/shared/PageLoader',
     component: PageLoader,
     argTypes: {
         backgroundColor: { control: 'color' },
@@ -18,8 +18,8 @@ const Template: ComponentStory<typeof PageLoader> = (args) => <PageLoader {...ar
 
 export const Light = Template.bind({});
 Light.args = {};
-Light.decorators = [ThemeDecorator(ThemeStory.LIGHT)];
+Light.decorators = [ThemeOldDecorator(ThemeStory.LIGHT)];
 
 export const Dark = Template.bind({});
 Dark.args = {};
-Dark.decorators = [ThemeDecorator(ThemeStory.DARK)];
+Dark.decorators = [ThemeOldDecorator(ThemeStory.DARK)];

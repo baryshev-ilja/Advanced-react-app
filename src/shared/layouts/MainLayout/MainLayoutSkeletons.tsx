@@ -3,13 +3,13 @@ import { memo } from 'react';
 import { StickyContentLayout } from '../StickyContentLayout';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { CardUI } from '@/shared/ui/redesigned/CardUI';
 import {
-    ArticleListItemRedesignedSkeleton,
     RightbarSkeleton,
     SidebarSkeleton,
     Skeleton,
 } from '@/shared/ui/redesigned/Skeleton';
-import { HStack } from '@/shared/ui/redesigned/Stack';
+import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 
 import cls from './MainLayout.module.scss';
 import clsSkeletons from './MainLayoutSkeletons.module.scss';
@@ -24,7 +24,10 @@ export const MainLayoutSkeletons = memo(() => {
                             <Skeleton width={45} height={45} borderRadius="8px" />
                             <Skeleton width={300} height={20} borderRadius="16px" />
                         </HStack>
-                        <Skeleton width={102} height={40} borderRadius="8px" />
+                        <HStack gap="8" align="center">
+                            <Skeleton width={40} height={40} borderRadius="8px" />
+                            <Skeleton width={40} height={40} borderRadius="8px" />
+                        </HStack>
                     </HStack>
                 </div>
             </div>
@@ -33,10 +36,23 @@ export const MainLayoutSkeletons = memo(() => {
                     <div className={cls.content}>
                         <StickyContentLayout
                             content={(
-                                <ArticleListItemRedesignedSkeleton
-                                    className={clsSkeletons.sidebarSkeleton}
-                                    view="LIST"
-                                />
+                                <CardUI style={{ paddingTop: '16px' }} gap="16" borderRadius="16">
+                                    <VStack gap="12">
+                                        <HStack justify="between" align="center">
+                                            <HStack gap="8">
+                                                <Skeleton width={36} height={36} borderRadius="50%" />
+                                                <Skeleton width={128} height={36} borderRadius="8px" />
+                                            </HStack>
+                                            <Skeleton width={105} height={36} borderRadius="8px" />
+                                        </HStack>
+                                        <Skeleton width="100%" height={32} borderRadius="8px" />
+                                        <Skeleton width="100%" height={32} borderRadius="8px" />
+                                    </VStack>
+
+                                    <Skeleton width="100%" height={188} borderRadius="16px" />
+                                    <Skeleton width="100%" height={188} borderRadius="16px" />
+                                    <Skeleton width="100%" height={188} borderRadius="16px" />
+                                </CardUI>
                             )}
                             rightbar={<RightbarSkeleton />}
                         />

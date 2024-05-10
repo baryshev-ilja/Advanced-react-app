@@ -3,11 +3,11 @@ import React from 'react';
 
 import { Code } from './Code';
 
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { ThemeOldDecorator } from '@/shared/config/storybook/ThemeOldDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 export default {
-    title: 'shared/Code',
+    title: 'DEPRECATED/shared/Code',
     component: Code,
     argTypes: {
         backgroundColor: { control: 'color' },
@@ -32,7 +32,7 @@ Normal.args = {
     );
 }`,
 };
-Normal.decorators = [ThemeDecorator(ThemeStory.LIGHT)];
+Normal.decorators = [ThemeOldDecorator(ThemeStory.LIGHT)];
 
 export const Dark = Template.bind({});
 Dark.args = {
@@ -50,4 +50,4 @@ Dark.args = {
     );
 }`,
 };
-Dark.decorators = [ThemeDecorator(ThemeStory.DARK)];
+Dark.decorators = [ThemeOldDecorator(ThemeStory.DARK)];

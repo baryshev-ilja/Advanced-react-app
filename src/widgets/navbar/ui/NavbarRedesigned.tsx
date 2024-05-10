@@ -6,9 +6,12 @@ import { getUserAuthData } from '@/entities/user';
 import { LoginModal } from '@/features/authByUsername';
 import { AvatarDropdown } from '@/features/avatarDropdown';
 import { NotificationButton } from '@/features/notificationButton';
-import AppLogoLight from '@/shared/assets/newIcons/app-logo-light.svg';
 import LoginIcon from '@/shared/assets/newIcons/login-icon.svg';
+import AppLogoLight from '@/shared/assets/Лого-светлое.png';
+import AppLogoDark from '@/shared/assets/Лого-темное.png';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
+import { AppImage } from '@/shared/ui/redesigned/AppImage';
 import { Button } from '@/shared/ui/redesigned/Button';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import { HStack } from '@/shared/ui/redesigned/Stack';
@@ -24,6 +27,7 @@ export const NavbarRedesigned = memo((props: NavbarRedesignedProps) => {
     const { t } = useTranslation();
     const [isAuthModal, setIsAuthModal] = useState(false);
     const authData = useSelector(getUserAuthData);
+    const { theme } = useTheme();
 
     const onCloseModal = useCallback(() => {
         setIsAuthModal(false);
@@ -33,6 +37,8 @@ export const NavbarRedesigned = memo((props: NavbarRedesignedProps) => {
         setIsAuthModal(true);
     }, []);
 
+    const AppLogo = (theme === 'app-light-theme') ? AppLogoLight : AppLogoDark;
+
     if (authData) {
         return (
             <header className={classNames(cls.navbarRedesigned, {}, [className])}>
@@ -41,7 +47,12 @@ export const NavbarRedesigned = memo((props: NavbarRedesignedProps) => {
                     align="center"
                     className={classNames(cls.navbarInner, {}, [])}
                 >
-                    <Icon Svg={AppLogoLight} width={359} height={45} />
+                    {/* <Icon Svg={AppLogoLight} width={359} height={45} /> */}
+                    <AppImage
+                        src={AppLogo}
+                        width={359}
+                        height={45}
+                    />
                     <HStack gap="8">
                         <NotificationButton />
                         <AvatarDropdown />
@@ -58,7 +69,12 @@ export const NavbarRedesigned = memo((props: NavbarRedesignedProps) => {
 
     return (
         <header className={classNames(cls.navbarRedesigned, {}, [className])}>
-            <HStack justify="end" align="center" className={cls.navbarInner}>
+            <HStack justify="between" align="center" className={cls.navbarInner}>
+                <AppImage
+                    src={AppLogo}
+                    width={359}
+                    height={45}
+                />
                 <Button
                     variant="auth"
                     onClick={onOpenModal}

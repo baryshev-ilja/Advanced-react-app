@@ -5,11 +5,11 @@ import { Drawer } from './Drawer';
 
 // eslint-disable-next-line
 import { NotificationItem } from '@/entities/notification/ui/NotificationItem/NotificationItem';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { ThemeOldDecorator } from '@/shared/config/storybook/ThemeOldDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 export default {
-    title: 'shared/Drawer',
+    title: 'DEPRECATED/shared/Drawer',
     component: Drawer,
     argTypes: {
         backgroundColor: { control: 'color' },
@@ -25,7 +25,7 @@ Normal.args = {
         <NotificationItem item={{ title: 'Уведомление 1', id: '1', description: 'Оплатите подписку на блог' }} />
     ),
 };
-Normal.decorators = [ThemeDecorator(ThemeStory.LIGHT)];
+Normal.decorators = [ThemeOldDecorator(ThemeStory.LIGHT)];
 
 export const Dark = Template.bind({});
 Dark.args = {
@@ -34,4 +34,4 @@ Dark.args = {
         <NotificationItem item={{ title: 'Уведомление 1', id: '1', description: 'Оплатите подписку на блог' }} />
     ),
 };
-Dark.decorators = [ThemeDecorator(ThemeStory.DARK)];
+Dark.decorators = [ThemeOldDecorator(ThemeStory.DARK)];

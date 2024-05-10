@@ -1,0 +1,25 @@
+.content {
+    background: var(--bg-light-redesigned);
+}
+
+.image-wrapper {
+    display: grid;
+    grid-template-rows: auto;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.img {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+}
+
+.img-right {
+    width: 100%;
+    height: auto;
+    max-height: 323px;
+    object-fit: cover;
+}

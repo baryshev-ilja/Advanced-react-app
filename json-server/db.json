@@ -968,6 +968,12 @@
       "articleId": "1",
       "text": "aSDASD",
       "id": "DgIZ4Hy"
+    },
+    {
+      "userId": "1",
+      "articleId": "1",
+      "text": "dsfasdfasdf",
+      "id": "nwXaDBu"
     }
   ],
   "users": [
@@ -996,7 +1002,8 @@
       "password": "123",
       "features": {
         "isArticleRatingEnabled": false,
-        "isCounterEnabled": false
+        "isCounterEnabled": false,
+        "isAppRedesigned": false
       },
       "roles": [
         "USER"

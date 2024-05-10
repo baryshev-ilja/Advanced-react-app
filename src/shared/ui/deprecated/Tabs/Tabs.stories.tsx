@@ -4,11 +4,11 @@ import React from 'react';
 
 import { Tabs } from './Tabs';
 
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { ThemeOldDecorator } from '@/shared/config/storybook/ThemeOldDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 export default {
-    title: 'shared/Tabs',
+    title: 'DEPRECATED/shared/Tabs',
     component: Tabs,
     argTypes: {
         backgroundColor: { control: 'color' },
@@ -36,7 +36,7 @@ Normal.args = {
     currentValue: 'tab 1',
     onTabClick: action('onTabClick'),
 };
-Normal.decorators = [ThemeDecorator(ThemeStory.LIGHT)];
+Normal.decorators = [ThemeOldDecorator(ThemeStory.LIGHT)];
 
 export const Dark = Template.bind({});
 Dark.args = {
@@ -57,4 +57,4 @@ Dark.args = {
     currentValue: 'tab 1',
     onTabClick: action('onTabClick'),
 };
-Dark.decorators = [ThemeDecorator(ThemeStory.DARK)];
+Dark.decorators = [ThemeOldDecorator(ThemeStory.DARK)];

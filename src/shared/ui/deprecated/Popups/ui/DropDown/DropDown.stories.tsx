@@ -5,18 +5,18 @@ import { Button } from '../../../Button/Button';
 
 import { DropDown } from './DropDown';
 
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator';
+import { ThemeOldDecorator } from '@/shared/config/storybook/ThemeOldDecorator';
 import { ThemeStory } from '@/shared/const/theme';
 
 export default {
-    title: 'shared/DropDown',
+    title: 'DEPRECATED/shared/DropDown',
     component: DropDown,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
     decorators: [
         (Story) => <div style={{ padding: 150, display: 'flex', justifyContent: 'flex-start' }}><Story /></div>,
-        ThemeDecorator(ThemeStory.LIGHT),
+        ThemeOldDecorator(ThemeStory.LIGHT),
     ],
 } as ComponentMeta<typeof DropDown>;
 
