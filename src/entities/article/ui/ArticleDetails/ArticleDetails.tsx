@@ -1,8 +1,9 @@
-import { memo } from 'react';
+import { memo, useLayoutEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { getArticleDetailsError } from '../../model/selectors/getArticleDetails';
+import { useUpdateViewsApi } from '../../api/updateViewsApi';
+import { getArticleDetailsError, getArticleDetailsViews } from '../../model/selectors/getArticleDetails';
 import { fetchArticleDetailsById } from '../../model/services/fetchArticleDetailsById/fetchArticleDetailsById';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { Article, ArticleBlocks } from '../../model/types/article';
@@ -103,6 +104,18 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
     const error = useSelector(getArticleDetailsError);
+    const viewsArticle = useSelector(getArticleDetailsViews);
+
+    const [updateViewsMutation] = useUpdateViewsApi();
+
+    useLayoutEffect(() => {
+        if (viewsArticle) {
+            updateViewsMutation({
+                articleId: id,
+                views: viewsArticle + 1,
+            });
+        }
+    }, [id, updateViewsMutation, viewsArticle]);
 
     useInitialEffect(() => {
         dispatch(fetchArticleDetailsById(id));
