@@ -20,10 +20,10 @@ interface ThemeSwitcherProps {
 }
 
 export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
-    const { toggleTheme } = useTheme();
+    const { toggleTheme, theme } = useTheme();
     const dispatch = useAppDispatch();
     const { theme: themeFromJsonSettings } = useSelector(getUserJsonSettings);
-    const [currentTheme, setCurrentTheme] = useState(themeFromJsonSettings);
+    const [currentTheme, setCurrentTheme] = useState(themeFromJsonSettings || theme);
 
     const toggleThemeHandler = useCallback(() => {
         toggleTheme((newTheme) => {

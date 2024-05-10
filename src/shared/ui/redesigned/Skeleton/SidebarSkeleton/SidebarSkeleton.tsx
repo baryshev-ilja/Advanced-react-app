@@ -23,10 +23,6 @@ export const SidebarSkeleton = memo(() => {
                     <Skeleton width={20} height={20} borderRadius="50%" />
                     <Skeleton width={67} height={18} borderRadius="16px" />
                 </HStack>
-                <HStack gap="8" className={cls.navLink}>
-                    <Skeleton width={20} height={20} borderRadius="50%" />
-                    <Skeleton width={53} height={18} borderRadius="16px" />
-                </HStack>
             </VStack>
             <Skeleton width="100%" height={40} borderRadius="8px" />
         </VStack>
