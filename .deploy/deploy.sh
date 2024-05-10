@@ -1,7 +1,7 @@
 #!/bin/bash
 cd ~/Advanced-react-app
-git pull
 pm2 stop 0
+git pull
 pm2 start json-server/index.js
 npm run build:prod
 
