@@ -1,6 +1,8 @@
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 
-import { ArticleTextBlock } from '../../../model/types/article';
+import { getArticleDetailsViews } from '../../../model/selectors/getArticleDetails';
+import { Article, ArticleTextBlock } from '../../../model/types/article';
 import { ArticleTextBlockComponent } from '../../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { ArticleListItemProps } from '../ArticleListItemProps/ArticleListItemProps';
 
@@ -21,6 +23,22 @@ import { Text } from '@/shared/ui/redesigned/Text';
 
 import cls from './ArticleListItemRedesigned.module.scss';
 
+interface ArticleListItemViewsProps {
+    article: Article;
+}
+
+const ArticleListItemViews = ({ article }: ArticleListItemViewsProps) => {
+    const articleViewsNew = useSelector(getArticleDetailsViews);
+    const views = (articleViewsNew !== article.views) ? articleViewsNew : article.views;
+
+    return (
+        <HStack gap="4" align="center">
+            <Icon Svg={EyeIconNew} width={22} height={22} style={{ marginBottom: '2px' }} />
+            <Text variant="ui" ui={String(views)} />
+        </HStack>
+    );
+};
+
 export const ArticleListItemRedesigned = (props: ArticleListItemProps) => {
     const {
         className,
@@ -30,12 +48,12 @@ export const ArticleListItemRedesigned = (props: ArticleListItemProps) => {
     } = props;
     const { t } = useTranslation();
 
-    const views = (
-        <HStack gap="4" align="center">
-            <Icon Svg={EyeIconNew} width={22} height={22} style={{ marginBottom: '2px' }} />
-            <Text variant="ui" ui={String(article.views)} />
-        </HStack>
-    );
+    // const views = (
+    //     <HStack gap="4" align="center">
+    //         <Icon Svg={EyeIconNew} width={22} height={22} style={{ marginBottom: '2px' }} />
+    //         <Text variant="ui" ui={String(article.views)} />
+    //     </HStack>
+    // );
     const dateInfo = (
         <HStack gap="4">
             <Icon Svg={DateIconNew} width={22} height={22} />
@@ -93,7 +111,7 @@ export const ArticleListItemRedesigned = (props: ArticleListItemProps) => {
                     )}
 
                     <HStack justify="between" className={cls.footer}>
-                        {views}
+                        <ArticleListItemViews article={article} />
                         <AppLink
                             to={AppRoutePaths.articlesDetails(article.id)}
                             target={target}
@@ -137,7 +155,7 @@ export const ArticleListItemRedesigned = (props: ArticleListItemProps) => {
                     <VStack justify="between" className={cls.contentBlock}>
                         <Text className={cls.textBlock} title={article.title} size="sizeM" />
                         <HStack justify="between">
-                            {views}
+                            <ArticleListItemViews article={article} />
                             {dateInfo}
                         </HStack>
                     </VStack>
