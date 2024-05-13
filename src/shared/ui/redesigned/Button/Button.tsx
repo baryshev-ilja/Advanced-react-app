@@ -20,9 +20,15 @@ type ButtonPadding = 'default' | '2' | '4' | '8' | '12' | '16';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
     className?: string;
+    /**
+     * variant - добавляет кнопке необходимый вид. Можно использовать только когда надо переопределить дефолтный вид
+     */
     variant?: ButtonVariant;
     disabled?: boolean;
     children?: ReactNode;
+    /**
+     * tagName - В некоторых случаях нужно, чтобы кнопка сохранила внешний вид кнопки, но была семантически другим тегом
+     */
     tagName?: keyof HTMLElementTagNameMap;
     fullWidth?: boolean;
     buttonPadding?: ButtonPadding;

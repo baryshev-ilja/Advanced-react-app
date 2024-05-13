@@ -8,6 +8,8 @@ import {
     useState,
 } from 'react';
 
+// TODO
+// Объяснить как это все работает в комментариях
 import type { AnimationContextPayload, GestureType, SpringType } from './types';
 
 const AnimationContext = createContext<AnimationContextPayload>({});

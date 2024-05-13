@@ -4,6 +4,13 @@ import { Story } from '@storybook/react';
 import { ThemeProvider } from '@/app/providers/ThemeProvider';
 import { Theme, ThemeNewStory } from '@/shared/const/theme';
 
+/**
+ * ThemeNewDecorator - Декоратор, создающий вокруг <StoryComponent /> окружение,
+ * в котором присутствуют ThemeProvider и дополнительная обертка, добавляющая
+ * дополнительные отступы во viewport Storybook-a
+ *
+ * @param theme - Тема, для отображения <StoryComponent /> и фона
+ */
 export function ThemeNewDecorator(theme: ThemeNewStory) {
     let themeForProvider: Theme;
     // let colorTextForStory: string;
@@ -29,7 +36,8 @@ export function ThemeNewDecorator(theme: ThemeNewStory) {
                 style={{
                     fontSize: '16px',
                     lineHeight: '24px',
-                    fontFamily: 'Consolas',
+                    fontFamily: 'Gilroy',
+                    fontWeight: 500,
                     background: `${theme}`,
                     minHeight: '100vh',
                     padding: '25px 40px',

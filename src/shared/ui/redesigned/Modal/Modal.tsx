@@ -26,10 +26,19 @@ export const Modal = (props: ModalProps) => {
         container = document.getElementById('app') as HTMLElement,
         isOpen,
         onClose,
+        /**
+         * lazy - если равен true, то модальное окно будет лениво подгружаться только по мере вызова
+         */
         lazy,
+        /**
+         * isUserSuccessAuth - этот аргумент, если равен true, закрывает модальное окно, как если бы кликнули на экран
+         */
         isUserSuccessAuth,
     } = props;
 
+    /**
+     * Хук useModal - отдает все необходимые функции-обработчики и значения для работы модального окна
+     */
     const {
         closeHandler,
         isClosing,

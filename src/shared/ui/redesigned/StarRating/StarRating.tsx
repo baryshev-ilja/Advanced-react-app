@@ -11,8 +11,11 @@ import cls from './StarRating.module.scss';
 
 interface StarRatingProps {
     className?: string;
+    /** onSelect - Функция, которая выбирает кол-во звезд */
     onSelect?: (starsCount: number) => void;
+    /** selectedStars - Кол-во уже выбранных звезд */
     selectedStars?: number;
+    /** size - Размер иконок-звезд */
     size?: number;
 }
 
@@ -24,21 +27,45 @@ export const StarRating = memo((props: StarRatingProps) => {
         size,
     } = props;
 
+    /**
+     * currentStarsCount - В это состояние будет записываться номер звезды,
+     * на которую сейчас навели мышкой. По умолчанию равен нулю.
+     * */
     const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars);
+
+    /**
+     * isSelected - В это состояние будет записываться номер звезды,
+     * на которую кликнули. Зависит от родительского состояния.
+     * */
     const [isSelected, setIsSelected] = useState(Boolean(selectedStars));
 
+    /**
+     * onHoverStar - Функция, которая будет вызываться как коллбэк, когда мышкой наводят на звезду.
+     * Чтобы знать на какую именно звезду наводят, используется замыкание. В первую функцию параметром
+     * передается номер звезды, во время обхождения массива звезд, методом map. И уже после этого она
+     * может вызываться как коллбэк (вызываться будет вторая функция, с замкнутым значением starCount)
+     * */
     const onHoverStar = (starCount: number) => () => {
         if (!isSelected) {
             setCurrentStarsCount(starCount);
         }
     };
 
+    /**
+     * onLeaveStar - Функция, которая будет вызываться как коллбэк, когда курсор мышки покидает звезду.
+     * */
     const onLeaveStar = () => {
         if (!isSelected) {
             setCurrentStarsCount(0);
         }
     };
 
+    /**
+     * onClickStar - Функция, которая будет вызываться как коллбэк, когда мышкой нажимают на звезду.
+     * Чтобы знать на какую именно звезду нажимают, используется замыкание. В первую функцию параметром
+     * передается номер звезды, во время обхождения массива звезд, методом map. И уже после этого она
+     * может вызываться как коллбэк (вызываться будет вторая функция, с замкнутым значением starCount)
+     * */
     const onClickStar = (starCount: number) => () => {
         if (!isSelected) {
             onSelect?.(starCount);

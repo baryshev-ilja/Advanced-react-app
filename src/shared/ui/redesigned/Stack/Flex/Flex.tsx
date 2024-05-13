@@ -40,11 +40,17 @@ const gapClasses: Record<FlexGap, string> = {
 export interface FlexProps {
     className?: string;
     children?: ReactNode;
+    /** justify - Управляет свойством justify-content */
     justify?: FlexJustify;
+    /** align - Управляет свойством align-items */
     align?: FlexAlign;
+    /** direction - Управляет свойством flex-direction */
     direction: FlexDirection;
+    /** max - Растягивает элемент на всю ширину */
     max?: boolean;
+    /** gap - Управляет свойством gap */
     gap?: FlexGap;
+    /** tagName - Делает флекс-контейнером любой переданный сюда тег. По дефолту стоит div */
     tagName?: keyof HTMLElementTagNameMap;
     'data-testid'?: string;
 }

@@ -14,6 +14,13 @@ const defaultAsyncReducers: ReducersList = {
     articlesPage: articlesPageReducer,
 };
 
+/**
+ * StoreDecorator - Декоратор, создающий вокруг <StoryComponent /> окружение,
+ * в котором присутствуют необходимые редюсеры и стейт для отображения этого <StoryComponent />
+ *
+ * @param state - Частичный state: StateSchema, который передастся StoreProvider как initialState
+ * @param asyncReducers - Дополнительные редюсеры, нужные для отображения <StoryComponent />
+ */
 export function StoreDecorator(
     state: DeepPartial<StateSchema>,
     asyncReducers?: ReducersList,

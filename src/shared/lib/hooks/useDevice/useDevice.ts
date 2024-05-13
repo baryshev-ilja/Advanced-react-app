@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 
+/** useDevice - Хук, определяющий: Браузер открыт на мобильном устройстве или нет */
 export const useDevice = () => {
     const [isMobile, setIsMobile] = useState(false);
 

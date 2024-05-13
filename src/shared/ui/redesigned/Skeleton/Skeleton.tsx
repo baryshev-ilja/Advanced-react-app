@@ -8,8 +8,11 @@ interface SkeletonProps {
     className?: string;
     width?: string | number;
     height?: string | number;
+    /** borderRadius - Закругляет углы */
     borderRadius?: string;
+    /** delay - Делает анимацию медленее */
     delay?: boolean;
+    /** delaySlow - Перезатирает delay, и делает анимацию еще медленее */
     delaySlow?: boolean;
 }
 

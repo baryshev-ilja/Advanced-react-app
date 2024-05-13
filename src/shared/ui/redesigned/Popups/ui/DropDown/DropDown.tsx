@@ -10,7 +10,9 @@ import { DropdownDirection } from '@/shared/types/ui';
 import cls from './DropDown.module.scss';
 
 export interface MenuDropdownItem {
+    /** disabled - Сделает пункт в списке не активным */
     disabled?: boolean;
+    /** tagName - Задаст пункту в списке переданный тег */
     tagName?: keyof HTMLElementTagNameMap;
     content?: ReactNode;
     onClick?: () => void;
@@ -19,8 +21,11 @@ export interface MenuDropdownItem {
 
 interface DropdownProps {
     className?: string;
+    /** items - Массив элементов, которые будут в выпадающем списке */
     items?: MenuDropdownItem[];
+    /** trigger - Элемент, кликнув на который должен появиться уже список элементов */
     trigger?: ReactNode;
+    /** direction - Определит направление выпадания списка */
     direction?: DropdownDirection;
 }
 
