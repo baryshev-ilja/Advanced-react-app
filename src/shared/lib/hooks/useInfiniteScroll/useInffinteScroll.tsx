@@ -1,13 +1,21 @@
 import { MutableRefObject, useLayoutEffect } from 'react';
 
 interface useInfiniteScrollOptions {
+    /** wrapperRef - Родительский элемент, внутри которого происходит механизм 'бесконечного скролла' */
     wrapperRef?: MutableRefObject<HTMLElement>;
+    /** triggerRef - Наблюдаемый элемент, при появлении которого во viewport-e срабатывает коллбэк */
     triggerRef: MutableRefObject<HTMLElement>;
+    /** callback - Функция-коллбэк, которая срабатывает, когда triggerRef попадает в область видимости */
     callback?: () => void;
+    /** onScrollForWindow - Функция-коллбэк, которая срабатывает, если область видимости = window */
     onScrollForWindow: () => void;
+    /** scrollPositionForWrapper - Позиция скролла, которая была на момент перехода на другую страницу */
     scrollPositionForWrapper?: number;
 }
-
+/**
+ * useInfiniteScroll - Кастомный хук, который создает механизм 'бесконечного скролла'.
+ * Основан на IntersectionObserver API
+ */
 export function useInfiniteScroll(props: useInfiniteScrollOptions) {
     const {
         triggerRef,
@@ -17,6 +25,12 @@ export function useInfiniteScroll(props: useInfiniteScrollOptions) {
         scrollPositionForWrapper = 0,
     } = props;
 
+    /** Выполняет следующие функции:
+     *  - установит/удалит все необходимые слушатели событий на все необходимые элементы
+     *  - задействует механизм работы IntersectionObserver
+     *  - если уйти со страницы и опять зайти, вернет положение скролла на значение которое было
+     *    на момент ухода со страницы (благодаря scrollPositionForWrapper)
+     * */
     useLayoutEffect(() => {
         const wrapperElement = wrapperRef?.current || null;
         const triggerElement = triggerRef.current;
@@ -25,6 +39,7 @@ export function useInfiniteScroll(props: useInfiniteScrollOptions) {
             wrapperElement.scrollTop = scrollPositionForWrapper;
         }
 
+        /** По умолчанию, если wrapper не найден, им становиться window */
         if (!wrapperElement) {
             window.addEventListener('scroll', onScrollForWindow);
             window.scrollTo(0, scrollPositionForWrapper);

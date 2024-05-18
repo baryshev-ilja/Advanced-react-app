@@ -21,12 +21,17 @@ export interface ListBoxItem<T extends string> {
 
 interface ListBoxProps<T extends string> {
     className?: string;
+    /** items - Массив элементов, которые будут в выпадающем списке */
     items?: ListBoxItem<T>[];
+    /** currentValue - Текущее значение, которое выбрали. Будет отображаться при закрытом селекте */
     currentValue?: string;
     defaultValue?: string;
+    /** onChange - Функция, которая переключает селект на выбраный (кликнутый) пункт из списка */
     onChange: (value: T) => void;
     readonly?: boolean;
+    /** label - Название над селектом */
     label?: string;
+    /** direction - Определит направление выпадания списка */
     direction?: DropdownDirection;
 }
 

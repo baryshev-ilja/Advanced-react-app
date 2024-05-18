@@ -8,6 +8,8 @@ import cls from './Overlay.module.scss';
 
 type StyleAttr = Omit<CSSProperties, 'display' | 'opacity'>;
 
+// TODO
+// Понять для чего эти свойства в интерфейсе
 interface StyleAttrForSpringLib extends StyleAttr {
     display?: Interpolation<number, 'none' | 'block'>
     opacity?: Interpolation<number, 0 | 1>;
@@ -16,6 +18,8 @@ interface StyleAttrForSpringLib extends StyleAttr {
 interface OverlayProps {
     className?: string;
     onClick?: () => void;
+    // TODO
+    // Выяснить для чего этот параметр
     as?: ReturnType<WithAnimated>;
     style?: StyleAttrForSpringLib;
 }
@@ -28,6 +32,8 @@ export const Overlay = memo((props: OverlayProps) => {
         style,
     } = props;
 
+    // TODO
+    // Выяснить как это работает
     if (as) {
         const Tag = as;
         return (

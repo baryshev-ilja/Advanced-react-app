@@ -24,7 +24,8 @@ interface DrawerProps {
 }
 
 const height = window.innerHeight - 100;
-
+// TODO
+// Написать документацию к этому компоненту
 export const DrawerContent = memo((props: DrawerProps) => {
     const {
         className,

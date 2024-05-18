@@ -20,11 +20,19 @@ interface ThemeSwitcherProps {
 }
 
 export const ThemeSwitcher = memo(({ className }: ThemeSwitcherProps) => {
+    /** 1. Сначала получаем тему (theme) из контекста */
     const { toggleTheme, theme } = useTheme();
     const dispatch = useAppDispatch();
+    /** 2. Потом получаем тему (themeFromJsonSettings) для конкретного пользователя, из данных пришедших с бэкенда */
     const { theme: themeFromJsonSettings } = useSelector(getUserJsonSettings);
+
+    /** 3. Устанавливаем для текущей темы сначала данные с бэкенда, а если их нет, то тогда из контекста */
     const [currentTheme, setCurrentTheme] = useState(themeFromJsonSettings || theme);
 
+    /** toggleThemeHandler - Функция, которая устанавливает новую тему.
+     *  Сначала отправляет их на бэкенд (асинхронная операция).
+     *  И потом уже меняет стили у кнопки, чтобы toggle сдвинулся на соответсвующую иконку
+     */
     const toggleThemeHandler = useCallback(() => {
         toggleTheme((newTheme) => {
             dispatch(saveUserJsonSettings({ theme: newTheme }));

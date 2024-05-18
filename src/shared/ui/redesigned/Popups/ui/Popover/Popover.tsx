@@ -11,7 +11,9 @@ import cls from './Popover.module.scss';
 interface PopoverProps {
     className?: string;
     children: ReactNode;
+    /** trigger - Элемент, кликнув на который должен появиться уже список элементов */
     trigger?: ReactNode;
+    /** direction - Определит направление выпадания списка */
     direction?: DropdownDirection;
 }
 

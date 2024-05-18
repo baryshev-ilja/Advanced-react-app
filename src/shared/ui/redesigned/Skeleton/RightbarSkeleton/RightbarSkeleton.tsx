@@ -1,7 +1,5 @@
 import { memo } from 'react';
 
-// eslint-disable-next-line baryshewww/layers-import
-
 import { Skeleton } from '../Skeleton';
 
 import cls from './RightbarSkeleton.module.scss';

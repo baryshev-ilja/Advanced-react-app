@@ -7,6 +7,7 @@ interface UseHoverBind {
 
 type UseHoverResult = [boolean, UseHoverBind]
 
+/** useHover - Кастомный хук для определения наведена ли мышка на элемент или нет */
 export const useHover = (): UseHoverResult => {
     const [isHover, setIsHover] = useState(false);
 

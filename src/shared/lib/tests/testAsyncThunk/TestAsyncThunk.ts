@@ -10,6 +10,11 @@ jest.mock('axios');
 
 const mockedAxios = jest.mocked(axios, true);
 
+/**
+ * TestAsyncThunk - Специальный класс, внутри которого инкапсулирована часто используемая логика
+ * во время тестирования async thunk-ов (dispatch, actions и тд).
+ * Делает код внутри тестовых файлов намного чище и меньше
+ */
 export class TestAsyncThunk<Return, Arg, RejectedValue> {
     dispatch: jest.MockedFn<any>;
 
@@ -32,6 +37,9 @@ export class TestAsyncThunk<Return, Arg, RejectedValue> {
         this.navigate = jest.fn();
     }
 
+    /**
+     * callThunk - Асинхронный метод заменяющий вызов dispatch(action)
+     */
     async callThunk(arg: Arg) {
         const actionCreator = this.actionCreator(arg);
         const action = await actionCreator(

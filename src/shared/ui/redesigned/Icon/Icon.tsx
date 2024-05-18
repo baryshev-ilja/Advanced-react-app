@@ -8,6 +8,9 @@ type svgProps = Omit<React.SVGProps<SVGSVGElement>, 'onClick'>
 
 interface IconBaseProps extends svgProps {
     className?: string;
+    /**
+     * someClassName - дополнительный класс, который нужен для сложных случаев позиционирования внутренней button
+     */
     someClassName?: string;
     Svg: React.VFC<React.SVGProps<SVGSVGElement>>;
 }

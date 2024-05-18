@@ -13,9 +13,15 @@ interface InputProps extends HTMLInputProps {
     value?: string | number;
     onChange?: (value: string) => void;
     labelElement?: string;
+    /**
+     * autofocus - Если значение равно true, то при отрисовке интерфейса, autofocus будет на этом инпуте
+     */
     autofocus?: boolean;
     readonly?: boolean;
     placeholder?: string;
+    /**
+     * iconInput - При наличии иконки, которая должна быть внутри инпута, ее нужно передать в этот аргумент
+     */
     iconInput?: ReactNode;
     'data-testid'?: string;
 }
