@@ -1,5 +1,5 @@
-import { JsonSettings } from '../types/jsonSettings';
-import { User } from '../types/userSchema';
+import { JsonSettings } from '../model/types/jsonSettings';
+import { User } from '../model/types/userSchema';
 
 import { rtkApi } from '@/shared/api/rtkApi';
 
