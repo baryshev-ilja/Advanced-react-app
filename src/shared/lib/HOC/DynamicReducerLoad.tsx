@@ -20,6 +20,9 @@ interface DynamicReducerLoadProps {
     children: ReactNode;
 }
 
+/**
+ * DynamicReducerLoad - Компонент высшего порядка (HOC). Добавляет в state асинхронные редюсеры
+ */
 export const DynamicReducerLoad = (props: DynamicReducerLoadProps) => {
     const {
         children,
