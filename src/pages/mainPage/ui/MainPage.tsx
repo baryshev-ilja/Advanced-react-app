@@ -1,13 +1,11 @@
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import imageRight from '@/shared/assets/боковое.jpg';
-import imageMain from '@/shared/assets/главное.jpg';
+import stepOne from '@/shared/assets/Войти.png';
+import stepTwo from '@/shared/assets/шаг 2.png';
 import { StickyContentLayout } from '@/shared/layouts/StickyContentLayout';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { AppImage } from '@/shared/ui/redesigned/AppImage';
-import { CardUI } from '@/shared/ui/redesigned/CardUI';
-import { Skeleton } from '@/shared/ui/redesigned/Skeleton';
 import { Text } from '@/shared/ui/redesigned/Text';
 import { Page } from '@/widgets/page';
 
@@ -21,44 +19,63 @@ const MainPage = memo(() => {
             on={(
                 <StickyContentLayout
                     content={(
-                        <Page data-testid="Main-page">
-                            <CardUI
-                                className={cls.content}
-                                padding="16"
-                                gap="16"
-                                borderRadius="16"
-                            >
-                                <Text title={t('Привет')} size="sizeL" />
-                                <Text description={t('Рады приветствовать')} />
-                                <Text description={t('Собрали для тебя')} />
-                                <div className={cls.imageWrapper}>
-                                    <AppImage
-                                        fallback={<Skeleton width="100%" height={450} borderRadius="8px" />}
-                                        className={cls.img}
-                                        src={imageMain}
-                                        isLoading
-                                    />
-                                </div>
-                            </CardUI>
+                        <Page className={cls.page} data-testid="Main-page">
+                            <Text
+                                className={cls.title}
+                                title={t('Привет')}
+                                align="center"
+                                variant="accent"
+                                size="sizeL"
+                            />
+                            <Text
+                                className={cls.subtitle}
+                                title={t('Рады приветствовать')}
+                                align="center"
+                                size="sizeM"
+                            />
+
+                            <div className={cls.stepNumber}>
+                                1
+                            </div>
+                            <Text
+                                className={cls.step}
+                                description={t('Шаг1')}
+                                align="center"
+                                size="sizeM"
+                            />
+                            <AppImage
+                                className={cls.stepOneImg}
+                                src={stepOne}
+                                isLoading
+                            />
+
+                            <div className={cls.stepNumber}>
+                                2
+                            </div>
+                            <Text
+                                className={cls.step}
+                                description={t('Шаг2')}
+                                align="center"
+                                size="sizeM"
+                            />
+                            <AppImage
+                                className={cls.stepTwoImg}
+                                src={stepTwo}
+                                isLoading
+                            />
+
+                            <div className={cls.stepNumber}>
+                                3
+                            </div>
+                            <Text
+                                className={cls.stepLast}
+                                description={t('Шаг3')}
+                                align="center"
+                                size="sizeM"
+                            />
                         </Page>
                     )}
-                    rightbar={(
-                        <CardUI
-                            className={cls.content}
-                            padding="16"
-                            gap="16"
-                            borderRadius="16"
-                        >
-                            <div className={cls.imageWrapper}>
-                                <AppImage
-                                    fallback={<Skeleton width="100%" height={323} borderRadius="8px" />}
-                                    className={cls.imgRight}
-                                    src={imageRight}
-                                    isLoading
-                                />
-                            </div>
-                        </CardUI>
-                    )}
+                    rightbar={<div />}
                 />
             )}
             off={(

@@ -24,6 +24,12 @@
     }
 }
 
+.accent {
+    .title {
+        color: var(--button-redesigned);
+    }
+}
+
 .size-s {
     .title {
         font-size: var(--font-size-s);

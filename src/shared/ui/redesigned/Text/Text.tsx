@@ -4,7 +4,7 @@ import { AdditionalCls, classNames } from '@/shared/lib/classNames/classNames';
 
 import cls from './Text.module.scss';
 
-export type VariantText = 'primary' | 'error' | 'ui';
+export type VariantText = 'primary' | 'accent' | 'error' | 'ui';
 export type TextAlign = 'left' | 'center' | 'right';
 export type TextSize = 'sizeS' | 'sizeM' | 'sizeL';
 export type TextWeight = 'medium' | 'semiBold';

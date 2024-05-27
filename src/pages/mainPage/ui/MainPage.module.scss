@@ -1,3 +1,9 @@
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .content {
     background: var(--bg-light-redesigned);
 }
@@ -22,4 +28,50 @@
     height: auto;
     max-height: 323px;
     object-fit: cover;
+}
+
+.title {
+    margin-top: 63px;
+    max-width: 381px;
+    text-align: center;
+    color: var(--button-redesigned);
+}
+
+.subtitle {
+    max-width: 511px;
+    margin-top: 40px;
+}
+
+.step-number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 35px;
+    width: 61px;
+    height: 61px;
+    font-size: 32px;
+    color: #fff;
+    background-color: var(--button-redesigned);
+    border-radius: 50%;
+}
+
+.step {
+    margin-top: 15px;
+    max-width: 414px;
+}
+
+.step-last {
+    margin-top: 15px;
+    margin-bottom: 45px;
+    max-width: 414px;
+}
+
+.step-one-img {
+    margin-top: 35px;
+    width: 150px;
+}
+
+.step-two-img {
+    margin-top: 35px;
+    width: 300px;
 }
