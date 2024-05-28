@@ -21,7 +21,7 @@ const articleMock: Article = {
         avatar: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',
     },
     createdAt: '26.02.2022',
-    type: [ArticleTypes.IT, ArticleTypes.VACANCIES],
+    type: [ArticleTypes.JS, ArticleTypes.WEBPACK],
     blocks: [],
 };
 

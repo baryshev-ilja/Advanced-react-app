@@ -91,5 +91,9 @@
     "Отменить": "Cancel",
     "Шаг1": "Login to the system using a test account. To do this, click on the «login» button above",
     "Шаг2": "In the form that appears, enter test data. Login: «user» and password: «123»",
-    "Шаг3": "Congratulations! \nYou can use the platform :) \nProfile editing in test mode is temporarily limited"
+    "Шаг3": "Congratulations! \nYou can use the platform :) \nProfile editing in test mode is temporarily limited",
+    "HTML": "HTML",
+    "CSS": "CSS",
+    "JavaScript": "JavaScript",
+    "Webpack": "Webpack"
 }
