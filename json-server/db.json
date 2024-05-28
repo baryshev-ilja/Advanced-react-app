@@ -16,8 +16,8 @@
       "id": "1",
       "title": "Как правильно использовать тег <form>?",
       "subtitle": "Без этого тега ни одна форма работать не будет!",
-      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 348,
+      "img": "https://thumb.cloud.mail.ru/weblink/thumb/xw1/9nYV/GAprFnvg7",
+      "views": 350,
       "userId": "1",
       "createdAt": "25.01.2024",
       "type": [
@@ -96,7 +96,7 @@
       "id": "2",
       "title": "display, display, display...",
       "subtitle": "Объясняем, как менять стандартный тип отображения на произвольный",
-      "img": "https://ideacdn.net/idea/ct/82/myassets/blogs/python-ne-icin-kullanilir.jpg?revision=1581981938",
+      "img": "https://thumb.cloud.mail.ru/weblink/thumb/xw1/66f9/EWKBTdnou",
       "views": 237,
       "userId": "1",
       "createdAt": "10.02.2024",
@@ -205,7 +205,7 @@
       "id": "3",
       "title": "Булев тип",
       "subtitle": "На некоторые вопросы нужно отвечать только «да» или «нет». Булев тип как раз про это",
-      "img": "https://raw.githubusercontent.com/programming086/my_site/master/images/IMG_0606.PNG",
+      "img": "https://thumb.cloud.mail.ru/weblink/thumb/xw1/USeV/KgYaJXcaC",
       "views": 76,
       "userId": "1",
       "createdAt": "12.05.2024",
@@ -340,8 +340,8 @@
       "id": "22",
       "title": "Что такое Webpack?",
       "subtitle": "Рассказываем, как устроен самый известный бандлер и как настроить базовый проект",
-      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 69,
+      "img": "https://thumb.cloud.mail.ru/weblink/thumb/xw1/oSM2/ZD7nY3pYK",
+      "views": 70,
       "userId": "1",
       "createdAt": "28.12.2023",
       "type": [
@@ -448,13 +448,13 @@
         {
           "id": "16",
           "type": "IMAGE",
-          "src": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
-          "title": "Рисунок 1 - скриншот сайта"
+          "src": "https://thumb.cloud.mail.ru/weblink/thumb/xw1/f4FR/Xydm244EH",
+          "title": "Рисунок 1"
         },
         {
           "id": "17",
           "type": "TEXT",
-          "title": "Отслеживание изменений в проекте Скопировать ссылку \"Отслеживание изменений в проекте\"",
+          "title": "Отслеживание изменений в проекте",
           "paragraphs": [
             "Заново запускать сборку после внесения каждой правки не очень удобно. Во-первых, придётся каждый раз писать команду в терминале. Во-вторых, полная сборка больших проектов может занимать десятки минут, и тратить столько времени каждый раз просто расточительно.",
             "Для решения этой проблемы можно воспользоваться режимом инкрементальной сборки, когда Webpack отслеживает изменения файлов с исходным кодом и автоматически собирает те части, которые изменились.",
@@ -480,7 +480,7 @@
       "id": "4",
       "title": "Почти всё в JavaScript — объект",
       "subtitle": "Что бы мы ни использовали при написании JS кода, почти всё это объекты под капотом",
-      "img": "https://raw.githubusercontent.com/programming086/my_site/master/images/IMG_0606.PNG",
+      "img": "https://thumb.cloud.mail.ru/weblink/thumb/xw1/wXWu/8Pu2SkFdm",
       "views": 108,
       "userId": "1",
       "createdAt": "22.02.2024",
@@ -512,7 +512,7 @@
         {
           "id": "4",
           "type": "IMAGE",
-          "src": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
+          "src": "https://thumb.cloud.mail.ru/weblink/thumb/xw1/aWbp/TMne2x3t8",
           "title": "Рисунок 1"
         },
         {
@@ -549,7 +549,7 @@
         {
           "id": "10",
           "type": "IMAGE",
-          "src": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
+          "src": "https://thumb.cloud.mail.ru/weblink/thumb/xw1/CN7k/WYK8aLNwj",
           "title": "Рисунок 2"
         },
         {
@@ -564,7 +564,7 @@
         {
           "id": "12",
           "type": "IMAGE",
-          "src": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
+          "src": "https://thumb.cloud.mail.ru/weblink/thumb/xw1/oPHm/rLHPFD3Hc",
           "title": "Рисунок 3"
         },
         {
@@ -577,7 +577,7 @@
         {
           "id": "14",
           "type": "IMAGE",
-          "src": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
+          "src": "https://thumb.cloud.mail.ru/weblink/thumb/xw1/6HHx/vm9Wm4Hic",
           "title": "Рисунок 4"
         },
         {
@@ -590,7 +590,7 @@
         {
           "id": "16",
           "type": "IMAGE",
-          "src": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
+          "src": "https://thumb.cloud.mail.ru/weblink/thumb/xw1/8xw8/kNdbPTwRw",
           "title": "Рисунок 5"
         },
         {
@@ -649,7 +649,7 @@
       "id": "5",
       "title": "Функция как тип данных",
       "subtitle": "С функцией можно работать, как с любым другим типом данных: сохранять в переменную, передавать, возвращать из функции",
-      "img": "https://ideacdn.net/idea/ct/82/myassets/blogs/python-ne-icin-kullanilir.jpg?revision=1581981938",
+      "img": "https://thumb.cloud.mail.ru/weblink/thumb/xw1/yWSy/JPGT24sfV",
       "views": 84,
       "userId": "1",
       "createdAt": "07.11.2023",
@@ -780,7 +780,7 @@
       "id": "6",
       "title": "<html>",
       "subtitle": "Содержит всю страницу внутри — и метаданные, и контент",
-      "img": "https://raw.githubusercontent.com/programming086/my_site/master/images/IMG_0606.PNG",
+      "img": "https://thumb.cloud.mail.ru/weblink/thumb/xw1/VBJa/3JnHcUksR",
       "views": 3,
       "userId": "1",
       "createdAt": "22.05.2024",
@@ -847,7 +847,7 @@
       "id": "7",
       "title": "<head> всему голова",
       "subtitle": "Говорим о заголовке страницы, фавиконке, способах подключения стилей и скриптов",
-      "img": "https://ideacdn.net/idea/ct/82/myassets/blogs/python-ne-icin-kullanilir.jpg?revision=1581981938",
+      "img": "https://thumb.cloud.mail.ru/weblink/thumb/xw1/z9fu/o75AKVXW9",
       "views": 29,
       "userId": "1",
       "createdAt": "16.03.2024",
@@ -867,7 +867,7 @@
         {
           "id": "2",
           "type": "IMAGE",
-          "src": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
+          "src": "https://thumb.cloud.mail.ru/weblink/thumb/xw1/bcCS/Hsh3LH1QB",
           "title": "Рисунок 1"
         },
         {
@@ -900,7 +900,7 @@
       "id": "8",
       "title": "Объект Math",
       "subtitle": "Встроенный модуль с математическими функциями",
-      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+      "img": "https://thumb.cloud.mail.ru/weblink/thumb/xw1/4YnD/mW8mXdihB",
       "views": 203,
       "userId": "1",
       "createdAt": "18.12.2023",
@@ -948,12 +948,6 @@
           "paragraphs": [
             "Объект Math можно считать сборником полезных функций и значений. Чаще всего используются функции для получения случайного числа, отрисовки элементов в случайном порядке или генерации фоновой картинки."
           ]
-        },
-        {
-          "id": "8",
-          "type": "IMAGE",
-          "src": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
-          "title": "Рисунок 1 - скриншот сайта"
         }
       ]
     },
@@ -961,7 +955,7 @@
       "id": "9",
       "title": "DOM - дом?",
       "subtitle": "На чём стоят три слона, на которых держится веб?",
-      "img": "https://raw.githubusercontent.com/programming086/my_site/master/images/IMG_0606.PNG",
+      "img": "https://thumb.cloud.mail.ru/weblink/thumb/xw1/b5bk/1pevJFBRE",
       "views": 46,
       "userId": "1",
       "createdAt": "26.12.2023",
@@ -1035,7 +1029,7 @@
         {
           "id": "8",
           "type": "IMAGE",
-          "src": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
+          "src": "https://thumb.cloud.mail.ru/weblink/thumb/xw1/YjHL/NkqHd4dXg",
           "title": "Рисунок 1"
         },
         {
@@ -1062,7 +1056,7 @@
         {
           "id": "12",
           "type": "IMAGE",
-          "src": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
+          "src": "https://thumb.cloud.mail.ru/weblink/thumb/xw1/Qe81/xg5en7LQ6",
           "title": "Рисунок 2"
         },
         {
@@ -1083,8 +1077,8 @@
       "id": "10",
       "title": "Атрибут class",
       "subtitle": "Самый частый атрибут, который вы будете использовать. Задаёт класс элементу",
-      "img": "https://ideacdn.net/idea/ct/82/myassets/blogs/python-ne-icin-kullanilir.jpg?revision=1581981938",
-      "views": 37,
+      "img": "https://thumb.cloud.mail.ru/weblink/thumb/xw1/ao4N/i2JzjsmmS",
+      "views": 38,
       "userId": "1",
       "createdAt": "16.04.2024",
       "type": [
@@ -1200,7 +1194,7 @@
       "id": "11",
       "title": "Специфичность селекторов",
       "subtitle": "Как браузер решает, какие стили применять к элементу? Разбираемся, почему у селектора есть вес",
-      "img": "https://raw.githubusercontent.com/programming086/my_site/master/images/IMG_0606.PNG",
+      "img": "https://thumb.cloud.mail.ru/weblink/thumb/xw1/9KMm/bgE8QuiEJ",
       "views": 76,
       "userId": "1",
       "createdAt": "06.02.2024",
@@ -1287,7 +1281,7 @@
       "id": "12",
       "title": ":has()",
       "subtitle": "Уникальный селектор, позволяющий стилизовать родителя при наличии конкретного ребёнка",
-      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+      "img": "https://thumb.cloud.mail.ru/weblink/thumb/xw1/LmgD/VERhDqvRy",
       "views": 26,
       "userId": "1",
       "createdAt": "08.01.2024",
@@ -1367,8 +1361,8 @@
       "id": "13",
       "title": "Рекурсия",
       "subtitle": "Зачем функции вызывать саму себя — одна из любимых тем на собеседовании",
-      "img": "https://raw.githubusercontent.com/programming086/my_site/master/images/IMG_0606.PNG",
-      "views": 218,
+      "img": "https://thumb.cloud.mail.ru/weblink/thumb/xw1/HKgb/CT68zD88f",
+      "views": 219,
       "userId": "1",
       "createdAt": "04.11.2023",
       "type": [
@@ -1454,7 +1448,7 @@
         {
           "id": "11",
           "type": "IMAGE",
-          "src": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
+          "src": "https://thumb.cloud.mail.ru/weblink/thumb/xw1/4WiQ/49cUMEgjv",
           "title": "Рисунок 1"
         },
         {
@@ -1469,7 +1463,7 @@
         {
           "id": "13",
           "type": "IMAGE",
-          "src": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
+          "src": "https://thumb.cloud.mail.ru/weblink/thumb/xw1/tK69/YqwxEU4ME",
           "title": "Рисунок 2"
         },
         {
@@ -1526,7 +1520,7 @@
         {
           "id": "20",
           "type": "IMAGE",
-          "src": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
+          "src": "https://thumb.cloud.mail.ru/weblink/thumb/xw1/3K93/odmw1uYXw",
           "title": "Рисунок 3"
         },
         {
@@ -1551,7 +1545,7 @@
         {
           "id": "24",
           "type": "IMAGE",
-          "src": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
+          "src": "https://thumb.cloud.mail.ru/weblink/thumb/xw1/EFpq/sSgWKN1WP",
           "title": "Рисунок 4"
         },
         {
@@ -1583,7 +1577,7 @@
       "id": "14",
       "title": "Области видимости",
       "subtitle": "Не все переменные одинаково доступны — всё зависит от того, в каком месте кода их объявили",
-      "img": "https://ideacdn.net/idea/ct/82/myassets/blogs/python-ne-icin-kullanilir.jpg?revision=1581981938",
+      "img": "https://thumb.cloud.mail.ru/weblink/thumb/xw1/2yy6/HbzPEpeFh",
       "views": 79,
       "userId": "1",
       "createdAt": "14.09.2023",
@@ -1605,7 +1599,7 @@
         {
           "id": "2",
           "type": "IMAGE",
-          "src": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
+          "src": "https://thumb.cloud.mail.ru/weblink/thumb/xw1/UD3T/ERChTCb4q",
           "title": "Рисунок 1"
         },
         {
@@ -1618,7 +1612,7 @@
         {
           "id": "4",
           "type": "IMAGE",
-          "src": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
+          "src": "https://thumb.cloud.mail.ru/weblink/thumb/xw1/DVdF/g9U3NoBGP",
           "title": "Рисунок 2"
         },
         {
@@ -1701,7 +1695,7 @@
         {
           "id": "17",
           "type": "IMAGE",
-          "src": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
+          "src": "https://thumb.cloud.mail.ru/weblink/thumb/xw1/MM8F/LxEE5pqpe",
           "title": "Рисунок 3"
         },
         {
@@ -1836,8 +1830,8 @@
       "id": "15",
       "title": "box-sizing",
       "subtitle": "Это свойство определяет как будут вести себя размеры блока",
-      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 64,
+      "img": "https://thumb.cloud.mail.ru/weblink/thumb/xw1/dXDu/h9CLxP5pL",
+      "views": 65,
       "userId": "1",
       "createdAt": "01.09.2023",
       "type": [
@@ -1921,7 +1915,7 @@
     {
       "userId": "1",
       "articleId": "1",
-      "text": "dsfasdfasdf",
+      "text": "Комментарий к этой статье :)",
       "id": "nwXaDBu"
     }
   ],
@@ -1938,7 +1932,7 @@
       "roles": [
         "ADMIN"
       ],
-      "avatar": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+      "avatar": "https://thumb.cloud.mail.ru/weblink/thumb/xw1/mXU6/anWVrqVqc",
       "jsonSettings": {
         "theme": "app-light-theme",
         "isFirstVisit": false,
@@ -2005,13 +1999,13 @@
       "country": "Armenia",
       "city": "Naberezhnye Chelny",
       "username": "admin",
-      "avatar": "https://teknotower.com/wp-content/uploads/2020/11/js.png"
+      "avatar": "https://thumb.cloud.mail.ru/weblink/thumb/xw1/mXU6/anWVrqVqc"
     },
     {
       "id": "2",
-      "first": "Илья",
-      "lastname": "Барышев",
-      "age": 27,
+      "first": "Иван",
+      "lastname": "Иванов",
+      "age": 300,
       "currency": "RUB",
       "country": "Russia",
       "city": "Minsk",
