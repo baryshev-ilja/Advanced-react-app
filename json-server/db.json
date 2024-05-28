@@ -16,7 +16,7 @@
       "id": "1",
       "title": "Как правильно использовать тег <form>?",
       "subtitle": "Без этого тега ни одна форма работать не будет!",
-      "img": "../src/shared/assets/articles/Form-фото.webp",
+      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 348,
       "userId": "1",
       "createdAt": "25.01.2024",
@@ -1837,7 +1837,7 @@
       "title": "box-sizing",
       "subtitle": "Это свойство определяет как будут вести себя размеры блока",
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
-      "views": 63,
+      "views": 64,
       "userId": "1",
       "createdAt": "01.09.2023",
       "type": [
