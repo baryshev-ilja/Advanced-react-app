@@ -16,7 +16,7 @@ export const ProfileCardControlBlock = ({ id }: ProfileCardControlBlockProps) =>
     return (
         <VStack gap="16" className={cls.controlBlock}>
             <EditableProfileCardHeader
-                profileData={profileData}
+                // profileData={profileData}
                 additionalFeature={(
                     <ProfileRating profileId={id!} />
                 )}

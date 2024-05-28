@@ -32,7 +32,7 @@ const articleData: Article = {
         username: 'user',
     },
     createdAt: '26.02.2022',
-    type: [ArticleTypes.IT],
+    type: [ArticleTypes.JS],
     blocks: [
         {
             id: '1',

@@ -73,16 +73,20 @@ export function useArticleFilters(pathname: string) {
                 content: t('Все статьи'),
             },
             {
-                value: ArticleTypes.IT,
-                content: t('IT'),
+                value: ArticleTypes.HTML,
+                content: t('HTML'),
             },
             {
-                value: ArticleTypes.VACANCIES,
-                content: t('Вакансии'),
+                value: ArticleTypes.CSS,
+                content: t('CSS'),
             },
             {
-                value: ArticleTypes.SCIENCE,
-                content: t('Наука'),
+                value: ArticleTypes.JS,
+                content: t('JavaScript'),
+            },
+            {
+                value: ArticleTypes.WEBPACK,
+                content: t('Webpack'),
             },
         ],
         [t],

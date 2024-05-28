@@ -1,8 +1,9 @@
 export enum ArticleTypes {
     ALL = 'Все статьи',
-    IT = 'IT',
-    SCIENCE = 'Наука',
-    VACANCIES = 'Вакансии',
+    HTML = 'HTML',
+    CSS = 'CSS',
+    JS = 'JavaScript',
+    WEBPACK = 'Webpack',
 }
 
 export enum ArticleSortTypes {

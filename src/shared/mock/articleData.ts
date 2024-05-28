@@ -14,9 +14,7 @@ export const articleMock = {
     },
     createdAt: '26.02.2022',
     type: [
-        'IT',
-        'POLITICS',
-        'JOBS',
+        'JavaScript',
     ],
     blocks: [
         {
